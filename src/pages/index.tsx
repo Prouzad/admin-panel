@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import UserLoginPage from '@/components/templates/login/userLoginPage'
+import UserLogin from '@/components/form/LoginForm/Login'
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="">
-        <UserLoginPage />
+        <UserLogin />
       </main>
     </>
   )
