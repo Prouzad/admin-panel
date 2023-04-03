@@ -4,7 +4,6 @@ import { redirect } from 'next/dist/server/api-utils'
 
 const UserHeader = () => {
   const { data } = useSession()
-  console.log('session', data)
   return (
     <div className="h-20 w-full bg-white p-3 flex items-center rounded-b-2xl fixed ">
       <div className="w-[290px] pl-7 border-r-2">

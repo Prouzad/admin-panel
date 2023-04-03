@@ -11,7 +11,6 @@ export const authOptions: NextAuthOptions = {
 			name: 'Credentials',
 			credentials: {},
 			authorize(credentials, req) {
-				console.log('CREDENTIALS', credentials)
 				const { username, password } = credentials as { username: string, password: string }
 				if (username !== 'prouzad' && password !== '1234') {
 					return null

@@ -2,15 +2,18 @@ import UserButton from '@/components/UI/form/button/userButton'
 import UserInput from '@/components/UI/form/input/userInput'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 const UserLogin = () => {
   const Router = useRouter()
+  const [isError, setIsError] = useState('')
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm()
+  useEffect(() => {})
   const onSubmit = async (data: any) => {
     const { username, password } = data
     try {
@@ -19,12 +22,15 @@ const UserLogin = () => {
         password,
         redirect: false,
       }).then((authenticated) => {
-        console.log('authenticad', authenticated)
-        authenticated?.ok && Router.push('/main')
+        authenticated?.ok
+          ? Router.push('/main')
+          : setIsError('Incorrect credentials')
+        setTimeout(() => {
+          setIsError('')
+        }, 3000)
       })
-      console.log('REAS', res)
     } catch (err) {
-      console.log(err)
+      console.log('err', err)
     }
   }
   return (
@@ -44,8 +50,13 @@ const UserLogin = () => {
             placeholder="Password"
             {...register('password')}
           />
-          <div className="">{}</div>
-          <UserButton text={'Login'} style="w-[100%] text-white " />
+          {isError.length !== 0 && (
+            <div className="text-red-500 text-lg pb-4">{isError}</div>
+          )}
+          <UserButton
+            text={'Login'}
+            style={`w-[100%] text-white ${isError.length === 0 && 'mt-4'}`}
+          />
         </form>
       </div>
     </div>

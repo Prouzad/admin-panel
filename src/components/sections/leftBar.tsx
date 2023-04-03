@@ -20,8 +20,6 @@ const navBar: ICard[] = [
 
 const LeftBar = () => {
   const router = useRouter()
-  console.log(router.pathname)
-  console.log(navBar[1].Icon)
   return (
     <div className="h-[calc(100vh-130px)] flex flex-col justify-between w-[280px] px-[20px] top-[104px] pt-4 left-0  fixed space-y-1">
       <div className="w-[240px]  bg-white rounded-xl py-4 pl-4 flex flex-col ">
