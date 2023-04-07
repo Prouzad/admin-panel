@@ -4,7 +4,7 @@
     "first_name": "Millicent",
     "last_name": "Whatham",
     "email": "mwhatham0@comsenz.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Samarkand State University"
   },
   {
@@ -12,7 +12,7 @@
     "first_name": "Siward",
     "last_name": "Amberger",
     "email": "samberger1@behance.net",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Institute of Industrial Electronics Engineering"
   },
   {
@@ -20,7 +20,7 @@
     "first_name": "Sheree",
     "last_name": "Madeley",
     "email": "smadeley2@google.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kateb Institute of Higher Education"
   },
   {
@@ -28,7 +28,7 @@
     "first_name": "Egor",
     "last_name": "Downing",
     "email": "edowning3@nymag.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de Concepción del Uruguay"
   },
   {
@@ -36,7 +36,7 @@
     "first_name": "Donn",
     "last_name": "Wilce",
     "email": "dwilce4@answers.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "State University of New York at Binghamton"
   },
   {
@@ -44,7 +44,7 @@
     "first_name": "Kenon",
     "last_name": "Jersch",
     "email": "kjersch5@youtu.be",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université de Nantes"
   },
   {
@@ -52,7 +52,7 @@
     "first_name": "Klara",
     "last_name": "Valett",
     "email": "kvalett6@plala.or.jp",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Gifu Keizai University"
   },
   {
@@ -60,7 +60,7 @@
     "first_name": "Roberta",
     "last_name": "Glendinning",
     "email": "rglendinning7@ft.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Marketing and Distribution Sciences"
   },
   {
@@ -68,7 +68,7 @@
     "first_name": "Murray",
     "last_name": "Gherarducci",
     "email": "mgherarducci8@webmd.com",
-    "gender": "Male",
+    "status": "new",
     "university": "New World University"
   },
   {
@@ -76,7 +76,7 @@
     "first_name": "Hamid",
     "last_name": "Wixey",
     "email": "hwixey9@alibaba.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Kagawa Institute of Nutrition"
   },
   {
@@ -84,7 +84,7 @@
     "first_name": "Neils",
     "last_name": "Gyorgy",
     "email": "ngyorgya@vistaprint.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Fachhochschule Merseburg"
   },
   {
@@ -92,7 +92,7 @@
     "first_name": "Janetta",
     "last_name": "Greger",
     "email": "jgregerb@google.com.br",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Manuel S. Enverga University Foundation"
   },
   {
@@ -100,7 +100,7 @@
     "first_name": "Marvin",
     "last_name": "Banasevich",
     "email": "mbanasevichc@macromedia.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Rakuno Gakuen University"
   },
   {
@@ -108,7 +108,7 @@
     "first_name": "Rolland",
     "last_name": "Zealy",
     "email": "rzealyd@1688.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Fachhochschule und Berufskollegs NTA, Prof.Dr. Grübler gemein. GmbH"
   },
   {
@@ -116,7 +116,7 @@
     "first_name": "Rikki",
     "last_name": "McCorrie",
     "email": "rmccorriee@newsvine.com",
-    "gender": "Female",
+    "status": "new",
     "university": "Prescott College"
   },
   {
@@ -124,7 +124,7 @@
     "first_name": "Francisco",
     "last_name": "Kilbee",
     "email": "fkilbeef@va.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Catolica de Azogues"
   },
   {
@@ -132,7 +132,7 @@
     "first_name": "Wittie",
     "last_name": "Paoletto",
     "email": "wpaolettog@free.fr",
-    "gender": "Male",
+    "status": "rejected",
     "university": "City University of New York, School of Law at Queens College"
   },
   {
@@ -140,7 +140,7 @@
     "first_name": "Boonie",
     "last_name": "Benard",
     "email": "bbenardh@liveinternet.ru",
-    "gender": "Genderqueer",
+    "status": "statusqueer",
     "university": "The Illinois Institute of Art-Chicago"
   },
   {
@@ -148,7 +148,7 @@
     "first_name": "Alleen",
     "last_name": "Hollidge",
     "email": "ahollidgei@answers.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Central del Ecuador"
   },
   {
@@ -156,7 +156,7 @@
     "first_name": "Reade",
     "last_name": "Studdeard",
     "email": "rstuddeardj@statcounter.com",
-    "gender": "Male",
+    "status": "new",
     "university": "University of East London"
   },
   {
@@ -164,7 +164,7 @@
     "first_name": "Cairistiona",
     "last_name": "McGerraghty",
     "email": "cmcgerraghtyk@netscape.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Wilmington College"
   },
   {
@@ -172,7 +172,7 @@
     "first_name": "Georgette",
     "last_name": "Rhydderch",
     "email": "grhydderchl@cnbc.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Bashkir State University"
   },
   {
@@ -180,7 +180,7 @@
     "first_name": "Jenelle",
     "last_name": "Rossey",
     "email": "jrosseym@dropbox.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "New York Medical College"
   },
   {
@@ -188,7 +188,7 @@
     "first_name": "Annalee",
     "last_name": "Wilshaw",
     "email": "awilshawn@squarespace.com",
-    "gender": "Agender",
+    "status": "new",
     "university": "Universidad Latinoamericana de Ciencia y Tecnología"
   },
   {
@@ -196,7 +196,7 @@
     "first_name": "Emmeline",
     "last_name": "Jaze",
     "email": "ejazeo@prnewswire.com",
-    "gender": "Genderqueer",
+    "status": "new",
     "university": "L.N. Gumilyov Eurasian National University"
   },
   {
@@ -204,7 +204,7 @@
     "first_name": "Fraze",
     "last_name": "O' Liddy",
     "email": "foliddyp@csmonitor.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Neumann College"
   },
   {
@@ -212,7 +212,7 @@
     "first_name": "Alva",
     "last_name": "Darbon",
     "email": "adarbonq@adobe.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Hogeschool Leiden"
   },
   {
@@ -220,7 +220,7 @@
     "first_name": "Eugenio",
     "last_name": "Kenny",
     "email": "ekennyr@reverbnation.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Hubert Kairuki Memorial University"
   },
   {
@@ -228,7 +228,7 @@
     "first_name": "Florella",
     "last_name": "Risdale",
     "email": "frisdales@aol.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ecole Polytechnique Marseille"
   },
   {
@@ -236,7 +236,7 @@
     "first_name": "Jenna",
     "last_name": "Lismer",
     "email": "jlismert@issuu.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Albertus Magnus College"
   },
   {
@@ -244,7 +244,7 @@
     "first_name": "Dorie",
     "last_name": "O'Gormley",
     "email": "dogormleyu@naver.com",
-    "gender": "Bigender",
+    "status": "new",
     "university": "Babol Noshirvani University of Technology"
   },
   {
@@ -252,7 +252,7 @@
     "first_name": "Gerrard",
     "last_name": "Blackborn",
     "email": "gblackbornv@cdbaby.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universitas Wijaya Kusuma Surabaya"
   },
   {
@@ -260,7 +260,7 @@
     "first_name": "Jared",
     "last_name": "Stable",
     "email": "jstablew@indiatimes.com",
-    "gender": "Male",
+    "status": "new",
     "university": "Saga University"
   },
   {
@@ -268,7 +268,7 @@
     "first_name": "Bryant",
     "last_name": "Beddon",
     "email": "bbeddonx@gizmodo.com",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "Deylaman Institute of Higher Education"
   },
   {
@@ -276,7 +276,7 @@
     "first_name": "Natalina",
     "last_name": "Bleythin",
     "email": "nbleythiny@4shared.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Akita University of Economics and Law"
   },
   {
@@ -284,7 +284,7 @@
     "first_name": "Munroe",
     "last_name": "Goldthorp",
     "email": "mgoldthorpz@aol.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Adventista de Colombia"
   },
   {
@@ -292,7 +292,7 @@
     "first_name": "Shena",
     "last_name": "Commander",
     "email": "scommander10@e-recht24.de",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Zhejiang University of Technology"
   },
   {
@@ -300,7 +300,7 @@
     "first_name": "Quincey",
     "last_name": "MacKaig",
     "email": "qmackaig11@cbsnews.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Performing Arts in Bratislava"
   },
   {
@@ -308,7 +308,7 @@
     "first_name": "Constantine",
     "last_name": "Tulloch",
     "email": "ctulloch12@networksolutions.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kabul University"
   },
   {
@@ -316,7 +316,7 @@
     "first_name": "Gordie",
     "last_name": "Snead",
     "email": "gsnead13@dion.ne.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Gulf University College"
   },
   {
@@ -324,7 +324,7 @@
     "first_name": "Adina",
     "last_name": "Slark",
     "email": "aslark14@about.me",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Molde University College"
   },
   {
@@ -332,7 +332,7 @@
     "first_name": "Dotty",
     "last_name": "Claris",
     "email": "dclaris15@blogtalkradio.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Fachhochschule Niederrhein"
   },
   {
@@ -340,7 +340,7 @@
     "first_name": "Benni",
     "last_name": "Nesterov",
     "email": "bnesterov16@mac.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kadir Has University"
   },
   {
@@ -348,7 +348,7 @@
     "first_name": "Abbie",
     "last_name": "Camerati",
     "email": "acamerati17@ftc.gov",
-    "gender": "Non-binary",
+    "status": "new",
     "university": "Université des Sciences et Technologies de Lille (Lille I)"
   },
   {
@@ -356,7 +356,7 @@
     "first_name": "Sunny",
     "last_name": "Blakebrough",
     "email": "sblakebrough18@illinois.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Western Galilee College"
   },
   {
@@ -364,7 +364,7 @@
     "first_name": "Bryant",
     "last_name": "Boult",
     "email": "bboult19@chicagotribune.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Osaka International University"
   },
   {
@@ -372,7 +372,7 @@
     "first_name": "Georg",
     "last_name": "FitzGilbert",
     "email": "gfitzgilbert1a@purevolume.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Instituto Superior de Entre Douro e Vouga"
   },
   {
@@ -380,7 +380,7 @@
     "first_name": "Bridget",
     "last_name": "Darlington",
     "email": "bdarlington1b@php.net",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Nacional Agraria La Molina"
   },
   {
@@ -388,7 +388,7 @@
     "first_name": "Sari",
     "last_name": "Trimbey",
     "email": "strimbey1c@reverbnation.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "American InterContinental University Online"
   },
   {
@@ -396,7 +396,7 @@
     "first_name": "Georgeanne",
     "last_name": "Kenneford",
     "email": "gkenneford1d@goo.gl",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Moscow State University of Culture"
   },
   {
@@ -404,7 +404,7 @@
     "first_name": "Tamas",
     "last_name": "Warhurst",
     "email": "twarhurst1e@youtu.be",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Katharine Gibbs School"
   },
   {
@@ -412,7 +412,7 @@
     "first_name": "Willabella",
     "last_name": "Unitt",
     "email": "wunitt1f@google.it",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Zhejiang University of Technology"
   },
   {
@@ -420,7 +420,7 @@
     "first_name": "Raphael",
     "last_name": "Pressey",
     "email": "rpressey1g@tmall.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Windsor University School of Medicine"
   },
   {
@@ -428,7 +428,7 @@
     "first_name": "Frasier",
     "last_name": "Balden",
     "email": "fbalden1h@amazon.co.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de Huelva"
   },
   {
@@ -436,7 +436,7 @@
     "first_name": "Tabbi",
     "last_name": "Quinane",
     "email": "tquinane1i@privacy.gov.au",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Cork Institute of Technology"
   },
   {
@@ -444,7 +444,7 @@
     "first_name": "Brandice",
     "last_name": "Hemshall",
     "email": "bhemshall1j@pcworld.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Católica Boliviana, Cochabamba"
   },
   {
@@ -452,7 +452,7 @@
     "first_name": "Rickie",
     "last_name": "Kurdani",
     "email": "rkurdani1k@storify.com",
-    "gender": "Genderfluid",
+    "status": "new",
     "university": "East Africa University Bosaso"
   },
   {
@@ -460,7 +460,7 @@
     "first_name": "Bren",
     "last_name": "Ling",
     "email": "bling1l@hud.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Pedagogical University of Zielona Gora"
   },
   {
@@ -468,7 +468,7 @@
     "first_name": "Vladamir",
     "last_name": "Canet",
     "email": "vcanet1m@accuweather.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Philippine Christian University"
   },
   {
@@ -476,7 +476,7 @@
     "first_name": "Hally",
     "last_name": "Ewbanks",
     "email": "hewbanks1n@squarespace.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kyunghee University"
   },
   {
@@ -484,7 +484,7 @@
     "first_name": "Vivyanne",
     "last_name": "Deere",
     "email": "vdeere1o@toplist.cz",
-    "gender": "Polygender",
+    "status": "new",
     "university": "Fachhochschule Ulm, Hochschule für Technik"
   },
   {
@@ -492,7 +492,7 @@
     "first_name": "Wynn",
     "last_name": "Upton",
     "email": "wupton1p@msu.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "B. S. Abdur Rahman University"
   },
   {
@@ -500,7 +500,7 @@
     "first_name": "Goldy",
     "last_name": "Begg",
     "email": "gbegg1q@latimes.com",
-    "gender": "Agender",
+    "status": "new",
     "university": "Medical Academy in Gdansk"
   },
   {
@@ -508,7 +508,7 @@
     "first_name": "Lewiss",
     "last_name": "Lauchlan",
     "email": "llauchlan1r@theatlantic.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Alas Peruanas"
   },
   {
@@ -516,7 +516,7 @@
     "first_name": "Iain",
     "last_name": "Willcot",
     "email": "iwillcot1s@storify.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Nacional de La Pampa"
   },
   {
@@ -524,7 +524,7 @@
     "first_name": "Chrisy",
     "last_name": "Pinnock",
     "email": "cpinnock1t@joomla.org",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Chang Jung University"
   },
   {
@@ -532,7 +532,7 @@
     "first_name": "Erinna",
     "last_name": "Cornwall",
     "email": "ecornwall1u@reverbnation.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Dr. D.Y. Patil University"
   },
   {
@@ -540,7 +540,7 @@
     "first_name": "Terese",
     "last_name": "Caunter",
     "email": "tcaunter1v@whitehouse.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Politécnica de El Salvador"
   },
   {
@@ -548,7 +548,7 @@
     "first_name": "Rodolphe",
     "last_name": "Kees",
     "email": "rkees1w@nydailynews.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Taizhou College"
   },
   {
@@ -556,7 +556,7 @@
     "first_name": "Annabal",
     "last_name": "Byrcher",
     "email": "abyrcher1x@youtu.be",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Eötvös Lorand University"
   },
   {
@@ -564,7 +564,7 @@
     "first_name": "Cass",
     "last_name": "Endley",
     "email": "cendley1y@hugedomains.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Central de Venezuela"
   },
   {
@@ -572,7 +572,7 @@
     "first_name": "Sephira",
     "last_name": "Scahill",
     "email": "sscahill1z@nifty.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universität Osnabrück"
   },
   {
@@ -580,7 +580,7 @@
     "first_name": "Clark",
     "last_name": "Bassom",
     "email": "cbassom20@answers.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ecole Nationale des Sciences Géographiques"
   },
   {
@@ -588,7 +588,7 @@
     "first_name": "Enoch",
     "last_name": "Tumilty",
     "email": "etumilty21@salon.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Troy University, Montgomery"
   },
   {
@@ -596,7 +596,7 @@
     "first_name": "Rubetta",
     "last_name": "Cuddehay",
     "email": "rcuddehay22@indiatimes.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Adolfo Ibáñez"
   },
   {
@@ -604,7 +604,7 @@
     "first_name": "Stephanie",
     "last_name": "Chillingsworth",
     "email": "schillingsworth23@studiopress.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Vaasa"
   },
   {
@@ -612,7 +612,7 @@
     "first_name": "Xylina",
     "last_name": "Tibalt",
     "email": "xtibalt24@blogs.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ecole Nationale Supérieure de Chimie de Toulouse"
   },
   {
@@ -620,7 +620,7 @@
     "first_name": "Gwenny",
     "last_name": "Northedge",
     "email": "gnorthedge25@thetimes.co.uk",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Polytechnic Institute of Bari"
   },
   {
@@ -628,7 +628,7 @@
     "first_name": "Andrea",
     "last_name": "Redfern",
     "email": "aredfern26@rambler.ru",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Avinashilingam Institute for Home Science and Higher Education for Women"
   },
   {
@@ -636,7 +636,7 @@
     "first_name": "Patrizius",
     "last_name": "Chark",
     "email": "pchark27@vimeo.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université Blaise Pascal (Clermont-Ferrand II)"
   },
   {
@@ -644,7 +644,7 @@
     "first_name": "Clare",
     "last_name": "Fenney",
     "email": "cfenney28@reverbnation.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Holy Angel University"
   },
   {
@@ -652,7 +652,7 @@
     "first_name": "Eldin",
     "last_name": "Gascard",
     "email": "egascard29@fotki.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ecole Centrale de Lille"
   },
   {
@@ -660,7 +660,7 @@
     "first_name": "Gordan",
     "last_name": "Nears",
     "email": "gnears2a@privacy.gov.au",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Palestine Technical College-Dier Elbalah"
   },
   {
@@ -668,7 +668,7 @@
     "first_name": "Bryant",
     "last_name": "Lawlings",
     "email": "blawlings2b@storify.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "New York Institute of Technology"
   },
   {
@@ -676,7 +676,7 @@
     "first_name": "Odetta",
     "last_name": "Hendonson",
     "email": "ohendonson2c@virginia.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Marymount Manhattan College"
   },
   {
@@ -684,7 +684,7 @@
     "first_name": "Bear",
     "last_name": "Cuckoo",
     "email": "bcuckoo2d@boston.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "National Open University of Nigeria"
   },
   {
@@ -692,7 +692,7 @@
     "first_name": "Kettie",
     "last_name": "Dodswell",
     "email": "kdodswell2e@uol.com.br",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Fujian Agricultural University"
   },
   {
@@ -700,7 +700,7 @@
     "first_name": "Enrichetta",
     "last_name": "Jerzykiewicz",
     "email": "ejerzykiewicz2f@hao123.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Perm State Academy of Agriculture"
   },
   {
@@ -708,7 +708,7 @@
     "first_name": "Sydney",
     "last_name": "Thorburn",
     "email": "sthorburn2g@amazon.co.uk",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Dundee"
   },
   {
@@ -716,7 +716,7 @@
     "first_name": "Bobina",
     "last_name": "Proudman",
     "email": "bproudman2h@gmpg.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Pontificia Bolivariana"
   },
   {
@@ -724,7 +724,7 @@
     "first_name": "Marya",
     "last_name": "Bellee",
     "email": "mbellee2i@163.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Gardner Webb University"
   },
   {
@@ -732,7 +732,7 @@
     "first_name": "Burtie",
     "last_name": "Caslane",
     "email": "bcaslane2j@weibo.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Rousse"
   },
   {
@@ -740,7 +740,7 @@
     "first_name": "Leigha",
     "last_name": "Drawmer",
     "email": "ldrawmer2k@msn.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Athens Graduate School of Management (AGSM)"
   },
   {
@@ -748,7 +748,7 @@
     "first_name": "Marie-jeanne",
     "last_name": "Breton",
     "email": "mbreton2l@is.gd",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidade Federal do Pará"
   },
   {
@@ -756,7 +756,7 @@
     "first_name": "Gussy",
     "last_name": "Pasek",
     "email": "gpasek2m@examiner.com",
-    "gender": "Bigender",
+    "status": "Bistatus",
     "university": "Universidad Central de Las Villas"
   },
   {
@@ -764,7 +764,7 @@
     "first_name": "Garrek",
     "last_name": "Keiling",
     "email": "gkeiling2n@youtube.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Chung-Ju National University"
   },
   {
@@ -772,7 +772,7 @@
     "first_name": "Glory",
     "last_name": "Merrell",
     "email": "gmerrell2o@google.co.jp",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Oregon Health Sciences University"
   },
   {
@@ -780,7 +780,7 @@
     "first_name": "Donn",
     "last_name": "Gaskarth",
     "email": "dgaskarth2p@wufoo.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Bamenda University of Science & Technology"
   },
   {
@@ -788,7 +788,7 @@
     "first_name": "Damien",
     "last_name": "Tomczykowski",
     "email": "dtomczykowski2q@furl.net",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Greensboro College"
   },
   {
@@ -796,7 +796,7 @@
     "first_name": "Mic",
     "last_name": "Di Lucia",
     "email": "mdilucia2r@europa.eu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Clearwater Christian College"
   },
   {
@@ -804,7 +804,7 @@
     "first_name": "Henrik",
     "last_name": "Marjoribanks",
     "email": "hmarjoribanks2s@weibo.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universitas Padjadjaran"
   },
   {
@@ -812,7 +812,7 @@
     "first_name": "Lilia",
     "last_name": "Caller",
     "email": "lcaller2t@vimeo.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Nacional de la Patagonia \"San Juan Bosco\""
   },
   {
@@ -820,7 +820,7 @@
     "first_name": "Lennie",
     "last_name": "Winson",
     "email": "lwinson2u@census.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Open University of Israel"
   },
   {
@@ -828,7 +828,7 @@
     "first_name": "Gilligan",
     "last_name": "Stocken",
     "email": "gstocken2v@ehow.com",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "Universidad Libre de Costa Rica"
   },
   {
@@ -836,7 +836,7 @@
     "first_name": "Collen",
     "last_name": "Greenstock",
     "email": "cgreenstock2w@cyberchimps.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of the Free State"
   },
   {
@@ -844,7 +844,7 @@
     "first_name": "Keane",
     "last_name": "Headland",
     "email": "kheadland2x@etsy.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidade Federal Rural do Rio de Janeiro"
   },
   {
@@ -852,7 +852,7 @@
     "first_name": "Lenci",
     "last_name": "Letty",
     "email": "lletty2y@sina.com.cn",
-    "gender": "Male",
+    "status": "rejected",
     "university": "St. Marianna University School of Medicine"
   },
   {
@@ -860,7 +860,7 @@
     "first_name": "Correy",
     "last_name": "Radke",
     "email": "cradke2z@baidu.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Autónoma del Paraguay"
   },
   {
@@ -868,7 +868,7 @@
     "first_name": "Dido",
     "last_name": "Dudderidge",
     "email": "ddudderidge30@1und1.de",
-    "gender": "Polygender",
+    "status": "Polystatus",
     "university": "Universidad Monteávila"
   },
   {
@@ -876,7 +876,7 @@
     "first_name": "Veriee",
     "last_name": "Craigmyle",
     "email": "vcraigmyle31@nyu.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Marshall University"
   },
   {
@@ -884,7 +884,7 @@
     "first_name": "Elihu",
     "last_name": "Beagles",
     "email": "ebeagles32@biglobe.ne.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Olabisi Onabanjo University "
   },
   {
@@ -892,7 +892,7 @@
     "first_name": "Binny",
     "last_name": "Klimsch",
     "email": "bklimsch33@craigslist.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Instituto Superior de Ciências do Trabalho e da Empresa"
   },
   {
@@ -900,7 +900,7 @@
     "first_name": "Harriot",
     "last_name": "Millier",
     "email": "hmillier34@google.es",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Dana College"
   },
   {
@@ -908,7 +908,7 @@
     "first_name": "Ezechiel",
     "last_name": "Capstick",
     "email": "ecapstick35@vimeo.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Warner Southern College"
   },
   {
@@ -916,7 +916,7 @@
     "first_name": "Claudell",
     "last_name": "Elphey",
     "email": "celphey36@creativecommons.org",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "International University of Sarajevo"
   },
   {
@@ -924,7 +924,7 @@
     "first_name": "Nessi",
     "last_name": "Newlands",
     "email": "nnewlands37@typepad.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Anna University"
   },
   {
@@ -932,7 +932,7 @@
     "first_name": "Stoddard",
     "last_name": "Sarton",
     "email": "ssarton38@chicagotribune.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "National American University"
   },
   {
@@ -940,7 +940,7 @@
     "first_name": "Michael",
     "last_name": "Hartil",
     "email": "mhartil39@scribd.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Zhejiang University"
   },
   {
@@ -948,7 +948,7 @@
     "first_name": "Nanny",
     "last_name": "Birchwood",
     "email": "nbirchwood3a@sogou.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Fukuoka Prefectural University"
   },
   {
@@ -956,7 +956,7 @@
     "first_name": "Veronica",
     "last_name": "Doerffer",
     "email": "vdoerffer3b@ow.ly",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Red Sea University"
   },
   {
@@ -964,7 +964,7 @@
     "first_name": "Ilka",
     "last_name": "Gross",
     "email": "igross3c@histats.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Norbert Wiener"
   },
   {
@@ -972,7 +972,7 @@
     "first_name": "Antonina",
     "last_name": "Wrennall",
     "email": "awrennall3d@nymag.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Nagoya Women's University"
   },
   {
@@ -980,7 +980,7 @@
     "first_name": "Odell",
     "last_name": "MacGoun",
     "email": "omacgoun3e@123-reg.co.uk",
-    "gender": "Bigender",
+    "status": "Bistatus",
     "university": "University of Liverpool"
   },
   {
@@ -988,7 +988,7 @@
     "first_name": "Aube",
     "last_name": "Melarkey",
     "email": "amelarkey3f@jalbum.net",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ghulam Ishaq Khan Institute of Science & Technology"
   },
   {
@@ -996,7 +996,7 @@
     "first_name": "Claudette",
     "last_name": "Moseby",
     "email": "cmoseby3g@nytimes.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Cebu"
   },
   {
@@ -1004,7 +1004,7 @@
     "first_name": "Nikaniki",
     "last_name": "Glauber",
     "email": "nglauber3h@godaddy.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Islamic Azad University, Shahryar"
   },
   {
@@ -1012,7 +1012,7 @@
     "first_name": "Hermon",
     "last_name": "Bloomfield",
     "email": "hbloomfield3i@cbc.ca",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Dalanj University"
   },
   {
@@ -1020,7 +1020,7 @@
     "first_name": "Terra",
     "last_name": "Pashley",
     "email": "tpashley3j@yahoo.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Hochschule Mittweida (FH)"
   },
   {
@@ -1028,7 +1028,7 @@
     "first_name": "Sherline",
     "last_name": "Croxley",
     "email": "scroxley3k@disqus.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "St. Marianna University School of Medicine"
   },
   {
@@ -1036,7 +1036,7 @@
     "first_name": "Haley",
     "last_name": "Rigolle",
     "email": "hrigolle3l@house.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Bryan College"
   },
   {
@@ -1044,7 +1044,7 @@
     "first_name": "Nicole",
     "last_name": "Runchman",
     "email": "nrunchman3m@weather.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Télé-université, Université du Québec"
   },
   {
@@ -1052,7 +1052,7 @@
     "first_name": "Celinka",
     "last_name": "Doyley",
     "email": "cdoyley3n@examiner.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Palm Beach Atlantic University"
   },
   {
@@ -1060,7 +1060,7 @@
     "first_name": "Lev",
     "last_name": "Blackater",
     "email": "lblackater3o@digg.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Islamic Azad University, Shahryar"
   },
   {
@@ -1068,7 +1068,7 @@
     "first_name": "Timmie",
     "last_name": "Lashmar",
     "email": "tlashmar3p@goo.gl",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Uttarakhand Open University "
   },
   {
@@ -1076,7 +1076,7 @@
     "first_name": "Lucho",
     "last_name": "Antliff",
     "email": "lantliff3q@sogou.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Audrey Cohen College"
   },
   {
@@ -1084,7 +1084,7 @@
     "first_name": "Justine",
     "last_name": "McGrory",
     "email": "jmcgrory3r@t.co",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Jiaying University"
   },
   {
@@ -1092,7 +1092,7 @@
     "first_name": "Adore",
     "last_name": "Obray",
     "email": "aobray3s@who.int",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Potti Sreeramulu Telugu University"
   },
   {
@@ -1100,7 +1100,7 @@
     "first_name": "Barbabra",
     "last_name": "Guiso",
     "email": "bguiso3t@netlog.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "British College of Osteopathic Medicine"
   },
   {
@@ -1108,7 +1108,7 @@
     "first_name": "Moll",
     "last_name": "Funcheon",
     "email": "mfuncheon3u@godaddy.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad de Guanajuato, Campus León"
   },
   {
@@ -1116,7 +1116,7 @@
     "first_name": "Ethan",
     "last_name": "Darte",
     "email": "edarte3v@sun.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "William Jewell College"
   },
   {
@@ -1124,7 +1124,7 @@
     "first_name": "Clemente",
     "last_name": "McKevin",
     "email": "cmckevin3w@pagesperso-orange.fr",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Aichi Prefectural University"
   },
   {
@@ -1132,7 +1132,7 @@
     "first_name": "Pierce",
     "last_name": "Comar",
     "email": "pcomar3x@elpais.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Hotelschool The Hague"
   },
   {
@@ -1140,7 +1140,7 @@
     "first_name": "Karlan",
     "last_name": "Paylie",
     "email": "kpaylie3y@slashdot.org",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Oriental University"
   },
   {
@@ -1148,7 +1148,7 @@
     "first_name": "Nicolea",
     "last_name": "Grane",
     "email": "ngrane3z@github.io",
-    "gender": "Female",
+    "status": "accepted",
     "university": "South-East Asia University"
   },
   {
@@ -1156,7 +1156,7 @@
     "first_name": "Wilone",
     "last_name": "Brack",
     "email": "wbrack40@google.de",
-    "gender": "Bigender",
+    "status": "Bistatus",
     "university": "University of the Philippines Visayas"
   },
   {
@@ -1164,7 +1164,7 @@
     "first_name": "Chrysler",
     "last_name": "Reddle",
     "email": "creddle41@cnet.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Xijiang University"
   },
   {
@@ -1172,7 +1172,7 @@
     "first_name": "Doralynne",
     "last_name": "Elwel",
     "email": "delwel42@addtoany.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Morrison College"
   },
   {
@@ -1180,7 +1180,7 @@
     "first_name": "Matt",
     "last_name": "Stiger",
     "email": "mstiger43@prnewswire.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Nanhua University"
   },
   {
@@ -1188,7 +1188,7 @@
     "first_name": "Josiah",
     "last_name": "Ference",
     "email": "jference44@51.la",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Islamic Azad University, Tehran South"
   },
   {
@@ -1196,7 +1196,7 @@
     "first_name": "Mayne",
     "last_name": "Dunge",
     "email": "mdunge45@opera.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Keele University"
   },
   {
@@ -1204,7 +1204,7 @@
     "first_name": "Sherwood",
     "last_name": "Horbath",
     "email": "shorbath46@blog.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Czech University of Agriculture Prague"
   },
   {
@@ -1212,7 +1212,7 @@
     "first_name": "Dodie",
     "last_name": "Pavolini",
     "email": "dpavolini47@eventbrite.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Azusa Pacific University"
   },
   {
@@ -1220,7 +1220,7 @@
     "first_name": "Catha",
     "last_name": "Clive",
     "email": "cclive48@163.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Hong Kong Institute of Education"
   },
   {
@@ -1228,7 +1228,7 @@
     "first_name": "Montgomery",
     "last_name": "Hoxey",
     "email": "mhoxey49@globo.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Northwood University, Texas Campus"
   },
   {
@@ -1236,7 +1236,7 @@
     "first_name": "Karee",
     "last_name": "Lunnon",
     "email": "klunnon4a@sogou.com",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "Örebro University"
   },
   {
@@ -1244,7 +1244,7 @@
     "first_name": "Ursola",
     "last_name": "Rottgers",
     "email": "urottgers4b@wikia.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Mid-Continent Baptist Bible College"
   },
   {
@@ -1252,7 +1252,7 @@
     "first_name": "Gayleen",
     "last_name": "Carnow",
     "email": "gcarnow4c@sitemeter.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Technische Fachhochschule Wildau"
   },
   {
@@ -1260,7 +1260,7 @@
     "first_name": "Clem",
     "last_name": "Dammarell",
     "email": "cdammarell4d@telegraph.co.uk",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Manuel S. Enverga University Foundation"
   },
   {
@@ -1268,7 +1268,7 @@
     "first_name": "Meghan",
     "last_name": "Sextone",
     "email": "msextone4e@bbc.co.uk",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "University of Auckland"
   },
   {
@@ -1276,7 +1276,7 @@
     "first_name": "Royall",
     "last_name": "Gilvary",
     "email": "rgilvary4f@purevolume.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Qurtuba University of Science and Infromation Technology"
   },
   {
@@ -1284,7 +1284,7 @@
     "first_name": "Lynette",
     "last_name": "Tenwick",
     "email": "ltenwick4g@xing.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "DeVry Institute of Technology, Kansas City"
   },
   {
@@ -1292,7 +1292,7 @@
     "first_name": "Magnum",
     "last_name": "Craft",
     "email": "mcraft4h@cocolog-nifty.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Mazandaran University of Science & Technology"
   },
   {
@@ -1300,7 +1300,7 @@
     "first_name": "Giffer",
     "last_name": "Trematick",
     "email": "gtrematick4i@delicious.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Brest State Technical University"
   },
   {
@@ -1308,7 +1308,7 @@
     "first_name": "Rinaldo",
     "last_name": "Mingame",
     "email": "rmingame4j@trellian.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Aden"
   },
   {
@@ -1316,7 +1316,7 @@
     "first_name": "Ciro",
     "last_name": "Touzey",
     "email": "ctouzey4k@behance.net",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Sabanci University"
   },
   {
@@ -1324,7 +1324,7 @@
     "first_name": "Bordy",
     "last_name": "Bozier",
     "email": "bbozier4l@gizmodo.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université Pierre Mendes-France (Grenoble II)"
   },
   {
@@ -1332,7 +1332,7 @@
     "first_name": "Coleman",
     "last_name": "Tumilty",
     "email": "ctumilty4m@latimes.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université de Toliary"
   },
   {
@@ -1340,7 +1340,7 @@
     "first_name": "Boot",
     "last_name": "De Ath",
     "email": "bdeath4n@marketwatch.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Mississippi State University"
   },
   {
@@ -1348,7 +1348,7 @@
     "first_name": "Isabeau",
     "last_name": "Merrick",
     "email": "imerrick4o@weebly.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "American Military University"
   },
   {
@@ -1356,7 +1356,7 @@
     "first_name": "Veronica",
     "last_name": "Line",
     "email": "vline4p@typepad.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidade Eduardo Mondlane"
   },
   {
@@ -1364,7 +1364,7 @@
     "first_name": "Marnia",
     "last_name": "Woolston",
     "email": "mwoolston4q@marriott.com",
-    "gender": "Genderfluid",
+    "status": "statusfluid",
     "university": "Kohinoor School of Hospitality Management"
   },
   {
@@ -1372,7 +1372,7 @@
     "first_name": "Hillyer",
     "last_name": "Ivetts",
     "email": "hivetts4r@wunderground.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université Moulay Ismail Meknès"
   },
   {
@@ -1380,7 +1380,7 @@
     "first_name": "Belicia",
     "last_name": "Nicholson",
     "email": "bnicholson4s@cnn.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kent State University - Stark"
   },
   {
@@ -1388,7 +1388,7 @@
     "first_name": "Roxanna",
     "last_name": "Batram",
     "email": "rbatram4t@upenn.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Université de Toliary"
   },
   {
@@ -1396,7 +1396,7 @@
     "first_name": "Merrie",
     "last_name": "Bowditch",
     "email": "mbowditch4u@npr.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Central Missouri"
   },
   {
@@ -1404,7 +1404,7 @@
     "first_name": "Hyacinthia",
     "last_name": "Shackel",
     "email": "hshackel4v@posterous.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Nagasaki University"
   },
   {
@@ -1412,7 +1412,7 @@
     "first_name": "Jacynth",
     "last_name": "Di Napoli",
     "email": "jdinapoli4w@sina.com.cn",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Volgograd State Pedagogical University"
   },
   {
@@ -1420,7 +1420,7 @@
     "first_name": "Merissa",
     "last_name": "Poston",
     "email": "mposton4x@hatena.ne.jp",
-    "gender": "Female",
+    "status": "accepted",
     "university": "National Pingtung Teachers College"
   },
   {
@@ -1428,7 +1428,7 @@
     "first_name": "Glen",
     "last_name": "Osorio",
     "email": "gosorio4y@wp.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Wofford College"
   },
   {
@@ -1436,7 +1436,7 @@
     "first_name": "Tibold",
     "last_name": "Nerval",
     "email": "tnerval4z@blogger.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Tomsk State University"
   },
   {
@@ -1444,7 +1444,7 @@
     "first_name": "Joela",
     "last_name": "Hartle",
     "email": "jhartle50@shinystat.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kanagawa Dental College"
   },
   {
@@ -1452,7 +1452,7 @@
     "first_name": "Rafa",
     "last_name": "Brazer",
     "email": "rbrazer51@paypal.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Dartmouth College"
   },
   {
@@ -1460,7 +1460,7 @@
     "first_name": "Kiah",
     "last_name": "Favel",
     "email": "kfavel52@house.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Montreat College"
   },
   {
@@ -1468,7 +1468,7 @@
     "first_name": "Alvis",
     "last_name": "Semper",
     "email": "asemper53@friendfeed.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Technological University (Meikhtila)"
   },
   {
@@ -1476,7 +1476,7 @@
     "first_name": "Granger",
     "last_name": "Pavitt",
     "email": "gpavitt54@hc360.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ecole Nationale Supérieure Agronomique de Toulouse"
   },
   {
@@ -1484,7 +1484,7 @@
     "first_name": "Sam",
     "last_name": "Dominetti",
     "email": "sdominetti55@reuters.com",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "Lake Forest College"
   },
   {
@@ -1492,7 +1492,7 @@
     "first_name": "Jack",
     "last_name": "Libreros",
     "email": "jlibreros56@cdbaby.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Olivet College"
   },
   {
@@ -1500,7 +1500,7 @@
     "first_name": "Henrieta",
     "last_name": "Goacher",
     "email": "hgoacher57@networkadvertising.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ecole des Ingénieurs de la Ville de Paris"
   },
   {
@@ -1508,7 +1508,7 @@
     "first_name": "Sabina",
     "last_name": "Puckett",
     "email": "spuckett58@irs.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Lipscomb University"
   },
   {
@@ -1516,7 +1516,7 @@
     "first_name": "Eve",
     "last_name": "Haggerty",
     "email": "ehaggerty59@samsung.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "American University of Armenia"
   },
   {
@@ -1524,7 +1524,7 @@
     "first_name": "Terry",
     "last_name": "Sutherden",
     "email": "tsutherden5a@blogger.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Ottawa"
   },
   {
@@ -1532,7 +1532,7 @@
     "first_name": "Catrina",
     "last_name": "Grundle",
     "email": "cgrundle5b@ning.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Central America Health Sciences University (Belize Medical College)"
   },
   {
@@ -1540,7 +1540,7 @@
     "first_name": "Kev",
     "last_name": "McTerry",
     "email": "kmcterry5c@gravatar.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Yazd University"
   },
   {
@@ -1548,7 +1548,7 @@
     "first_name": "Reyna",
     "last_name": "Slainey",
     "email": "rslainey5d@soup.io",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Dubai Medical College for Girls"
   },
   {
@@ -1556,7 +1556,7 @@
     "first_name": "Major",
     "last_name": "Bangle",
     "email": "mbangle5e@blogs.com",
-    "gender": "Genderfluid",
+    "status": "statusfluid",
     "university": "L'Université de l'Entreprise"
   },
   {
@@ -1564,7 +1564,7 @@
     "first_name": "Lazare",
     "last_name": "Bridson",
     "email": "lbridson5f@washington.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Pennsylvania State University - Altoona"
   },
   {
@@ -1572,7 +1572,7 @@
     "first_name": "Paige",
     "last_name": "Parsand",
     "email": "pparsand5g@sbwire.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Institut Teknologi Bandung"
   },
   {
@@ -1580,7 +1580,7 @@
     "first_name": "Carny",
     "last_name": "Dri",
     "email": "cdri5h@delicious.com",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "Oakland City University"
   },
   {
@@ -1588,7 +1588,7 @@
     "first_name": "Kingsly",
     "last_name": "Zaniolo",
     "email": "kzaniolo5i@eventbrite.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Nizhny Novgorod State Technical University"
   },
   {
@@ -1596,7 +1596,7 @@
     "first_name": "Lynnet",
     "last_name": "Richin",
     "email": "lrichin5j@ted.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Moscow Technical University of Informatics and Communication"
   },
   {
@@ -1604,7 +1604,7 @@
     "first_name": "Abraham",
     "last_name": "O'Cassidy",
     "email": "aocassidy5k@1688.com",
-    "gender": "Non-binary",
+    "status": "Non-binary",
     "university": "Shepherd College"
   },
   {
@@ -1612,7 +1612,7 @@
     "first_name": "Teddy",
     "last_name": "Astbury",
     "email": "tastbury5l@sitemeter.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Groupe Sup de Co Montpellier"
   },
   {
@@ -1620,7 +1620,7 @@
     "first_name": "Tobie",
     "last_name": "Schurcke",
     "email": "tschurcke5m@elpais.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Texas College"
   },
   {
@@ -1628,7 +1628,7 @@
     "first_name": "Risa",
     "last_name": "Balle",
     "email": "rballe5n@elpais.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Breyer State University (Virtual University)"
   },
   {
@@ -1636,7 +1636,7 @@
     "first_name": "Lynda",
     "last_name": "Diegan",
     "email": "ldiegan5o@bloomberg.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Wilmington College"
   },
   {
@@ -1644,7 +1644,7 @@
     "first_name": "Izak",
     "last_name": "Rain",
     "email": "irain5p@theglobeandmail.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Central del Este"
   },
   {
@@ -1652,7 +1652,7 @@
     "first_name": "Dori",
     "last_name": "Ibbitson",
     "email": "dibbitson5q@ow.ly",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Queensland University of Technology"
   },
   {
@@ -1660,7 +1660,7 @@
     "first_name": "Whitman",
     "last_name": "Sheran",
     "email": "wsheran5r@artisteer.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Lund University"
   },
   {
@@ -1668,7 +1668,7 @@
     "first_name": "Lorita",
     "last_name": "Lideard",
     "email": "llideard5s@tinyurl.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Jacksonville University"
   },
   {
@@ -1676,7 +1676,7 @@
     "first_name": "Karia",
     "last_name": "Snipe",
     "email": "ksnipe5t@amazon.de",
-    "gender": "Female",
+    "status": "accepted",
     "university": "East Somalia University"
   },
   {
@@ -1684,7 +1684,7 @@
     "first_name": "Thain",
     "last_name": "Antyshev",
     "email": "tantyshev5u@cmu.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Halmstad University College"
   },
   {
@@ -1692,7 +1692,7 @@
     "first_name": "Weidar",
     "last_name": "Gradwell",
     "email": "wgradwell5v@yellowbook.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Regent College"
   },
   {
@@ -1700,7 +1700,7 @@
     "first_name": "Lukas",
     "last_name": "Gino",
     "email": "lgino5w@psu.edu",
-    "gender": "Genderqueer",
+    "status": "statusqueer",
     "university": "Lund University"
   },
   {
@@ -1708,7 +1708,7 @@
     "first_name": "Margaret",
     "last_name": "Craster",
     "email": "mcraster5x@hc360.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universität Mozarteum Salzburg"
   },
   {
@@ -1716,7 +1716,7 @@
     "first_name": "Cherie",
     "last_name": "Redolfi",
     "email": "credolfi5y@typepad.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Chester"
   },
   {
@@ -1724,7 +1724,7 @@
     "first_name": "Elyssa",
     "last_name": "Boylan",
     "email": "eboylan5z@fema.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Université de N'Djamena"
   },
   {
@@ -1732,7 +1732,7 @@
     "first_name": "Liuka",
     "last_name": "Merkel",
     "email": "lmerkel60@reuters.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Al Imam Al-Ouzai University"
   },
   {
@@ -1740,7 +1740,7 @@
     "first_name": "Mateo",
     "last_name": "Fullagar",
     "email": "mfullagar61@virginia.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "New Mexico Institute of Mining and Technology"
   },
   {
@@ -1748,7 +1748,7 @@
     "first_name": "Zorina",
     "last_name": "Matelyunas",
     "email": "zmatelyunas62@youtu.be",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Carlos III de Madrid"
   },
   {
@@ -1756,7 +1756,7 @@
     "first_name": "Terri-jo",
     "last_name": "Peatt",
     "email": "tpeatt63@ehow.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universiti Sains Malaysia"
   },
   {
@@ -1764,7 +1764,7 @@
     "first_name": "Vinnie",
     "last_name": "Pacher",
     "email": "vpacher64@constantcontact.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Chiba Institute of Technology"
   },
   {
@@ -1772,7 +1772,7 @@
     "first_name": "Mic",
     "last_name": "Hourican",
     "email": "mhourican65@hugedomains.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Moravian College"
   },
   {
@@ -1780,7 +1780,7 @@
     "first_name": "Marve",
     "last_name": "Benez",
     "email": "mbenez66@so-net.ne.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Lewis-Clark State College"
   },
   {
@@ -1788,7 +1788,7 @@
     "first_name": "Daisie",
     "last_name": "Hrachovec",
     "email": "dhrachovec67@ucsd.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "James Madison University"
   },
   {
@@ -1796,7 +1796,7 @@
     "first_name": "Raquel",
     "last_name": "Boardman",
     "email": "rboardman68@bravesites.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Jeonju University"
   },
   {
@@ -1804,7 +1804,7 @@
     "first_name": "Levi",
     "last_name": "Patullo",
     "email": "lpatullo69@liveinternet.ru",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Wilkes University"
   },
   {
@@ -1812,7 +1812,7 @@
     "first_name": "Tandie",
     "last_name": "Comettoi",
     "email": "tcomettoi6a@auda.org.au",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Autónoma Metropolitana - Azcapotzalco"
   },
   {
@@ -1820,7 +1820,7 @@
     "first_name": "Walton",
     "last_name": "Daniellot",
     "email": "wdaniellot6b@irs.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Technical University of Cracow"
   },
   {
@@ -1828,7 +1828,7 @@
     "first_name": "Viole",
     "last_name": "Cutteridge",
     "email": "vcutteridge6c@shareasale.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Empresarial Mateo Kuljis"
   },
   {
@@ -1836,7 +1836,7 @@
     "first_name": "Alexandros",
     "last_name": "Lanphere",
     "email": "alanphere6d@home.pl",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Maine College of Art"
   },
   {
@@ -1844,7 +1844,7 @@
     "first_name": "Lexine",
     "last_name": "Butterfill",
     "email": "lbutterfill6e@youtube.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Columbia Southern University"
   },
   {
@@ -1852,7 +1852,7 @@
     "first_name": "Leshia",
     "last_name": "Riddlesden",
     "email": "lriddlesden6f@boston.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Boston College"
   },
   {
@@ -1860,7 +1860,7 @@
     "first_name": "Armstrong",
     "last_name": "Eddowis",
     "email": "aeddowis6g@yahoo.co.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Católica Boliviana, Tarija"
   },
   {
@@ -1868,7 +1868,7 @@
     "first_name": "Isidro",
     "last_name": "Postill",
     "email": "ipostill6h@pagesperso-orange.fr",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Tennessee - Knoxville"
   },
   {
@@ -1876,7 +1876,7 @@
     "first_name": "Bettina",
     "last_name": "Silcocks",
     "email": "bsilcocks6i@webmd.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Tecnológica Nacional"
   },
   {
@@ -1884,7 +1884,7 @@
     "first_name": "Alie",
     "last_name": "Berndsen",
     "email": "aberndsen6j@icq.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Korea University"
   },
   {
@@ -1892,7 +1892,7 @@
     "first_name": "Gonzales",
     "last_name": "Fleis",
     "email": "gfleis6k@dedecms.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Texas Medical Branch Galveston"
   },
   {
@@ -1900,7 +1900,7 @@
     "first_name": "Emyle",
     "last_name": "Dugan",
     "email": "edugan6l@wikipedia.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Notre Dame Australia"
   },
   {
@@ -1908,7 +1908,7 @@
     "first_name": "Jaquenetta",
     "last_name": "Pumfrett",
     "email": "jpumfrett6m@who.int",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Scott Christian University"
   },
   {
@@ -1916,7 +1916,7 @@
     "first_name": "Brade",
     "last_name": "Croci",
     "email": "bcroci6n@adobe.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Lingnan University"
   },
   {
@@ -1924,7 +1924,7 @@
     "first_name": "Falkner",
     "last_name": "Buist",
     "email": "fbuist6o@google.es",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Osaka University of Foreign Studies"
   },
   {
@@ -1932,7 +1932,7 @@
     "first_name": "Cristal",
     "last_name": "Huckster",
     "email": "chuckster6p@ow.ly",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Al Nahrain University"
   },
   {
@@ -1940,7 +1940,7 @@
     "first_name": "Quinton",
     "last_name": "Farry",
     "email": "qfarry6q@google.ca",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université de Technologie de Troyes"
   },
   {
@@ -1948,7 +1948,7 @@
     "first_name": "Hilde",
     "last_name": "Dyball",
     "email": "hdyball6r@youku.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Autónoma Gabriel René Moreno"
   },
   {
@@ -1956,7 +1956,7 @@
     "first_name": "Sharai",
     "last_name": "Blackboro",
     "email": "sblackboro6s@msu.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universiti Teknologi Mara"
   },
   {
@@ -1964,7 +1964,7 @@
     "first_name": "Salvador",
     "last_name": "Gibling",
     "email": "sgibling6t@china.com.cn",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universitas Indonusa Esa Unggul"
   },
   {
@@ -1972,7 +1972,7 @@
     "first_name": "Holly",
     "last_name": "Robottham",
     "email": "hrobottham6u@rambler.ru",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ecole Nationale Supérieure du Pétrole et des Monteurs"
   },
   {
@@ -1980,7 +1980,7 @@
     "first_name": "Urbano",
     "last_name": "Dargie",
     "email": "udargie6v@opera.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de Cienfuegos"
   },
   {
@@ -1988,7 +1988,7 @@
     "first_name": "Rip",
     "last_name": "DellOrto",
     "email": "rdellorto6w@zdnet.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Mennonite College of Nursing"
   },
   {
@@ -1996,7 +1996,7 @@
     "first_name": "Odey",
     "last_name": "Cufley",
     "email": "ocufley6x@pagesperso-orange.fr",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Guyana"
   },
   {
@@ -2004,7 +2004,7 @@
     "first_name": "Kial",
     "last_name": "Cowern",
     "email": "kcowern6y@issuu.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Catania"
   },
   {
@@ -2012,7 +2012,7 @@
     "first_name": "Dominique",
     "last_name": "Colquitt",
     "email": "dcolquitt6z@exblog.jp",
-    "gender": "Female",
+    "status": "accepted",
     "university": "St. Petersburg College"
   },
   {
@@ -2020,7 +2020,7 @@
     "first_name": "Gordie",
     "last_name": "Orum",
     "email": "gorum70@google.ru",
-    "gender": "Male",
+    "status": "rejected",
     "university": "John Paul the Great Catholic University"
   },
   {
@@ -2028,7 +2028,7 @@
     "first_name": "Christie",
     "last_name": "Ivshin",
     "email": "civshin71@usda.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ecole Nationale Supérieure des Arts et Industries Textiles"
   },
   {
@@ -2036,7 +2036,7 @@
     "first_name": "Hyacinth",
     "last_name": "McCard",
     "email": "hmccard72@cnn.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Lampang Rajabhat University"
   },
   {
@@ -2044,7 +2044,7 @@
     "first_name": "Ashley",
     "last_name": "Wager",
     "email": "awager73@gravatar.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Asahikawa Medical College"
   },
   {
@@ -2052,7 +2052,7 @@
     "first_name": "Jameson",
     "last_name": "Kembry",
     "email": "jkembry74@ft.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Bradley University"
   },
   {
@@ -2060,7 +2060,7 @@
     "first_name": "Quintina",
     "last_name": "Reddyhoff",
     "email": "qreddyhoff75@infoseek.co.jp",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Hiroshima University"
   },
   {
@@ -2068,7 +2068,7 @@
     "first_name": "Enrichetta",
     "last_name": "Strelitz",
     "email": "estrelitz76@cnet.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Trinity University"
   },
   {
@@ -2076,7 +2076,7 @@
     "first_name": "Chaddy",
     "last_name": "Beirne",
     "email": "cbeirne77@clickbank.net",
-    "gender": "Male",
+    "status": "rejected",
     "university": "National Institute of Technology, Rourkela"
   },
   {
@@ -2084,7 +2084,7 @@
     "first_name": "Atlante",
     "last_name": "Osant",
     "email": "aosant78@msu.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Siena Heights University"
   },
   {
@@ -2092,7 +2092,7 @@
     "first_name": "Raleigh",
     "last_name": "Bras",
     "email": "rbras79@cnet.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Domingo Savio"
   },
   {
@@ -2100,7 +2100,7 @@
     "first_name": "Lola",
     "last_name": "Klyner",
     "email": "lklyner7a@cargocollective.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Université de Tunis El Manar"
   },
   {
@@ -2108,7 +2108,7 @@
     "first_name": "Goldia",
     "last_name": "Aicken",
     "email": "gaicken7b@soundcloud.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Bashkir State Pedagogical University named After M. Akmullah"
   },
   {
@@ -2116,7 +2116,7 @@
     "first_name": "Vladamir",
     "last_name": "Brook",
     "email": "vbrook7c@tripod.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Divinity"
   },
   {
@@ -2124,7 +2124,7 @@
     "first_name": "Zea",
     "last_name": "Hatherleigh",
     "email": "zhatherleigh7d@e-recht24.de",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Pace University  Pleasantville/Briarcliff"
   },
   {
@@ -2132,7 +2132,7 @@
     "first_name": "Kristian",
     "last_name": "Denisevich",
     "email": "kdenisevich7e@epa.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Zhongnan University of Finance and Economics"
   },
   {
@@ -2140,7 +2140,7 @@
     "first_name": "Tobiah",
     "last_name": "Casale",
     "email": "tcasale7f@webs.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Majan University College"
   },
   {
@@ -2148,7 +2148,7 @@
     "first_name": "Sarene",
     "last_name": "Sedgeworth",
     "email": "ssedgeworth7g@answers.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Evangelische Fachhochschule Ludwigshafen Hochschule für Sozial- und Gesundheitswesen"
   },
   {
@@ -2156,7 +2156,7 @@
     "first_name": "Pedro",
     "last_name": "Seville",
     "email": "pseville7h@statcounter.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Wisconsin School of Professional Psychology"
   },
   {
@@ -2164,7 +2164,7 @@
     "first_name": "Clio",
     "last_name": "Dilawey",
     "email": "cdilawey7i@state.gov",
-    "gender": "Polygender",
+    "status": "Polystatus",
     "university": "Seoul National University of Technology"
   },
   {
@@ -2172,7 +2172,7 @@
     "first_name": "Maribeth",
     "last_name": "Witchell",
     "email": "mwitchell7j@sphinn.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Fasa Faculty of Medical Sciences"
   },
   {
@@ -2180,7 +2180,7 @@
     "first_name": "Kristin",
     "last_name": "Romero",
     "email": "kromero7k@technorati.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kyushu Institute of Design"
   },
   {
@@ -2188,7 +2188,7 @@
     "first_name": "Iggy",
     "last_name": "Lunney",
     "email": "ilunney7l@economist.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of the Italian-speaking Part of Switzerland"
   },
   {
@@ -2196,7 +2196,7 @@
     "first_name": "Jeffy",
     "last_name": "de Castelain",
     "email": "jdecastelain7m@state.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Institut Teknologi Bandung"
   },
   {
@@ -2204,7 +2204,7 @@
     "first_name": "Shermie",
     "last_name": "Reis",
     "email": "sreis7n@mapy.cz",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Florida Gulf Coast University"
   },
   {
@@ -2212,7 +2212,7 @@
     "first_name": "Jade",
     "last_name": "Blumsom",
     "email": "jblumsom7o@bbc.co.uk",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Carroll College Helena"
   },
   {
@@ -2220,7 +2220,7 @@
     "first_name": "Naomi",
     "last_name": "Thorby",
     "email": "nthorby7p@clickbank.net",
-    "gender": "Genderfluid",
+    "status": "statusfluid",
     "university": "Université de Kinshasa"
   },
   {
@@ -2228,7 +2228,7 @@
     "first_name": "Augustine",
     "last_name": "Andrieu",
     "email": "aandrieu7q@accuweather.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Marycrest International University"
   },
   {
@@ -2236,7 +2236,7 @@
     "first_name": "Byran",
     "last_name": "Jedrysik",
     "email": "bjedrysik7r@cocolog-nifty.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Södertörn University College"
   },
   {
@@ -2244,7 +2244,7 @@
     "first_name": "Damara",
     "last_name": "Feilden",
     "email": "dfeilden7s@amazon.co.uk",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Godfrey Okoye University "
   },
   {
@@ -2252,7 +2252,7 @@
     "first_name": "Kristin",
     "last_name": "Grelka",
     "email": "kgrelka7t@newsvine.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Autónoma de Baja California"
   },
   {
@@ -2260,7 +2260,7 @@
     "first_name": "Westbrooke",
     "last_name": "Craw",
     "email": "wcraw7u@soundcloud.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Iberoamericana de Ciencias y Tecnologia"
   },
   {
@@ -2268,7 +2268,7 @@
     "first_name": "Ariel",
     "last_name": "Flemmich",
     "email": "aflemmich7v@friendfeed.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Washington Bible College"
   },
   {
@@ -2276,7 +2276,7 @@
     "first_name": "Alon",
     "last_name": "Gioani",
     "email": "agioani7w@example.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Amherst College"
   },
   {
@@ -2284,7 +2284,7 @@
     "first_name": "Edsel",
     "last_name": "Ligoe",
     "email": "eligoe7x@ed.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "International Islamic University"
   },
   {
@@ -2292,7 +2292,7 @@
     "first_name": "Lisa",
     "last_name": "Weatherill",
     "email": "lweatherill7y@nba.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Marij State Technical University"
   },
   {
@@ -2300,7 +2300,7 @@
     "first_name": "Tulley",
     "last_name": "Bowsher",
     "email": "tbowsher7z@indiatimes.com",
-    "gender": "Polygender",
+    "status": "Polystatus",
     "university": "Ohio State University"
   },
   {
@@ -2308,7 +2308,7 @@
     "first_name": "Edan",
     "last_name": "Alan",
     "email": "ealan80@dell.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Georgia School of Professional Psychology"
   },
   {
@@ -2316,7 +2316,7 @@
     "first_name": "Sherry",
     "last_name": "Powis",
     "email": "spowis81@techcrunch.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Westmont College"
   },
   {
@@ -2324,7 +2324,7 @@
     "first_name": "Russell",
     "last_name": "Elmhurst",
     "email": "relmhurst82@sakura.ne.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de Montevideo"
   },
   {
@@ -2332,7 +2332,7 @@
     "first_name": "Muffin",
     "last_name": "Overy",
     "email": "movery83@friendfeed.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "National Taichung Teachers College"
   },
   {
@@ -2340,7 +2340,7 @@
     "first_name": "Jaine",
     "last_name": "Mickelwright",
     "email": "jmickelwright84@prnewswire.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "European University, Athens Campus"
   },
   {
@@ -2348,7 +2348,7 @@
     "first_name": "Othilia",
     "last_name": "ONeal",
     "email": "ooneal85@ucoz.ru",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidade Federal Fluminense"
   },
   {
@@ -2356,7 +2356,7 @@
     "first_name": "Raffaello",
     "last_name": "Mains",
     "email": "rmains86@psu.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidade Católica de Brasília"
   },
   {
@@ -2364,7 +2364,7 @@
     "first_name": "Galina",
     "last_name": "Crake",
     "email": "gcrake87@wiley.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Zurich University of Applied Sciences Winterthur"
   },
   {
@@ -2372,7 +2372,7 @@
     "first_name": "Burnaby",
     "last_name": "Bandiera",
     "email": "bbandiera88@xing.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Tay Nguyen University"
   },
   {
@@ -2380,7 +2380,7 @@
     "first_name": "Dal",
     "last_name": "McVittie",
     "email": "dmcvittie89@businessweek.com",
-    "gender": "Bigender",
+    "status": "Bistatus",
     "university": "Mount Ida College"
   },
   {
@@ -2388,7 +2388,7 @@
     "first_name": "Keelia",
     "last_name": "Whybrow",
     "email": "kwhybrow8a@naver.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Autónoma del Caribe"
   },
   {
@@ -2396,7 +2396,7 @@
     "first_name": "Edlin",
     "last_name": "McGauhy",
     "email": "emcgauhy8b@sciencedirect.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Georgia College & State University"
   },
   {
@@ -2404,7 +2404,7 @@
     "first_name": "Gerti",
     "last_name": "Giscken",
     "email": "ggiscken8c@patch.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ibaraki Christian College"
   },
   {
@@ -2412,7 +2412,7 @@
     "first_name": "Alfreda",
     "last_name": "Gouth",
     "email": "agouth8d@economist.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Shanghai Institue of Foreign Trade"
   },
   {
@@ -2420,7 +2420,7 @@
     "first_name": "Tailor",
     "last_name": "Rudledge",
     "email": "trudledge8e@virginia.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Galatasaray University"
   },
   {
@@ -2428,7 +2428,7 @@
     "first_name": "Andi",
     "last_name": "Lyfe",
     "email": "alyfe8f@shutterfly.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Instituto Superior de Ciências Educativas"
   },
   {
@@ -2436,7 +2436,7 @@
     "first_name": "Tim",
     "last_name": "Francioli",
     "email": "tfrancioli8g@europa.eu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Glamorgan"
   },
   {
@@ -2444,7 +2444,7 @@
     "first_name": "Bert",
     "last_name": "Aubery",
     "email": "baubery8h@qq.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Earlham College"
   },
   {
@@ -2452,7 +2452,7 @@
     "first_name": "Rhetta",
     "last_name": "Frankowski",
     "email": "rfrankowski8i@nhs.uk",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Université de Batna"
   },
   {
@@ -2460,7 +2460,7 @@
     "first_name": "Brade",
     "last_name": "Buffin",
     "email": "bbuffin8j@homestead.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Odessa National Academy of Food Technologies"
   },
   {
@@ -2468,7 +2468,7 @@
     "first_name": "Olympia",
     "last_name": "Croysdale",
     "email": "ocroysdale8k@jalbum.net",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Fachhochschule Bingen"
   },
   {
@@ -2476,7 +2476,7 @@
     "first_name": "Rolland",
     "last_name": "Petras",
     "email": "rpetras8l@stumbleupon.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Rajendra Agricultural University"
   },
   {
@@ -2484,7 +2484,7 @@
     "first_name": "Jacklyn",
     "last_name": "Beetham",
     "email": "jbeetham8m@booking.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Matsusaka University"
   },
   {
@@ -2492,7 +2492,7 @@
     "first_name": "Kirby",
     "last_name": "Howel",
     "email": "khowel8n@oracle.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "State University of New York at Oswego"
   },
   {
@@ -2500,7 +2500,7 @@
     "first_name": "Jemie",
     "last_name": "Chill",
     "email": "jchill8o@wunderground.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Mountains of the Moon University"
   },
   {
@@ -2508,7 +2508,7 @@
     "first_name": "Vivien",
     "last_name": "Longman",
     "email": "vlongman8p@free.fr",
-    "gender": "Female",
+    "status": "accepted",
     "university": "King's University College"
   },
   {
@@ -2516,7 +2516,7 @@
     "first_name": "Hercule",
     "last_name": "Haxbie",
     "email": "hhaxbie8q@phpbb.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Moorhead State University"
   },
   {
@@ -2524,7 +2524,7 @@
     "first_name": "Jessee",
     "last_name": "Mudge",
     "email": "jmudge8r@vimeo.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Technische Fachhochschule Georg Agricola für Rohstoff, Energie und, Umwelt zu Bochum"
   },
   {
@@ -2532,7 +2532,7 @@
     "first_name": "Conn",
     "last_name": "Diehn",
     "email": "cdiehn8s@vkontakte.ru",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université de Technologie de Troyes"
   },
   {
@@ -2540,7 +2540,7 @@
     "first_name": "Mariejeanne",
     "last_name": "Quimby",
     "email": "mquimby8t@google.com.br",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Education"
   },
   {
@@ -2548,7 +2548,7 @@
     "first_name": "Nels",
     "last_name": "Rable",
     "email": "nrable8u@mlb.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ibn Sina University"
   },
   {
@@ -2556,7 +2556,7 @@
     "first_name": "Emmey",
     "last_name": "Lelliott",
     "email": "elelliott8v@uol.com.br",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Academy of Music \"Georghe Dima\" Cluj-Napoca"
   },
   {
@@ -2564,7 +2564,7 @@
     "first_name": "Aile",
     "last_name": "Yong",
     "email": "ayong8w@nbcnews.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Al-Zaiem Al-Azhari University"
   },
   {
@@ -2572,7 +2572,7 @@
     "first_name": "Evered",
     "last_name": "Zannutti",
     "email": "ezannutti8x@va.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université Victor Segalen (Bordeaux II)"
   },
   {
@@ -2580,7 +2580,7 @@
     "first_name": "Shalom",
     "last_name": "Roseman",
     "email": "sroseman8y@bloglovin.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Andrzej Frycz Modrzewski Cracow College"
   },
   {
@@ -2588,7 +2588,7 @@
     "first_name": "Aldus",
     "last_name": "Cathcart",
     "email": "acathcart8z@illinois.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Al-Azhar University of Gaza"
   },
   {
@@ -2596,7 +2596,7 @@
     "first_name": "Karly",
     "last_name": "Kimmitt",
     "email": "kkimmitt90@paypal.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Hubei University"
   },
   {
@@ -2604,7 +2604,7 @@
     "first_name": "Veda",
     "last_name": "Paschek",
     "email": "vpaschek91@acquirethisname.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Posts & Telecommunications Institute of Technology"
   },
   {
@@ -2612,7 +2612,7 @@
     "first_name": "Hildegarde",
     "last_name": "Rowler",
     "email": "hrowler92@princeton.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Baghyatoolah Medical Sciences University"
   },
   {
@@ -2620,7 +2620,7 @@
     "first_name": "Ronni",
     "last_name": "Fawdrie",
     "email": "rfawdrie93@latimes.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universitas Sanata Dharma"
   },
   {
@@ -2628,7 +2628,7 @@
     "first_name": "Wallace",
     "last_name": "Gumb",
     "email": "wgumb94@japanpost.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Shanxi University"
   },
   {
@@ -2636,7 +2636,7 @@
     "first_name": "Taddeusz",
     "last_name": "Bignall",
     "email": "tbignall95@reuters.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "La Sierra University"
   },
   {
@@ -2644,7 +2644,7 @@
     "first_name": "L;urette",
     "last_name": "Skim",
     "email": "lskim96@shop-pro.jp",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Akaki Tsereteli State University"
   },
   {
@@ -2652,7 +2652,7 @@
     "first_name": "Alonso",
     "last_name": "Caldaro",
     "email": "acaldaro97@utexas.edu",
-    "gender": "Genderfluid",
+    "status": "statusfluid",
     "university": "Universidad Isaac Newton"
   },
   {
@@ -2660,7 +2660,7 @@
     "first_name": "Jaime",
     "last_name": "Cumesky",
     "email": "jcumesky98@vistaprint.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Andrassy Gyula German Speaking University Budapest"
   },
   {
@@ -2668,7 +2668,7 @@
     "first_name": "Kory",
     "last_name": "Hauger",
     "email": "khauger99@technorati.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universität Siegen"
   },
   {
@@ -2676,7 +2676,7 @@
     "first_name": "Xenos",
     "last_name": "Marsden",
     "email": "xmarsden9a@over-blog.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Fachhochschule Pur"
   },
   {
@@ -2684,7 +2684,7 @@
     "first_name": "Sherye",
     "last_name": "Heersema",
     "email": "sheersema9b@bravesites.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Oklahoma State University - Oklahoma City"
   },
   {
@@ -2692,7 +2692,7 @@
     "first_name": "Emalia",
     "last_name": "Pollastrone",
     "email": "epollastrone9c@mediafire.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Western Australia"
   },
   {
@@ -2700,7 +2700,7 @@
     "first_name": "Latrina",
     "last_name": "Chaplin",
     "email": "lchaplin9d@altervista.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Texas"
   },
   {
@@ -2708,7 +2708,7 @@
     "first_name": "Barton",
     "last_name": "Whyler",
     "email": "bwhyler9e@weather.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "National Medical University O.O. Bogomolets"
   },
   {
@@ -2716,7 +2716,7 @@
     "first_name": "Farlie",
     "last_name": "Serjeantson",
     "email": "fserjeantson9f@cbslocal.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "South Florida Bible College & Theological Seminary"
   },
   {
@@ -2724,7 +2724,7 @@
     "first_name": "Addison",
     "last_name": "Woolrich",
     "email": "awoolrich9g@github.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ludong University"
   },
   {
@@ -2732,7 +2732,7 @@
     "first_name": "Barr",
     "last_name": "Friar",
     "email": "bfriar9h@nhs.uk",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidade Castelo Branco"
   },
   {
@@ -2740,7 +2740,7 @@
     "first_name": "Alexio",
     "last_name": "McGooch",
     "email": "amcgooch9i@berkeley.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ibaraki Prefectural University of Health Sciences"
   },
   {
@@ -2748,7 +2748,7 @@
     "first_name": "Judd",
     "last_name": "Tigwell",
     "email": "jtigwell9j@feedburner.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Selcuk University"
   },
   {
@@ -2756,7 +2756,7 @@
     "first_name": "Rolland",
     "last_name": "Backman",
     "email": "rbackman9k@cafepress.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "American University in the Emirates"
   },
   {
@@ -2764,7 +2764,7 @@
     "first_name": "Norman",
     "last_name": "Lycett",
     "email": "nlycett9l@businesswire.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Technical University of Crete"
   },
   {
@@ -2772,7 +2772,7 @@
     "first_name": "Corrinne",
     "last_name": "Buxcy",
     "email": "cbuxcy9m@constantcontact.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "African University of Science and Technology"
   },
   {
@@ -2780,7 +2780,7 @@
     "first_name": "Ora",
     "last_name": "Tibalt",
     "email": "otibalt9n@barnesandnoble.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ecole Supérieure de Commerce de Clermont-Ferrand"
   },
   {
@@ -2788,7 +2788,7 @@
     "first_name": "Mischa",
     "last_name": "De Biaggi",
     "email": "mdebiaggi9o@google.ca",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Paier College of Art"
   },
   {
@@ -2796,7 +2796,7 @@
     "first_name": "Cecile",
     "last_name": "Mindenhall",
     "email": "cmindenhall9p@fema.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Université de la Méditerranée (Aix Marseille II)"
   },
   {
@@ -2804,7 +2804,7 @@
     "first_name": "Bessy",
     "last_name": "Flack",
     "email": "bflack9q@google.nl",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidade Camilo Castelo Branco"
   },
   {
@@ -2812,7 +2812,7 @@
     "first_name": "Perry",
     "last_name": "Greguoli",
     "email": "pgreguoli9r@simplemachines.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "National Pedagogical University M. Dragomanov "
   },
   {
@@ -2820,7 +2820,7 @@
     "first_name": "Norman",
     "last_name": "Linham",
     "email": "nlinham9s@apple.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Fiji National University "
   },
   {
@@ -2828,7 +2828,7 @@
     "first_name": "Wilfrid",
     "last_name": "Dummett",
     "email": "wdummett9t@zdnet.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Lewis-Clark State College"
   },
   {
@@ -2836,7 +2836,7 @@
     "first_name": "Wyatan",
     "last_name": "Brumbie",
     "email": "wbrumbie9u@blogs.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Wisconsin - Madison"
   },
   {
@@ -2844,7 +2844,7 @@
     "first_name": "Lilly",
     "last_name": "Tofanini",
     "email": "ltofanini9v@nyu.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Huazhong Agricultural University"
   },
   {
@@ -2852,7 +2852,7 @@
     "first_name": "Nadeen",
     "last_name": "Gainforth",
     "email": "ngainforth9w@icq.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Conestoga College"
   },
   {
@@ -2860,7 +2860,7 @@
     "first_name": "Gordie",
     "last_name": "Hazzard",
     "email": "ghazzard9x@sakura.ne.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Shreemati Nathibai Damodar Thackersey Women's University"
   },
   {
@@ -2868,7 +2868,7 @@
     "first_name": "Bryna",
     "last_name": "Motton",
     "email": "bmotton9y@taobao.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Presbyterian University College"
   },
   {
@@ -2876,7 +2876,7 @@
     "first_name": "Sammy",
     "last_name": "Jimson",
     "email": "sjimson9z@state.tx.us",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Yasar University"
   },
   {
@@ -2884,7 +2884,7 @@
     "first_name": "Flossi",
     "last_name": "Geri",
     "email": "fgeria0@homestead.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Tai Solarin University of Education"
   },
   {
@@ -2892,7 +2892,7 @@
     "first_name": "Katie",
     "last_name": "Brendeke",
     "email": "kbrendekea1@virginia.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Schiller International University"
   },
   {
@@ -2900,7 +2900,7 @@
     "first_name": "Annabel",
     "last_name": "Quarterman",
     "email": "aquartermana2@sohu.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kyoto Seika University"
   },
   {
@@ -2908,7 +2908,7 @@
     "first_name": "Anica",
     "last_name": "Fraine",
     "email": "afrainea3@apple.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universitas Klabat"
   },
   {
@@ -2916,7 +2916,7 @@
     "first_name": "Patrice",
     "last_name": "Dykas",
     "email": "pdykasa4@amazonaws.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Bard College"
   },
   {
@@ -2924,7 +2924,7 @@
     "first_name": "Beth",
     "last_name": "Sunley",
     "email": "bsunleya5@usnews.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Lincoln University"
   },
   {
@@ -2932,7 +2932,7 @@
     "first_name": "Berrie",
     "last_name": "Iredell",
     "email": "biredella6@noaa.gov",
-    "gender": "Bigender",
+    "status": "Bistatus",
     "university": "Kunsthochschule Berlin-Weissensee, Hochschule für Gestaltung "
   },
   {
@@ -2940,7 +2940,7 @@
     "first_name": "Luciana",
     "last_name": "Gemson",
     "email": "lgemsona7@wikispaces.com",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "Daemen College"
   },
   {
@@ -2948,7 +2948,7 @@
     "first_name": "Shelbi",
     "last_name": "Braffington",
     "email": "sbraffingtona8@intel.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Payame Noor University"
   },
   {
@@ -2956,7 +2956,7 @@
     "first_name": "Nicki",
     "last_name": "Vinall",
     "email": "nvinalla9@indiegogo.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Al-Bukhari International University"
   },
   {
@@ -2964,7 +2964,7 @@
     "first_name": "Kleon",
     "last_name": "Handley",
     "email": "khandleyaa@webeden.co.uk",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de San Andres"
   },
   {
@@ -2972,7 +2972,7 @@
     "first_name": "Valli",
     "last_name": "de Marco",
     "email": "vdemarcoab@yellowpages.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Estonian University of Life Sciences"
   },
   {
@@ -2980,7 +2980,7 @@
     "first_name": "Shep",
     "last_name": "Jeanes",
     "email": "sjeanesac@delicious.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Narendra Deva University of Agriculture and Technology"
   },
   {
@@ -2988,7 +2988,7 @@
     "first_name": "Frankie",
     "last_name": "Abrams",
     "email": "fabramsad@liveinternet.ru",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Government College University Lahore"
   },
   {
@@ -2996,7 +2996,7 @@
     "first_name": "Gan",
     "last_name": "Celes",
     "email": "gcelesae@home.pl",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Gansu University of Technology"
   },
   {
@@ -3004,7 +3004,7 @@
     "first_name": "Cathrin",
     "last_name": "Leeke",
     "email": "cleekeaf@godaddy.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidade Nova de Lisboa"
   },
   {
@@ -3012,7 +3012,7 @@
     "first_name": "Aldis",
     "last_name": "Mapplethorpe",
     "email": "amapplethorpeag@furl.net",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Graduate School of Business Administration Zurich (GSBA Zurich)"
   },
   {
@@ -3020,7 +3020,7 @@
     "first_name": "Porter",
     "last_name": "Sein",
     "email": "pseinah@shop-pro.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Shandong University of Triaditional Chinese Medicine"
   },
   {
@@ -3028,7 +3028,7 @@
     "first_name": "Pip",
     "last_name": "Jubb",
     "email": "pjubbai@360.cn",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ho Chi Minh City University of Technology"
   },
   {
@@ -3036,7 +3036,7 @@
     "first_name": "Jemmie",
     "last_name": "Tommasi",
     "email": "jtommasiaj@google.cn",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Mindanao State University - Iligan Institute of Technology"
   },
   {
@@ -3044,7 +3044,7 @@
     "first_name": "Conny",
     "last_name": "Islep",
     "email": "cislepak@amazon.co.uk",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Bethany College Kansas"
   },
   {
@@ -3052,7 +3052,7 @@
     "first_name": "Athena",
     "last_name": "Longstreeth",
     "email": "alongstreethal@g.co",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Nacional de Cuyo"
   },
   {
@@ -3060,7 +3060,7 @@
     "first_name": "Pauly",
     "last_name": "Gritten",
     "email": "pgrittenam@tamu.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Calumet College of St. Joseph"
   },
   {
@@ -3068,7 +3068,7 @@
     "first_name": "Marty",
     "last_name": "Sarjent",
     "email": "msarjentan@edublogs.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Zadar"
   },
   {
@@ -3076,7 +3076,7 @@
     "first_name": "Flint",
     "last_name": "Compston",
     "email": "fcompstonao@ucla.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Antioch New England Graduate School"
   },
   {
@@ -3084,7 +3084,7 @@
     "first_name": "Gennie",
     "last_name": "Hawke",
     "email": "ghawkeap@simplemachines.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Abia State University"
   },
   {
@@ -3092,7 +3092,7 @@
     "first_name": "Jackson",
     "last_name": "Duckels",
     "email": "jduckelsaq@baidu.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de Cartago Florencio del Castillo"
   },
   {
@@ -3100,7 +3100,7 @@
     "first_name": "Janot",
     "last_name": "Doogood",
     "email": "jdoogoodar@virginia.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Pacifica Graduate Institute"
   },
   {
@@ -3108,7 +3108,7 @@
     "first_name": "Derek",
     "last_name": "Broadnicke",
     "email": "dbroadnickeas@woothemes.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de Lambayeque"
   },
   {
@@ -3116,7 +3116,7 @@
     "first_name": "Bevin",
     "last_name": "Tander",
     "email": "btanderat@senate.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Institute of Business Administration (IBA)"
   },
   {
@@ -3124,7 +3124,7 @@
     "first_name": "Nariko",
     "last_name": "Churcher",
     "email": "nchurcherau@topsy.com",
-    "gender": "Polygender",
+    "status": "Polystatus",
     "university": "Surugadai University"
   },
   {
@@ -3132,7 +3132,7 @@
     "first_name": "Freddie",
     "last_name": "Pandey",
     "email": "fpandeyav@skyrock.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Yanbu Technical Institute"
   },
   {
@@ -3140,7 +3140,7 @@
     "first_name": "Reinwald",
     "last_name": "Nyssens",
     "email": "rnyssensaw@mlb.com",
-    "gender": "Genderqueer",
+    "status": "statusqueer",
     "university": "Eastern Oregon University"
   },
   {
@@ -3148,7 +3148,7 @@
     "first_name": "Lisetta",
     "last_name": "Kendall",
     "email": "lkendallax@gmpg.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Sakarya University"
   },
   {
@@ -3156,7 +3156,7 @@
     "first_name": "Thelma",
     "last_name": "Gallety",
     "email": "tgalletyay@examiner.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Osmania University"
   },
   {
@@ -3164,7 +3164,7 @@
     "first_name": "Enid",
     "last_name": "Danilovic",
     "email": "edanilovicaz@sun.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Huizhou University"
   },
   {
@@ -3172,7 +3172,7 @@
     "first_name": "Stormy",
     "last_name": "Ginger",
     "email": "sgingerb0@devhub.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "College of the Holy Cross"
   },
   {
@@ -3180,7 +3180,7 @@
     "first_name": "Padraig",
     "last_name": "Hollyer",
     "email": "phollyerb1@sogou.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Kyungpook National University"
   },
   {
@@ -3188,7 +3188,7 @@
     "first_name": "Tally",
     "last_name": "Wyatt",
     "email": "twyattb2@eepurl.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Gannon University"
   },
   {
@@ -3196,7 +3196,7 @@
     "first_name": "Kingston",
     "last_name": "Titterington",
     "email": "ktitteringtonb3@nationalgeographic.com",
-    "gender": "Polygender",
+    "status": "Polystatus",
     "university": "Nizam's Institute of Medical Sciences"
   },
   {
@@ -3204,7 +3204,7 @@
     "first_name": "Barbabas",
     "last_name": "Szantho",
     "email": "bszanthob4@china.com.cn",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidade de Marília"
   },
   {
@@ -3212,7 +3212,7 @@
     "first_name": "Karisa",
     "last_name": "McAllan",
     "email": "kmcallanb5@digg.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Mzumbe University (Chuo Kikuu Mzumbe)"
   },
   {
@@ -3220,7 +3220,7 @@
     "first_name": "Lucius",
     "last_name": "Haste",
     "email": "lhasteb6@sogou.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université d'Abomey-Calavi (UAC)"
   },
   {
@@ -3228,7 +3228,7 @@
     "first_name": "Aguste",
     "last_name": "Keymar",
     "email": "akeymarb7@google.fr",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Brown University"
   },
   {
@@ -3236,7 +3236,7 @@
     "first_name": "Raphaela",
     "last_name": "Deniskevich",
     "email": "rdeniskevichb8@addtoany.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Evangelische Fachhochschule Freiburg, Hochschule für Soziale Arbeit, Diakonie und Religionspädagogik"
   },
   {
@@ -3244,7 +3244,7 @@
     "first_name": "Daniel",
     "last_name": "Hagley",
     "email": "dhagleyb9@nps.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université d'Antananarivo"
   },
   {
@@ -3252,7 +3252,7 @@
     "first_name": "Crin",
     "last_name": "Levey",
     "email": "cleveyba@miibeian.gov.cn",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Pennsylvania State University at Harrisburg - The Capital College"
   },
   {
@@ -3260,7 +3260,7 @@
     "first_name": "Raimund",
     "last_name": "Aikin",
     "email": "raikinbb@wiley.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Dr. D.Y. Patil University"
   },
   {
@@ -3268,7 +3268,7 @@
     "first_name": "Blondy",
     "last_name": "Biner",
     "email": "bbinerbc@lycos.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "College of Technology at Jeddah"
   },
   {
@@ -3276,7 +3276,7 @@
     "first_name": "Alexandros",
     "last_name": "Padmore",
     "email": "apadmorebd@friendfeed.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Unitomo Surabaya"
   },
   {
@@ -3284,7 +3284,7 @@
     "first_name": "Vernon",
     "last_name": "Thorogood",
     "email": "vthorogoodbe@wired.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Femenina del Sagrado Corazón"
   },
   {
@@ -3292,7 +3292,7 @@
     "first_name": "Krysta",
     "last_name": "Stutter",
     "email": "kstutterbf@skyrock.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of South Carolina - Spartanburg"
   },
   {
@@ -3300,7 +3300,7 @@
     "first_name": "Lindsay",
     "last_name": "Gerritzen",
     "email": "lgerritzenbg@eepurl.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Inner Mongolia Normal University"
   },
   {
@@ -3308,7 +3308,7 @@
     "first_name": "Hailee",
     "last_name": "Leith",
     "email": "hleithbh@tinypic.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Chung Shan Medical and Dental College"
   },
   {
@@ -3316,7 +3316,7 @@
     "first_name": "Kristos",
     "last_name": "Manby",
     "email": "kmanbybi@bing.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Huntington College"
   },
   {
@@ -3324,7 +3324,7 @@
     "first_name": "Kahaleel",
     "last_name": "Hiddersley",
     "email": "khiddersleybj@blogspot.com",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "University of Gastronomic Sciences"
   },
   {
@@ -3332,7 +3332,7 @@
     "first_name": "Olive",
     "last_name": "Wharf",
     "email": "owharfbk@ebay.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Imam Reza University"
   },
   {
@@ -3340,7 +3340,7 @@
     "first_name": "Neddy",
     "last_name": "MacDermand",
     "email": "nmacdermandbl@slashdot.org",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Sylhet Engineering College"
   },
   {
@@ -3348,7 +3348,7 @@
     "first_name": "Codee",
     "last_name": "Brasher",
     "email": "cbrasherbm@alexa.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Heilongjiang Commercial University"
   },
   {
@@ -3356,7 +3356,7 @@
     "first_name": "Bil",
     "last_name": "Barnet",
     "email": "bbarnetbn@cdbaby.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Engineering College of Aarhus"
   },
   {
@@ -3364,7 +3364,7 @@
     "first_name": "Vinni",
     "last_name": "Botly",
     "email": "vbotlybo@networkadvertising.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Allahabad Agricultural Institute, Deemed University"
   },
   {
@@ -3372,7 +3372,7 @@
     "first_name": "Riki",
     "last_name": "Batchelder",
     "email": "rbatchelderbp@cnet.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "International Institute for Population Sciences"
   },
   {
@@ -3380,7 +3380,7 @@
     "first_name": "Ross",
     "last_name": "Francecione",
     "email": "rfrancecionebq@dot.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universitas Kristen Duta Wacana"
   },
   {
@@ -3388,7 +3388,7 @@
     "first_name": "Kenneth",
     "last_name": "Blakemore",
     "email": "kblakemorebr@arizona.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Monsenor Oscar Arnulfo Romeo"
   },
   {
@@ -3396,7 +3396,7 @@
     "first_name": "Edeline",
     "last_name": "Wigan",
     "email": "ewiganbs@weibo.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ecole Nationale Supérieure de Chimie de Toulouse"
   },
   {
@@ -3404,7 +3404,7 @@
     "first_name": "Cookie",
     "last_name": "Organer",
     "email": "corganerbt@a8.net",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Massachusetts Maritime Academy"
   },
   {
@@ -3412,7 +3412,7 @@
     "first_name": "Hakim",
     "last_name": "Harnott",
     "email": "hharnottbu@dagondesign.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya"
   },
   {
@@ -3420,7 +3420,7 @@
     "first_name": "Malva",
     "last_name": "Waliszewski",
     "email": "mwaliszewskibv@ocn.ne.jp",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Benha University"
   },
   {
@@ -3428,7 +3428,7 @@
     "first_name": "Chelsae",
     "last_name": "Palmar",
     "email": "cpalmarbw@dot.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Western Galilee College"
   },
   {
@@ -3436,7 +3436,7 @@
     "first_name": "Sigfried",
     "last_name": "Collopy",
     "email": "scollopybx@dropbox.com",
-    "gender": "Bigender",
+    "status": "Bistatus",
     "university": "Alfaisal University"
   },
   {
@@ -3444,7 +3444,7 @@
     "first_name": "Joela",
     "last_name": "Jeal",
     "email": "jjealby@nih.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Santa Paula"
   },
   {
@@ -3452,7 +3452,7 @@
     "first_name": "Robbi",
     "last_name": "Milkeham",
     "email": "rmilkehambz@barnesandnoble.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Bratsk State Technical University"
   },
   {
@@ -3460,7 +3460,7 @@
     "first_name": "Marita",
     "last_name": "Saunton",
     "email": "msauntonc0@chicagotribune.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Lincoln University Pennsylvania"
   },
   {
@@ -3468,7 +3468,7 @@
     "first_name": "Gamaliel",
     "last_name": "Rosenberger",
     "email": "grosenbergerc1@facebook.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de Huánuco"
   },
   {
@@ -3476,7 +3476,7 @@
     "first_name": "Newton",
     "last_name": "Holdey",
     "email": "nholdeyc2@howstuffworks.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ecole Supérieure de Commerce de Toulouse"
   },
   {
@@ -3484,7 +3484,7 @@
     "first_name": "Gerrard",
     "last_name": "Fleury",
     "email": "gfleuryc3@ycombinator.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Fuji University"
   },
   {
@@ -3492,7 +3492,7 @@
     "first_name": "Ardelle",
     "last_name": "Petters",
     "email": "apettersc4@prnewswire.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Metropolitana de Ciencias de la Educación"
   },
   {
@@ -3500,7 +3500,7 @@
     "first_name": "Kippy",
     "last_name": "Goodricke",
     "email": "kgoodrickec5@themeforest.net",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Moscow P. I. Tchaikovsky Conservatory"
   },
   {
@@ -3508,7 +3508,7 @@
     "first_name": "Adella",
     "last_name": "Martini",
     "email": "amartinic6@xrea.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Medcenter One College of Nursing"
   },
   {
@@ -3516,7 +3516,7 @@
     "first_name": "Hailey",
     "last_name": "Laurie",
     "email": "hlauriec7@sina.com.cn",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Colorado at Denver"
   },
   {
@@ -3524,7 +3524,7 @@
     "first_name": "Delphinia",
     "last_name": "Coulthart",
     "email": "dcoulthartc8@amazonaws.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Mount Allison University"
   },
   {
@@ -3532,7 +3532,7 @@
     "first_name": "Harold",
     "last_name": "Oldknow",
     "email": "holdknowc9@facebook.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Aktau State University"
   },
   {
@@ -3540,7 +3540,7 @@
     "first_name": "Del",
     "last_name": "Wash",
     "email": "dwashca@hostgator.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Ecole des Hautes Etudes Commerciales MAROC"
   },
   {
@@ -3548,7 +3548,7 @@
     "first_name": "Correna",
     "last_name": "Scranny",
     "email": "cscrannycb@lycos.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Donghua University, Shanghai"
   },
   {
@@ -3556,7 +3556,7 @@
     "first_name": "Lexine",
     "last_name": "Matussov",
     "email": "lmatussovcc@etsy.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Nacional de La Plata"
   },
   {
@@ -3564,7 +3564,7 @@
     "first_name": "Shayne",
     "last_name": "Kimberly",
     "email": "skimberlycd@auda.org.au",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad de La Frontera"
   },
   {
@@ -3572,7 +3572,7 @@
     "first_name": "Ky",
     "last_name": "Aldham",
     "email": "kaldhamce@dedecms.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Opole"
   },
   {
@@ -3580,7 +3580,7 @@
     "first_name": "Marlo",
     "last_name": "Cure",
     "email": "mcurecf@creativecommons.org",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Kentucky"
   },
   {
@@ -3588,7 +3588,7 @@
     "first_name": "Ardisj",
     "last_name": "Bromehed",
     "email": "abromehedcg@noaa.gov",
-    "gender": "Female",
+    "status": "accepted",
     "university": "John Cabot University"
   },
   {
@@ -3596,7 +3596,7 @@
     "first_name": "Barthel",
     "last_name": "Insall",
     "email": "binsallch@bigcartel.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "College of Charleston"
   },
   {
@@ -3604,7 +3604,7 @@
     "first_name": "Christoforo",
     "last_name": "Hovel",
     "email": "chovelci@google.de",
-    "gender": "Genderqueer",
+    "status": "statusqueer",
     "university": "The Queen's University Belfast"
   },
   {
@@ -3612,7 +3612,7 @@
     "first_name": "Jon",
     "last_name": "Daulton",
     "email": "jdaultoncj@odnoklassniki.ru",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Centro Occidental Lisandro Alvarado"
   },
   {
@@ -3620,7 +3620,7 @@
     "first_name": "Yuri",
     "last_name": "Wyllis",
     "email": "ywyllisck@berkeley.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Coker College"
   },
   {
@@ -3628,7 +3628,7 @@
     "first_name": "Tonya",
     "last_name": "McWhannel",
     "email": "tmcwhannelcl@storify.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Nippon Institute of Technology"
   },
   {
@@ -3636,7 +3636,7 @@
     "first_name": "Celinka",
     "last_name": "Kubyszek",
     "email": "ckubyszekcm@wikia.com",
-    "gender": "Genderqueer",
+    "status": "statusqueer",
     "university": "Louisiana State University Health Sciences Center New Orleans"
   },
   {
@@ -3644,7 +3644,7 @@
     "first_name": "Costa",
     "last_name": "Cranch",
     "email": "ccranchcn@xrea.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Dillard University"
   },
   {
@@ -3652,7 +3652,7 @@
     "first_name": "Amos",
     "last_name": "Blease",
     "email": "ableaseco@unicef.org",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "National Institute of Education"
   },
   {
@@ -3660,7 +3660,7 @@
     "first_name": "Kermie",
     "last_name": "Casillas",
     "email": "kcasillascp@washingtonpost.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Lampang Vocational College   "
   },
   {
@@ -3668,7 +3668,7 @@
     "first_name": "Wilmer",
     "last_name": "Rose",
     "email": "wrosecq@chicagotribune.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "DeSales University"
   },
   {
@@ -3676,7 +3676,7 @@
     "first_name": "Cyb",
     "last_name": "Wile",
     "email": "cwilecr@huffingtonpost.com",
-    "gender": "Polygender",
+    "status": "Polystatus",
     "university": "University of Sint Eustatius School of Medicine"
   },
   {
@@ -3684,7 +3684,7 @@
     "first_name": "Pollyanna",
     "last_name": "Clee",
     "email": "pcleecs@freewebs.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ecole Supérieure des Sciences Commerciales d'Angers"
   },
   {
@@ -3692,7 +3692,7 @@
     "first_name": "Masha",
     "last_name": "Gelletly",
     "email": "mgelletlyct@berkeley.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Escola Superior de Artes e Design"
   },
   {
@@ -3700,7 +3700,7 @@
     "first_name": "Ardelle",
     "last_name": "Bruton",
     "email": "abrutoncu@bloomberg.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "State Engineering University of Armenia"
   },
   {
@@ -3708,7 +3708,7 @@
     "first_name": "Nyssa",
     "last_name": "Windsor",
     "email": "nwindsorcv@storify.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "China Agriculture University East"
   },
   {
@@ -3716,7 +3716,7 @@
     "first_name": "Roseline",
     "last_name": "Monketon",
     "email": "rmonketoncw@biblegateway.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "University of Ghana"
   },
   {
@@ -3724,7 +3724,7 @@
     "first_name": "Winonah",
     "last_name": "Mcmanaman",
     "email": "wmcmanamancx@networkadvertising.org",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Binary University College of Managemant & Entrepreneurship"
   },
   {
@@ -3732,7 +3732,7 @@
     "first_name": "Emmalee",
     "last_name": "Annell",
     "email": "eannellcy@diigo.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "National Academy of Fine Arts"
   },
   {
@@ -3740,7 +3740,7 @@
     "first_name": "Paco",
     "last_name": "Valintine",
     "email": "pvalintinecz@fotki.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Chandra Shekhar Azad University of Agriculture and Technology"
   },
   {
@@ -3748,7 +3748,7 @@
     "first_name": "Nerti",
     "last_name": "O'Nions",
     "email": "nonionsd0@salon.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Centro de Estudios Investigación y Tecnología (CEIT)"
   },
   {
@@ -3756,7 +3756,7 @@
     "first_name": "Cyrillus",
     "last_name": "Hawyes",
     "email": "chawyesd1@livejournal.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Kanazawa Medical University"
   },
   {
@@ -3764,7 +3764,7 @@
     "first_name": "Aleksandr",
     "last_name": "Linck",
     "email": "alinckd2@newyorker.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Academy of International Economic and Political Relations, Gdynia"
   },
   {
@@ -3772,7 +3772,7 @@
     "first_name": "Wiatt",
     "last_name": "Shearstone",
     "email": "wshearstoned3@timesonline.co.uk",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Takhar University"
   },
   {
@@ -3780,7 +3780,7 @@
     "first_name": "Devonna",
     "last_name": "Trow",
     "email": "dtrowd4@auda.org.au",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Al Ahlia University"
   },
   {
@@ -3788,7 +3788,7 @@
     "first_name": "Dollie",
     "last_name": "Brough",
     "email": "dbroughd5@cnet.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Saskatchewan Indian Federated College"
   },
   {
@@ -3796,7 +3796,7 @@
     "first_name": "Maison",
     "last_name": "Yeudall",
     "email": "myeudalld6@myspace.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Bu Ali Sina University"
   },
   {
@@ -3804,7 +3804,7 @@
     "first_name": "Mortimer",
     "last_name": "Malinowski",
     "email": "mmalinowskid7@meetup.com",
-    "gender": "Bigender",
+    "status": "Bistatus",
     "university": "Wingate University"
   },
   {
@@ -3812,7 +3812,7 @@
     "first_name": "Burnard",
     "last_name": "Wurst",
     "email": "bwurstd8@so-net.ne.jp",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Chongqing Normal University"
   },
   {
@@ -3820,7 +3820,7 @@
     "first_name": "Bradney",
     "last_name": "Joist",
     "email": "bjoistd9@gov.uk",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Islamic Azad University, Qom"
   },
   {
@@ -3828,7 +3828,7 @@
     "first_name": "Aubrey",
     "last_name": "Olufsen",
     "email": "aolufsenda@issuu.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kyoto University of Education"
   },
   {
@@ -3836,7 +3836,7 @@
     "first_name": "Tobias",
     "last_name": "Purrier",
     "email": "tpurrierdb@live.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Université Abdelmalek Essadi"
   },
   {
@@ -3844,7 +3844,7 @@
     "first_name": "Brandyn",
     "last_name": "Parsonson",
     "email": "bparsonsondc@gov.uk",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Universidad Privada del Norte"
   },
   {
@@ -3852,7 +3852,7 @@
     "first_name": "Kellia",
     "last_name": "Lightwood",
     "email": "klightwooddd@topsy.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kurdistan University of Medical Sciences"
   },
   {
@@ -3860,7 +3860,7 @@
     "first_name": "Egbert",
     "last_name": "Cotesford",
     "email": "ecotesfordde@imgur.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Dublin, Trinity College"
   },
   {
@@ -3868,7 +3868,7 @@
     "first_name": "Kimbra",
     "last_name": "Cofax",
     "email": "kcofaxdf@kickstarter.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Ecole Nationale Supérieure des Telecommunications de Paris"
   },
   {
@@ -3876,7 +3876,7 @@
     "first_name": "Harwell",
     "last_name": "Ellesworth",
     "email": "hellesworthdg@webs.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "University of Juba"
   },
   {
@@ -3884,7 +3884,7 @@
     "first_name": "Minnnie",
     "last_name": "Havoc",
     "email": "mhavocdh@earthlink.net",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Long Island University"
   },
   {
@@ -3892,7 +3892,7 @@
     "first_name": "Wendie",
     "last_name": "Wims",
     "email": "wwimsdi@arstechnica.com",
-    "gender": "Polygender",
+    "status": "Polystatus",
     "university": "Karel De Grote Hogeschool"
   },
   {
@@ -3900,7 +3900,7 @@
     "first_name": "Ricardo",
     "last_name": "Campbell-Dunlop",
     "email": "rcampbelldunlopdj@fema.gov",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Örebro University"
   },
   {
@@ -3908,7 +3908,7 @@
     "first_name": "Spenser",
     "last_name": "Murrow",
     "email": "smurrowdk@umich.edu",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Westfälische Wilhelms-Universität Münster"
   },
   {
@@ -3916,7 +3916,7 @@
     "first_name": "Aurilia",
     "last_name": "Howles",
     "email": "ahowlesdl@vistaprint.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Kun Shan University"
   },
   {
@@ -3924,7 +3924,7 @@
     "first_name": "Ardella",
     "last_name": "Artharg",
     "email": "aarthargdm@nydailynews.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Moi University"
   },
   {
@@ -3932,7 +3932,7 @@
     "first_name": "Fonsie",
     "last_name": "Bauldry",
     "email": "fbauldrydn@prnewswire.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Bard College"
   },
   {
@@ -3940,7 +3940,7 @@
     "first_name": "Amil",
     "last_name": "Doughty",
     "email": "adoughtydo@photobucket.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universidad Santa Paula"
   },
   {
@@ -3948,7 +3948,7 @@
     "first_name": "Kurt",
     "last_name": "Martin",
     "email": "kmartindp@hc360.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Växjö University"
   },
   {
@@ -3956,7 +3956,7 @@
     "first_name": "Florette",
     "last_name": "Powelee",
     "email": "fpoweleedq@nyu.edu",
-    "gender": "Genderfluid",
+    "status": "statusfluid",
     "university": "Al Ahlia University"
   },
   {
@@ -3964,7 +3964,7 @@
     "first_name": "Bobine",
     "last_name": "Fiddian",
     "email": "bfiddiandr@ucla.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Irbid National University"
   },
   {
@@ -3972,7 +3972,7 @@
     "first_name": "Murial",
     "last_name": "Bunt",
     "email": "mbuntds@nba.com",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Divine Word College of Legazpi"
   },
   {
@@ -3980,7 +3980,7 @@
     "first_name": "Daniella",
     "last_name": "Gabrieli",
     "email": "dgabrielidt@msu.edu",
-    "gender": "Female",
+    "status": "accepted",
     "university": "Universiteit Doesburg (UNDO)"
   },
   {
@@ -3988,7 +3988,7 @@
     "first_name": "Ignaz",
     "last_name": "Shoubridge",
     "email": "ishoubridgedu@fotki.com",
-    "gender": "Male",
+    "status": "rejected",
     "university": "Davis and Elkins College"
   },
   {
@@ -3996,7 +3996,7 @@
     "first_name": "Sonia",
     "last_name": "Courtes",
     "email": "scourtesdv@independent.co.uk",
-    "gender": "Agender",
+    "status": "Astatus",
     "university": "John F. Kennedy University"
   }
 ]

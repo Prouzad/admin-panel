@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { Column, useExpanded, useTable } from 'react-table'
+import { Column, useSortBy, useTable } from 'react-table'
 
 const Table = ({ data, columns }: { columns: Column[]; data: any }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -8,7 +8,7 @@ const Table = ({ data, columns }: { columns: Column[]; data: any }) => {
         columns,
         data,
       },
-      useExpanded
+      useSortBy
     )
   console.log('DATA', data)
   return (
@@ -17,15 +17,24 @@ const Table = ({ data, columns }: { columns: Column[]; data: any }) => {
         <thead className="">
           {headerGroups?.map((headerGroup, i) => (
             <tr {...headerGroup.getHeaderGroupProps()} key={i} className="">
-              {headerGroup.headers.map((column, i) => (
-                <th
-                  {...column.getHeaderProps()}
-                  key={i}
-                  className={`pr-6 first:pr-4 pb-6 text-[#1D242B] text-left font-semibold border-b-4 sticky`}
-                >
-                  {column.render('Header')}
-                </th>
-              ))}
+              {headerGroup.headers.map((column: any, i) => {
+                return (
+                  <th
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                    key={i}
+                    className={`pr-6 first:pr-4 pb-6 text-[#1D242B] text-left font-semibold border-b-4 sticky`}
+                  >
+                    {column.render('Header')}
+                    <span>
+                      {column.isSorted && column.Header === 'Status'
+                        ? column.isSortedDesc
+                          ? ' 🔽'
+                          : ' 🔼'
+                        : ''}
+                    </span>
+                  </th>
+                )
+              })}
             </tr>
           ))}
         </thead>

@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import 'antd/dist/antd.css'
 import { SessionProvider } from 'next-auth/react'
 import type { AppProps } from 'next/app'
 
