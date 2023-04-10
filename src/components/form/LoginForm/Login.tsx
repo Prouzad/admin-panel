@@ -4,15 +4,18 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { Button, Checkbox, Form, Input } from 'antd'
+import { IconPhone } from '@/components/UI/icons/icons'
+
+const onFinishFailed = (errorInfo: any) => {
+  console.log('Failed:', errorInfo)
+}
 
 const UserLogin = () => {
+  const [form] = Form.useForm()
   const Router = useRouter()
   const [isError, setIsError] = useState('')
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm()
+
   useEffect(() => {})
   const onSubmit = async (data: any) => {
     const { username, password } = data
@@ -33,31 +36,47 @@ const UserLogin = () => {
       console.log('err', err)
     }
   }
+
+  const onFinish = (values: any) => {
+    onSubmit(values)
+    console.log('Success:', values)
+  }
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
-      <div className="w-[550px] p-10 py-20 rounded-xl bg-white border-2 border-blue-200 flex items-center justify-center">
-        <form
-          className="w-[70%] flex flex-col items-center "
-          onSubmit={handleSubmit(onSubmit)}
+      <div className="w-[503px] h-[417px] shadow-[0px_1px_12px_rgba(0,0,0,0.12)] p-10 rounded-2xl bg-white flex items-center justify-center">
+        <Form
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          form={form}
+          style={{ width: '100%' }}
+          layout={'horizontal'}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
         >
-          <UserInput
-            type={'text'}
-            placeholder="Login"
-            {...register('username')}
-          />
-          <UserInput
-            type={'password'}
-            placeholder="Password"
-            {...register('password')}
-          />
-          {isError.length !== 0 && (
-            <div className="text-red-500 text-lg pb-4">{isError}</div>
-          )}
-          <UserButton
-            text={'Login'}
-            style={`w-[100%] text-white ${isError.length === 0 && 'mt-4'}`}
-          />
-        </form>
+          <Form.Item
+            name="username"
+            label="username"
+            rules={[{ required: true, message: 'Please input your username!' }]}
+          >
+            <Input size="large" prefix={<IconPhone className={`mr-3`} />} />
+          </Form.Item>
+
+          <Form.Item
+            name="password"
+            label="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+          >
+            <Input
+              type="password"
+              size="large"
+              prefix={<IconPhone className={`mr-3`} />}
+            />
+          </Form.Item>
+          <Form.Item wrapperCol={{ offset: 5, span: 16 }}>
+            <UserButton text="Авторизация" style="text-white w-full" />
+          </Form.Item>
+        </Form>
       </div>
     </div>
   )

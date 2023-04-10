@@ -1,5 +1,6 @@
 import { InputHTMLAttributes, forwardRef } from 'react'
-
+import { Input } from 'antd'
+import { IconPhone } from '../../icons/icons'
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   label?: string
   error?: string
@@ -10,11 +11,11 @@ const UserInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
   return (
     <div className="mb-6 w-full">
       <div className="">
-        <input
+        <Input
           type={type}
-          {...other}
-          ref={ref}
-          className={`border-2 border-slate-400 text-gray-900 text-lg rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-4 ${style}`}
+          size="large"
+          prefix={<IconPhone className={`mr-3`} />}
+          className={`border box-border border-[#EBEBEB] bg-white text-gray-900 rounded-lg focus:border-gray-400 w-full py-4 px-4 ${style}`}
         />
       </div>
     </div>
