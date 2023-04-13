@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import UserLogin from '@/components/form/LoginForm/Login'
+import bgImage from '@/components/assets/background/LeftPattern.png'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -10,7 +12,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
+      <main className="main">
+        <Image src={bgImage} alt={'Bg'} width={540} />
         <UserLogin />
       </main>
     </>

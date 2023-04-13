@@ -10,7 +10,6 @@ const Table = ({ data, columns }: { columns: Column[]; data: any }) => {
       },
       useSortBy
     )
-  console.log('DATA', data)
   return (
     <div className={`flex flex-col justify-between h-full min-w-[1300px] `}>
       <table {...getTableProps()} role="table">

@@ -21,29 +21,29 @@ const navBar: ICard[] = [
 const LeftBar = () => {
   const router = useRouter()
   return (
-    <div className="h-[calc(100vh-130px)] flex flex-col justify-between w-[280px] px-[20px] top-[104px] pt-4 left-0  fixed space-y-1">
-      <div className="w-[240px]  bg-white rounded-xl py-4 pl-4 flex flex-col ">
+    <div className="h-screen flex flex-col justify-between bg-white w-[232px] shadow-[0_2px_0_8px_rgba(0,0,0,0.15] top-[81px] pt-4 left-0 fixed ">
+      <div className="w-[232px] flex flex-col ">
         {navBar.map((item, idx) => (
           <Link href={item.link} key={idx}>
             <div
-              className={`w-[calc(100%-15px)]  transition-all ease-in-out flex pl-5 cursor-pointer space-x-4 py-[15px] my-[2px] rounded  group text-base items-center ${
+              className={`w-full  transition-all ease-in-out flex pl-5 cursor-pointer space-x-4 py-[9px] mt-4 group text-base items-center ${
                 router.pathname == item.link
-                  ? 'text-white bg-sky-800'
-                  : 'text-[#7B8794] group-hover:text-white hover:bg-sky-800'
+                  ? 'text-black bg-[#EBEBEB]'
+                  : 'text-[#7B8794] group-hover:text-black hover:bg-[#EBEBEB]'
               }`}
             >
               <item.Icon
                 className={`transition-all ease-in-outtext-lg ${
                   router.pathname == item.link
-                    ? 'text-white'
-                    : 'text-[#7B8794] group-hover:text-white'
+                    ? 'text-black'
+                    : 'text-[#7B8794] group-hover:text-black'
                 }`}
               />
               <p
                 className={` transition-all ease-in-out font-semibold ${
                   router.pathname == item.link
-                    ? 'text-white'
-                    : 'text-[#7B8794] group-hover:text-white'
+                    ? 'text-black'
+                    : 'text-[#7B8794] group-hover:text-black'
                 }`}
               >
                 {item.title}

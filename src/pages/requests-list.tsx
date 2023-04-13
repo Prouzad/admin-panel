@@ -5,6 +5,7 @@ import fakeData from '@/MOCK_DATA.json'
 import AdvReqFn, {
   IData,
 } from '@/components/templates/tables/fnTables/advReqFn'
+import { Skeleton } from 'antd'
 
 const TableHead = [
   {
@@ -55,11 +56,16 @@ const UserRequestList = () => {
   })
   const data = useMemo(() => AdvReqFn(arr), [])
   const columns = useMemo(() => TableHead, [])
+
   return (
     <ContentWrapper>
-      <div className="pl-[304px] py-[120px] w-[calc(100%-10px)] h-[calc(100vh-146px)] bg-background">
+      <div className="pl-[304px] py-[120px] w-[calc(100%-10px)] h-[calc(100vh-146px)]">
         <div className="h-[calc(100vh-146px)] p-5 overflow-x-auto bg-white rounded-lg">
-          <Table columns={columns} data={data} />
+          {data.length !== 0 ? (
+            <Table columns={columns} data={data} />
+          ) : (
+            <Skeleton active />
+          )}
         </div>
       </div>
     </ContentWrapper>

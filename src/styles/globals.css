@@ -7,3 +7,16 @@
   padding: 0;
   margin: 0;
 }
+
+body {
+  background: #f3f7ff;
+}
+
+.main {
+  display: flex;
+}
+
+.main img {
+  height: 100vh;
+  user-select: none;
+}

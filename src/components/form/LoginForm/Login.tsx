@@ -1,22 +1,15 @@
-import UserButton from '@/components/UI/form/button/userButton'
-import UserInput from '@/components/UI/form/input/userInput'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { Button, Checkbox, Form, Input } from 'antd'
-import { IconPhone } from '@/components/UI/icons/icons'
-
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo)
-}
+import { Button, Form, Input } from 'antd'
+import { IconLock, IconLogo, IconPhone } from '@/components/UI/icons/icons'
 
 const UserLogin = () => {
   const [form] = Form.useForm()
   const Router = useRouter()
   const [isError, setIsError] = useState('')
+  const [loading, setLoading] = useState<boolean>(false)
 
-  useEffect(() => {})
   const onSubmit = async (data: any) => {
     const { username, password } = data
     try {
@@ -25,56 +18,95 @@ const UserLogin = () => {
         password,
         redirect: false,
       }).then((authenticated) => {
-        authenticated?.ok
-          ? Router.push('/main')
-          : setIsError('Incorrect credentials')
-        setTimeout(() => {
-          setIsError('')
-        }, 3000)
+        if (authenticated?.ok) {
+          return Router.push('/main')
+        } else {
+          setIsError('Неправильный логин или пароль')
+          setTimeout(() => {
+            setIsError('')
+          }, 3000)
+        }
+
+        setLoading(false)
       })
     } catch (err) {
-      console.log('err', err)
+      setLoading(false)
     }
   }
 
   const onFinish = (values: any) => {
     onSubmit(values)
-    console.log('Success:', values)
   }
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center">
-      <div className="w-[503px] h-[417px] shadow-[0px_1px_12px_rgba(0,0,0,0.12)] p-10 rounded-2xl bg-white flex items-center justify-center">
+    <div className="w-full h-screen flex flex-col justify-center items-center relative bg-white">
+      <div
+        className="absolute top-0 left-0 ml-[300px] mt-[54px]
+			"
+      >
+        <IconLogo />
+      </div>
+      <div className="w-[503px] h-[437px] shadow-[0px_1px_12px_rgba(0,0,0,0.12)] p-10 rounded-2xl bg-white flex flex-col items-center justify-center">
+        <div className="text-left w-full m-5">
+          <h2 className="text-[#1D242B] font-bold text-2xl">Вход</h2>
+        </div>
         <Form
           labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
+          wrapperCol={{ span: 106 }}
           form={form}
           style={{ width: '100%' }}
-          layout={'horizontal'}
+          layout={'vertical'}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
             name="username"
-            label="username"
+            label="Ваш логин"
             rules={[{ required: true, message: 'Please input your username!' }]}
+            style={{ height: '85px' }}
           >
-            <Input size="large" prefix={<IconPhone className={`mr-3`} />} />
+            <Input
+              size="large"
+              style={{ height: '48px', marginBottom: '10px' }}
+              prefix={<IconPhone className={`mr-3`} />}
+              placeholder="Введите ваш логин"
+            />
           </Form.Item>
 
           <Form.Item
             name="password"
-            label="password"
+            label="Ваш пароль"
             rules={[{ required: true, message: 'Please input your password!' }]}
+            style={{ height: '70px' }}
           >
             <Input
               type="password"
               size="large"
-              prefix={<IconPhone className={`mr-3`} />}
+              prefix={<IconLock className={`mr-3`} />}
+              style={{ height: '48px' }}
+              placeholder="Введите ваш пароль"
             />
           </Form.Item>
-          <Form.Item wrapperCol={{ offset: 5, span: 16 }}>
-            <UserButton text="Авторизация" style="text-white w-full" />
+          <div
+            className={`h-8 mb-2 ${isError.length ? 'visible' : 'invisible'}`}
+          >
+            <h2 className="text-center text-lg text-red-500 font-semibold">
+              {isError}
+            </h2>
+          </div>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+              onClick={() => setLoading(true)}
+              style={{
+                backgroundColor: '#174880',
+                width: '100%',
+                height: '48px',
+              }}
+            >
+              Авторизация
+            </Button>
           </Form.Item>
         </Form>
       </div>
