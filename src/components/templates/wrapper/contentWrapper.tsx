@@ -7,7 +7,9 @@ const ContentWrapper = ({ children }: { children: ReactNode }) => {
     <>
       <UserHeader />
       <LeftBar />
-      {children}
+      <div className="pl-[250px] py-[100px] w-[calc(100%-20px)] ">
+        {children}
+      </div>
     </>
   )
 }

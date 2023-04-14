@@ -19,7 +19,7 @@ const UserLogin = () => {
         redirect: false,
       }).then((authenticated) => {
         if (authenticated?.ok) {
-          return Router.push('/main')
+          return Router.push('/requests-list')
         } else {
           setIsError('Неправильный логин или пароль')
           setTimeout(() => {

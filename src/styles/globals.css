@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import 'antd/dist/reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 * {
   padding: 0;
@@ -10,6 +12,7 @@
 
 body {
   background: #f3f7ff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .main {
@@ -19,4 +22,8 @@ body {
 .main img {
   height: 100vh;
   user-select: none;
+}
+
+.title-pgae {
+  font-family: 'Roboto', sans-serif;
 }

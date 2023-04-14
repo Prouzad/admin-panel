@@ -1,73 +1,34 @@
-import Table from '@/components/templates/tables/table'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import { useEffect, useMemo } from 'react'
-import fakeData from '@/MOCK_DATA.json'
-import AdvReqFn, {
-  IData,
-} from '@/components/templates/tables/fnTables/advReqFn'
-import { Skeleton } from 'antd'
 
-const TableHead = [
-  {
-    Header: 'ID',
-    accessor: 'id',
-  },
-  {
-    Header: 'First Name',
-    accessor: 'first_name',
-  },
-  {
-    Header: 'Last Name',
-    accessor: 'last_name',
-  },
-  {
-    Header: 'Email',
-    accessor: 'email',
-  },
-  {
-    Header: 'Status',
-    accessor: 'status',
-  },
-  {
-    Header: 'University',
-    accessor: 'university',
-  },
-  {
-    Header: '',
-    accessor: 'extend',
-  },
-]
+import AntTable from '@/components/templates/tables/antTable'
+import { Breadcrumb } from 'antd'
 
-const status: any = {
-  new: 1,
-  accepted: 3,
-  rejected: 3,
-}
 
 const UserRequestList = () => {
-  const arr = fakeData.sort((a, b) => {
-    if (status[a.status] > status[b.status]) {
-      return 1
-    }
-    if (status[a.status] < status[b.status]) {
-      return -1
-    }
-    return 0
-  })
-  const data = useMemo(() => AdvReqFn(arr), [])
-  const columns = useMemo(() => TableHead, [])
-
   return (
     <ContentWrapper>
-      <div className="pl-[304px] py-[120px] w-[calc(100%-10px)] h-[calc(100vh-146px)]">
-        <div className="h-[calc(100vh-146px)] p-5 overflow-x-auto bg-white rounded-lg">
-          {data.length !== 0 ? (
-            <Table columns={columns} data={data} />
-          ) : (
-            <Skeleton active />
-          )}
+        <div className="px-6 py-4 bg-white mb-3 rounded">
+          <Breadcrumb
+            items={[
+              {
+                title: 'Home',
+              },
+              {
+                title: (
+                  <a href="" className="text-black">
+                    Requests
+                  </a>
+                ),
+              },
+            ]}
+          />
+          <h2 className="text-xl font-medium mt-2 title-page">Requests</h2>
+          <p className="text-[13px] mt-3">
+            For you to have detailed information about a given advertising offer
+          </p>
         </div>
-      </div>
+        <AntTable />
+     
     </ContentWrapper>
   )
 }
