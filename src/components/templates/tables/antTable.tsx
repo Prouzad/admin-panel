@@ -1,5 +1,5 @@
 import fakeData, { DataType } from '@/MOCK_DATA'
-import { Badge, Skeleton } from 'antd'
+import { Badge, Select, Skeleton } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { useMemo } from 'react'
@@ -53,6 +53,19 @@ const columnsHead: ColumnsType<DataType> = [
     title: 'TYPE OF ADS',
     dataIndex: 'type_of_ads',
     key: 'type_of_ads',
+    render: (items) => {
+      return (
+        <div className="flex">
+          {items.map((item: string, idx: number) => {
+            return (
+              <div className={`${idx === 0 && 'border-r'}`}>
+                <p>{item}</p>
+              </div>
+            )
+          })}
+        </div>
+      )
+    },
   },
 ]
 
@@ -60,8 +73,21 @@ const AntTable = () => {
   const data = useMemo(() => fakeData, [])
   const columns = useMemo(() => columnsHead, [])
   return (
-    <div className="">
+    <div className="-z-10">
       <div className="p-5 pb-0 overflow-x-auto bg-white rounded-lg">
+        <div className="">
+          <Select
+            defaultValue="lucy"
+            style={{ width: 148, borderRadius: 0 }}
+            // onChange={handleChange}
+            options={[
+              { value: 'jack', label: 'Jack' },
+              { value: 'lucy', label: 'Lucy' },
+              { value: 'Yiminghe', label: 'yiminghe' },
+              { value: 'disabled', label: 'Disabled', disabled: true },
+            ]}
+          />
+        </div>
         {data.length !== 0 ? (
           <Table columns={columns} dataSource={data} />
         ) : (
