@@ -24,8 +24,8 @@ const navBar: ICard[] = [
 const LeftBar = () => {
   const router = useRouter()
   return (
-    <div className="h-screen flex flex-col justify-between bg-white w-[232px] shadow-[0_2px_0_8px_rgba(0,0,0,0.15] top-[81px] pt-4 left-0 fixed ">
-      <div className="w-[232px] flex flex-col ">
+    <div className="col-start-1 col-end-4 row-start-2 row-end-13 h-[100%] flex flex-col justify-between bg-white shadow-3xl pt-4 ">
+      <div className=" flex flex-col ">
         {navBar.map((item, idx) => (
           <Link href={item.link} key={idx}>
             <div
@@ -58,7 +58,6 @@ const LeftBar = () => {
           </Link>
         ))}
       </div>
-      <div className="w-[240px] bg-white rounded-xl py-8 flex items-center flex-col font-semibold text-[#7B8794]">{`${new Date().getFullYear()} Uztelecom`}</div>
     </div>
   )
 }

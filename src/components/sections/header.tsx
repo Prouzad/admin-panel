@@ -11,29 +11,31 @@ import { Badge } from 'antd'
 const UserHeader = () => {
   const { data } = useSession()
   return (
-    <div className="h-20 w-full bg-white flex items-center rounded-b-2xl fixed ">
+    <div className="bg-white rounded-b-2xl col-start-1 col-end-23 row-start-1 row-end-2 grid items-center">
       <div className="w-[235px] ml-6">
         <IconLogo />
       </div>
-      <div className="w-full flex justify-end px-5">
-        <div className="flex ">
-          <div className="flex w-12 h-12 items-center">
+      <div className="col-start-18 col-end-19">
+        <div className="flex w-[283px]  justify-between">
+          <div className="flex items-center ">
             <QuestionCircleOutlined />
           </div>
-          <div className="flex w-12 h-12 items-center">
+          <div className="flex items-center">
             <Badge count={11}>
               <BellOutlined />
             </Badge>
           </div>
           <div className="flex items-center">
-            <div className="flex items-center w-6 h-6 rounded-xl bg-slate-400 justify-center ">
-              {data?.user && <UserOutlined />}
+            <div className="flex  items-center">
+              <div className="flex items-center w-6 h-6 rounded-xl bg-slate-400 justify-center ">
+                {data?.user && <UserOutlined />}
+              </div>
             </div>
-            <div className="flex items-center mx-2 text-sm">
+            <div className="flex items-center ml-4 text-sm">
               {data?.user?.name}
             </div>
           </div>
-          <div className="flex items-center w-12 h-12 justify-center">
+          <div className="flex items-center justify-center">
             <IconTranslate />
           </div>
         </div>

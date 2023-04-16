@@ -3,6 +3,11 @@ import { Badge, Select, Skeleton } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { useMemo } from 'react'
+import { DatePicker, Input } from 'antd'
+import { QuestionCircleOutlined } from '@ant-design/icons'
+
+const { Search } = Input
+const { RangePicker } = DatePicker
 
 const checkColor = (status: string) => {
   switch (status) {
@@ -73,23 +78,44 @@ const AntTable = () => {
   const data = useMemo(() => fakeData, [])
   const columns = useMemo(() => columnsHead, [])
   return (
-    <div className="-z-10">
-      <div className="p-5 pb-0 overflow-x-auto bg-white rounded-lg">
-        <div className="">
-          <Select
-            defaultValue="lucy"
-            style={{ width: 148, borderRadius: 0 }}
-            // onChange={handleChange}
-            options={[
-              { value: 'jack', label: 'Jack' },
-              { value: 'lucy', label: 'Lucy' },
-              { value: 'Yiminghe', label: 'yiminghe' },
-              { value: 'disabled', label: 'Disabled', disabled: true },
-            ]}
-          />
+    <div className="col-start-3 col-end-10">
+      <div className="p-5 pb-0 overflow-x-auto bg-white rounded-lg ">
+        <div className="flex flex-wrap">
+          <div className="flex mx-6">
+            <div className="flex items-center">
+              <p> Rule Name </p> <QuestionCircleOutlined />:
+            </div>
+            <Search
+              placeholder="Please enter"
+              allowClear
+              style={{ width: 232 }}
+            />
+          </div>
+          <div className="mr-6">
+            <RangePicker />
+          </div>
+          <div className="">
+            <Select
+              defaultValue="lucy"
+              listItemHeight={1}
+              listHeight={50}
+              style={{ width: 148, borderRadius: 0 }}
+              // onChange={handleChange}
+              options={[
+                { value: 'jack', label: 'Jack' },
+                { value: 'lucy', label: 'Lucy' },
+                { value: 'Yiminghe', label: 'yiminghe' },
+                { value: 'disabled', label: 'Disabled', disabled: true },
+              ]}
+            />
+          </div>
         </div>
         {data.length !== 0 ? (
-          <Table columns={columns} dataSource={data} />
+          <Table
+            columns={columns}
+            dataSource={data}
+            scroll={{ y: 'calc(100vh - 450px)' }}
+          />
         ) : (
           <Skeleton active />
         )}
