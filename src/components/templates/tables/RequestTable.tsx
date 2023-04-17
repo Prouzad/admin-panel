@@ -2,7 +2,7 @@ import fakeData, { DataType } from '@/MOCK_DATA'
 import { Badge, Select, Skeleton } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { DatePicker, Input } from 'antd'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 
@@ -27,6 +27,7 @@ const columnsHead: ColumnsType<DataType> = [
     title: '№',
     dataIndex: 'number',
     key: 'number',
+    width: 50,
   },
   {
     title: 'COMPANY NAME',
@@ -74,54 +75,72 @@ const columnsHead: ColumnsType<DataType> = [
   },
 ]
 
-const AntTable = () => {
+const RequestTable = () => {
   const data = useMemo(() => fakeData, [])
   const columns = useMemo(() => columnsHead, [])
   return (
-    <div className="col-start-3 col-end-10">
-      <div className="p-5 pb-0 overflow-x-auto bg-white rounded-lg ">
-        <div className="flex flex-wrap">
+    <div className="pb-5">
+      <div className="px-5 pb-0 overflow-x-auto bg-white rounded-lg ">
+        <div className="flex flex-wrap h-20 items-center">
           <div className="flex mx-6">
-            <div className="flex items-center">
-              <p> Rule Name </p> <QuestionCircleOutlined />:
+            <div className="flex items-center mr-2">
+              <p className="text-sm"> Rule Name </p>{' '}
+              <div className="flex items-center justify-center">
+                <QuestionCircleOutlined className=" ml-1" />:
+              </div>
             </div>
             <Search
               placeholder="Please enter"
               allowClear
               style={{ width: 232 }}
+              // onSearch={(value: string) => {}}
             />
           </div>
           <div className="mr-6">
-            <RangePicker />
+            <RangePicker
+              onChange={(value) => {
+                // console.log(value)
+              }}
+            />
           </div>
           <div className="">
             <Select
-              defaultValue="lucy"
+              defaultValue="status filter"
               listItemHeight={1}
-              listHeight={50}
+              listHeight={100}
               style={{ width: 148, borderRadius: 0 }}
               // onChange={handleChange}
+              // onSelect={handleSelect}
               options={[
-                { value: 'jack', label: 'Jack' },
-                { value: 'lucy', label: 'Lucy' },
-                { value: 'Yiminghe', label: 'yiminghe' },
-                { value: 'disabled', label: 'Disabled', disabled: true },
+                {
+                  value: 'status filter',
+                  label: 'Status filter',
+                  disabled: true,
+                },
+                {
+                  value: 'approved',
+                  label: 'Approved',
+                },
+                { value: 'To_moderation', label: 'To Moderation' },
+                { value: 'rejected', label: 'Rejected' },
               ]}
             />
           </div>
         </div>
-        {data.length !== 0 ? (
-          <Table
-            columns={columns}
-            dataSource={data}
-            scroll={{ y: 'calc(100vh - 450px)' }}
-          />
-        ) : (
-          <Skeleton active />
-        )}
+        <Table
+          columns={columns}
+          dataSource={data}
+          onRow={(record, rowIndex) => {
+            return {
+              onClick: (event) => {
+                console.log(record)
+              },
+            }
+          }}
+        />
       </div>
     </div>
   )
 }
 
-export default AntTable
+export default RequestTable

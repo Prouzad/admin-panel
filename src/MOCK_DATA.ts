@@ -306,7 +306,7 @@ const fakeData: DataType[] = [
 	},
 	{
 		number: '2',
-		company_name: 'O’zbektelecom” reklamasi',
+		company_name: 'ISTV reklamasi',
 		phone_number: '+998 92 123 42 23',
 		status: 'To moderation',
 		upload_time: '02 - 05 - 2021 08:28:36',
@@ -314,7 +314,7 @@ const fakeData: DataType[] = [
 	},
 	{
 		number: '3',
-		company_name: 'O’zbektelecom” reklamasi',
+		company_name: 'IPTV reklamasi',
 		phone_number: '+998 92 123 42 23',
 		status: 'Rejected',
 		upload_time: '02 - 05 - 2021 08:28:36',

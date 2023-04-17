@@ -1,13 +1,13 @@
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 
-const Contracts = () => {
+const Agencies = () => {
   return (
     <ContentWrapper>
-      <TempBreadCumb description="For you to have detailed information about a given advertising offer" />
-      <h2>Contracts</h2>
+      <TempBreadCumb description="dasd" />
+      <div className="">Agencies</div>
     </ContentWrapper>
   )
 }
 
-export default Contracts
+export default Agencies

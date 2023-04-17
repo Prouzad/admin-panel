@@ -7,6 +7,7 @@ import IconContracts from '@/components/assets/icons/content_paste.svg'
 import IconAdvert from '@/components/assets/icons/leaderboard.svg'
 import IconRequests from '@/components/assets/icons/requests.svg'
 import IconTranslate from '@/components/assets/icons/translate.svg'
+import IconDone from '@/components/assets/icons/done.svg'
 
 
-export { IconLogo, IconLogOut, IconPhone, IconLock, IconAdvert, IconAgencies, IconContracts, IconRequests, IconTranslate }
+export { IconLogo, IconLogOut, IconPhone, IconLock, IconAdvert, IconAgencies, IconContracts, IconRequests, IconTranslate, IconDone }
