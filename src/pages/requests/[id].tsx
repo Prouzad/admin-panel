@@ -1,14 +1,14 @@
-import { IconDone } from '@/components/UI/icons/icons'
-import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
-import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { ReloadOutlined } from '@ant-design/icons'
 import { Badge, Button, Descriptions, Modal } from 'antd'
 import Image from 'next/image'
-import img from '@/components/assets/images/image.jpg'
-import { useEffect, useState } from 'react'
-import TempModal from '@/components/templates/modal/modal'
+import { useState } from 'react'
 
-const requestDescription = () => {
+import img from '@/components/assets/images/image.jpg'
+import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
+import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
+import { IconDone } from '@/components/UI/icons/icons'
+
+const RequestDescription = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const DescTitle = () => {
@@ -22,7 +22,6 @@ const requestDescription = () => {
             className="flex items-center rounded-sm"
             onClick={() => {
               setIsOpen(true)
-              console.log(isOpen)
             }}
           >
             <ReloadOutlined className="text-[10px]" />
@@ -77,22 +76,10 @@ const requestDescription = () => {
         open={isOpen}
         title="Enter the reason for rejecting the ad !"
         centered
-        onOk={() => {}}
-        onCancel={() => {}}
         footer={[]}
       ></Modal>
-
-      {/* // <TempModal
-      //   isOpen={isOpen}
-      //   setIsOpen={() => {
-      //     setIsOpen(false)
-      //   }}
-      //   title="Enter the reason for rejecting the ad !"
-      // >
-      //   <Button>Cancel</Button>
-      // </TempModal> */}
     </ContentWrapper>
   )
 }
 
-export default requestDescription
+export default RequestDescription

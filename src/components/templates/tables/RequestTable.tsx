@@ -1,10 +1,11 @@
-import fakeData, { DataType } from '@/MOCK_DATA'
-import { Badge, Select, Skeleton } from 'antd'
-import { Table } from 'antd'
-import { ColumnsType } from 'antd/es/table'
-import { useMemo, useState } from 'react'
-import { DatePicker, Input } from 'antd'
 import { QuestionCircleOutlined } from '@ant-design/icons'
+import { Badge, Select } from 'antd'
+import { Table } from 'antd'
+import { DatePicker, Input } from 'antd'
+import { ColumnsType } from 'antd/es/table'
+import { useMemo } from 'react'
+
+import fakeData, { DataType } from '@/MOCK_DATA'
 
 const { Search } = Input
 const { RangePicker } = DatePicker
@@ -64,7 +65,7 @@ const columnsHead: ColumnsType<DataType> = [
         <div className="flex">
           {items.map((item: string, idx: number) => {
             return (
-              <div className={`${idx === 0 && 'border-r'}`}>
+              <div className={`${idx === 0 && 'border-r'}`} key={idx}>
                 <p>{item}</p>
               </div>
             )
@@ -99,7 +100,7 @@ const RequestTable = () => {
           <div className="mr-6">
             <RangePicker
               onChange={(value) => {
-                // console.log(value)
+                return value
               }}
             />
           </div>
@@ -130,10 +131,10 @@ const RequestTable = () => {
         <Table
           columns={columns}
           dataSource={data}
-          onRow={(record, rowIndex) => {
+          onRow={(record) => {
             return {
-              onClick: (event) => {
-                console.log(record)
+              onClick: () => {
+                return record
               },
             }
           }}

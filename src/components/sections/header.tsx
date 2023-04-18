@@ -1,12 +1,12 @@
-import { signOut, useSession } from 'next-auth/react'
-import { IconLogOut, IconLogo, IconTranslate } from '../UI/icons/icons'
-import { redirect } from 'next/dist/server/api-utils'
 import {
   BellOutlined,
   QuestionCircleOutlined,
   UserOutlined,
 } from '@ant-design/icons'
 import { Badge } from 'antd'
+import { useSession } from 'next-auth/react'
+
+import { IconLogo, IconTranslate } from '../UI/icons/icons'
 
 const UserHeader = () => {
   const { data } = useSession()

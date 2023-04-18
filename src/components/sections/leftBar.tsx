@@ -1,18 +1,14 @@
-import Link from 'next/link'
-import {
-  IconAgencies,
-  IconAdvert,
-  IconContracts,
-  IconRequests,
-} from '@/components/UI/icons/icons'
-import { useRouter } from 'next/router'
+import { QuestionCircleOutlined } from '@ant-design/icons'
 import { Badge } from 'antd'
-import {
-  BellOutlined,
-  QuestionCircleOutlined,
-  UserOutlined,
-} from '@ant-design/icons'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+
+import {
+  IconAdvert,
+  IconAgencies,
+  IconContracts,
+} from '@/components/UI/icons/icons'
 
 interface ICard {
   Icon?: any

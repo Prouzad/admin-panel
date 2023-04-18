@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import UserLogin from '@/components/form/LoginForm/Login'
-import bgImage from '@/components/assets/background/LeftPattern.png'
 import Image from 'next/image'
+
+import bgImage from '@/components/assets/background/LeftPattern.png'
+import UserLogin from '@/components/form/LoginForm/Login'
 
 export default function Home() {
   return (

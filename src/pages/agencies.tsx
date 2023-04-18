@@ -1,6 +1,7 @@
+import useTranslation from 'next-translate/useTranslation'
+
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import useTranslation from 'next-translate/useTranslation'
 
 const Agencies = () => {
   const { t } = useTranslation('')
@@ -9,7 +10,7 @@ const Agencies = () => {
     <ContentWrapper>
       <TempBreadCumb description="dasd" />
       <div className="">{t('agencies')}</div>
-			<div>{t('example')}</div>
+      <div>{t('example')}</div>
     </ContentWrapper>
   )
 }

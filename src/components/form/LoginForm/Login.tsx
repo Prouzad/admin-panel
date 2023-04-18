@@ -1,7 +1,8 @@
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
 import { Button, Form, Input } from 'antd'
+import { useRouter } from 'next/router'
+import { signIn } from 'next-auth/react'
+import { useState } from 'react'
+
 import { IconLock, IconLogo, IconPhone } from '@/components/UI/icons/icons'
 
 const UserLogin = () => {
@@ -13,7 +14,7 @@ const UserLogin = () => {
   const onSubmit = async (data: any) => {
     const { username, password } = data
     try {
-      const res = await signIn('credentials', {
+      await signIn('credentials', {
         username,
         password,
         redirect: false,

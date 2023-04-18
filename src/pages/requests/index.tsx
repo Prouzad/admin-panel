@@ -1,6 +1,6 @@
-import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import RequestTable from '@/components/templates/tables/RequestTable'
+import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 
 const UserRequestList = () => {
   return (
