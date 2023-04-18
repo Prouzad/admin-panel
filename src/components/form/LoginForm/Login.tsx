@@ -11,33 +11,29 @@ const UserLogin = () => {
   const [isError, setIsError] = useState('')
   const [loading, setLoading] = useState<boolean>(false)
 
-  const onSubmit = async (data: any) => {
+  const onFinish = async (data: any) => {
     const { username, password } = data
     try {
-      await signIn('credentials', {
+      const res = await signIn('credentials', {
         username,
         password,
         redirect: false,
-      }).then((authenticated) => {
-        if (authenticated?.ok) {
-          return Router.push('/requests')
-        } else {
-          setIsError('Неправильный логин или пароль')
-          setTimeout(() => {
-            setIsError('')
-          }, 3000)
-        }
-
-        setLoading(false)
       })
+      // eslint-disable-next-line no-console
+      console.log(res)
+      res?.ok
+        ? Router.push('/requests')
+        : setIsError('Неправильный логин или пароль')
+      setTimeout(() => {
+        setIsError('')
+      }, 3000)
     } catch (err) {
-      setLoading(false)
+      return err
     }
+
+    setLoading(false)
   }
 
-  const onFinish = (values: any) => {
-    onSubmit(values)
-  }
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center relative bg-white">
       <div
