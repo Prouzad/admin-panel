@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 const ContentWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <div className="">
-      <div className="h-screen w-full grid grid-cols-22 grid-rows-12  gap-1 fixed">
+      <div className="h-screen w-full grid grid-cols-22 grid-rows-12  fixed">
         <UserHeader />
         <LeftBar />
       </div>

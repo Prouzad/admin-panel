@@ -1,0 +1,11 @@
+{
+  "locales": ["ru", "uz"],
+  "defaultLocale": "ru",
+  "pages": {
+    "*": ["common"],
+    "/requests": ["requests"],
+    "/list-cycles": ["advert_cycles"],
+    "/agencies": ["agencies"],
+    "/contracts": ["contracts"]
+  }
+}
