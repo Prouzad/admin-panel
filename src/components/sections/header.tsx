@@ -11,12 +11,12 @@ import { Badge } from 'antd'
 const UserHeader = () => {
   const { data } = useSession()
   return (
-    <div className="bg-white rounded-b-2xl col-start-1 col-end-23 row-start-1 row-end-2 grid items-center">
+    <div className="w-screen bg-white h-20 flex items-center justify-between fixed z-10 shadow-4xl">
       <div className="w-[235px] ml-6">
         <IconLogo />
       </div>
-      <div className="col-start-18 col-end-19">
-        <div className="flex w-[283px]  justify-between">
+      <div className="mr-4">
+        <div className="flex w-[283px] gap-11">
           <div className="flex items-center cursor-pointer">
             <QuestionCircleOutlined />
           </div>

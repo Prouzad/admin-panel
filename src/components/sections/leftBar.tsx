@@ -39,7 +39,7 @@ const LeftBar = () => {
     setIsRout(router.route.split('/'))
   }, [])
   return (
-    <div className="col-start-1 col-end-4 row-start-2 row-end-13 h-[100%] min-w-[232px] flex flex-col justify-between bg-white shadow-3xl pt-4 ">
+    <div className="h-screen w-[232px] flex flex-col justify-between bg-white shadow-3xl pt-4 fixed mt-[81px]">
       <div className=" flex flex-col ">
         {navBar.map((item, idx) => {
           return (

@@ -80,7 +80,7 @@ const RequestTable = () => {
   const columns = useMemo(() => columnsHead, [])
   return (
     <div className="pb-5">
-      <div className="px-5 pb-0 overflow-x-auto bg-white rounded-lg ">
+      <div className="px-5 pb-0  bg-white rounded-lg ">
         <div className="flex flex-wrap h-20 items-center">
           <div className="flex mx-6">
             <div className="flex items-center mr-2">
