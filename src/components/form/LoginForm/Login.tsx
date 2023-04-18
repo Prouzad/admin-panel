@@ -12,26 +12,27 @@ const UserLogin = () => {
   const [loading, setLoading] = useState<boolean>(false)
 
   const onFinish = async (data: any) => {
+    setLoading(true)
     const { username, password } = data
+
     try {
       const res = await signIn('credentials', {
         username,
         password,
         redirect: false,
       })
-      // eslint-disable-next-line no-console
-      console.log(res)
+
       res?.ok
         ? Router.push('/requests')
         : setIsError('Неправильный логин или пароль')
       setTimeout(() => {
         setIsError('')
       }, 3000)
+      setLoading(false)
     } catch (err) {
+      setLoading(false)
       return err
     }
-
-    setLoading(false)
   }
 
   return (
@@ -52,6 +53,7 @@ const UserLogin = () => {
           form={form}
           style={{ width: '100%' }}
           layout={'vertical'}
+          requiredMark={true}
           onFinish={onFinish}
           autoComplete="off"
         >
@@ -95,8 +97,8 @@ const UserLogin = () => {
               type="primary"
               htmlType="submit"
               loading={loading}
-              onClick={() => setLoading(true)}
               style={{
+                color: 'white',
                 backgroundColor: '#174880',
                 width: '100%',
                 height: '48px',
