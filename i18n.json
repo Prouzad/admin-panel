@@ -1,11 +1,11 @@
 {
-  "locales": ["ru", "uz"],
-  "defaultLocale": "ru",
+  "allLanguages": ["ru", "uz"],
+  "defaultLanguage": "ru",
   "pages": {
     "*": ["common"],
-    "/requests": ["requests"],
-    "/list-cycles": ["advert_cycles"],
+    "/": ["login"],
     "/agencies": ["agencies"],
-    "/contracts": ["contracts"]
+    "/requests": ["requests"],
+    "/list-cycles": ["list-cycles"]
   }
 }

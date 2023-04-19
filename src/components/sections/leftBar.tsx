@@ -1,14 +1,12 @@
 import { QuestionCircleOutlined } from '@ant-design/icons'
+import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined'
+import EqualizerOutlinedIcon from '@mui/icons-material/EqualizerOutlined'
+import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined'
 import { Badge } from 'antd'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useState } from 'react'
-
-import {
-  IconAdvert,
-  IconAgencies,
-  IconContracts,
-} from '@/components/UI/icons/icons'
 
 interface ICard {
   Icon?: any
@@ -16,20 +14,33 @@ interface ICard {
   link: string
 }
 
-const navBar: ICard[] = [
-  {
-    title: 'Requests',
-    link: '/requests',
-    Icon: <QuestionCircleOutlined />,
-  },
-  { title: 'Advert cycles', link: '/list-cycles', Icon: <IconAdvert /> },
-  { title: 'Agencies', link: '/agencies', Icon: <IconAgencies /> },
-  { title: 'Contracts', link: '/contracts', Icon: <IconContracts /> },
-]
-
 const LeftBar = () => {
+  const { t } = useTranslation('common')
   const [isRout, setIsRout] = useState<string[]>()
   const router = useRouter()
+
+  const navBar: ICard[] = [
+    {
+      title: t('requests'),
+      link: '/requests',
+      Icon: <QuestionCircleOutlined />,
+    },
+    {
+      title: t('advert-cycles'),
+      link: '/list-cycles',
+      Icon: <EqualizerOutlinedIcon />,
+    },
+    {
+      title: t('agencies'),
+      link: '/agencies',
+      Icon: <MovieOutlinedIcon />,
+    },
+    {
+      title: t('contracts'),
+      link: '/contracts',
+      Icon: <ContentPasteOutlinedIcon />,
+    },
+  ]
 
   useEffect(() => {
     setIsRout(router.route.split('/'))
@@ -67,7 +78,7 @@ const LeftBar = () => {
                     {item.title}
                   </p>
                 </div>
-                {item.title === 'Requests' && <Badge count={11} />}
+                {item.link === '/requests' && <Badge count={11} />}
               </div>
             </Link>
           )

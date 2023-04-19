@@ -4,8 +4,7 @@ import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 
 const Agencies = () => {
-  const { t } = useTranslation('')
-
+  const { t } = useTranslation('agencies')
   return (
     <ContentWrapper>
       <TempBreadCumb description="dasd" />

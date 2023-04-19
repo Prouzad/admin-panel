@@ -1,16 +1,16 @@
 import { QuestionCircleOutlined } from '@ant-design/icons'
-import { Badge, Select } from 'antd'
+import { Select } from 'antd'
 import { Table } from 'antd'
 import { DatePicker, Input } from 'antd'
 import { ColumnsType } from 'antd/es/table'
-import { useMemo } from 'react'
+import { useRouter } from 'next/router'
 
-import fakeData, { DataType } from '@/MOCK_DATA'
+import { DataType } from '@/MOCK_DATA'
 
 const { Search } = Input
 const { RangePicker } = DatePicker
 
-const checkColor = (status: string) => {
+export const checkColor = (status: string) => {
   switch (status) {
     case 'Approved':
       return 'success'
@@ -23,62 +23,15 @@ const checkColor = (status: string) => {
   }
 }
 
-const columnsHead: ColumnsType<DataType> = [
-  {
-    title: '№',
-    dataIndex: 'number',
-    key: 'number',
-    width: 50,
-  },
-  {
-    title: 'COMPANY NAME',
-    dataIndex: 'company_name',
-    key: 'company_name',
-  },
-  {
-    title: 'PHONE NUMBER',
-    dataIndex: 'phone_number',
-    key: 'phone_number',
-  },
-  {
-    title: 'STATUS',
-    key: 'status',
-    dataIndex: 'status',
-    render: (_, { status }) => (
-      <Badge status={checkColor(status)} text={status} />
-    ),
-  },
-  {
-    title: 'UPLOAD TIME',
-    dataIndex: 'upload_time',
-    key: 'upload_time',
-    defaultSortOrder: 'descend',
-    sorter: (a, b) => a.upload_time - b.upload_time,
-  },
+const RequestTable = ({
+  columns,
+  data,
+}: {
+  columns: ColumnsType<DataType>
+  data: DataType[]
+}) => {
+  const router = useRouter()
 
-  {
-    title: 'TYPE OF ADS',
-    dataIndex: 'type_of_ads',
-    key: 'type_of_ads',
-    render: (items) => {
-      return (
-        <div className="flex">
-          {items.map((item: string, idx: number) => {
-            return (
-              <div className={`${idx === 0 && 'border-r'}`} key={idx}>
-                <p>{item}</p>
-              </div>
-            )
-          })}
-        </div>
-      )
-    },
-  },
-]
-
-const RequestTable = () => {
-  const data = useMemo(() => fakeData, [])
-  const columns = useMemo(() => columnsHead, [])
   return (
     <div className="pb-5">
       <div className="px-5 pb-0  bg-white rounded-lg ">
@@ -134,7 +87,8 @@ const RequestTable = () => {
           onRow={(record) => {
             return {
               onClick: () => {
-                return record
+                const url = router.asPath + `/${record.id}`
+                router.push(url)
               },
             }
           }}

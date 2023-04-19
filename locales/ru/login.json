@@ -1,0 +1,10 @@
+{
+  "signIn": "Вход",
+  "enter-your-login": "Введите ваш логин",
+  "please-enter-your-username": "Пожалуйста введите ваш логин",
+  "your-login": "Ваш логин",
+  "your-password": "Ваш пароль",
+  "please-enter-your-password": "Пожалуйста введите ваш пароль",
+  "enter-your-password": "Введите ваш пароль",
+  "authentication": "Авторизация"
+}

@@ -1,6 +1,9 @@
 {
-  "i18n-ally.localesPaths": ["locales"],
-  "i18n-ally.editor.preferEditor": true,
-  "i18n-ally.enabledFrameworks": ["react", "i18next", "general"],
-  "i18n-ally.keystyle": "nested"
+	"i18n-ally.localesPaths": "locales",
+	"i18n-ally.enabledFrameworks": [
+		"react",
+		"next-translate",
+    "general"
+  ],
+	"i18n-ally.displayLanguage": "ru"
 }

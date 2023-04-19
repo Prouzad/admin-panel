@@ -10,7 +10,7 @@ import RequestTable, {
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData, { DataType } from '@/MOCK_DATA'
 
-const UserRequestList = () => {
+const AdvCycle = () => {
   const { t } = useTranslation('requests')
 
   const columnsHead: ColumnsType<DataType> = [
@@ -68,6 +68,7 @@ const UserRequestList = () => {
 
   const data = useMemo(() => fakeData, [])
   const columns = useMemo(() => columnsHead, [])
+
   return (
     <ContentWrapper>
       <TempBreadCumb
@@ -80,4 +81,4 @@ const UserRequestList = () => {
   )
 }
 
-export default UserRequestList
+export default AdvCycle

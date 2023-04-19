@@ -8,7 +8,7 @@ const TempBreadCumb = ({ description }: { description: string }) => {
 
   useEffect(() => {
     setIsRout(router.route.split('/'))
-  }, [])
+  }, [router.route])
 
   const arr = isRout
     ? isRout?.filter(Boolean)?.map((item) => {

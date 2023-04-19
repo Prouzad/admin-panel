@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "i18n": "node ../../cli/builder.js"
   },
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
@@ -30,6 +31,8 @@
     "next-auth": "^4.21.0",
     "next-images": "^1.8.4",
     "next-translate": "^2.0.5",
+    "next-translate-plugin": "^2.0.5",
+    "next-translate-routes": "^1.9.2",
     "react": "18.2.0",
     "react-code-input": "^3.10.1",
     "react-dom": "18.2.0",
