@@ -6,6 +6,7 @@
     "/": ["login"],
     "/agencies": ["agencies"],
     "/requests": ["requests"],
+    "/requests/[id]": ["requests"],
     "/list-cycles": ["list-cycles"]
   }
 }

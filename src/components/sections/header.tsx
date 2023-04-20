@@ -3,35 +3,26 @@ import {
   QuestionCircleOutlined,
   UserOutlined,
 } from '@ant-design/icons'
-import { Badge, Dropdown, MenuProps } from 'antd'
-import Link from 'next/link'
+import { Badge, Button, Dropdown, MenuProps } from 'antd'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import useTranslation from 'next-translate/useTranslation'
+import setLanguage from 'next-translate/setLanguage'
 
 import { IconLogo, IconTranslate } from '../UI/icons/icons'
 
 const items: MenuProps['items'] = [
   {
-    label: <a href="https://www.antgroup.com">1st menu item</a>,
+    label: <Button onClick={async () => await setLanguage('ru')}>RU</Button>,
     key: '0',
   },
   {
-    label: <a href="https://www.aliyun.com">2nd menu item</a>,
+    label: <Button onClick={async () => await setLanguage('uz')}>UZ</Button>,
     key: '1',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: '3rd menu item',
-    key: '3',
   },
 ]
 
 const UserHeader = () => {
   const router = useRouter()
-  const { lang } = useTranslation()
   const { data } = useSession()
 
   const changeLang = (lang: string) => {
@@ -47,34 +38,6 @@ const UserHeader = () => {
     <div className="w-screen bg-white h-20 flex items-center justify-between fixed z-10 shadow-4xl">
       <div className="w-[235px] ml-6">
         <IconLogo />
-      </div>
-      <div className="">
-        {lang !== 'uz' && (
-          <Link href="" lang="uz" legacyBehavior>
-            <a>
-              <button
-                onClick={() => {
-                  changeLang('uz')
-                }}
-              >
-                UZ
-              </button>
-            </a>
-          </Link>
-        )}
-        {lang !== 'ru' && (
-          <Link href="" lang="ru" legacyBehavior>
-            <a>
-              <button
-                onClick={() => {
-                  changeLang('ru')
-                }}
-              >
-                RU
-              </button>
-            </a>
-          </Link>
-        )}
       </div>
       <div className="mr-6">
         <div className="flex w-[283px] gap-11">

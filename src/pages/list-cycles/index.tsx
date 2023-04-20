@@ -1,5 +1,6 @@
 import { Badge } from 'antd'
 import { ColumnsType } from 'antd/es/table'
+import { advertCyclesCrumb } from 'BREADCRUMB_DATA'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo } from 'react'
 
@@ -11,7 +12,7 @@ import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData, { DataType } from '@/MOCK_DATA'
 
 const AdvCycle = () => {
-  const { t } = useTranslation('requests')
+  const { t, lang } = useTranslation('requests')
 
   const columnsHead: ColumnsType<DataType> = [
     {
@@ -67,15 +68,11 @@ const AdvCycle = () => {
   ]
 
   const data = useMemo(() => fakeData, [])
-  const columns = useMemo(() => columnsHead, [])
+  const columns = useMemo(() => columnsHead, [lang])
 
   return (
     <ContentWrapper>
-      <TempBreadCumb
-        description={
-          'For you to have detailed information about a given advertising offer'
-        }
-      />
+      <TempBreadCumb data={advertCyclesCrumb} />
       <RequestTable columns={columns} data={data} />
     </ContentWrapper>
   )

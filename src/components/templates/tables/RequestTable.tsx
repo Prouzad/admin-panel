@@ -5,6 +5,7 @@ import { DatePicker, Input } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { useRouter } from 'next/router'
 
+// import useTranslation from 'next-translate/useTranslation'
 import { DataType } from '@/MOCK_DATA'
 
 const { Search } = Input
@@ -40,13 +41,16 @@ const RequestTable = ({
             <div className="flex items-center mr-2">
               <p className="text-sm"> Rule Name </p>{' '}
               <div className="flex items-center justify-center">
-                <QuestionCircleOutlined className=" ml-1" />:
+                <QuestionCircleOutlined className=" ml-1" />
+                <p className="ml-1">:</p>
               </div>
             </div>
             <Search
               placeholder="Please enter"
               allowClear
-              style={{ width: 232 }}
+              style={{
+                width: 232,
+              }}
               // onSearch={(value: string) => {}}
             />
           </div>

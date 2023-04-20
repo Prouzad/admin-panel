@@ -6,5 +6,6 @@
   "your-password": "Ваш пароль",
   "please-enter-your-password": "Пожалуйста введите ваш пароль",
   "enter-your-password": "Введите ваш пароль",
-  "authentication": "Авторизация"
+  "authentication": "Авторизация",
+  "incorrect-login-or-password": "Неправильный логин или пароль!"
 }

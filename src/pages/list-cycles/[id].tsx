@@ -1,13 +1,14 @@
 import { ReloadOutlined } from '@ant-design/icons'
-import { Badge, Button, Descriptions, Modal } from 'antd'
-import Image from 'next/image'
+import { Button, Descriptions, Modal } from 'antd'
+import { advertCyclesDescriptionCrumb } from 'BREADCRUMB_DATA'
+// import Image from 'next/image'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
 
-import img from '@/components/assets/images/image.jpg'
+// import img from '@/components/assets/images/image.jpg'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
-import { checkColor } from '@/components/templates/tables/RequestTable'
+// import { checkColor } from '@/components/templates/tables/RequestTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IconDone } from '@/components/UI/icons/icons'
 import fakeData from '@/MOCK_DATA'
@@ -76,32 +77,39 @@ const RequestDescription = () => {
 
   return (
     <ContentWrapper>
-      <TempBreadCumb description="dasd" />
+      <TempBreadCumb data={advertCyclesDescriptionCrumb} />
       <div className="col-start-3 col-end-10">
         <div className="p-5 overflow-x-auto bg-white rounded-lg">
           {' '}
           <Descriptions title={<DescTitle />} layout="vertical" bordered>
-            <Descriptions.Item label="Ads id">{res?.id}</Descriptions.Item>
-            <Descriptions.Item label="Phone number" span={2}>
-              {res?.phone_number}
+            <Descriptions.Item label="Ads id">5423412</Descriptions.Item>
+            <Descriptions.Item label="File">
+              https://lb.api.cdn.uzcl...
             </Descriptions.Item>
-            <Descriptions.Item label="Upload time">
+            <Descriptions.Item label="Company name">
+              “NAMUNA-DIYOR XIIChK” MCHJ , Uzbekistan
+            </Descriptions.Item>
+            <Descriptions.Item label="Type of Ads">Stories</Descriptions.Item>
+            <Descriptions.Item label="Duration">
+              1 Week / 3 days
+            </Descriptions.Item>
+            <Descriptions.Item label="Views">12 232 421</Descriptions.Item>
+            <Descriptions.Item label="Is finished">
               {res?.upload_time}
             </Descriptions.Item>
-            <Descriptions.Item label="Company name" span={2}>
-              {res?.company_name}
+            <Descriptions.Item label="Moderator">Mr Arabboy</Descriptions.Item>
+            <Descriptions.Item label="Type of Ads">Stories</Descriptions.Item>
+            <Descriptions.Item label="Phone number">
+              +998 93 234 65 63
             </Descriptions.Item>
-            <Descriptions.Item label="Status">
-              <Badge status={checkColor(res!.status)} text={res?.status} />
+            <Descriptions.Item label="Payment" span={2}>
+              32 000 000 UZS
             </Descriptions.Item>
-            <Descriptions.Item label="Moderator" span={2}>
-              Mr Arabboy
-            </Descriptions.Item>
-            <Descriptions.Item label="Type of ADs" span={3}>
-              {res?.type_of_ads[0]}
+            <Descriptions.Item label="Target Ads" span={3}>
+              {res?.upload_time}
             </Descriptions.Item>
             <Descriptions.Item label="Uploaded content">
-              <Image src={img} alt="sas" width={110} height={80} />
+              {res?.upload_time}
             </Descriptions.Item>
           </Descriptions>
         </div>

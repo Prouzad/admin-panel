@@ -13,7 +13,7 @@ const fakeData: DataType[] = [
     company_name: 'O’zbektelecom” reklamasi',
     phone_number: '+998 92 123 42 23',
     status: 'Approved',
-    upload_time: '02 - 05 - 2021 08:28:36',
+    upload_time: '2023-04-20T06:41:10.112Z',
     type_of_ads: ['banner', '3 days'],
   },
   {
@@ -30,7 +30,7 @@ const fakeData: DataType[] = [
     phone_number: '+998 92 123 42 23',
     status: 'Rejected',
     upload_time: '02 - 05 - 2021 08:28:36',
-    type_of_ads: ['banner', '21 000'],
+    type_of_ads: ['Survey', '21 000'],
   },
   {
     id: '4',
@@ -54,7 +54,7 @@ const fakeData: DataType[] = [
     phone_number: '+998 92 123 42 23',
     status: 'Approved',
     upload_time: '02 - 05 - 2021 08:28:36',
-    type_of_ads: ['stories', 'Packs'],
+    type_of_ads: ['video', 'Packs'],
   },
   {
     id: '7',

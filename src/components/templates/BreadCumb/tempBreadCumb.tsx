@@ -1,23 +1,14 @@
 import { Breadcrumb } from 'antd'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { IBreadCumb } from 'BREADCRUMB_DATA'
 
-const TempBreadCumb = ({ description }: { description: string }) => {
-  const [isRout, setIsRout] = useState<string[]>()
-  const router = useRouter()
-
-  useEffect(() => {
-    setIsRout(router.route.split('/'))
-  }, [router.route])
-
-  const arr = isRout
-    ? isRout?.filter(Boolean)?.map((item) => {
+const TempBreadCumb = ({ data }: { data: IBreadCumb }) => {
+  const { description, title, pageRoute } = data
+  const arr = pageRoute
+    ? pageRoute?.map((item) => {
         return {
           title: (
-            <a href={`/${item}`} className="text-black">
-              {item !== 'list-cycles'
-                ? item.charAt(0).toUpperCase() + item.slice(1)
-                : 'Advert cycles'}
+            <a href={`/${item.link}`} className="text-black">
+              {item.title}
             </a>
           ),
         }
@@ -33,12 +24,7 @@ const TempBreadCumb = ({ description }: { description: string }) => {
           ...arr,
         ]}
       />
-      <h2 className="text-xl font-medium mt-2 title-page">
-        {isRout?.length && isRout[isRout.length - 1] !== 'list-cycles'
-          ? isRout[isRout.length - 1].charAt(0).toUpperCase() +
-            isRout[isRout.length - 1].slice(1)
-          : 'Advert cycles'}
-      </h2>
+      <h2 className="text-xl font-medium mt-2 title-page">{title}</h2>
       <p className="text-[13px] mt-3">{description}</p>
     </div>
   )

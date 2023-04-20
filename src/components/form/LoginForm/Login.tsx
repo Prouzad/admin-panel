@@ -24,7 +24,9 @@ const UserLogin = () => {
         redirect: false,
       })
 
-      res?.ok ? Router.push('/requests') : setIsError('incorrect-ud')
+      res?.ok
+        ? Router.push('/requests')
+        : setIsError(t('incorrect-login-or-password'))
       setTimeout(() => {
         setIsError('')
       }, 3000)

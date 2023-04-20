@@ -1,5 +1,6 @@
 import { ReloadOutlined } from '@ant-design/icons'
 import { Badge, Button, Descriptions, Modal } from 'antd'
+import { requesetDescriptionCrumb } from 'BREADCRUMB_DATA'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
@@ -13,6 +14,7 @@ import { IconDone } from '@/components/UI/icons/icons'
 import fakeData from '@/MOCK_DATA'
 
 const RequestDescription = () => {
+  const { t } = useTranslation('requests')
   const [isOpenReject, setIsOpenReject] = useState(false)
   const [isOpenConfirm, setIsOpenConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -42,8 +44,80 @@ const RequestDescription = () => {
     }, 3000)
   }
 
+  const choseTypeOfContent = (contentType: string, content: any) => {
+    if (contentType === 'banner') {
+      return <Image src={img} alt="sas" width={110} height={80} />
+    }
+    if (contentType === 'Survey') {
+      return (
+        <>
+          <div className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5">
+            <div className="w-6 text-sm font-normal text-[#174880] mr-1">
+              #1
+            </div>
+            <div className="">
+              <h2 className=" text-sm font-semibold">
+                Uploading is the process of publishing information (web pages,
+                text, pictures, video, etc.) to a remote server via a web page
+                or upload tool. ?
+              </h2>
+              <ul style={{ listStyleType: 'disc' }}>
+                <li>
+                  Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu
+                  uning boshlangich javobi
+                </li>
+                <li>
+                  O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu
+                  uning 2 - javobi
+                </li>
+                <li>
+                  Bu xato javob , bu savolning yakuniy javobi , aslida xato
+                  javob yo’q so’rovnomada{' '}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="w-[700px] p-3 flex bg-[#F1F4F9] rounded">
+            <div className="w-6 text-sm font-normal text-[#174880] mr-1">
+              #1
+            </div>
+            <div className="">
+              <h2 className=" text-sm font-semibold">
+                Uploading is the process of publishing information (web pages,
+                text, pictures, video, etc.) to a remote server via a web page
+                or upload tool. ?
+              </h2>
+              <ul style={{ listStyleType: 'disc' }}>
+                <li>
+                  Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu
+                  uning boshlangich javobi
+                </li>
+                <li>
+                  O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu
+                  uning 2 - javobi
+                </li>
+                <li>
+                  Bu xato javob , bu savolning yakuniy javobi , aslida xato
+                  javob yo’q so’rovnomada{' '}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </>
+      )
+    }
+    if (contentType === 'video') {
+      return (
+        <>
+          <video autoPlay loop src={content} width={320} height={240} controls>
+            <track kind="captions" />
+          </video>
+        </>
+      )
+    }
+  }
+
   const DescTitle = () => {
-    const { t } = useTranslation('requests')
     return (
       <div className="flex justify-between flex-wrap">
         <p>{t('description-ads')}</p>
@@ -74,18 +148,26 @@ const RequestDescription = () => {
     )
   }
 
+  const RejectModalTitle = () => {
+    return (
+      <>
+        <h2 className="mb-4">Enter the reason for rejecting the ad !</h2>
+      </>
+    )
+  }
+
   return (
     <ContentWrapper>
-      <TempBreadCumb description="dasd" />
+      <TempBreadCumb data={requesetDescriptionCrumb} />
       <div className="col-start-3 col-end-10">
         <div className="p-5 overflow-x-auto bg-white rounded-lg">
           {' '}
           <Descriptions title={<DescTitle />} layout="vertical" bordered>
-            <Descriptions.Item label="Ads id">{res?.id}</Descriptions.Item>
+            <Descriptions.Item label={t('ads-id')}>{res?.id}</Descriptions.Item>
             <Descriptions.Item label="Phone number" span={2}>
               {res?.phone_number}
             </Descriptions.Item>
-            <Descriptions.Item label="Upload time">
+            <Descriptions.Item label={t('description-ads')}>
               {res?.upload_time}
             </Descriptions.Item>
             <Descriptions.Item label="Company name" span={2}>
@@ -101,7 +183,10 @@ const RequestDescription = () => {
               {res?.type_of_ads[0]}
             </Descriptions.Item>
             <Descriptions.Item label="Uploaded content">
-              <Image src={img} alt="sas" width={110} height={80} />
+              {choseTypeOfContent(
+                res!.type_of_ads[0],
+                'https://www.youtube.com/watch?v=7r3dQbkdYGY'
+              )}
             </Descriptions.Item>
           </Descriptions>
         </div>
@@ -109,18 +194,19 @@ const RequestDescription = () => {
       <Modal
         open={isOpenReject}
         maskStyle={{ backdropFilter: 'blur(5px)' }}
-        title="Enter the reason for rejecting the ad !"
+        title={<RejectModalTitle />}
         closable={!isLoading}
         maskClosable={!isLoading}
         onCancel={() => {
           setIsOpenReject(false)
         }}
         centered
-        footer={[]}
+        bodyStyle={{ padding: 0 }}
+        footer={null}
       >
-        <div className="w-full flex item-center justify-center ">
+        <div className="w-full flex item-center justify-center border-t-2 ">
           <Button
-            className="w-[524px] h-8 flex items-center justify-center rounded-sm bg-red-100 text-red-500 font-medium cursor-pointer border-0"
+            className="w-[524px] h-8 flex items-center justify-center rounded-sm bg-red-100 text-red-500 font-medium cursor-pointer border-0 mt-6 mb-2"
             danger
             loading={isLoading}
             onClick={handleReject}

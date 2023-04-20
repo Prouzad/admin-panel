@@ -27,3 +27,4 @@ body {
 .title-pgae {
   font-family: 'Roboto', sans-serif;
 }
+svg { vertical-align: baseline; }
