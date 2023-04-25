@@ -5,9 +5,6 @@ import { DatePicker, Input } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { useRouter } from 'next/router'
 
-// import useTranslation from 'next-translate/useTranslation'
-import { DataType } from '@/MOCK_DATA'
-
 const { Search } = Input
 const { RangePicker } = DatePicker
 
@@ -24,17 +21,19 @@ export const checkColor = (status: string) => {
   }
 }
 
-const RequestTable = ({
+const MyTable = ({
   columns,
   data,
+  style,
 }: {
-  columns: ColumnsType<DataType>
-  data: DataType[]
+  columns: ColumnsType<any>
+  data: any[]
+  style: string
 }) => {
   const router = useRouter()
 
   return (
-    <div className="pb-5">
+    <div className={`pb-5 ${style}`}>
       <div className="px-5 pb-0  bg-white rounded-lg ">
         <div className="flex flex-wrap h-20 items-center">
           <div className="flex mx-6">
@@ -102,4 +101,4 @@ const RequestTable = ({
   )
 }
 
-export default RequestTable
+export default MyTable

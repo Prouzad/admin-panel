@@ -5,9 +5,7 @@ import useTranslation from 'next-translate/useTranslation'
 import { useMemo } from 'react'
 
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
-import RequestTable, {
-  checkColor,
-} from '@/components/templates/tables/RequestTable'
+import RequestTable, { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData, { DataType } from '@/MOCK_DATA'
 
@@ -72,7 +70,7 @@ const UserRequestList = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={requestsCrumb} />
-      <RequestTable columns={columns} data={data} />
+      <RequestTable columns={columns} data={data} style="w-[65%]" />
     </ContentWrapper>
   )
 }

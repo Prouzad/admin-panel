@@ -15,7 +15,7 @@ const TempBreadCumb = ({ data }: { data: IBreadCumb }) => {
       })
     : []
   return (
-    <div className="px-6 py-4 bg-white mb-3 rounded col-start-3 col-end-19 row-start-2 row-end-4">
+    <div className="px-6 py-4 bg-white mb-3 rounded col-start-3 col-end-19 row-start-2 row-end-4 max-w-[65%]">
       <Breadcrumb
         items={[
           {

@@ -1,21 +1,47 @@
-import { ReloadOutlined } from '@ant-design/icons'
+import {
+  CheckCircleFilled,
+  CloseCircleFilled,
+  MinusCircleOutlined,
+} from '@ant-design/icons'
 import { Button, Descriptions, Modal } from 'antd'
 import { advertCyclesDescriptionCrumb } from 'BREADCRUMB_DATA'
-// import Image from 'next/image'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
 
-// import img from '@/components/assets/images/image.jpg'
+import img from '@/components/assets/images/image.jpg'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
-// import { checkColor } from '@/components/templates/tables/RequestTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import { IconDone } from '@/components/UI/icons/icons'
 import fakeData from '@/MOCK_DATA'
 
+const surveyList = [
+  {
+    number: '1',
+    title:
+      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
+    options: [
+      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
+      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
+      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
+    ],
+  },
+  {
+    number: '2',
+    title:
+      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
+    options: [
+      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
+      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
+      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
+    ],
+  },
+]
+
 const RequestDescription = () => {
-  const [isOpenReject, setIsOpenReject] = useState(false)
-  const [isOpenConfirm, setIsOpenConfirm] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isFinished, setIsFinished] = useState(true)
+  const [isOpenStop, setIsOpenStop] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const id = (router.query.id as string) || []
@@ -23,52 +49,73 @@ const RequestDescription = () => {
     return item.id === id
   })
 
-  const handleSubmit = () => {
+  const handleStop = () => {
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
       setTimeout(() => {
-        setIsOpenConfirm(false)
+        setIsOpenStop(false)
       }, 1000)
     }, 3000)
   }
 
-  const handleReject = () => {
-    setIsLoading(true)
-    setTimeout(() => {
-      setIsLoading(false)
-      setTimeout(() => {
-        setIsOpenReject(false)
-      }, 1000)
-    }, 3000)
+  const choseTypeOfContent = (contentType: string, content: any) => {
+    if (contentType === 'banner') {
+      return <Image src={img} alt="sas" width={110} height={80} />
+    }
+    if (contentType === 'Survey') {
+      return (
+        <>
+          {surveyList.map((item, idx) => {
+            return (
+              <div
+                className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5"
+                key={idx}
+              >
+                <div className="w-6 text-sm font-normal text-[#174880] mr-1">
+                  #{item.number}
+                </div>
+                <div className="">
+                  <h2 className=" text-sm font-semibold">{item.title}</h2>
+                  <ul style={{ listStyleType: 'disc' }}>
+                    {item.options.map((option, idx) => (
+                      <li key={idx}>{option}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )
+          })}
+        </>
+      )
+    }
+    if (contentType === 'video') {
+      return (
+        <>
+          <video autoPlay loop src={content} width={320} height={240} controls>
+            <track kind="captions" />
+          </video>
+        </>
+      )
+    }
   }
 
   const DescTitle = () => {
     const { t } = useTranslation('requests')
+
     return (
       <div className="flex justify-between flex-wrap">
         <p>{t('description-ads')}</p>
         <div className="flex">
           <Button
-            type="primary"
-            danger
-            className="flex items-center rounded-sm"
-            onClick={() => {
-              setIsOpenReject(true)
-            }}
-          >
-            <ReloadOutlined className="text-[10px]" />
-            Reject
-          </Button>
-          <Button
             type="ghost"
-            className="bg-green-600 hover:bg-green-500 text-white border-none rounded-sm flex items-center ml-5"
+            className="flex items-center rounded-sm bg-[#1677ff] text-white"
             onClick={() => {
-              setIsOpenConfirm(true)
+              setIsOpenStop(true)
             }}
           >
-            <IconDone className="text-[10px]" />
-            Confirm
+            <MinusCircleOutlined className="text-[10px]" />
+            Stop advertisement
           </Button>
         </div>
       </div>
@@ -78,10 +125,15 @@ const RequestDescription = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={advertCyclesDescriptionCrumb} />
-      <div className="col-start-3 col-end-10">
+      <div className="col-start-3 col-end-10 w-[65%]">
         <div className="p-5 overflow-x-auto bg-white rounded-lg">
           {' '}
-          <Descriptions title={<DescTitle />} layout="vertical" bordered>
+          <Descriptions
+            title={<DescTitle />}
+            layout="vertical"
+            bordered
+            labelStyle={{ fontWeight: 'bold' }}
+          >
             <Descriptions.Item label="Ads id">5423412</Descriptions.Item>
             <Descriptions.Item label="File">
               https://lb.api.cdn.uzcl...
@@ -95,7 +147,11 @@ const RequestDescription = () => {
             </Descriptions.Item>
             <Descriptions.Item label="Views">12 232 421</Descriptions.Item>
             <Descriptions.Item label="Is finished">
-              {res?.upload_time}
+              {isFinished ? (
+                <CheckCircleFilled className="text-green-600 text-xl" />
+              ) : (
+                <CloseCircleFilled className="text-red-600 text-xl" />
+              )}
             </Descriptions.Item>
             <Descriptions.Item label="Moderator">Mr Arabboy</Descriptions.Item>
             <Descriptions.Item label="Type of Ads">Stories</Descriptions.Item>
@@ -106,53 +162,35 @@ const RequestDescription = () => {
               32 000 000 UZS
             </Descriptions.Item>
             <Descriptions.Item label="Target Ads" span={3}>
-              {res?.upload_time}
+              Target
             </Descriptions.Item>
+
             <Descriptions.Item label="Uploaded content">
-              {res?.upload_time}
+              {choseTypeOfContent(
+                res!.type_of_ads[0],
+                'https://www.youtube.com/watch?v=7r3dQbkdYGY'
+              )}
             </Descriptions.Item>
           </Descriptions>
         </div>
       </div>
+
       <Modal
-        open={isOpenReject}
-        maskStyle={{ backdropFilter: 'blur(5px)' }}
-        title="Enter the reason for rejecting the ad !"
-        closable={!isLoading}
-        maskClosable={!isLoading}
-        onCancel={() => {
-          setIsOpenReject(false)
-        }}
-        centered
-        footer={[]}
-      >
-        <div className="w-full flex item-center justify-center ">
-          <Button
-            className="w-[524px] h-8 flex items-center justify-center rounded-sm bg-red-100 text-red-500 font-medium cursor-pointer border-0"
-            danger
-            loading={isLoading}
-            onClick={handleReject}
-          >
-            <p>Контент не соответствует внутреннему законодательству</p>
-          </Button>
-        </div>
-      </Modal>
-      <Modal
-        open={isOpenConfirm}
+        open={isOpenStop}
         maskStyle={{ backdropFilter: 'blur(5px)' }}
         title="Confirm"
         centered
         closable={!isLoading}
         maskClosable={!isLoading}
         onCancel={() => {
-          setIsOpenConfirm(false)
+          setIsOpenStop(false)
         }}
         footer={[
           <Button
             key="back"
             disabled={isLoading}
             onClick={() => {
-              setIsOpenConfirm(false)
+              setIsOpenStop(false)
             }}
           >
             Cancel
@@ -162,7 +200,7 @@ const RequestDescription = () => {
             type="primary"
             loading={isLoading}
             className="bg-[#1677ff] text-white"
-            onClick={handleSubmit}
+            onClick={handleStop}
           >
             Submit
           </Button>,

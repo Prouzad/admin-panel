@@ -8,10 +8,33 @@ import { useState } from 'react'
 
 import img from '@/components/assets/images/image.jpg'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
-import { checkColor } from '@/components/templates/tables/RequestTable'
+import { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IconDone } from '@/components/UI/icons/icons'
 import fakeData from '@/MOCK_DATA'
+
+const surveyList = [
+  {
+    number: '1',
+    title:
+      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
+    options: [
+      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
+      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
+      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
+    ],
+  },
+  {
+    number: '2',
+    title:
+      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
+    options: [
+      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
+      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
+      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
+    ],
+  },
+]
 
 const RequestDescription = () => {
   const { t } = useTranslation('requests')
@@ -51,58 +74,26 @@ const RequestDescription = () => {
     if (contentType === 'Survey') {
       return (
         <>
-          <div className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5">
-            <div className="w-6 text-sm font-normal text-[#174880] mr-1">
-              #1
-            </div>
-            <div className="">
-              <h2 className=" text-sm font-semibold">
-                Uploading is the process of publishing information (web pages,
-                text, pictures, video, etc.) to a remote server via a web page
-                or upload tool. ?
-              </h2>
-              <ul style={{ listStyleType: 'disc' }}>
-                <li>
-                  Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu
-                  uning boshlangich javobi
-                </li>
-                <li>
-                  O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu
-                  uning 2 - javobi
-                </li>
-                <li>
-                  Bu xato javob , bu savolning yakuniy javobi , aslida xato
-                  javob yo’q so’rovnomada{' '}
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-[700px] p-3 flex bg-[#F1F4F9] rounded">
-            <div className="w-6 text-sm font-normal text-[#174880] mr-1">
-              #1
-            </div>
-            <div className="">
-              <h2 className=" text-sm font-semibold">
-                Uploading is the process of publishing information (web pages,
-                text, pictures, video, etc.) to a remote server via a web page
-                or upload tool. ?
-              </h2>
-              <ul style={{ listStyleType: 'disc' }}>
-                <li>
-                  Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu
-                  uning boshlangich javobi
-                </li>
-                <li>
-                  O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu
-                  uning 2 - javobi
-                </li>
-                <li>
-                  Bu xato javob , bu savolning yakuniy javobi , aslida xato
-                  javob yo’q so’rovnomada{' '}
-                </li>
-              </ul>
-            </div>
-          </div>
+          {surveyList.map((item, idx) => {
+            return (
+              <div
+                className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5"
+                key={idx}
+              >
+                <div className="w-6 text-sm font-normal text-[#174880] mr-1">
+                  #{item.number}
+                </div>
+                <div className="">
+                  <h2 className=" text-sm font-semibold">{item.title}</h2>
+                  <ul style={{ listStyleType: 'disc' }}>
+                    {item.options.map((option, idx) => (
+                      <li key={idx}>{option}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )
+          })}
         </>
       )
     }
@@ -159,7 +150,7 @@ const RequestDescription = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={requesetDescriptionCrumb} />
-      <div className="col-start-3 col-end-10">
+      <div className="col-start-3 col-end-10 w-[65%]">
         <div className="p-5 overflow-x-auto bg-white rounded-lg">
           {' '}
           <Descriptions title={<DescTitle />} layout="vertical" bordered>

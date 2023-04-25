@@ -16,7 +16,7 @@ export const authOptions: NextAuthOptions = {
           username: string
           password: string
         }
-        if (username !== 'prouzad' || password !== '1234') {
+        if (username !== 'admin' || password !== 'admin') {
           return null
         }
         return { id: '1', name: 'Abdulla' }

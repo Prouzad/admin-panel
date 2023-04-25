@@ -1,69 +1,79 @@
-import { Badge } from 'antd'
+import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons'
 import { ColumnsType } from 'antd/es/table'
 import { advertCyclesCrumb } from 'BREADCRUMB_DATA'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo } from 'react'
 
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
-import RequestTable, {
-  checkColor,
-} from '@/components/templates/tables/RequestTable'
+import MyTable from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import fakeData, { DataType } from '@/MOCK_DATA'
+import fakeData from '@/MOCK_DATA'
+
+interface IColumnADV {
+  id: string
+  name: string
+  content: string
+  ads_format: string
+  duration: string
+  view_count: string
+  is_finished: string
+  upload_time: string
+}
 
 const AdvCycle = () => {
-  const { t, lang } = useTranslation('requests')
+  const { lang } = useTranslation('requests')
 
-  const columnsHead: ColumnsType<DataType> = [
+  const columnsHead: ColumnsType<IColumnADV> = [
     {
       title: '№',
       dataIndex: 'id',
-      key: 'number',
+      key: 'id',
       width: 50,
     },
     {
-      title: t('company-name'),
+      title: 'NAME',
       dataIndex: 'company_name',
-      key: 'company_name',
+      key: 'name',
     },
     {
-      title: t('phone-number'),
-      dataIndex: 'phone_number',
-      key: 'phone_number',
+      title: 'CONTENT',
+      key: 'content',
+      dataIndex: 'content',
     },
     {
-      title: t('status'),
-      key: 'status',
-      dataIndex: 'status',
-      render: (_, { status }) => (
-        <Badge status={checkColor(status)} text={status} />
-      ),
-    },
-    {
-      title: t('upload-time'),
-      dataIndex: 'upload_time',
-      key: 'upload_time',
+      title: 'ADS FORMAT',
+      dataIndex: 'ads_format',
+      key: 'ads_format',
       defaultSortOrder: 'descend',
-      sorter: (a, b) => a.upload_time - b.upload_time,
     },
 
     {
-      title: t('type-of-ads'),
-      dataIndex: 'type_of_ads',
-      key: 'type_of_ads',
-      render: (items) => {
-        return (
-          <div className="flex">
-            {items.map((item: string, idx: number) => {
-              return (
-                <div className={`${idx === 0 && 'border-r'}`} key={idx}>
-                  <p>{item}</p>
-                </div>
-              )
-            })}
-          </div>
-        )
+      title: 'Duration',
+      dataIndex: 'duration',
+      key: 'duration',
+    },
+    {
+      title: 'VIEW COUNT',
+      dataIndex: 'view_count',
+      key: 'view_count',
+    },
+    {
+      title: 'IS FINISHED',
+      dataIndex: 'is_finished',
+      key: 'is_finished',
+      align: 'center',
+      render: (_: any, { is_finished }) => {
+        if (is_finished) {
+          return <CheckCircleFilled className="text-green-600" />
+        } else {
+          return <CloseCircleFilled className="text-red-600" />
+        }
       },
+    },
+    {
+      title: 'UPLOAD TIME',
+      dataIndex: 'upload_time',
+      key: 'upload_time',
     },
   ]
 
@@ -73,7 +83,7 @@ const AdvCycle = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={advertCyclesCrumb} />
-      <RequestTable columns={columns} data={data} />
+      <MyTable columns={columns} data={data} style="w-[75%]" />
     </ContentWrapper>
   )
 }
