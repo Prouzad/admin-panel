@@ -4,7 +4,6 @@ import {
   UserOutlined,
 } from '@ant-design/icons'
 import { Badge, Button, Dropdown, MenuProps } from 'antd'
-import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import setLanguage from 'next-translate/setLanguage'
 
@@ -22,18 +21,8 @@ const items: MenuProps['items'] = [
 ]
 
 const UserHeader = () => {
-  const router = useRouter()
   const { data } = useSession()
 
-  const changeLang = (lang: string) => {
-    // eslint-disable-next-line no-console
-    console.log(lang)
-    const url = router.asPath
-    const options = {
-      locale: lang,
-    }
-    router.push(url, undefined, options)
-  }
   return (
     <div className="w-screen bg-white h-20 flex items-center justify-between fixed z-10 shadow-4xl">
       <div className="w-[235px] ml-6">
