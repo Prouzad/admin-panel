@@ -27,4 +27,8 @@ body {
 .title-pgae {
   font-family: 'Roboto', sans-serif;
 }
+
+.ant-collapse-header, .ant-collapse-content-box{
+	padding: 12px 0!important
+}
 svg { vertical-align: baseline; }

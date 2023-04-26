@@ -1,6 +1,7 @@
 import IconAgencies from '@/components/assets/icons/Agencies.svg'
 import IconContracts from '@/components/assets/icons/content_paste.svg'
 import IconDone from '@/components/assets/icons/done.svg'
+import IconFile from '@/components/assets/icons/file_present.svg'
 import IconAdvert from '@/components/assets/icons/leaderboard.svg'
 import IconLogOut from '@/components/assets/icons/logout.svg'
 import IconLock from '@/components/assets/icons/password.svg'
@@ -14,6 +15,7 @@ export {
   IconAgencies,
   IconContracts,
   IconDone,
+  IconFile,
   IconLock,
   IconLogo,
   IconLogOut,

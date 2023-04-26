@@ -33,7 +33,7 @@ const ContentWrapper = ({ children }: { children: ReactNode }) => {
   }
   if (status == 'loading') {
     return (
-      <div>
+      <div className='flex justify-center items-center font-bold text-white w-screen h-screen text-4xl select-none"'>
         <Spin indicator={antIcon} />
       </div>
     )
