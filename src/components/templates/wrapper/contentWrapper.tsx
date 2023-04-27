@@ -10,7 +10,6 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />
 const ContentWrapper = ({ children }: { children: ReactNode }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: session, status } = useSession()
-  // eslint-disable-next-line no-console
   if (status === 'unauthenticated') {
     return (
       <div className="flex justify-center items-center bg-red-400 font-bold text-white w-screen h-screen text-4xl select-none">

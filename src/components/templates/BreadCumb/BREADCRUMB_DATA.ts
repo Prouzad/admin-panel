@@ -22,7 +22,7 @@ export const requestsCrumb: IBreadCumb = {
 export const requesetDescriptionCrumb: IBreadCumb = {
   description:
     'For you to have detailed information about a given advertising offer',
-  title: 'Descripton',
+  title: 'Description',
   pageRoute: [
     {
       link: 'requests',
@@ -49,7 +49,7 @@ export const advertCyclesCrumb: IBreadCumb = {
 export const advertCyclesDescriptionCrumb: IBreadCumb = {
   description:
     'For you to have detailed information about a given advertising offer',
-  title: 'Advert cycles',
+  title: 'Description',
   pageRoute: [
     {
       link: 'list-cycles',

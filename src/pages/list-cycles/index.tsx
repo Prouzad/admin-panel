@@ -1,10 +1,11 @@
 import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons'
 import { ColumnsType } from 'antd/es/table'
-import { advertCyclesCrumb } from 'BREADCRUMB_DATA'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo } from 'react'
 
+import { advertCyclesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
+import TableWrapper from '@/components/templates/tables/HeadTable'
 import MyTable from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData from '@/MOCK_DATA'
@@ -21,7 +22,7 @@ interface IColumnADV {
 }
 
 const AdvCycle = () => {
-  const { lang } = useTranslation('requests')
+  const { t, lang } = useTranslation('common')
 
   const columnsHead: ColumnsType<IColumnADV> = [
     {
@@ -31,34 +32,34 @@ const AdvCycle = () => {
       width: 50,
     },
     {
-      title: 'NAME',
+      title: t('company-name'),
       dataIndex: 'company_name',
       key: 'name',
     },
     {
-      title: 'CONTENT',
+      title: t('content'),
       key: 'content',
       dataIndex: 'content',
     },
     {
-      title: 'ADS FORMAT',
+      title: t('ads-format'),
       dataIndex: 'ads_format',
       key: 'ads_format',
       defaultSortOrder: 'descend',
     },
 
     {
-      title: 'Duration',
+      title: t('duration'),
       dataIndex: 'duration',
       key: 'duration',
     },
     {
-      title: 'VIEW COUNT',
+      title: t('view-count'),
       dataIndex: 'view_count',
       key: 'view_count',
     },
     {
-      title: 'IS FINISHED',
+      title: t('is-finished'),
       dataIndex: 'is_finished',
       key: 'is_finished',
       align: 'center',
@@ -71,7 +72,7 @@ const AdvCycle = () => {
       },
     },
     {
-      title: 'UPLOAD TIME',
+      title: t('upload-time'),
       dataIndex: 'upload_time',
       key: 'upload_time',
     },
@@ -83,7 +84,9 @@ const AdvCycle = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={advertCyclesCrumb} />
-      <MyTable columns={columns} data={data} style="w-[75%]" />
+      <TableWrapper style="w-[75%]">
+        <MyTable columns={columns} data={data} />
+      </TableWrapper>
     </ContentWrapper>
   )
 }

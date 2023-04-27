@@ -1,6 +1,8 @@
 import { PlusOutlined } from '@ant-design/icons'
 import { Breadcrumb, Button } from 'antd'
-import { IBreadCumb } from 'BREADCRUMB_DATA'
+import useTranslation from 'next-translate/useTranslation'
+
+import { IBreadCumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 
 const TempBreadCumb = ({
   data,
@@ -9,13 +11,14 @@ const TempBreadCumb = ({
   data: IBreadCumb
   setIsCreateModal?: (arg: boolean) => void
 }) => {
+  const { t } = useTranslation('common')
   const { description, title, pageRoute } = data
   const arr = pageRoute
     ? pageRoute?.map((item) => {
         return {
           title: (
             <a href={`/${item.link}`} className="text-black">
-              {item.title}
+              {t(item.title)}
             </a>
           ),
         }
@@ -28,14 +31,14 @@ const TempBreadCumb = ({
         <Breadcrumb
           items={[
             {
-              title: 'Home',
+              title: t('home'),
             },
             ...arr,
           ]}
         />
         <div className="">
           {' '}
-          <h2 className="text-xl font-medium mt-2 title-page">{title}</h2>
+          <h2 className="text-xl font-medium mt-2 title-page">{t(title)}</h2>
           <p className="text-[13px] mt-3">{description}</p>
         </div>
       </div>
@@ -47,7 +50,7 @@ const TempBreadCumb = ({
             icon={<PlusOutlined />}
             onClick={() => setIsCreateModal!(true)}
           >
-            Create agency
+            {t('create-agency')}
           </Button>
         </div>
       ) : null}

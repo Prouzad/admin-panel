@@ -4,13 +4,13 @@ import {
   MinusCircleOutlined,
 } from '@ant-design/icons'
 import { Button, Descriptions, Modal } from 'antd'
-import { advertCyclesDescriptionCrumb } from 'BREADCRUMB_DATA'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
 
 import img from '@/components/assets/images/image.jpg'
+import { advertCyclesDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData from '@/MOCK_DATA'
@@ -39,6 +39,7 @@ const surveyList = [
 ]
 
 const RequestDescription = () => {
+  const { t } = useTranslation('common')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isFinished, setIsFinished] = useState(true)
   const [isOpenStop, setIsOpenStop] = useState(false)
@@ -101,7 +102,7 @@ const RequestDescription = () => {
   }
 
   const DescTitle = () => {
-    const { t } = useTranslation('requests')
+    const { t } = useTranslation('common')
 
     return (
       <div className="flex justify-between flex-wrap">
@@ -115,7 +116,7 @@ const RequestDescription = () => {
             }}
           >
             <MinusCircleOutlined className="text-[10px]" />
-            Stop advertisement
+            {t('stop-advertisement')}
           </Button>
         </div>
       </div>
@@ -134,38 +135,44 @@ const RequestDescription = () => {
             bordered
             labelStyle={{ fontWeight: 'bold' }}
           >
-            <Descriptions.Item label="Ads id">5423412</Descriptions.Item>
-            <Descriptions.Item label="File">
+            <Descriptions.Item label={t('ads-id')}>5423412</Descriptions.Item>
+            <Descriptions.Item label={t('file')}>
               https://lb.api.cdn.uzcl...
             </Descriptions.Item>
-            <Descriptions.Item label="Company name">
+            <Descriptions.Item label={t('company-name')}>
               “NAMUNA-DIYOR XIIChK” MCHJ , Uzbekistan
             </Descriptions.Item>
-            <Descriptions.Item label="Type of Ads">Stories</Descriptions.Item>
-            <Descriptions.Item label="Duration">
+            <Descriptions.Item label={t('type-of-ads')}>
+              Stories
+            </Descriptions.Item>
+            <Descriptions.Item label={t('duration')}>
               1 Week / 3 days
             </Descriptions.Item>
-            <Descriptions.Item label="Views">12 232 421</Descriptions.Item>
-            <Descriptions.Item label="Is finished">
+            <Descriptions.Item label={t('views')}>12 232 421</Descriptions.Item>
+            <Descriptions.Item label={t('is-finished')}>
               {isFinished ? (
                 <CheckCircleFilled className="text-green-600 text-xl" />
               ) : (
                 <CloseCircleFilled className="text-red-600 text-xl" />
               )}
             </Descriptions.Item>
-            <Descriptions.Item label="Moderator">Mr Arabboy</Descriptions.Item>
-            <Descriptions.Item label="Type of Ads">Stories</Descriptions.Item>
-            <Descriptions.Item label="Phone number">
+            <Descriptions.Item label={t('moderator')}>
+              Mr Arabboy
+            </Descriptions.Item>
+            <Descriptions.Item label={t('type-of-ads')}>
+              Stories
+            </Descriptions.Item>
+            <Descriptions.Item label={t('phone-number')}>
               +998 93 234 65 63
             </Descriptions.Item>
-            <Descriptions.Item label="Payment" span={2}>
+            <Descriptions.Item label={t('payment')} span={2}>
               32 000 000 UZS
             </Descriptions.Item>
-            <Descriptions.Item label="Target Ads" span={3}>
+            <Descriptions.Item label={t('target-ads')} span={3}>
               Target
             </Descriptions.Item>
 
-            <Descriptions.Item label="Uploaded content">
+            <Descriptions.Item label={t('uploaded-content')}>
               {choseTypeOfContent(
                 res!.type_of_ads[0],
                 'https://www.youtube.com/watch?v=7r3dQbkdYGY'
@@ -178,7 +185,7 @@ const RequestDescription = () => {
       <Modal
         open={isOpenStop}
         maskStyle={{ backdropFilter: 'blur(5px)' }}
-        title="Confirm"
+        title={t('confirm')}
         centered
         closable={!isLoading}
         maskClosable={!isLoading}
@@ -193,7 +200,7 @@ const RequestDescription = () => {
               setIsOpenStop(false)
             }}
           >
-            Cancel
+            {t('cancel')}
           </Button>,
           <Button
             key="submit"
@@ -202,11 +209,11 @@ const RequestDescription = () => {
             className="bg-[#1677ff] text-white"
             onClick={handleStop}
           >
-            Submit
+            {t('submit')}
           </Button>,
         ]}
       >
-        Do you really want to confirm this?
+        {t('do-you-really-want-to-confirm-this')}
       </Modal>
     </ContentWrapper>
   )

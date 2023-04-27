@@ -1,12 +1,12 @@
 import { ReloadOutlined } from '@ant-design/icons'
 import { Badge, Button, Descriptions, Modal } from 'antd'
-import { requesetDescriptionCrumb } from 'BREADCRUMB_DATA'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
 
 import img from '@/components/assets/images/image.jpg'
+import { requesetDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
@@ -37,7 +37,7 @@ const surveyList = [
 ]
 
 const RequestDescription = () => {
-  const { t } = useTranslation('requests')
+  const { t } = useTranslation('common')
   const [isOpenReject, setIsOpenReject] = useState(false)
   const [isOpenConfirm, setIsOpenConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -122,7 +122,7 @@ const RequestDescription = () => {
             }}
           >
             <ReloadOutlined className="text-[10px]" />
-            Reject
+            {t('reject')}
           </Button>
           <Button
             type="ghost"
@@ -132,7 +132,7 @@ const RequestDescription = () => {
             }}
           >
             <IconDone className="text-[10px]" />
-            Confirm
+            {t('confirm')}
           </Button>
         </div>
       </div>
@@ -142,7 +142,7 @@ const RequestDescription = () => {
   const RejectModalTitle = () => {
     return (
       <>
-        <h2 className="mb-4">Enter the reason for rejecting the ad !</h2>
+        <h2 className="mb-4">{t('enter-the-reason-for-rejecting-the-ad')}</h2>
       </>
     )
   }
@@ -155,25 +155,25 @@ const RequestDescription = () => {
           {' '}
           <Descriptions title={<DescTitle />} layout="vertical" bordered>
             <Descriptions.Item label={t('ads-id')}>{res?.id}</Descriptions.Item>
-            <Descriptions.Item label="Phone number" span={2}>
+            <Descriptions.Item label={t('phone-number')} span={2}>
               {res?.phone_number}
             </Descriptions.Item>
             <Descriptions.Item label={t('description-ads')}>
               {res?.upload_time}
             </Descriptions.Item>
-            <Descriptions.Item label="Company name" span={2}>
+            <Descriptions.Item label={t('company-name')} span={2}>
               {res?.company_name}
             </Descriptions.Item>
-            <Descriptions.Item label="Status">
-              <Badge status={checkColor(res!.status)} text={res?.status} />
+            <Descriptions.Item label={t('status')}>
+              <Badge status={checkColor(res!.status)} text={t(res!.status)} />
             </Descriptions.Item>
-            <Descriptions.Item label="Moderator" span={2}>
+            <Descriptions.Item label={t('moderator')} span={2}>
               Mr Arabboy
             </Descriptions.Item>
-            <Descriptions.Item label="Type of ADs" span={3}>
+            <Descriptions.Item label={t('type-of-ads')} span={3}>
               {res?.type_of_ads[0]}
             </Descriptions.Item>
-            <Descriptions.Item label="Uploaded content">
+            <Descriptions.Item label={t('uploaded-content')}>
               {choseTypeOfContent(
                 res!.type_of_ads[0],
                 'https://www.youtube.com/watch?v=7r3dQbkdYGY'
@@ -202,14 +202,14 @@ const RequestDescription = () => {
             loading={isLoading}
             onClick={handleReject}
           >
-            <p>Контент не соответствует внутреннему законодательству</p>
+            <p>{t('content-does-not-comply-with-domestic-law')}</p>
           </Button>
         </div>
       </Modal>
       <Modal
         open={isOpenConfirm}
         maskStyle={{ backdropFilter: 'blur(5px)' }}
-        title="Confirm"
+        title={t('confirm')}
         centered
         closable={!isLoading}
         maskClosable={!isLoading}
@@ -224,7 +224,7 @@ const RequestDescription = () => {
               setIsOpenConfirm(false)
             }}
           >
-            Cancel
+            {t('cancel')}
           </Button>,
           <Button
             key="submit"
@@ -233,11 +233,11 @@ const RequestDescription = () => {
             className="bg-[#1677ff] text-white"
             onClick={handleSubmit}
           >
-            Submit
+            {t('submit')}
           </Button>,
         ]}
       >
-        Do you really want to confirm this?
+        {t('do-you-really-want-to-confirm-this')}
       </Modal>
     </ContentWrapper>
   )

@@ -1,10 +1,11 @@
 import { Badge } from 'antd'
 import { ColumnsType } from 'antd/es/table'
-import { requestsCrumb } from 'BREADCRUMB_DATA'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo } from 'react'
 
+import { requestsCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
+import TableWrapper from '@/components/templates/tables/HeadTable'
 import RequestTable, { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData, { DataType } from '@/MOCK_DATA'
@@ -70,7 +71,9 @@ const UserRequestList = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={requestsCrumb} />
-      <RequestTable columns={columns} data={data} style="w-[65%]" />
+      <TableWrapper style="w-[65%]">
+        <RequestTable columns={columns} data={data} />
+      </TableWrapper>
     </ContentWrapper>
   )
 }
