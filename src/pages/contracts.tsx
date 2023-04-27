@@ -54,11 +54,6 @@ const Contracts = () => {
       key: 'duration',
     },
     {
-      title: t('view-count'),
-      dataIndex: 'view_count',
-      key: 'view_count',
-    },
-    {
       title: t('is-finished'),
       dataIndex: 'is_finished',
       key: 'is_finished',
