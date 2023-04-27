@@ -33,7 +33,7 @@ interface IColumnAgency {
 }
 
 const Agencies = () => {
-  const { t } = useTranslation('agencies')
+  const { t, lang } = useTranslation('agencies')
   const [isOpen, setIsOpen] = useState(false)
   const [isAgencyModal, setIsAgencyModal] = useState(false)
   const [isAgentModal, setIsAgentModal] = useState(false)
@@ -148,7 +148,7 @@ const Agencies = () => {
   }
 
   const data = useMemo(() => fakeData, []) as any
-  const columns = useMemo(() => columnsHead, [])
+  const columns = useMemo(() => columnsHead, [lang])
 
   return (
     <ContentWrapper>
