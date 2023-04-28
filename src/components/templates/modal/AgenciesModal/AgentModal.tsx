@@ -1,8 +1,10 @@
 import { Select, Switch } from 'antd'
+import useTranslation from 'next-translate/useTranslation'
 import PhoneInput from 'react-phone-input-2'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AgentModal = ({ itemID }: { itemID?: string }) => {
+  const { t } = useTranslation('common')
   return (
     <>
       <div
@@ -12,7 +14,7 @@ const AgentModal = ({ itemID }: { itemID?: string }) => {
       ></div>
       <div style={{ padding: '16px 0' }} className="flex items-end">
         <div className="">
-          <p className="mb-2">Phone number</p>
+          <p className="mb-2">{t('phone-number')}</p>
           <PhoneInput
             specialLabel=""
             country="uz"
@@ -26,21 +28,21 @@ const AgentModal = ({ itemID }: { itemID?: string }) => {
           />
         </div>
         <div className=" mx-4">
-          <p className="mb-2">Role</p>
+          <p className="mb-2">{t('role')}</p>
           <Select
             defaultValue="disabled"
             style={{ width: 120, borderRadius: 2 }}
             onChange={() => 'asds'}
             options={[
-              { value: 'disabled', label: 'Choose', disabled: true },
-              { value: 'owner', label: 'Owner' },
+              { value: 'disabled', label: t('choose'), disabled: true },
+              { value: 'owner', label: t('owner') },
               { value: 'lucy', label: 'Lucy' },
               { value: 'Yiminghe', label: 'yiminghe' },
             ]}
           />
         </div>
         <div className="flex h-8 items-center">
-          <p className="mr-2">Is verified</p>
+          <p className="mr-2">{t('is-verified')}</p>
           <Switch defaultChecked onChange={() => 'rewe'} />
         </div>
       </div>

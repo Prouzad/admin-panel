@@ -1,8 +1,8 @@
 {
-  "company-name": "KOMPANIYA",
-  "phone-number": "TELEFON",
-  "status": "STATUS",
-  "upload-time": "YUKLASH VAQTI",
-  "type-of-ads": "REKLAMA TURI",
+  "company-name": "Kompaniya",
+  "phone-number": "Telefon",
+  "status": "Status",
+  "upload-time": "Yuklash vaqti",
+  "type-of-ads": "Reklama turi",
   "ads-id": "Reklama ID"
 }

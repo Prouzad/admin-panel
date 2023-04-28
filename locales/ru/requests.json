@@ -1,8 +1,8 @@
 {
-  "company-name": "КОМПАНИЯ",
-  "phone-number": "ТЕЛЕФОН",
-  "status": "СТАТУС",
-  "upload-time": "ВРЕМЯ ЗАГРУЗКИ",
-  "type-of-ads": "ТИП РЕКЛАМЫ",
+  "company-name": "Компания",
+  "phone-number": "Телефон",
+  "status": "Статус",
+  "upload-time": "Время загрузки",
+  "type-of-ads": "Тип рекламы",
   "ads-id": "ID Рекламы"
 }

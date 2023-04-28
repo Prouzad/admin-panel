@@ -1,5 +1,6 @@
 import { CheckOutlined } from '@ant-design/icons'
 import { Button, Modal } from 'antd'
+import useTranslation from 'next-translate/useTranslation'
 import { ReactNode } from 'react'
 
 const AgencyModalWrapper = ({
@@ -15,9 +16,11 @@ const AgencyModalWrapper = ({
   handleSave: () => void
   title: string
 }) => {
+  const { t } = useTranslation('common')
+  const titleT = t(title)
   return (
     <Modal
-      title={title}
+      title={titleT}
       centered
       open={isOpen}
       style={{ marginTop: 25, marginBottom: 25 }}
@@ -33,7 +36,7 @@ const AgencyModalWrapper = ({
             className="bg-[#2173DF] text-white text-sm h-[34px] px-4 rounded-sm flex  items-center "
             icon={<CheckOutlined />}
           >
-            Save
+            {t('save')}
           </Button>
         </div>,
       ]}

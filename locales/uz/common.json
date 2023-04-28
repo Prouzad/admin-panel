@@ -42,5 +42,20 @@
   "agency-name": "Agentlik nomi",
   "address": "Manzil",
   "upload-file": "Faylni yuklash",
-  "logo-upload": "Logotip yuklash"
+  "logo-upload": "Logotip yuklash",
+  "role": "Rol",
+  "choose": "Tanlang",
+  "owner": "Egasi",
+  "is-verified": "Tasdiqlangan",
+  "Create agent": "Agent yaratish",
+  "Create contract": "Kontrakt yaratish",
+  "contract-date": "Kontrakt sanasi",
+  "finished-date": "Tugallangan sana",
+  "canceled-date": "Bekor qilingan sana",
+  "save": "Saqlash",
+  "is-canceled": "Bekor qilingan",
+	"Edit Agency": "Agentlikni tahrirlash",
+	"Edit Contract": "Kontraktni tahrirlash",
+	"Edit Agent": "Agentni tahrirlash",
+	"Create Agency": "Agentlik yaratish"
 }

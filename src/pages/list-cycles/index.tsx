@@ -22,7 +22,7 @@ interface IColumnADV {
 }
 
 const AdvCycle = () => {
-  const { t, lang } = useTranslation('common')
+  const { t, lang } = useTranslation('list-cycles')
 
   const columnsHead: ColumnsType<IColumnADV> = [
     {

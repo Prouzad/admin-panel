@@ -1,4 +1,5 @@
 import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons'
+import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo } from 'react'
@@ -6,25 +7,13 @@ import { useMemo } from 'react'
 import { contractsCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import TableWrapper from '@/components/templates/tables/HeadTable'
-import MyTable from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData from '@/MOCK_DATA'
-
-interface IColumnADV {
-  id: string
-  name: string
-  content: string
-  ads_format: string
-  duration: string
-  view_count: string
-  is_finished: string
-  upload_time: string
-}
 
 const Contracts = () => {
   const { t, lang } = useTranslation('contracts')
 
-  const columnsHead: ColumnsType<IColumnADV> = [
+  const columnsHead: ColumnsType<any> = [
     {
       title: '№',
       dataIndex: 'id',
@@ -75,7 +64,7 @@ const Contracts = () => {
     <ContentWrapper>
       <TempBreadCumb data={contractsCrumb} />
       <TableWrapper style="w-[75%]">
-        <MyTable columns={columns} data={data} />
+        <Table columns={columns} dataSource={data} />
       </TableWrapper>
     </ContentWrapper>
   )

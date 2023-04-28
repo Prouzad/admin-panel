@@ -12,6 +12,7 @@ import {
   UploadFile,
   UploadProps,
 } from 'antd'
+import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
 
 import { IconFile } from '@/components/UI/icons/icons'
@@ -19,6 +20,7 @@ import { IconFile } from '@/components/UI/icons/icons'
 import { IFile } from './AgencyModal'
 
 const ContractModal = ({ itemID }: { itemID?: string }) => {
+  const { t } = useTranslation('common')
   const [isContractFile, setIsContractFile] = useState<IFile | undefined>()
 
   const propsContract: UploadProps = {
@@ -63,7 +65,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
       <div className="">
         <div style={{ padding: '16px 0' }} className="flex items-end">
           <div className="">
-            <p className="mb-2">Contract number</p>
+            <p className="mb-2">{t('contract-number')}</p>
             <InputNumber
               controls={false}
               onChange={() => 'fsdf'}
@@ -73,7 +75,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
             />
           </div>
           <div className="flex flex-col mx-4">
-            <p className="mb-2">Logo upload</p>
+            <p className="mb-2">{t('logo-upload')}</p>
             <div className="flex   ">
               {' '}
               <Upload
@@ -83,7 +85,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
                 className="flex rounded-sm"
                 showUploadList={false}
               >
-                <Button icon={<UploadOutlined />}>Upload file</Button>
+                <Button icon={<UploadOutlined />}>{t('upload-file')}</Button>
               </Upload>
               <div className="flex item-center">
                 {isContractFile && (
@@ -120,13 +122,13 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
             </div>
           </div>
           <div className="flex h-8 items-center">
-            <p className="mr-2">Is verified</p>
+            <p className="mr-2">{t('is-canceled')}</p>
             <Switch defaultChecked onChange={() => 'rewe'} />
           </div>
         </div>
         <div className=" mt-4">
           <Space direction="vertical">
-            <p>Contact date</p>
+            <p>{t('contract-date')}</p>
             <DatePicker
               onChange={() => 'ttest'}
               picker="month"
@@ -134,7 +136,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
             />
           </Space>
           <Space direction="vertical" className="mx-4">
-            <p>Finished date</p>
+            <p>{t('finished-date')}</p>
             <DatePicker
               onChange={() => 'ttest'}
               picker="month"
@@ -142,7 +144,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
             />
           </Space>
           <Space direction="vertical">
-            <p>Canceled date</p>
+            <p>{t('canceled-date')}</p>
             <DatePicker
               onChange={() => 'ttest'}
               picker="month"

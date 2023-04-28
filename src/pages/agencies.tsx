@@ -172,7 +172,7 @@ const Agencies = () => {
         </CollapseWrapper>
       </AgencyModalWrapper>
       <AgencyModalWrapper
-        title={'Edith Agency'}
+        title={'Edit Agency'}
         handleSave={handleSave}
         setIsOpen={setIsAgencyModal}
         isOpen={isAgencyModal}
@@ -180,7 +180,7 @@ const Agencies = () => {
         <AgencyModal itemID={isEdithItem} />
       </AgencyModalWrapper>
       <AgencyModalWrapper
-        title={'Edith Agent'}
+        title={'Edit Agent'}
         handleSave={handleSave}
         setIsOpen={setIsAgentModal}
         isOpen={isAgentModal}
@@ -188,7 +188,7 @@ const Agencies = () => {
         <AgentModal itemID={isEdithItem} />
       </AgencyModalWrapper>
       <AgencyModalWrapper
-        title={'Edith Contract'}
+        title={'Edit Contract'}
         handleSave={handleSave}
         setIsOpen={setIsContractModal}
         isOpen={isContractModal}

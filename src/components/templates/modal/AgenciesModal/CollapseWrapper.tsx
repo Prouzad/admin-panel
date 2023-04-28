@@ -1,5 +1,6 @@
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 import { Button, Collapse } from 'antd'
+import useTranslation from 'next-translate/useTranslation'
 import { ReactNode } from 'react'
 
 const { Panel } = Collapse
@@ -33,11 +34,13 @@ const CollapseWrapper = ({
   children: ReactNode
   title: string
 }) => {
+  const { t } = useTranslation('common')
+  const titleT = t(title)
   return (
     <Collapse
       expandIconPosition={'end'}
       expandIcon={(props) => {
-        return <CollapseButton props={props} title={title} />
+        return <CollapseButton props={props} title={titleT} />
       }}
       ghost
       style={{
@@ -55,7 +58,7 @@ const CollapseWrapper = ({
           marginBottom: 16,
           padding: '16px 0',
         }}
-        header={<CollapseHeader title={title} />}
+        header={<CollapseHeader title={titleT} />}
         key="1"
       >
         {children}
