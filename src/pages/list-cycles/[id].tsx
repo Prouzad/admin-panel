@@ -1,16 +1,18 @@
-import { ReloadOutlined } from '@ant-design/icons'
-import { Badge, Button, Descriptions, Modal } from 'antd'
+import {
+  CheckCircleFilled,
+  CloseCircleFilled,
+  MinusCircleOutlined,
+} from '@ant-design/icons'
+import { Button, Descriptions, Modal } from 'antd'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
 
 import img from '@/components/assets/images/image.jpg'
-import { requesetDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
+import { advertCyclesDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
-import { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import { IconDone } from '@/components/UI/icons/icons'
 import fakeData from '@/MOCK_DATA'
 
 const surveyList = [
@@ -38,8 +40,9 @@ const surveyList = [
 
 const RequestDescription = () => {
   const { t } = useTranslation('common')
-  const [isOpenReject, setIsOpenReject] = useState(false)
-  const [isOpenConfirm, setIsOpenConfirm] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isFinished, setIsFinished] = useState(true)
+  const [isOpenStop, setIsOpenStop] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const id = (router.query.id as string) || []
@@ -47,22 +50,12 @@ const RequestDescription = () => {
     return item.id === id
   })
 
-  const handleSubmit = () => {
+  const handleStop = () => {
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
       setTimeout(() => {
-        setIsOpenConfirm(false)
-      }, 1000)
-    }, 3000)
-  }
-
-  const handleReject = () => {
-    setIsLoading(true)
-    setTimeout(() => {
-      setIsLoading(false)
-      setTimeout(() => {
-        setIsOpenReject(false)
+        setIsOpenStop(false)
       }, 1000)
     }, 3000)
   }
@@ -109,70 +102,76 @@ const RequestDescription = () => {
   }
 
   const DescTitle = () => {
+    const { t } = useTranslation('common')
+
     return (
       <div className="flex justify-between flex-wrap">
         <p>{t('description-ads')}</p>
         <div className="flex">
           <Button
-            type="primary"
-            danger
-            className="flex items-center rounded-sm"
-            onClick={() => {
-              setIsOpenReject(true)
-            }}
-          >
-            <ReloadOutlined className="text-[10px]" />
-            {t('reject')}
-          </Button>
-          <Button
             type="ghost"
-            className="bg-green-600 hover:bg-green-500 text-white border-none rounded-sm flex items-center ml-5"
+            className="flex items-center rounded-sm bg-[#1677ff] text-white"
             onClick={() => {
-              setIsOpenConfirm(true)
+              setIsOpenStop(true)
             }}
           >
-            <IconDone className="text-[10px]" />
-            {t('confirm')}
+            <MinusCircleOutlined className="text-[10px]" />
+            {t('stop-advertisement')}
           </Button>
         </div>
       </div>
     )
   }
 
-  const RejectModalTitle = () => {
-    return (
-      <>
-        <h2 className="mb-4">{t('enter-the-reason-for-rejecting-the-ad')}</h2>
-      </>
-    )
-  }
-
   return (
     <ContentWrapper>
-      <TempBreadCumb data={requesetDescriptionCrumb} />
+      <TempBreadCumb data={advertCyclesDescriptionCrumb} />
       <div className="col-start-3 col-end-10 w-[65%]">
         <div className="p-5 overflow-x-auto bg-white rounded-lg">
           {' '}
-          <Descriptions title={<DescTitle />} layout="vertical" bordered>
-            <Descriptions.Item label={t('ads-id')}>{res?.id}</Descriptions.Item>
-            <Descriptions.Item label={t('phone-number')} span={2}>
-              {res?.phone_number}
+          <Descriptions
+            title={<DescTitle />}
+            layout="vertical"
+            bordered
+            labelStyle={{ fontWeight: 'bold' }}
+          >
+            <Descriptions.Item label={t('ads-id')}>5423412</Descriptions.Item>
+            <Descriptions.Item label={t('file')}>
+              https://lb.api.cdn.uzcl...
             </Descriptions.Item>
-            <Descriptions.Item label={t('description-ads')}>
-              {res?.upload_time}
+            <Descriptions.Item label={t('company-name')}>
+              “NAMUNA-DIYOR XIIChK” MCHJ , Uzbekistan
             </Descriptions.Item>
-            <Descriptions.Item label={t('company-name')} span={2}>
-              {res?.company_name}
+            <Descriptions.Item label={t('type-of-ads')}>
+              Stories
             </Descriptions.Item>
-            <Descriptions.Item label={t('status')}>
-              <Badge status={checkColor(res!.status)} text={t(res!.status)} />
+            <Descriptions.Item label={t('duration')}>
+              1 Week / 3 days
             </Descriptions.Item>
-            <Descriptions.Item label={t('moderator')} span={2}>
+            <Descriptions.Item label={t('views')}>12 232 421</Descriptions.Item>
+            <Descriptions.Item label={t('is-finished')}>
+              {isFinished ? (
+                <CheckCircleFilled className="text-green-600 text-xl" />
+              ) : (
+                <CloseCircleFilled className="text-red-600 text-xl" />
+              )}
+            </Descriptions.Item>
+            <Descriptions.Item label={t('moderator')}>
               Mr Arabboy
             </Descriptions.Item>
-            <Descriptions.Item label={t('type-of-ads')} span={3}>
-              {res?.type_of_ads[0]}
+            <Descriptions.Item label={t('type-of-ads')}>
+              Stories
             </Descriptions.Item>
+            <Descriptions.Item label={t('phone-number')}>
+              +998 93 234 65 63
+            </Descriptions.Item>
+            <Descriptions.Item label={t('payment')} span={2}>
+              32 000 000 UZS
+            </Descriptions.Item>
+            <Descriptions.Item label={t('target-ads')} span={3}>
+              Target
+            </Descriptions.Item>
+
             <Descriptions.Item label={t('uploaded-content')}>
               {choseTypeOfContent(
                 res!.type_of_ads[0],
@@ -182,46 +181,23 @@ const RequestDescription = () => {
           </Descriptions>
         </div>
       </div>
+
       <Modal
-        open={isOpenReject}
-        maskStyle={{ backdropFilter: 'blur(5px)' }}
-        title={<RejectModalTitle />}
-        closable={!isLoading}
-        maskClosable={!isLoading}
-        onCancel={() => {
-          setIsOpenReject(false)
-        }}
-        centered
-        bodyStyle={{ padding: 0 }}
-        footer={null}
-      >
-        <div className="w-full flex item-center justify-center border-t-2 ">
-          <Button
-            className="w-[524px] h-8 flex items-center justify-center rounded-sm bg-red-100 text-red-500 font-medium cursor-pointer border-0 mt-6 mb-2"
-            danger
-            loading={isLoading}
-            onClick={handleReject}
-          >
-            <p>{t('content-does-not-comply-with-domestic-law')}</p>
-          </Button>
-        </div>
-      </Modal>
-      <Modal
-        open={isOpenConfirm}
+        open={isOpenStop}
         maskStyle={{ backdropFilter: 'blur(5px)' }}
         title={t('confirm')}
         centered
         closable={!isLoading}
         maskClosable={!isLoading}
         onCancel={() => {
-          setIsOpenConfirm(false)
+          setIsOpenStop(false)
         }}
         footer={[
           <Button
             key="back"
             disabled={isLoading}
             onClick={() => {
-              setIsOpenConfirm(false)
+              setIsOpenStop(false)
             }}
           >
             {t('cancel')}
@@ -231,7 +207,7 @@ const RequestDescription = () => {
             type="primary"
             loading={isLoading}
             className="bg-[#1677ff] text-white"
-            onClick={handleSubmit}
+            onClick={handleStop}
           >
             {t('submit')}
           </Button>,

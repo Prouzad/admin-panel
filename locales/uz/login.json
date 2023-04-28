@@ -1,0 +1,11 @@
+{
+  "signIn": "Kirish",
+  "enter-your-login": "Loginingizni kiriting",
+  "your-login": "Loginingiz",
+  "please-enter-your-username": "Iltimos foydalanuvchi nomini kiriting!",
+  "your-password": "Paro'lingiz",
+  "please-enter-your-password": "Iltimos foydalanuvchi paro'lini kiriting!",
+  "enter-your-password": "Paro'lingizni kiriting",
+  "authentication": "Kirish",
+  "incorrect-login-or-password": "Login yoki paro'l noto'g'ri!"
+}

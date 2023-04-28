@@ -1,19 +1,30 @@
 import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons'
-import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo } from 'react'
 
-import { contractsCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
+import { advertCyclesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import TableWrapper from '@/components/templates/tables/HeadTable'
+import MyTable from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData from '@/MOCK_DATA'
 
-const Contracts = () => {
-  const { t, lang } = useTranslation('contracts')
+interface IColumnADV {
+  id: string
+  name: string
+  content: string
+  ads_format: string
+  duration: string
+  view_count: string
+  is_finished: string
+  upload_time: string
+}
 
-  const columnsHead: ColumnsType<any> = [
+const AdvCycle = () => {
+  const { t, lang } = useTranslation('list-cycles')
+
+  const columnsHead: ColumnsType<IColumnADV> = [
     {
       title: '№',
       dataIndex: 'id',
@@ -26,21 +37,26 @@ const Contracts = () => {
       key: 'name',
     },
     {
-      title: t('contract-number'),
+      title: t('content'),
       key: 'content',
       dataIndex: 'content',
     },
     {
-      title: t('contract-date'),
+      title: t('ads-format'),
       dataIndex: 'ads_format',
       key: 'ads_format',
       defaultSortOrder: 'descend',
     },
 
     {
-      title: t('contract-finished'),
+      title: t('duration'),
       dataIndex: 'duration',
       key: 'duration',
+    },
+    {
+      title: t('view-count'),
+      dataIndex: 'view_count',
+      key: 'view_count',
     },
     {
       title: t('is-finished'),
@@ -55,6 +71,11 @@ const Contracts = () => {
         }
       },
     },
+    {
+      title: t('upload-time'),
+      dataIndex: 'upload_time',
+      key: 'upload_time',
+    },
   ]
 
   const data = useMemo(() => fakeData, [])
@@ -62,12 +83,12 @@ const Contracts = () => {
 
   return (
     <ContentWrapper>
-      <TempBreadCumb data={contractsCrumb} />
+      <TempBreadCumb data={advertCyclesCrumb} />
       <TableWrapper style="w-[75%]">
-        <Table columns={columns} dataSource={data} />
+        <MyTable columns={columns} data={data} />
       </TableWrapper>
     </ContentWrapper>
   )
 }
 
-export default Contracts
+export default AdvCycle

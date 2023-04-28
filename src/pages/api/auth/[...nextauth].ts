@@ -3,6 +3,7 @@ import NextAuth from 'next-auth/next'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.JWT_SECRET,
   session: {
     strategy: 'jwt',
   },
@@ -15,7 +16,7 @@ export const authOptions: NextAuthOptions = {
           username: string
           password: string
         }
-        if (username !== 'prouzad' || password !== '1234') {
+        if (username !== 'admin' || password !== 'admin') {
           return null
         }
         return { id: '1', name: 'Abdulla' }

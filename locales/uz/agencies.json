@@ -1,4 +1,12 @@
 {
-  'agencies': 'Agentliklar',
-  'example': 'Misol'
+  "agency": "Agentlik",
+  "agent": "Agent",
+  "contract": "Kontrakt",
+  "disabled": "Toxtatish",
+  "agency-name": "Agentlik nomi",
+  "adress": "Manzil",
+  "agent-number": "Agent nomeri",
+  "contract-count": "Shartnomalar soni",
+  "able-disable": "Yoqiq / O'chirilgan",
+  "action": "Harakat"
 }
