@@ -23,11 +23,12 @@ const MyTable = ({
   data: any[]
 }) => {
   const router = useRouter()
-
+  const rowClassName = () => 'cursor-pointer'
   return (
     <Table
       columns={columns}
       dataSource={data}
+      rowClassName={rowClassName}
       onRow={(record) => {
         return {
           onClick: () => {

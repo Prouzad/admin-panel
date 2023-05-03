@@ -149,12 +149,16 @@ const Agencies = () => {
 
   const data = useMemo(() => fakeData, []) as any
   const columns = useMemo(() => columnsHead, [lang])
-
+  const rowClassName = () => 'cursor-pointer'
   return (
     <ContentWrapper>
       <TempBreadCumb data={agenciesCrumb} setIsCreateModal={setIsOpen} />
-      <TableWrapper style="w-[75%]">
-        <Table columns={columns} dataSource={data} />
+      <TableWrapper style="w-[75%]" page={'agency'}>
+        <Table
+          columns={columns}
+          dataSource={data}
+          rowClassName={rowClassName}
+        />
       </TableWrapper>
 
       <AgencyModalWrapper

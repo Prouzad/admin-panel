@@ -12,7 +12,7 @@ import fakeData from '@/MOCK_DATA'
 
 const Contracts = () => {
   const { t, lang } = useTranslation('contracts')
-
+  const rowClassName = () => 'cursor-pointer'
   const columnsHead: ColumnsType<any> = [
     {
       title: '№',
@@ -63,8 +63,12 @@ const Contracts = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={contractsCrumb} />
-      <TableWrapper style="w-[75%]">
-        <Table columns={columns} dataSource={data} />
+      <TableWrapper style="w-[75%]" page={'contracts'}>
+        <Table
+          columns={columns}
+          dataSource={data}
+          rowClassName={rowClassName}
+        />
       </TableWrapper>
     </ContentWrapper>
   )

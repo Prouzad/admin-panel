@@ -84,7 +84,7 @@ const AdvCycle = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={advertCyclesCrumb} />
-      <TableWrapper style="w-[75%]">
+      <TableWrapper style="w-[75%]" page={'adv-cycle'}>
         <MyTable columns={columns} data={data} />
       </TableWrapper>
     </ContentWrapper>

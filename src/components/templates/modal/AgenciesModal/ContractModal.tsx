@@ -129,27 +129,15 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
         <div className=" mt-4">
           <Space direction="vertical">
             <p>{t('contract-date')}</p>
-            <DatePicker
-              onChange={() => 'ttest'}
-              picker="month"
-              className="w-[266px]"
-            />
+            <DatePicker onChange={() => 'ttest'} className="w-[266px]" />
           </Space>
           <Space direction="vertical" className="mx-4">
             <p>{t('finished-date')}</p>
-            <DatePicker
-              onChange={() => 'ttest'}
-              picker="month"
-              className="w-[266px]"
-            />
+            <DatePicker onChange={() => 'ttest'} className="w-[266px]" />
           </Space>
           <Space direction="vertical">
             <p>{t('canceled-date')}</p>
-            <DatePicker
-              onChange={() => 'ttest'}
-              picker="month"
-              className="w-[266px]"
-            />
+            <DatePicker onChange={() => 'ttest'} className="w-[266px]" />
           </Space>
         </div>
       </div>
