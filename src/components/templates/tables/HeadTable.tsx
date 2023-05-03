@@ -8,6 +8,12 @@ import { ReactNode, useEffect, useState } from 'react'
 
 dayjs.extend(customParseFormat)
 
+interface IRoutState {
+  search?: string
+  to?: string
+  from?: string
+}
+
 const { Search } = Input
 const { RangePicker } = DatePicker
 
@@ -21,7 +27,7 @@ const TableWrapper = ({
   page?: string
 }) => {
   const router = useRouter()
-  const [rout, setRout] = useState({})
+  const [rout, setRout] = useState<IRoutState>({})
   const [searchValue, setSearchValue] = useState('')
   const [toDate, setToDate] = useState<Dayjs>()
   const [fromDate, setFromDate] = useState<Dayjs>()
@@ -47,17 +53,20 @@ const TableWrapper = ({
   }, [])
 
   useEffect(() => {
+    const Nrout = rout as any
     router.push({
-      query: rout,
+      query: Nrout,
     })
   }, [rout])
   const searchSetQuery = () => {
     const search = searchValue
     if (search.length === 0) {
-      return setRout((prev) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { search, ...rest } = prev
-        return rest
+      return setRout((prev: any) => {
+        if (typeof prev.search === 'string') {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { search, ...rest } = prev
+          return rest
+        }
       })
     }
     setRout((prev: any) => {
