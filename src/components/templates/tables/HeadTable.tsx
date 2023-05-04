@@ -1,18 +1,18 @@
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { Select } from 'antd'
 import { DatePicker, Input } from 'antd'
-// import dayjs, { Dayjs } from 'dayjs'
-// import customParseFormat from 'dayjs/plugin/customParseFormat'
-// import { useRouter } from 'next/router'
-import { ReactNode } from 'react'
+import dayjs, { Dayjs } from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import { useRouter } from 'next/router'
+import { ReactNode, useEffect, useState } from 'react'
 
-// dayjs.extend(customParseFormat)s
+dayjs.extend(customParseFormat)
 
-// interface IRoutState {
-//   search?: string
-//   to?: string
-//   from?: string
-// }
+interface IRoutState {
+  search?: string
+  to?: string
+  from?: string
+}
 
 const { Search } = Input
 const { RangePicker } = DatePicker
@@ -26,78 +26,90 @@ const TableWrapper = ({
   style: string
   page?: string
 }) => {
-  // const router = useRouter()
-  // const [rout, setRout] = useState<IRoutState>({})
-  // const [searchValue, setSearchValue] = useState('')
-  // const [toDate, setToDate] = useState<Dayjs>()
-  // const [fromDate, setFromDate] = useState<Dayjs>()
+  const router = useRouter()
+  const [rout, setRout] = useState<IRoutState>({})
+  const [searchLetters, setSearchletters] = useState('')
+  const [searchValue, setSearchValue] = useState('')
+  const [rangeDate, setRangeDate] = useState<Dayjs[]>()
+  const [start, setStart] = useState('')
+  const [end, setEnd] = useState('')
 
-  // useEffect(() => {
-  //   setRout({})
-  // }, [router.pathname])
+  useEffect(() => {
+    setRout({})
+  }, [router.pathname])
 
-  // useEffect(() => {
-  //   setRout(router.query)
-  //   if (typeof router.query.search === 'string') {
-  //     setSearchValue(router.query.search)
-  //   }
-  //   if (
-  //     typeof router.query.to === 'string' &&
-  //     typeof router.query.from === 'string'
-  //   ) {
-  //     // eslint-disable-next-line no-console
-  //     console.log(rout)
-  //     setToDate(dayjs(router.query.to))
-  //     setFromDate(dayjs(router.query.from))
-  //   }
-  // }, [])
+  useEffect(() => {
+    setRout(router.query)
+    if (typeof router.query.search === 'string') {
+      setSearchValue(router.query.search)
+      setSearchletters(router.query.search)
+    }
+    if (
+      typeof router.query.start === 'string' &&
+      typeof router.query.end === 'string'
+    ) {
+      setStart(router.query.start)
+      setEnd(router.query.end)
+      setRangeDate([dayjs(router.query.start), dayjs(router.query.end)])
+    }
+  }, [])
+  useEffect(() => {
+    setRout((prev) => {
+      return {
+        ...prev,
+        start,
+        end,
+      }
+    })
+  }, [rangeDate])
+  useEffect(() => {
+    const filterEmptyValues = (obj: any) => {
+      if (obj !== undefined && obj !== null) {
+        const filteredEntries = Object.entries(obj).filter(([_, value]) => {
+          return value !== '' && value !== null && value !== undefined
+        })
+        return Object.fromEntries(filteredEntries)
+      }
+      return null
+    }
 
-  // useEffect(() => {
-  //   const Nrout = rout as any
-  //   router.push({
-  //     query: Nrout,
-  //   })
-  // }, [rout])
-  // const searchSetQuery = () => {
-  //   const search = searchValue
-  //   if (search.length === 0) {
-  //     return setRout((prev: any) => {
-  //       if (typeof prev.search === 'string') {
-  //         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  //         const { search, ...rest } = prev
-  //         return rest
-  //       }
-  //     })
-  //   }
-  //   setRout((prev: any) => {
-  //     return {
-  //       ...prev,
-  //       search,
-  //     }
-  //   })
-  // }
-  // const TimeSetQuery = (time: any, timeString: [string, string]) => {
-  //   if (time === null) {
-  //     return setRout((prev) => {
-  //       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  //       const { from, to, ...rest } = prev
-  //       return rest
-  //     })
-  //   }
-  //   setToDate(dayjs(timeString[0]))
-  //   setFromDate(dayjs(timeString[1]))
+    const result: any = filterEmptyValues(rout)
 
-  //   const from = fromDate
-  //   const to = toDate
+    router.push({
+      query: result,
+    })
+  }, [rout])
 
-  //   setRout((prev: any) => {
-  //     return {
-  //       ...prev,
-  //       from,
-  //       to,
-  //     }
-  //   })
-  // }
+  useEffect(() => {
+    const search = searchValue
+
+    setRout((prev: any) => {
+      return {
+        ...prev,
+        search,
+      }
+    })
+  }, [searchValue])
+
+  const searchSetQuery = (value: any) => {
+    if (value.length === 0) {
+      setSearchletters('')
+      return setRout((prev: any) => {
+        if (prev !== undefined && typeof prev.search === 'string') {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { search, ...rest } = prev
+          return rest
+        }
+      })
+    }
+    setSearchValue(searchLetters)
+  }
+
+  const handleDateChange = (dates: any, dateStrings: [string, string]) => {
+    setRangeDate(dates)
+    setStart(dateStrings[0])
+    setEnd(dateStrings[1])
+  }
   return (
     <div className={`pb-5 ${style}`}>
       <div className="px-5 pb-0  bg-white rounded-lg ">
@@ -113,9 +125,9 @@ const TableWrapper = ({
             <Search
               placeholder="Please enter"
               allowClear
-              // value={searchValue}
-              // onChange={(e) => setSearchValue(e.target.value)}
-              // onPressEnter={searchSetQuery}
+              value={searchLetters}
+              onChange={(e) => setSearchletters(e.target.value)}
+              onSearch={searchSetQuery}
               style={{
                 width: 232,
               }}
@@ -124,14 +136,14 @@ const TableWrapper = ({
           {!(page === 'agency') && (
             <div className="mr-6">
               <RangePicker
-              // onChange={TimeSetQuery}
-              // defaultValue={[dayjs(fromDate), dayjs(toDate)]}
+                onChange={handleDateChange}
+                value={rangeDate ? [rangeDate[0], rangeDate[1]] : null}
               />
             </div>
           )}
           <div className="">
             <Select
-              defaultValue="status filter"
+              defaultValue="All"
               listItemHeight={1}
               listHeight={100}
               style={{ width: 148, borderRadius: 0 }}
@@ -139,10 +151,10 @@ const TableWrapper = ({
               // onSelect={handleSelect}
               options={[
                 {
-                  value: 'status filter',
-                  label: 'Status filter',
-                  disabled: true,
+                  value: 'All',
+                  label: 'All',
                 },
+
                 {
                   value: 'approved',
                   label: 'Approved',
