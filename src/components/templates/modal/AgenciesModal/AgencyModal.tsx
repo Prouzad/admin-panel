@@ -65,7 +65,10 @@ const AgencyModal = ({ itemID }: { itemID?: string }) => {
       <div className="flex justify-between mb-5 flex-wrap">
         <div className="">
           <p className="mb-2">{t('agency-name')}</p>
-          <Input placeholder="Agency name" className="w-[273px] rounded-sm " />
+          <Input
+            placeholder={t('agency-name')}
+            className="w-[273px] rounded-sm "
+          />
         </div>
         <div className="focus-within:border-blue-400">
           <p className="mb-2">{t('phone-number')}</p>
@@ -84,7 +87,7 @@ const AgencyModal = ({ itemID }: { itemID?: string }) => {
         <div className="">
           <p className="mb-2">{t('address')}</p>
           <Input
-            placeholder="Location  company"
+            placeholder={t('address')}
             className="w-[273px] rounded-sm  "
           />
         </div>

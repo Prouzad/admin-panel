@@ -39,8 +39,8 @@
   "view-count": "Количество просмотров",
   "upload-time": "Время загрузки",
   "create-agency": "Создать агентство",
-  "agency-name": "Название агентства",
-  "address": "Адрес",
+  "agency-name": "Agency name",
+  "address": "address",
   "upload-file": "Загрузить файл",
   "logo-upload": "Загрузка логотипа",
   "role": "Роль",
@@ -56,8 +56,8 @@
   "canceled-date": "Дата отмены",
   "save": "Сохранить",
   "is-canceled": "Отменено",
-	"Edit Agency": "Редактирование агентства",
-	"Edit Contract": "Редактирование контракта",
-	"Edit Agent": "Редактирование агента",
-	"Create Agency": "Создать агентство"
+  "Edit Agency": "Редактирование агентства",
+  "Edit Contract": "Редактирование контракта",
+  "Edit Agent": "Редактирование агента",
+  "Create Agency": "Создать агентство"
 }

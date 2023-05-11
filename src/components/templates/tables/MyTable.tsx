@@ -32,7 +32,7 @@ const MyTable = ({
       onRow={(record) => {
         return {
           onClick: () => {
-            const url = router.asPath + `/${record.id}`
+            const url = router.pathname + `/${record.id}`
             router.push(url)
           },
         }

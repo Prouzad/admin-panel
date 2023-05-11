@@ -33,6 +33,7 @@ const TableWrapper = ({
   const [rangeDate, setRangeDate] = useState<Dayjs[]>()
   const [start, setStart] = useState('')
   const [end, setEnd] = useState('')
+  const [isSelected, setIsSelected] = useState('')
 
   useEffect(() => {
     setRout({})
@@ -44,6 +45,9 @@ const TableWrapper = ({
       setSearchValue(router.query.search)
       setSearchletters(router.query.search)
     }
+    if (typeof router.query.isSelected === 'string') {
+      setIsSelected(router.query.isSelected)
+    }
     if (
       typeof router.query.start === 'string' &&
       typeof router.query.end === 'string'
@@ -53,15 +57,7 @@ const TableWrapper = ({
       setRangeDate([dayjs(router.query.start), dayjs(router.query.end)])
     }
   }, [])
-  useEffect(() => {
-    setRout((prev) => {
-      return {
-        ...prev,
-        start,
-        end,
-      }
-    })
-  }, [rangeDate])
+
   useEffect(() => {
     const filterEmptyValues = (obj: any) => {
       if (obj !== undefined && obj !== null) {
@@ -72,7 +68,6 @@ const TableWrapper = ({
       }
       return null
     }
-
     const result: any = filterEmptyValues(rout)
 
     router.push({
@@ -89,11 +84,25 @@ const TableWrapper = ({
         search,
       }
     })
-  }, [searchValue])
+    setRout((prev) => {
+      return {
+        ...prev,
+        start,
+        end,
+      }
+    })
+    setRout((prev) => {
+      return {
+        ...prev,
+        isSelected,
+      }
+    })
+  }, [searchValue, rangeDate, isSelected])
 
   const searchSetQuery = (value: any) => {
     if (value.length === 0) {
       setSearchletters('')
+      setSearchValue('')
       return setRout((prev: any) => {
         if (prev !== undefined && typeof prev.search === 'string') {
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -143,12 +152,17 @@ const TableWrapper = ({
           )}
           <div className="">
             <Select
-              defaultValue="All"
+              defaultValue={'All'}
+              value={isSelected.length === 0 ? 'All' : isSelected}
               listItemHeight={1}
               listHeight={100}
               style={{ width: 148, borderRadius: 0 }}
-              // onChange={handleChange}
-              // onSelect={handleSelect}
+              onSelect={(value: string) => {
+                if (value === 'All') {
+                  return setIsSelected('')
+                }
+                setIsSelected(value)
+              }}
               options={[
                 {
                   value: 'All',
@@ -156,11 +170,11 @@ const TableWrapper = ({
                 },
 
                 {
-                  value: 'approved',
+                  value: 'Approved',
                   label: 'Approved',
                 },
                 { value: 'To_moderation', label: 'To Moderation' },
-                { value: 'rejected', label: 'Rejected' },
+                { value: 'Rejected', label: 'Rejected' },
               ]}
             />
           </div>

@@ -35,7 +35,7 @@ const Alerts: IAlerts[] = [
       'Alibek siz moderatsiyadan o’tqazmagan bir nechta e’lonlaringiz bor , shunga e’tibor berishingizni so’rab qolar edim.',
   },
   {
-    id: 2,
+    id: 3,
     avatar: '',
     user: 'User_name',
     date: '1 day ago',
@@ -43,7 +43,7 @@ const Alerts: IAlerts[] = [
       'Alibek siz moderatsiyadan o’tqazmagan bir nechta e’lonlaringiz bor , shunga e’tibor berishingizni so’rab qolar edim.',
   },
   {
-    id: 2,
+    id: 4,
     avatar: '',
     user: 'User_name',
     date: '1 day ago',
