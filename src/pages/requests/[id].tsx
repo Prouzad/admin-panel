@@ -2,8 +2,10 @@ import { ReloadOutlined } from '@ant-design/icons'
 import { Badge, Button, Descriptions, Modal } from 'antd'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
+import { useQuery } from 'react-query'
 
 import img from '@/components/assets/images/image.jpg'
 import { requesetDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
@@ -11,7 +13,8 @@ import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IconDone } from '@/components/UI/icons/icons'
-import fakeData from '@/MOCK_DATA'
+
+import { getRequestsDetails } from '../api/services'
 
 const surveyList = [
   {
@@ -37,15 +40,15 @@ const surveyList = [
 ]
 
 const RequestDescription = () => {
+  const session = useSession()
   const { t } = useTranslation('common')
   const [isOpenReject, setIsOpenReject] = useState(false)
   const [isOpenConfirm, setIsOpenConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
-  const id = (router.query.id as string) || []
-  const res = fakeData.find((item) => {
-    return item.id === id
-  })
+  const id = router.query.id as string
+  const res = useQuery('Requests', () => getRequestsDetails(id))
+  const result = res.data
 
   const handleSubmit = () => {
     setIsLoading(true)
@@ -154,28 +157,33 @@ const RequestDescription = () => {
         <div className="p-5 overflow-x-auto bg-white rounded-lg">
           {' '}
           <Descriptions title={<DescTitle />} layout="vertical" bordered>
-            <Descriptions.Item label={t('ads-id')}>{res?.id}</Descriptions.Item>
+            <Descriptions.Item label={t('ads-id')}>
+              {result?.id}
+            </Descriptions.Item>
             <Descriptions.Item label={t('phone-number')} span={2}>
-              {res?.phone_number}
+              {result?.phone_number}
             </Descriptions.Item>
             <Descriptions.Item label={t('description-ads')}>
-              {res?.upload_time}
+              {result?.created_at}
             </Descriptions.Item>
             <Descriptions.Item label={t('company-name')} span={2}>
-              {res?.company_name}
+              {result?.agency}
             </Descriptions.Item>
             <Descriptions.Item label={t('status')}>
-              <Badge status={checkColor(res!.status)} text={t(res!.status)} />
+              <Badge
+                status={checkColor(result!.status)}
+                text={t(result!.status)}
+              />
             </Descriptions.Item>
             <Descriptions.Item label={t('moderator')} span={2}>
-              Mr Arabboy
+              {session.data?.user.email}
             </Descriptions.Item>
             <Descriptions.Item label={t('type-of-ads')} span={3}>
-              {res?.type_of_ads[0]}
+              {result?.format}
             </Descriptions.Item>
             <Descriptions.Item label={t('uploaded-content')}>
               {choseTypeOfContent(
-                res!.type_of_ads[0],
+                result!.format,
                 'https://www.youtube.com/watch?v=7r3dQbkdYGY'
               )}
             </Descriptions.Item>

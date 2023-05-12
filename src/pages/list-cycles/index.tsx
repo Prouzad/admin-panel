@@ -2,13 +2,15 @@ import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons'
 import { ColumnsType } from 'antd/es/table'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo } from 'react'
+import { useQuery } from 'react-query'
 
 import { advertCyclesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import TableWrapper from '@/components/templates/tables/HeadTable'
 import MyTable from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import fakeData from '@/MOCK_DATA'
+
+import { getAdvCycle } from '../api/services'
 
 interface IColumnADV {
   id: string
@@ -22,6 +24,7 @@ interface IColumnADV {
 }
 
 const AdvCycle = () => {
+  const result = useQuery('Requests', () => getAdvCycle())
   const { t, lang } = useTranslation('list-cycles')
 
   const columnsHead: ColumnsType<IColumnADV> = [
@@ -33,7 +36,7 @@ const AdvCycle = () => {
     },
     {
       title: t('company-name'),
-      dataIndex: 'company_name',
+      dataIndex: 'agency',
       key: 'name',
     },
     {
@@ -43,14 +46,14 @@ const AdvCycle = () => {
     },
     {
       title: t('ads-format'),
-      dataIndex: 'ads_format',
+      dataIndex: 'format',
       key: 'ads_format',
       defaultSortOrder: 'descend',
     },
 
     {
       title: t('duration'),
-      dataIndex: 'duration',
+      dataIndex: 'show',
       key: 'duration',
     },
     {
@@ -73,19 +76,18 @@ const AdvCycle = () => {
     },
     {
       title: t('upload-time'),
-      dataIndex: 'upload_time',
+      dataIndex: 'created_at',
       key: 'upload_time',
     },
   ]
 
-  const data = useMemo(() => fakeData, [])
   const columns = useMemo(() => columnsHead, [lang])
 
   return (
     <ContentWrapper>
       <TempBreadCumb data={advertCyclesCrumb} />
       <TableWrapper style="w-[75%]" page={'adv-cycle'}>
-        <MyTable columns={columns} data={data} />
+        <MyTable columns={columns} data={result?.data?.results} />
       </TableWrapper>
     </ContentWrapper>
   )

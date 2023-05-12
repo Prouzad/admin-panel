@@ -4,11 +4,9 @@ import { useRouter } from 'next/router'
 
 export const checkColor = (status: string) => {
   switch (status) {
-    case 'Approved':
+    case 'approved':
       return 'success'
-    case 'Online':
-      return 'success'
-    case 'Rejected':
+    case 'rejected':
       return 'error'
     default:
       return 'default'
