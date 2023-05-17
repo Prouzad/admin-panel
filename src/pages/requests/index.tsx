@@ -1,7 +1,8 @@
 import { Badge } from 'antd'
 import { ColumnsType } from 'antd/es/table'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
 
 import { requestsCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
@@ -14,8 +15,20 @@ import { DataType } from '@/MOCK_DATA'
 import { getRequests } from '../api/services'
 
 const UserRequestList = () => {
-  const result = useQuery('Requests', () => getRequests())
+  const { data } = useSession()
+  const [filter, setFilter] = useState([])
+  const result = useQuery(
+    ['Requests', filter],
+    () => getRequests(data?.user?.accessToken, filter),
+    { enabled: !!data?.user?.accessToken }
+  )
+
   const { t, lang } = useTranslation('requests')
+
+  const handleFilter = (params: any) => {
+    setFilter(params)
+  }
+
   const columnsHead: ColumnsType<DataType> = [
     {
       title: '№',
@@ -55,12 +68,16 @@ const UserRequestList = () => {
       key: 'type_of_ads',
     },
   ]
-
   const columns = useMemo(() => columnsHead, [lang])
+
   return (
     <ContentWrapper>
       <TempBreadCumb data={requestsCrumb} />
-      <TableWrapper style="w-[65%]">
+      <TableWrapper
+        style="w-[65%]"
+        fnFilter={handleFilter}
+        count={result?.data?.count}
+      >
         <RequestTable columns={columns} data={result?.data?.results} />
       </TableWrapper>
     </ContentWrapper>

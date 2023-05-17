@@ -1,36 +1,42 @@
 import axios, { AxiosError } from 'axios'
 import { getSession } from 'next-auth/react'
 
+import {
+  API_ROUTE_ADVERTISEMENTS,
+  API_ROUTE_ADVERTISEMENTS_DETAILS,
+  API_ROUTE_AGENCY,
+  API_ROUTE_LOGIN,
+  API_ROUTE_REFRESH_TOKEN,
+  API_ROUTE_REQUEST_APPROVE,
+  API_ROUTE_REQUEST_DETAILS,
+  API_ROUTE_REQUEST_REJECT,
+  API_ROUTE_REQUESTS,
+} from './apiRoutes'
+
+const generateQuery = (params: any) =>
+  params.length
+    ? `?${params.map((x: any) => `${x.key}=${x.value}`).join('&')}`
+    : ''
+
 const instance = axios.create({
   baseURL: 'http://185.74.6.18:8181/api',
 })
 
 export const loginUser = async (body: any) => {
-  const res = await instance.post('/account/login/', body)
+  const res = await instance.post(API_ROUTE_LOGIN, body)
   return res
 }
 
-export const getRequests = async () => {
-  const session = await getSession()
-
-  try {
-    const { data } = await instance.get('/administration/advertisement', {
-      headers: { Authorization: `Bearer ${session?.user.tokens?.access}` },
-    })
-    return data
-  } catch (err) {
-    return Promise.reject(err as AxiosError)
-  }
-}
-
-export const getRequestsDetails = async (id: string) => {
-  const session = await getSession()
-
+export const getRequests = async (
+  token: string | undefined,
+  params: any = []
+) => {
+  console.log('REQUEST PARAMS', params)
   try {
     const { data } = await instance.get(
-      `/administration/advertisement/${id}/`,
+      `${API_ROUTE_REQUESTS}${generateQuery(params)}`,
       {
-        headers: { Authorization: `Bearer ${session?.user.tokens?.access}` },
+        headers: { Authorization: `Bearer ${token}` },
       }
     )
     return data
@@ -39,14 +45,58 @@ export const getRequestsDetails = async (id: string) => {
   }
 }
 
-export const requestApprove = async (id: string) => {
-  const session = await getSession()
+export const getRequestsDetails = async (id: string, token?: string) => {
+  try {
+    const { data } = await instance.get(API_ROUTE_REQUEST_DETAILS(id), {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return data
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
 
+export const requestApprove = async (
+  id: string,
+  resData: any,
+  token?: string
+) => {
+  try {
+    const res = await instance.post(API_ROUTE_REQUEST_APPROVE(id), resData, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const requestReject = async (id: string, token?: string) => {
+  try {
+    const res = await instance.post(
+      API_ROUTE_REQUEST_REJECT(id),
+      {
+        rejection_reason: 'test',
+      },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const getAdvCycle = async (
+  token: string | undefined,
+  params: any = []
+) => {
   try {
     const { data } = await instance.get(
-      `/administration/advertisement/${id}/approve`,
+      `${API_ROUTE_ADVERTISEMENTS}${generateQuery(params)}`,
       {
-        headers: { Authorization: `Bearer ${session?.user.tokens?.access}` },
+        headers: { Authorization: `Bearer ${token}` },
       }
     )
     return data
@@ -55,13 +105,35 @@ export const requestApprove = async (id: string) => {
   }
 }
 
-export const getAdvCycle = async () => {
-  const session = await getSession()
-
+export const getAdvCyclesDetails = async (id: string, token?: string) => {
   try {
-    const { data } = await instance.get('/administration/advertisement_cycle', {
-      headers: { Authorization: `Bearer ${session?.user.tokens?.access}` },
+    const { data } = await instance.get(API_ROUTE_ADVERTISEMENTS_DETAILS(id), {
+      headers: { Authorization: `Bearer ${token}` },
     })
+    return data
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const getAgency = async (token: string | undefined) => {
+  try {
+    const { data } = await instance.get(API_ROUTE_AGENCY, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return data
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const refreshUserToken = async (body: { refresh: string }) => {
+  try {
+    const { data } = await instance.post<Response>(
+      API_ROUTE_REFRESH_TOKEN,
+      body
+    )
+
     return data
   } catch (err) {
     return Promise.reject(err as AxiosError)

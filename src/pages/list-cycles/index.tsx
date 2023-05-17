@@ -1,7 +1,8 @@
 import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons'
 import { ColumnsType } from 'antd/es/table'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
 
 import { advertCyclesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
@@ -24,9 +25,17 @@ interface IColumnADV {
 }
 
 const AdvCycle = () => {
-  const result = useQuery('Requests', () => getAdvCycle())
+  const { data } = useSession()
+  const [filter, setFilter] = useState([])
+  const result = useQuery(
+    ['AdvCyle', filter],
+    () => getAdvCycle(data?.user.accessToken, filter),
+    { enabled: !!data?.user.accessToken }
+  )
   const { t, lang } = useTranslation('list-cycles')
-
+  const handleFilter = (params: any) => {
+    setFilter(params)
+  }
   const columnsHead: ColumnsType<IColumnADV> = [
     {
       title: '№',
@@ -43,6 +52,7 @@ const AdvCycle = () => {
       title: t('content'),
       key: 'content',
       dataIndex: 'content',
+      render: (content) => <a href={content}>content</a>,
     },
     {
       title: t('ads-format'),
@@ -86,7 +96,12 @@ const AdvCycle = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={advertCyclesCrumb} />
-      <TableWrapper style="w-[75%]" page={'adv-cycle'}>
+      <TableWrapper
+        style="w-[75%]"
+        pageTitle={'adv-cycle'}
+        fnFilter={handleFilter}
+        count={result?.data?.count}
+      >
         <MyTable columns={columns} data={result?.data?.results} />
       </TableWrapper>
     </ContentWrapper>

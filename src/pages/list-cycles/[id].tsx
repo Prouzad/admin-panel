@@ -6,14 +6,17 @@ import {
 import { Button, Descriptions, Modal } from 'antd'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
+import { useQuery } from 'react-query'
 
 import img from '@/components/assets/images/image.jpg'
 import { advertCyclesDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import fakeData from '@/MOCK_DATA'
+
+import { getAdvCyclesDetails } from '../api/services'
 
 const surveyList = [
   {
@@ -39,17 +42,21 @@ const surveyList = [
 ]
 
 const RequestDescription = () => {
+  const { data } = useSession()
   const { t } = useTranslation('common')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isFinished, setIsFinished] = useState(true)
   const [isOpenStop, setIsOpenStop] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
-  const id = (router.query.id as string) || []
-  const res = fakeData.find((item) => {
-    return item.id === id
-  })
+  const id = router.query.id as string
+  const res = useQuery(
+    'Requests',
+    () => getAdvCyclesDetails(id, data?.user.accessToken),
+    { enabled: !!data?.user?.accessToken }
+  )
 
+  const result = res.data
+  console.log('ADV', res)
   const handleStop = () => {
     setIsLoading(true)
     setTimeout(() => {
@@ -135,22 +142,24 @@ const RequestDescription = () => {
             bordered
             labelStyle={{ fontWeight: 'bold' }}
           >
-            <Descriptions.Item label={t('ads-id')}>5423412</Descriptions.Item>
+            <Descriptions.Item label={t('ads-id')}>
+              {result?.id}
+            </Descriptions.Item>
             <Descriptions.Item label={t('file')}>
               https://lb.api.cdn.uzcl...
             </Descriptions.Item>
             <Descriptions.Item label={t('company-name')}>
-              “NAMUNA-DIYOR XIIChK” MCHJ , Uzbekistan
+              {result?.agency}
             </Descriptions.Item>
             <Descriptions.Item label={t('type-of-ads')}>
-              Stories
+              {result?.format}
             </Descriptions.Item>
             <Descriptions.Item label={t('duration')}>
               1 Week / 3 days
             </Descriptions.Item>
             <Descriptions.Item label={t('views')}>12 232 421</Descriptions.Item>
             <Descriptions.Item label={t('is-finished')}>
-              {isFinished ? (
+              {result?.is_finished ? (
                 <CheckCircleFilled className="text-green-600 text-xl" />
               ) : (
                 <CloseCircleFilled className="text-red-600 text-xl" />
@@ -163,7 +172,7 @@ const RequestDescription = () => {
               Stories
             </Descriptions.Item>
             <Descriptions.Item label={t('phone-number')}>
-              +998 93 234 65 63
+              {result?.phone_number}
             </Descriptions.Item>
             <Descriptions.Item label={t('payment')} span={2}>
               32 000 000 UZS
@@ -174,7 +183,7 @@ const RequestDescription = () => {
 
             <Descriptions.Item label={t('uploaded-content')}>
               {choseTypeOfContent(
-                res!.type_of_ads[0],
+                res?.format,
                 'https://www.youtube.com/watch?v=7r3dQbkdYGY'
               )}
             </Descriptions.Item>

@@ -12,13 +12,13 @@ declare module 'next-auth' {
       accessTokenExp: number
       refreshToken: string
       email: string
-      role: string | null
-      tokens?: {
-        access?: string
-        refresh?: string
+      tokens: {
+        access: string
+        refresh: string
       }
+      role: string | null
       error?: string
-    }
+    } & DefaultSession['user']
   }
   interface User {
     email: string

@@ -22,20 +22,24 @@ const MyTable = ({
 }) => {
   const router = useRouter()
   const rowClassName = () => 'cursor-pointer'
+
   return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      rowClassName={rowClassName}
-      onRow={(record) => {
-        return {
-          onClick: () => {
-            const url = router.pathname + `/${record.id}`
-            router.push(url)
-          },
-        }
-      }}
-    />
+    <>
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowClassName={rowClassName}
+        pagination={false}
+        onRow={(record) => {
+          return {
+            onClick: () => {
+              const url = router.pathname + `/${record.id}`
+              router.push(url)
+            },
+          }
+        }}
+      />
+    </>
   )
 }
 

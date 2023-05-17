@@ -1,5 +1,5 @@
 import { QuestionCircleOutlined } from '@ant-design/icons'
-import { Select } from 'antd'
+import { Pagination, PaginationProps, Select } from 'antd'
 import { DatePicker, Input } from 'antd'
 import dayjs, { Dayjs } from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -17,23 +17,73 @@ interface IRoutState {
 const { Search } = Input
 const { RangePicker } = DatePicker
 
+const requestSelect = [
+  {
+    value: 'All',
+    label: 'All',
+  },
+
+  {
+    value: 'approved',
+    label: 'Approved',
+  },
+  { value: 'moderation', label: 'Moderation' },
+  { value: 'rejected', label: 'Rejected' },
+]
+
+const advCycleSelect = [
+  {
+    value: 'All',
+    label: 'All',
+  },
+
+  {
+    value: true,
+    label: 'Finished',
+  },
+  { value: false, label: 'Unfinished' },
+]
+
 const TableWrapper = ({
   children,
   style,
-  page,
+  pageTitle,
+  fnFilter,
+  count,
 }: {
   children: ReactNode
   style: string
-  page?: string
+  pageTitle?: string
+  fnFilter: (arg: any) => void
+  count: number
 }) => {
   const router = useRouter()
   const [rout, setRout] = useState<IRoutState>({})
   const [searchLetters, setSearchletters] = useState('')
   const [searchValue, setSearchValue] = useState('')
   const [rangeDate, setRangeDate] = useState<Dayjs[]>()
-  const [start, setStart] = useState('')
-  const [end, setEnd] = useState('')
-  const [isSelected, setIsSelected] = useState('')
+  const [created_at_after, setCreated_at_after] = useState('')
+  const [created_at_before, setCreated_at_before] = useState('')
+  const [status, setStatus] = useState('')
+  const [page, setPage] = useState(1)
+  const [page_size, setPage_size] = useState(10)
+  const [countPage, setCountPage] = useState(50)
+
+  const filterEmptyValues = (obj: any) => {
+    if (obj !== undefined && obj !== null) {
+      const filteredEntries = Object.entries(obj).filter(([_, value]) => {
+        return value !== '' && value !== null && value !== undefined
+      })
+      return Object.fromEntries(filteredEntries)
+    }
+    return null
+  }
+
+  const getObjectQuery = (keys: string[], values: string[]) => {
+    return keys.map((item, idx) => {
+      return { key: item, value: values[idx] }
+    })
+  }
 
   useEffect(() => {
     setRout({})
@@ -45,31 +95,34 @@ const TableWrapper = ({
       setSearchValue(router.query.search)
       setSearchletters(router.query.search)
     }
-    if (typeof router.query.isSelected === 'string') {
-      setIsSelected(router.query.isSelected)
+    if (typeof router.query.status === 'string') {
+      setStatus(router.query.status)
     }
     if (
-      typeof router.query.start === 'string' &&
-      typeof router.query.end === 'string'
+      typeof router.query.created_at === 'string' &&
+      typeof router.query.end_at === 'string'
     ) {
-      setStart(router.query.start)
-      setEnd(router.query.end)
-      setRangeDate([dayjs(router.query.start), dayjs(router.query.end)])
+      setCreated_at_after(router.query.created_at)
+      setCreated_at_before(router.query.end_at)
+      setRangeDate([dayjs(router.query.created_at), dayjs(router.query.end_at)])
     }
+    if (
+      typeof router.query.page === 'string' &&
+      typeof router.query.page_size === 'string'
+    ) {
+      setPage(+router.query.page)
+      setPage_size(+router.query.page_size)
+    }
+    setCountPage(count)
   }, [])
 
   useEffect(() => {
-    const filterEmptyValues = (obj: any) => {
-      if (obj !== undefined && obj !== null) {
-        const filteredEntries = Object.entries(obj).filter(([_, value]) => {
-          return value !== '' && value !== null && value !== undefined
-        })
-        return Object.fromEntries(filteredEntries)
-      }
-      return null
-    }
-    const result: any = filterEmptyValues(rout)
+    setCountPage(count)
+  }, [count])
 
+  useEffect(() => {
+    const result: any = filterEmptyValues(rout)
+    fnFilter(getObjectQuery(Object.keys(result), Object.values(result)))
     router.push({
       query: result,
     })
@@ -77,7 +130,6 @@ const TableWrapper = ({
 
   useEffect(() => {
     const search = searchValue
-
     setRout((prev: any) => {
       return {
         ...prev,
@@ -87,17 +139,24 @@ const TableWrapper = ({
     setRout((prev) => {
       return {
         ...prev,
-        start,
-        end,
+        created_at_after,
+        created_at_before,
       }
     })
     setRout((prev) => {
       return {
         ...prev,
-        isSelected,
+        status,
       }
     })
-  }, [searchValue, rangeDate, isSelected])
+    setRout((prev) => {
+      return {
+        ...prev,
+        page,
+        page_size,
+      }
+    })
+  }, [searchValue, rangeDate, status, page, page_size])
 
   const searchSetQuery = (value: any) => {
     if (value.length === 0) {
@@ -116,9 +175,18 @@ const TableWrapper = ({
 
   const handleDateChange = (dates: any, dateStrings: [string, string]) => {
     setRangeDate(dates)
-    setStart(dateStrings[0])
-    setEnd(dateStrings[1])
+    setCreated_at_after(dateStrings[0])
+    setCreated_at_before(dateStrings[1])
   }
+
+  const onShowSizeChange: PaginationProps['onShowSizeChange'] = (
+    current,
+    pageSize
+  ) => {
+    setPage(current)
+    setPage_size(pageSize)
+  }
+
   return (
     <div className={`pb-5 ${style}`}>
       <div className="px-5 pb-0  bg-white rounded-lg ">
@@ -142,7 +210,7 @@ const TableWrapper = ({
               }}
             />
           </div>
-          {!(page === 'agency') && (
+          {!(pageTitle === 'agency') && (
             <div className="mr-6">
               <RangePicker
                 onChange={handleDateChange}
@@ -153,33 +221,33 @@ const TableWrapper = ({
           <div className="">
             <Select
               defaultValue={'All'}
-              value={isSelected.length === 0 ? 'All' : isSelected}
+              value={status.length === 0 ? 'All' : status}
               listItemHeight={1}
               listHeight={100}
               style={{ width: 148, borderRadius: 0 }}
               onSelect={(value: string) => {
                 if (value === 'All') {
-                  return setIsSelected('')
+                  return setStatus('')
                 }
-                setIsSelected(value)
+                setStatus(value)
               }}
-              options={[
-                {
-                  value: 'All',
-                  label: 'All',
-                },
-
-                {
-                  value: 'Approved',
-                  label: 'Approved',
-                },
-                { value: 'To_moderation', label: 'To Moderation' },
-                { value: 'Rejected', label: 'Rejected' },
-              ]}
+              options={
+                pageTitle === 'adv-cycle' ? advCycleSelect : requestSelect
+              }
             />
           </div>
         </div>
         {children}
+        <Pagination
+          showSizeChanger
+          className="flex justify-end py-4"
+          onChange={onShowSizeChange}
+          current={page}
+          total={countPage}
+          showTotal={(total, range) =>
+            `${range[0]}-${range[1]} of ${total} items`
+          }
+        />
       </div>
     </div>
   )
