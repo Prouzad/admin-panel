@@ -3,7 +3,7 @@ import {
   CloseCircleFilled,
   MinusCircleOutlined,
 } from '@ant-design/icons'
-import { Button, Descriptions, Modal } from 'antd'
+import { Button, Descriptions, message, Modal } from 'antd'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
@@ -44,6 +44,7 @@ const surveyList = [
 
 const RequestDescription = () => {
   const { data: session } = useSession()
+  const [messageApi, contextHolder] = message.useMessage()
   const { t } = useTranslation('common')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isOpenStop, setIsOpenStop] = useState(false)
@@ -57,15 +58,33 @@ const RequestDescription = () => {
   )
 
   const result = res.data as IAdvCycleRes
+
+  const success = (type: any, text: string) => {
+    messageApi.open({
+      type: type,
+      content: text,
+      duration: 10,
+    })
+  }
+
   const handleStop = async () => {
     setIsLoading(true)
-    await setOffAdvCycle(id, result, session?.user.accessToken)
-    setTimeout(() => {
-      setIsLoading(false)
-      setTimeout(() => {
+
+    await setOffAdvCycle(
+      id,
+      { agency: result.agency },
+      session?.user.accessToken
+    )
+      .then(() => {
+        success('success', 'Success')
+      })
+      .catch(() => {
+        success('error', 'Error')
+      })
+      .finally(() => {
+        setIsLoading(false)
         setIsOpenStop(false)
-      }, 1000)
-    }, 3000)
+      })
   }
 
   const choseTypeOfContent = (contentType: string, content: any) => {
@@ -133,6 +152,7 @@ const RequestDescription = () => {
 
   return (
     <ContentWrapper>
+      {contextHolder}
       <TempBreadCumb data={advertCyclesDescriptionCrumb} />
       <div className="col-start-3 col-end-10 w-[65%]">
         <div className="p-5 overflow-x-auto bg-white rounded-lg">

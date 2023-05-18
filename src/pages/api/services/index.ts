@@ -120,8 +120,10 @@ export const setOffAdvCycle = async (id: string, body: any, token?: string) => {
     const res = await instance.post(API_ROUTE_REQUEST_SET_OFF(id), body, {
       headers: { Authorization: `Bearer ${token}` },
     })
+    console.log('SETOFF', res)
     return res
   } catch (err) {
+    console.log('ERROR', err)
     return Promise.reject(err as AxiosError)
   }
 }

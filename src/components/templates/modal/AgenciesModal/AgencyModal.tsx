@@ -1,6 +1,7 @@
 import { DeleteOutlined, UploadOutlined } from '@ant-design/icons'
 import {
   Button,
+  Form,
   Input,
   message,
   Progress,
@@ -27,7 +28,6 @@ export interface IFile {
 const AgencyModal = ({ itemID }: { itemID?: string }) => {
   const { t } = useTranslation('common')
   const [isFile, setIsFile] = useState<IFile | undefined>()
-
   const props: UploadProps = {
     name: 'file',
 
@@ -65,31 +65,41 @@ const AgencyModal = ({ itemID }: { itemID?: string }) => {
       <div className="flex justify-between mb-5 flex-wrap">
         <div className="">
           <p className="mb-2">{t('agency-name')}</p>
-          <Input
-            placeholder={t('agency-name')}
-            className="w-[273px] rounded-sm "
-          />
+          <Form.Item name="name" rules={[{ required: true }]}>
+            <Input
+              placeholder={t('agency-name')}
+              className="w-[273px] rounded-sm "
+              required
+            />
+          </Form.Item>
         </div>
         <div className="focus-within:border-blue-400">
           <p className="mb-2">{t('phone-number')}</p>
-          <PhoneInput
-            specialLabel=""
-            country="uz"
-            alwaysDefaultMask
-            inputProps={{
-              placeholder: '+998 --  ---  --  --',
-              required: true,
-            }}
-            defaultMask=".. ... - .. - .."
-            inputClass={`w-[273px] border p-1 px-2 rounded-sm hover:border-blue-400 focus:outline-none focus:blue focus:blue-400 `}
-          />
+          <Form.Item
+            name={'phone_number'}
+            rules={[{ required: true, len: 12 }]}
+          >
+            <PhoneInput
+              specialLabel=""
+              country="uz"
+              alwaysDefaultMask
+              inputProps={{
+                placeholder: '+998 --  ---  --  --',
+                required: true,
+              }}
+              defaultMask=".. ... - .. - .."
+              inputClass={`w-[273px] border p-1 px-2 rounded-sm hover:border-blue-400 focus:outline-none focus:blue focus:blue-400 `}
+            />
+          </Form.Item>
         </div>
         <div className="">
           <p className="mb-2">{t('address')}</p>
-          <Input
-            placeholder={t('address')}
-            className="w-[273px] rounded-sm  "
-          />
+          <Form.Item name={'address'} rules={[{ required: true }]}>
+            <Input
+              placeholder={t('address')}
+              className="w-[273px] rounded-sm  "
+            />
+          </Form.Item>
         </div>
       </div>
       <div className=" border-b-[1px] pb-4 ">

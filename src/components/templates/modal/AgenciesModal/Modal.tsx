@@ -1,5 +1,5 @@
 import { CheckOutlined } from '@ant-design/icons'
-import { Button, Modal } from 'antd'
+import { Button, Form, Modal } from 'antd'
 import useTranslation from 'next-translate/useTranslation'
 import { ReactNode } from 'react'
 
@@ -7,7 +7,7 @@ const AgencyModalWrapper = ({
   children,
   isOpen,
   setIsOpen,
-  handleSave,
+  // handleSave,
   title,
 }: {
   children: ReactNode
@@ -16,6 +16,7 @@ const AgencyModalWrapper = ({
   handleSave: () => void
   title: string
 }) => {
+  const form = Form.useFormInstance()
   const { t } = useTranslation('common')
   const titleT = t(title)
   return (
@@ -31,8 +32,9 @@ const AgencyModalWrapper = ({
         <div key="save" className="w-full flex items-end justify-end">
           <Button
             key="save"
-            onClick={handleSave}
+            onClick={() => form.submit()}
             type="ghost"
+            htmlType="submit"
             className="bg-[#2173DF] text-white text-sm h-[34px] px-4 rounded-sm flex  items-center "
             icon={<CheckOutlined />}
           >

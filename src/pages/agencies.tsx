@@ -4,7 +4,7 @@ import {
   EllipsisOutlined,
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
-import { Button, Dropdown, Space } from 'antd'
+import { Button, Dropdown, Form, Space } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { useSession } from 'next-auth/react'
@@ -37,6 +37,7 @@ interface IColumnAgency {
 
 const Agencies = () => {
   const { data: session } = useSession()
+  const [form] = Form.useForm()
   const [filter, setFilter] = useState([])
   const { t, lang } = useTranslation('agencies')
   const [isOpen, setIsOpen] = useState(false)
@@ -185,20 +186,32 @@ const Agencies = () => {
         />
       </TableWrapper>
 
-      <AgencyModalWrapper
-        title={'Create Agency'}
-        handleSave={handleSave}
-        setIsOpen={setIsOpen}
-        isOpen={isOpen}
+      <Form
+        onFinish={(values) => {
+          // eslint-disable-next-line no-console
+          console.log('FINISH', values)
+        }}
+        onFinishFailed={() => {
+          // eslint-disable-next-line no-console
+          console.log('FINISH')
+        }}
+        form={form}
       >
-        <AgencyModal />
-        <CollapseWrapper title="Create agent">
-          <AgentModal />
-        </CollapseWrapper>
-        <CollapseWrapper title="Create contract">
-          <ContractModal />
-        </CollapseWrapper>
-      </AgencyModalWrapper>
+        <AgencyModalWrapper
+          title={'Create Agency'}
+          handleSave={handleSave}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+        >
+          <AgencyModal />
+          <CollapseWrapper title="Create agent">
+            <AgentModal />
+          </CollapseWrapper>
+          <CollapseWrapper title="Create contract">
+            <ContractModal />
+          </CollapseWrapper>
+        </AgencyModalWrapper>
+      </Form>
       <AgencyModalWrapper
         title={'Edit Agency'}
         handleSave={handleSave}
