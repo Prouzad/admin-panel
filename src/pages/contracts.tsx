@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 
 import { contractsCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
-import TableWrapper from '@/components/templates/tables/HeadTable'
+// import TableWrapper from '@/components/templates/tables/HeadTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import fakeData from '@/MOCK_DATA'
 
@@ -63,13 +63,9 @@ const Contracts = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={contractsCrumb} />
-      <TableWrapper style="w-[75%]" page={'contracts'}>
-        <Table
-          columns={columns}
-          dataSource={data}
-          rowClassName={rowClassName}
-        />
-      </TableWrapper>
+      {/* <TableWrapper style="w-[75%]" page={'contracts'}> */}
+      <Table columns={columns} dataSource={data} rowClassName={rowClassName} />
+      {/* </TableWrapper> */}
     </ContentWrapper>
   )
 }
