@@ -9,6 +9,7 @@ import {
   API_ROUTE_REQUEST_APPROVE,
   API_ROUTE_REQUEST_DETAILS,
   API_ROUTE_REQUEST_REJECT,
+  API_ROUTE_REQUEST_SET_OFF,
   API_ROUTE_REQUESTS,
 } from './apiRoutes'
 
@@ -109,6 +110,17 @@ export const getAdvCyclesDetails = async (id: string, token?: string) => {
       headers: { Authorization: `Bearer ${token}` },
     })
     return data
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const setOffAdvCycle = async (id: string, body: any, token?: string) => {
+  try {
+    const res = await instance.post(API_ROUTE_REQUEST_SET_OFF(id), body, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
   } catch (err) {
     return Promise.reject(err as AxiosError)
   }

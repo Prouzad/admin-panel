@@ -15,12 +15,12 @@ import { DataType } from '@/MOCK_DATA'
 import { getRequests } from '../api/services'
 
 const UserRequestList = () => {
-  const { data } = useSession()
+  const { data: session } = useSession()
   const [filter, setFilter] = useState([])
   const result = useQuery(
     ['Requests', filter],
-    () => getRequests(data?.user?.accessToken, filter),
-    { enabled: !!data?.user?.accessToken }
+    () => getRequests(session?.user?.accessToken, filter),
+    { enabled: !!session?.user?.accessToken }
   )
 
   const { t, lang } = useTranslation('requests')

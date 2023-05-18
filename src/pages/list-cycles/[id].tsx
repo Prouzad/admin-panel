@@ -17,7 +17,7 @@ import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IAdvCycleRes } from '@/types'
 
-import { getAdvCyclesDetails } from '../api/services'
+import { getAdvCyclesDetails, setOffAdvCycle } from '../api/services'
 
 const surveyList = [
   {
@@ -43,7 +43,7 @@ const surveyList = [
 ]
 
 const RequestDescription = () => {
-  const { data } = useSession()
+  const { data: session } = useSession()
   const { t } = useTranslation('common')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isOpenStop, setIsOpenStop] = useState(false)
@@ -52,13 +52,14 @@ const RequestDescription = () => {
   const id = router.query.id as string
   const res = useQuery(
     'Requests',
-    () => getAdvCyclesDetails(id, data?.user.accessToken),
-    { enabled: !!data?.user?.accessToken }
+    () => getAdvCyclesDetails(id, session?.user.accessToken),
+    { enabled: !!session?.user?.accessToken }
   )
 
   const result = res.data as IAdvCycleRes
-  const handleStop = () => {
+  const handleStop = async () => {
     setIsLoading(true)
+    await setOffAdvCycle(id, result, session?.user.accessToken)
     setTimeout(() => {
       setIsLoading(false)
       setTimeout(() => {

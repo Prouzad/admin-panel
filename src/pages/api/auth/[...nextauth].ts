@@ -1,5 +1,6 @@
 import jwt_decode from 'jwt-decode'
 import { NextAuthOptions } from 'next-auth'
+import { Session } from 'next-auth/core/types'
 import NextAuth from 'next-auth/next'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
@@ -56,15 +57,16 @@ export const authOptions: NextAuthOptions = {
     },
 
     async session({ session, token }) {
-      if (session && token) {
-        session.user.accessToken = token.accessToken
-        session.user.email = token.email
-        session.user.role = token.role
-        session.user.accessTokenExp = token.accessTokenExp
-        session.user.refreshToken = token.refreshToken
-        session.user.error = token.error
+      const session2 = session as Session
+      if (session2 && token) {
+        session2.user.accessToken = token.accessToken
+        session2.user.email = token.email
+        session2.user.role = token.role
+        session2.user.accessTokenExp = token.accessTokenExp
+        session2.user.refreshToken = token.refreshToken
+        session2.user.error = token.error
       }
-      return session
+      return session2
     },
   },
   debug: process.env.NODE_ENV === 'development',

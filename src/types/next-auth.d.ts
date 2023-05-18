@@ -1,7 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import NextAuth from 'next-auth'
+import NextAuth, { DefaultSession } from 'next-auth'
 
-declare module 'react-datepocker'
 declare module 'next-auth' {
   /**
    * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
@@ -18,7 +17,7 @@ declare module 'next-auth' {
       }
       role: string | null
       error?: string
-    } & DefaultSession['user']
+    }
   }
   interface User {
     email: string

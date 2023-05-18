@@ -52,6 +52,7 @@ const LeftBar = () => {
           return (
             <Link href={item.link} key={idx}>
               <div
+                key={idx}
                 className={`w-full  transition-all ease-in-out flex px-5 cursor-pointer space-x-4 py-[9px] mt-4 group text-base items-center justify-between ${
                   isRout?.includes(item.link.slice(1))
                     ? 'text-black bg-[#F3F7FF]'

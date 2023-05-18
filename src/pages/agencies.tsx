@@ -36,7 +36,7 @@ interface IColumnAgency {
 }
 
 const Agencies = () => {
-  const { data } = useSession()
+  const { data: session } = useSession()
   const [filter, setFilter] = useState([])
   const { t, lang } = useTranslation('agencies')
   const [isOpen, setIsOpen] = useState(false)
@@ -46,8 +46,8 @@ const Agencies = () => {
   const [isEdithItem, setIsEdithItem] = useState('')
   const res = useQuery(
     ['Requests', filter],
-    () => getAgency(data?.user?.accessToken, filter),
-    { enabled: !!data?.user?.accessToken }
+    () => getAgency(session?.user?.accessToken, filter),
+    { enabled: !!session?.user?.accessToken }
   )
 
   const result = res.data

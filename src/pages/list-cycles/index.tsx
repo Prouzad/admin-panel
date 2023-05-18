@@ -15,12 +15,12 @@ import { IColumnADV } from '@/types'
 import { getAdvCycle } from '../api/services'
 
 const AdvCycle = () => {
-  const { data } = useSession()
+  const { data: session } = useSession()
   const [filter, setFilter] = useState([])
   const result = useQuery(
     ['AdvCyle', filter],
-    () => getAdvCycle(data?.user.accessToken, filter),
-    { enabled: !!data?.user.accessToken }
+    () => getAdvCycle(session?.user.accessToken, filter),
+    { enabled: !!session?.user.accessToken }
   )
   const { t, lang } = useTranslation('list-cycles')
   const handleFilter = (params: any) => {

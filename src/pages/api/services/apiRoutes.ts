@@ -10,6 +10,9 @@ export const API_ROUTE_REQUEST_REJECT = (id: string | number) =>
 export const API_ROUTE_ADVERTISEMENTS_DETAILS = (id: string | number) =>
   `/administration/advertisement_cycle/${id}/`
 
+export const API_ROUTE_REQUEST_SET_OFF = (id: string | number) =>
+  `/administration/advertisement_cycle/${id}/set_off/`
+
 export const API_ROUTE_LOGIN = '/account/login/'
 
 export const API_ROUTE_REQUESTS = '/administration/advertisement'
