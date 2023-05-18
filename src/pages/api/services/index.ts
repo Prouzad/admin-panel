@@ -19,7 +19,7 @@ const generateQuery = (params: any) =>
     : ''
 
 const instance = axios.create({
-  baseURL: 'http://185.74.6.18:8181/api',
+  baseURL: 'https://wb.idata.uz/api',
 })
 
 export const loginUser = async (body: any) => {
