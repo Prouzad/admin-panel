@@ -76,15 +76,13 @@ const RequestDescription = () => {
       format: result.format,
     }
     setIsLoading(true)
-    const res = await requestApprove(id, requestData, data?.user?.accessToken)
-      .then((res) => {
+    await requestApprove(id, requestData, data?.user?.accessToken)
+      .then(() => {
         setIsLoading(false)
         success('success', t('this-request-has-been-successfully-approved'))
         setChange(true)
-        console.log(res)
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
         success('error', t('an-error-occurred-while-approving-the-request'))
       })
       .finally(() => {
@@ -95,12 +93,12 @@ const RequestDescription = () => {
 
   const handleReject = async () => {
     setIsLoading(true)
-    const res = await requestReject(id, data?.user.accessToken)
-      .then((res) => {
+    await requestReject(id, data?.user.accessToken)
+      .then(() => {
         success('success', t('this-request-was-successfully-denied'))
         setChange(true)
       })
-      .catch((err) => {
+      .catch(() => {
         success('error', t('an-error-occurred-while-denying-the-request'))
       })
       .finally(() => {

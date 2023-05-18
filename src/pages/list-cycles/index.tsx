@@ -10,19 +10,9 @@ import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import TableWrapper from '@/components/templates/tables/HeadTable'
 import MyTable from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
+import { IColumnADV } from '@/types'
 
 import { getAdvCycle } from '../api/services'
-
-interface IColumnADV {
-  id: string
-  name: string
-  content: string
-  ads_format: string
-  duration: string
-  view_count: string
-  is_finished: string
-  upload_time: string
-}
 
 const AdvCycle = () => {
   const { data } = useSession()

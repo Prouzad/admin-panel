@@ -7,9 +7,11 @@ import type { MenuProps } from 'antd'
 import { Button, Dropdown, Space } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo, useState } from 'react'
 import React from 'react'
+import { useQuery } from 'react-query'
 
 import { agenciesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
@@ -20,7 +22,8 @@ import ContractModal from '@/components/templates/modal/AgenciesModal/ContractMo
 import AgencyModalWrapper from '@/components/templates/modal/AgenciesModal/Modal'
 import TableWrapper from '@/components/templates/tables/HeadTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import fakeData from '@/MOCK_DATA'
+
+import { getAgency } from './api/services'
 
 interface IColumnAgency {
   id: string
@@ -33,12 +36,24 @@ interface IColumnAgency {
 }
 
 const Agencies = () => {
+  const { data } = useSession()
+  const [filter, setFilter] = useState([])
   const { t, lang } = useTranslation('agencies')
   const [isOpen, setIsOpen] = useState(false)
   const [isAgencyModal, setIsAgencyModal] = useState(false)
   const [isAgentModal, setIsAgentModal] = useState(false)
   const [isContractModal, setIsContractModal] = useState(false)
   const [isEdithItem, setIsEdithItem] = useState('')
+  const res = useQuery(
+    ['Requests', filter],
+    () => getAgency(data?.user?.accessToken, filter),
+    { enabled: !!data?.user?.accessToken }
+  )
+
+  const result = res.data
+  const handleFilter = (params: any) => {
+    setFilter(params)
+  }
 
   const items: MenuProps['items'] = [
     {
@@ -79,30 +94,35 @@ const Agencies = () => {
     },
     {
       title: t('agency-name'),
-      dataIndex: 'company_name',
+      dataIndex: 'name',
       key: 'agency_name',
     },
     {
+      title: t('phone_number'),
+      key: 'phone_number',
+      dataIndex: 'phone_number',
+    },
+    {
       title: t('adress'),
-      key: 'adress',
+      key: 'address',
       dataIndex: 'adress',
     },
     {
       title: t('agent-number'),
-      dataIndex: 'id',
+      dataIndex: 'agents_count',
       key: 'agent_number',
     },
 
     {
       title: t('contract-count'),
       dataIndex: 'id',
-      key: 'contract_count',
+      key: 'contracts_count',
     },
 
     {
       title: t('able-disable'),
-      dataIndex: 'able_disable',
-      key: 'able_disable',
+      dataIndex: 'is_active',
+      key: 'is_active',
       align: 'center',
       render: (_: any, { able_disable }) => {
         if (able_disable) {
@@ -147,16 +167,20 @@ const Agencies = () => {
     setIsOpen(false)
   }
 
-  const data = useMemo(() => fakeData, []) as any
   const columns = useMemo(() => columnsHead, [lang])
   const rowClassName = () => 'cursor-pointer'
   return (
     <ContentWrapper>
       <TempBreadCumb data={agenciesCrumb} setIsCreateModal={setIsOpen} />
-      <TableWrapper style="w-[75%]" page={'agency'}>
+      <TableWrapper
+        style="w-[75%]"
+        pageTitle={'agency'}
+        fnFilter={handleFilter}
+        count={result?.count}
+      >
         <Table
           columns={columns}
-          dataSource={data}
+          dataSource={result?.results}
           rowClassName={rowClassName}
         />
       </TableWrapper>

@@ -244,6 +244,7 @@ const TableWrapper = ({
           onChange={onShowSizeChange}
           current={page}
           total={countPage}
+          pageSize={page_size}
           showTotal={(total, range) =>
             `${range[0]}-${range[1]} of ${total} items`
           }

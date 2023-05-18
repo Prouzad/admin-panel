@@ -8,5 +8,6 @@
   "agent-number": "Номер агента",
   "contract-count": "Количество контрактов",
   "able-disable": "Активно / Не активно",
-  "action": "Действие"
+  "action": "Действие",
+  "phone_number": "Номер телефона"
 }

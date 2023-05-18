@@ -15,6 +15,7 @@ import img from '@/components/assets/images/image.jpg'
 import { advertCyclesDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
+import { IAdvCycleRes } from '@/types'
 
 import { getAdvCyclesDetails } from '../api/services'
 
@@ -55,8 +56,7 @@ const RequestDescription = () => {
     { enabled: !!data?.user?.accessToken }
   )
 
-  const result = res.data
-  console.log('ADV', res)
+  const result = res.data as IAdvCycleRes
   const handleStop = () => {
     setIsLoading(true)
     setTimeout(() => {
@@ -183,7 +183,7 @@ const RequestDescription = () => {
 
             <Descriptions.Item label={t('uploaded-content')}>
               {choseTypeOfContent(
-                res?.format,
+                result?.format,
                 'https://www.youtube.com/watch?v=7r3dQbkdYGY'
               )}
             </Descriptions.Item>

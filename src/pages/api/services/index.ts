@@ -1,5 +1,4 @@
 import axios, { AxiosError } from 'axios'
-import { getSession } from 'next-auth/react'
 
 import {
   API_ROUTE_ADVERTISEMENTS,
@@ -31,7 +30,6 @@ export const getRequests = async (
   token: string | undefined,
   params: any = []
 ) => {
-  console.log('REQUEST PARAMS', params)
   try {
     const { data } = await instance.get(
       `${API_ROUTE_REQUESTS}${generateQuery(params)}`,
@@ -116,11 +114,17 @@ export const getAdvCyclesDetails = async (id: string, token?: string) => {
   }
 }
 
-export const getAgency = async (token: string | undefined) => {
+export const getAgency = async (
+  token: string | undefined,
+  params: any = []
+) => {
   try {
-    const { data } = await instance.get(API_ROUTE_AGENCY, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    const { data } = await instance.get(
+      `${API_ROUTE_AGENCY}${generateQuery(params)}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
     return data
   } catch (err) {
     return Promise.reject(err as AxiosError)
