@@ -39,16 +39,12 @@ const CollapseWrapper = ({
   return (
     <Collapse
       expandIconPosition={'end'}
-      expandIcon={(props) => {
-        return <CollapseButton props={props} title={titleT} />
-      }}
+      collapsible={'disabled'}
       ghost
+      defaultActiveKey={['1']}
       style={{
         margin: 0,
         padding: 0,
-      }}
-      onChange={() => {
-        return 'as'
       }}
     >
       <Panel

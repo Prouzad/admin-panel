@@ -23,7 +23,7 @@ import AgencyModalWrapper from '@/components/templates/modal/AgenciesModal/Modal
 import TableWrapper from '@/components/templates/tables/HeadTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 
-import { getAgency } from './api/services'
+import { createAgency, getAgency } from './api/services'
 
 interface IColumnAgency {
   id: string
@@ -35,9 +35,22 @@ interface IColumnAgency {
   action: string
 }
 
+export interface IForm {
+  name: string
+  phone_number: string
+  address: string
+  logo?: string
+  agent_phone_number: string
+  agent_role?: string
+  contract_number: string
+  contract_file?: string
+  contract_date: string
+  contract_finished_date?: string
+}
+
 const Agencies = () => {
   const { data: session } = useSession()
-  const [form] = Form.useForm()
+  const [form] = Form.useForm<IForm>()
   const [filter, setFilter] = useState([])
   const { t, lang } = useTranslation('agencies')
   const [isOpen, setIsOpen] = useState(false)
@@ -169,6 +182,36 @@ const Agencies = () => {
     setIsOpen(false)
   }
 
+  const filterEmptyValues = (obj: IForm) => {
+    if (obj !== undefined && obj !== null) {
+      const filteredEntries = Object.entries(obj).filter(([_, value]) => {
+        return value !== '' && value !== null && value !== undefined
+      })
+      return Object.fromEntries(filteredEntries)
+    }
+    return null
+  }
+
+  const filterFileEmpty = async (obj: string) => {
+    if (obj && obj?.fileList.length !== 0) {
+      const res = await new Promise((resolve, reject) => {
+        const fileReader = new FileReader()
+
+        fileReader.readAsDataURL(obj?.file)
+
+        fileReader.onload = () => {
+          resolve(fileReader.result)
+        }
+
+        fileReader.onerror = (error) => {
+          reject(error)
+        }
+      })
+      return res
+    }
+    return undefined
+  }
+
   const columns = useMemo(() => columnsHead, [lang])
   const rowClassName = () => 'cursor-pointer'
   return (
@@ -188,17 +231,55 @@ const Agencies = () => {
       </TableWrapper>
 
       <Form
-        onFinish={(values) => {
+        onFinish={async (values) => {
+          const result = filterEmptyValues(values)
+          const body = {}
+
+          if (values.logo) {
+            body.logo = await filterFileEmpty(values?.logo)
+          }
+
+          if(values.)
           // eslint-disable-next-line no-console
-          console.log('FINISH323')
+
+          // if (
+          //   result &&
+          //   Object.keys(result).includes('contract_file') &&
+          //   result?.contract_file?.fileList.length !== 0
+          // ) {
+          //   new Promise((resolve, reject) => {
+          //     const fileReader = new FileReader()
+
+          //     fileReader.readAsDataURL(result?.contract_file?.file)
+
+          //     fileReader.onload = () => {
+          //       resolve(fileReader.result)
+          //     }
+
+          //     fileReader.onerror = (error) => {
+          //       reject(error)
+          //     }
+          //   })
+          //     .then((res) => (result.contract_file = res))
+          //     // eslint-disable-next-line no-console
+          //     .catch((err) => console.log(err))
+          // } else if (
+          //   result?.contract_file &&
+          //   result?.contract_file?.fileList.length === 0
+          // ) {
+          //   delete result.contract_file
+          // }
+          // const res = await createAgency(result, session?.user?.accessToken)
+
+          console.log('CREATE', body)
         }}
         onFinishFailed={() => {
           // eslint-disable-next-line no-console
           console.log('FINISH')
         }}
-        onValuesChange={(values) => {
-          console.log('ONFINISH', values)
-        }}
+        // onValuesChange={(values) => {
+        //   console.log('ONFINISH', values)
+        // }}
         form={form}
       >
         <AgencyModalWrapper

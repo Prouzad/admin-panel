@@ -25,7 +25,7 @@ const AgencyModal = ({ itemID }: { itemID?: string }) => {
   const { t } = useTranslation('common')
   const props: UploadProps = {
     name: 'logo',
-
+   
     beforeUpload: () => {
       return false
     },
@@ -78,7 +78,7 @@ const AgencyModal = ({ itemID }: { itemID?: string }) => {
       <div className=" border-b-[1px] pb-4 ">
         <p className="mb-2">{t('logo-upload')}</p>
         <div className="flex">
-          <Form.Item name={'agency_logo'}>
+          <Form.Item name={'logo'}>
             <Upload
               {...props}
               itemRender={(_, file, _2, { remove }) => {

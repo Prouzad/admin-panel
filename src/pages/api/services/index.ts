@@ -4,6 +4,7 @@ import {
   API_ROUTE_ADVERTISEMENTS,
   API_ROUTE_ADVERTISEMENTS_DETAILS,
   API_ROUTE_AGENCY,
+  API_ROUTE_CREATE_AGENCY,
   API_ROUTE_LOGIN,
   API_ROUTE_REFRESH_TOKEN,
   API_ROUTE_REQUEST_APPROVE,
@@ -120,10 +121,8 @@ export const setOffAdvCycle = async (id: string, body: any, token?: string) => {
     const res = await instance.post(API_ROUTE_REQUEST_SET_OFF(id), body, {
       headers: { Authorization: `Bearer ${token}` },
     })
-    console.log('SETOFF', res)
     return res
   } catch (err) {
-    console.log('ERROR', err)
     return Promise.reject(err as AxiosError)
   }
 }
@@ -140,6 +139,17 @@ export const getAgency = async (
       }
     )
     return data
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const createAgency = async (body: any, token?: string) => {
+  try {
+    const res = await instance.post(API_ROUTE_CREATE_AGENCY, body, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
   } catch (err) {
     return Promise.reject(err as AxiosError)
   }

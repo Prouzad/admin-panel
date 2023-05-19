@@ -59,7 +59,6 @@ const UserRequestList = () => {
       dataIndex: 'created_at',
       key: 'upload_time',
       defaultSortOrder: 'descend',
-      sorter: (a, b) => a.upload_time - b.upload_time,
     },
 
     {

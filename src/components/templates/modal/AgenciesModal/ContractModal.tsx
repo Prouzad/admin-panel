@@ -16,22 +16,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
   const { t } = useTranslation('common')
 
   const props: any = {
-    beforeUpload: (file: any) => {
-      new Promise((resolve, reject) => {
-        const fileReader = new FileReader()
-
-        fileReader.readAsDataURL(file)
-
-        fileReader.onload = () => {
-          resolve(fileReader.result)
-        }
-
-        fileReader.onerror = (error) => {
-          reject(error)
-        }
-      })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
+    beforeUpload: () => {
       return false
     },
     listType: 'picture',
