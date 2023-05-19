@@ -52,6 +52,7 @@ const Agencies = () => {
   )
 
   const result = res.data
+
   const handleFilter = (params: any) => {
     setFilter(params)
   }
@@ -189,11 +190,14 @@ const Agencies = () => {
       <Form
         onFinish={(values) => {
           // eslint-disable-next-line no-console
-          console.log('FINISH', values)
+          console.log('FINISH323')
         }}
         onFinishFailed={() => {
           // eslint-disable-next-line no-console
           console.log('FINISH')
+        }}
+        onValuesChange={(values) => {
+          console.log('ONFINISH', values)
         }}
         form={form}
       >
