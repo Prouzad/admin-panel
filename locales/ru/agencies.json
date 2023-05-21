@@ -9,5 +9,6 @@
   "contract-count": "Количество контрактов",
   "able-disable": "Активно / Не активно",
   "action": "Действие",
-  "phone_number": "Номер телефона"
+  "phone_number": "Номер телефона",
+  "please-fill-in-this-field": "Пожалуйста, заполните это поле"
 }

@@ -8,10 +8,13 @@ import {
   Upload,
   UploadProps,
 } from 'antd'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import PhoneInput from 'react-phone-input-2'
+import { useQuery } from 'react-query'
 
 import { IconFile } from '@/components/UI/icons/icons'
+import { getAgencyDetails } from '@/pages/api/services'
 
 export interface IFile {
   name: string
@@ -22,10 +25,18 @@ export interface IFile {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AgencyModal = ({ itemID }: { itemID?: string }) => {
+  const { data: session } = useSession()
   const { t } = useTranslation('common')
+  const result = useQuery(
+    ['agency/details'],
+    () => getAgencyDetails(itemID, session?.user.accessToken),
+    {
+      enabled: !!session?.user.accessToken,
+    }
+  )
   const props: UploadProps = {
     name: 'logo',
-   
+
     beforeUpload: () => {
       return false
     },
@@ -78,9 +89,15 @@ const AgencyModal = ({ itemID }: { itemID?: string }) => {
       <div className=" border-b-[1px] pb-4 ">
         <p className="mb-2">{t('logo-upload')}</p>
         <div className="flex">
-          <Form.Item name={'logo'}>
+          <Form.Item
+            name={'logo'}
+            rules={[{ required: true }]}
+            // validateStatus={form.getFieldError('username') ? 'error' : ''} // Set the validateStatus prop based on the field error
+            // help={form.getFieldError('username') || ''}
+          >
             <Upload
               {...props}
+              accept=".jpg, .jpeg, .png, svg, webp"
               itemRender={(_, file, _2, { remove }) => {
                 return (
                   <div className="flex item-center">

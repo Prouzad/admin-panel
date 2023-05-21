@@ -47,9 +47,10 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
           <div className="flex flex-col mx-4">
             <p className="mb-2">{t('logo-upload')}</p>
             <div className="flex   ">
-              <Form.Item name={'contract_file'}>
+              <Form.Item name={'contract_file'} rules={[{ required: true }]}>
                 <Upload
                   {...props}
+                  accept="application/pdf"
                   itemRender={(_, file, _2, { remove }) => {
                     return (
                       <div className="flex item-center">

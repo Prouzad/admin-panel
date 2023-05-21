@@ -44,6 +44,34 @@ const advCycleSelect = [
   { value: false, label: 'Unfinished' },
 ]
 
+const agencySelect = [
+  {
+    value: 'All',
+    label: 'All',
+  },
+
+  {
+    value: true,
+    label: 'Active',
+  },
+  { value: false, label: 'Inactive' },
+]
+
+const getSelects = (pageTitle: string) => {
+  if (pageTitle === 'adv-cycle') {
+    return advCycleSelect
+  }
+
+  if (pageTitle === 'requests') {
+    return requestSelect
+  }
+
+  if (pageTitle === 'agency') {
+    return agencySelect
+  }
+  return requestSelect
+}
+
 const TableWrapper = ({
   children,
   style,
@@ -53,7 +81,7 @@ const TableWrapper = ({
 }: {
   children: ReactNode
   style: string
-  pageTitle?: string
+  pageTitle: string
   fnFilter: (arg: any) => void
   count: number
 }) => {
@@ -81,6 +109,12 @@ const TableWrapper = ({
 
   const getObjectQuery = (keys: string[], values: string[]) => {
     return keys.map((item, idx) => {
+      if (pageTitle === 'adv-cycle' && item === 'status') {
+        return { key: 'is_finished', value: values[idx] }
+      }
+      if (pageTitle === 'agency' && item === 'status') {
+        return { key: 'is_active', value: values[idx] }
+      }
       return { key: item, value: values[idx] }
     })
   }
@@ -229,11 +263,10 @@ const TableWrapper = ({
                 if (value === 'All') {
                   return setStatus('')
                 }
+                setPage(1)
                 setStatus(value)
               }}
-              options={
-                pageTitle === 'adv-cycle' ? advCycleSelect : requestSelect
-              }
+              options={getSelects(pageTitle)}
             />
           </div>
         </div>

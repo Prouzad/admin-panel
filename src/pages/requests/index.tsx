@@ -76,6 +76,7 @@ const UserRequestList = () => {
         style="w-[65%]"
         fnFilter={handleFilter}
         count={result?.data?.count}
+        pageTitle={'requests'}
       >
         <RequestTable columns={columns} data={result?.data?.results} />
       </TableWrapper>

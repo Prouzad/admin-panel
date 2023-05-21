@@ -112,12 +112,12 @@ const UserHeader = () => {
       <div className="w-[235px] ml-6">
         <IconLogo />
       </div>
-      <div className="mr-6">
+      <div className="mr-6 ">
         <div className="flex gap-11">
-          <div className="flex items-center cursor-pointer">
+          <div className="hidden items-center cursor-pointer">
             <QuestionCircleOutlined />
           </div>
-          <div className="flex items-center cursor-pointer">
+          <div className="hidden items-center cursor-pointer">
             <Dropdown dropdownRender={showAlerts} trigger={['click']}>
               <Badge count={Alerts.length} offset={[7, -2]}>
                 <BellOutlined />

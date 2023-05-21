@@ -63,5 +63,6 @@
   "this-request-was-successfully-denied": "Этот запрос был успешно отклонено!",
   "this-request-has-been-successfully-approved": "Этот запрос был успешно одобрен!",
   "an-error-occurred-while-approving-the-request": "При подтверждении запроса произошла ошибка!",
-  "an-error-occurred-while-denying-the-request": "Произошла ошибка при отклонении запроса!"
+  "an-error-occurred-while-denying-the-request": "Произошла ошибка при отклонении запроса!",
+  "please-fill-in-this-field": "Пожалуйста, заполните это поле"
 }

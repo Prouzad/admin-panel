@@ -59,7 +59,6 @@ const RequestDescription = () => {
     { enabled: !!data?.user?.accessToken }
   )
   const result = res.data
-
   const success = (type: any, text: string) => {
     messageApi.open({
       type: type,
@@ -223,10 +222,7 @@ const RequestDescription = () => {
               {result?.format}
             </Descriptions.Item>
             <Descriptions.Item label={t('uploaded-content')}>
-              {choseTypeOfContent(
-                result?.format,
-                'https://www.youtube.com/watch?v=7r3dQbkdYGY'
-              )}
+              {choseTypeOfContent(result?.format, result?.content)}
             </Descriptions.Item>
           </Descriptions>
         </div>

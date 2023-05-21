@@ -39,8 +39,7 @@ const AgentModal = ({ itemID }: { itemID?: string }) => {
               options={[
                 { value: 'disabled', label: t('choose'), disabled: true },
                 { value: 'owner', label: t('owner') },
-                { value: 'lucy', label: 'Lucy' },
-                { value: 'Yiminghe', label: 'yiminghe' },
+                { value: 'agent ', label: 'Agent' },
               ]}
             />
           </Form.Item>
