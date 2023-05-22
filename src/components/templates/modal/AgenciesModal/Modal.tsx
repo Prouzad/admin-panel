@@ -7,18 +7,17 @@ const AgencyModalWrapper = ({
   children,
   isOpen,
   setIsOpen,
-  // handleSave,
   title,
 }: {
   children: ReactNode
   isOpen: boolean
   setIsOpen: (arg: boolean) => void
-  handleSave: () => void
   title: string
 }) => {
   const form = Form.useFormInstance()
   const { t } = useTranslation('common')
   const titleT = t(title)
+
   return (
     <Modal
       title={titleT}
@@ -35,7 +34,7 @@ const AgencyModalWrapper = ({
             onClick={() => form.submit()}
             type="ghost"
             htmlType="submit"
-            className="bg-[#2173DF] text-white text-sm h-[34px] px-4 rounded-sm flex  items-center "
+            className={`bg-[#2173DF] text-white text-sm h-[34px] px-4 rounded-sm flex  items-center`}
             icon={<CheckOutlined />}
           >
             {t('save')}

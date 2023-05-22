@@ -4,7 +4,7 @@ import {
   EllipsisOutlined,
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
-import { Button, Dropdown, Form, Space } from 'antd'
+import { Button, Dropdown, Form, message, Space } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
@@ -17,6 +17,7 @@ import { useQuery } from 'react-query'
 import { agenciesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import AgencyModal from '@/components/templates/modal/AgenciesModal/AgencyModal'
+import AgentEditModal from '@/components/templates/modal/AgenciesModal/AgentEditModal'
 import AgentModal from '@/components/templates/modal/AgenciesModal/AgentModal'
 import CollapseWrapper from '@/components/templates/modal/AgenciesModal/CollapseWrapper'
 import ContractModal from '@/components/templates/modal/AgenciesModal/ContractModal'
@@ -24,7 +25,12 @@ import AgencyModalWrapper from '@/components/templates/modal/AgenciesModal/Modal
 import TableWrapper from '@/components/templates/tables/HeadTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 
-import { createAgency, getAgency } from './api/services'
+import {
+  createAgency,
+  getAgency,
+  getAgencyDetails,
+  updateAgencyInfo,
+} from './api/services'
 
 interface IColumnAgency {
   id: string
@@ -54,23 +60,39 @@ const Agencies = () => {
   const formRef = useRef(null) as any
 
   const [form] = Form.useForm<IForm>()
-  const [filter, setFilter] = useState([])
+  const [filter, setFilter] = useState()
+  const [fields, setFields] = useState<IForm>()
+  const [messageApi, contextHolder] = message.useMessage()
   const { t, lang } = useTranslation('agencies')
   const [isOpen, setIsOpen] = useState(false)
   const [isAgencyModal, setIsAgencyModal] = useState(false)
   const [isAgentModal, setIsAgentModal] = useState(false)
   const [isContractModal, setIsContractModal] = useState(false)
   const [isEdithItem, setIsEdithItem] = useState('')
+  const [isSuccess, setIsuccess] = useState(false)
   const res = useQuery(
-    ['Requests', filter],
+    ['Requests', [filter, isSuccess]],
     () => getAgency(session?.user?.accessToken, filter),
     { enabled: !!session?.user?.accessToken }
   )
 
   const result = res.data
 
+  const success = (type: any, text: string) => {
+    messageApi.open({
+      type: type,
+      content: text,
+      duration: 10,
+    })
+  }
+
   const handleFilter = (params: any) => {
     setFilter(params)
+  }
+
+  const getDetailsInfo = async (id: string, token: string) => {
+    const res = await getAgencyDetails(id, token)
+    setFields(res.data)
   }
 
   const items: MenuProps['items'] = [
@@ -109,6 +131,8 @@ const Agencies = () => {
       dataIndex: 'id',
       key: 'id',
       width: 50,
+      defaultSortOrder: 'ascend',
+      sorter: (a, b) => +a.id - +b.id,
     },
     {
       title: t('agency-name'),
@@ -123,7 +147,7 @@ const Agencies = () => {
     {
       title: t('adress'),
       key: 'address',
-      dataIndex: 'adress',
+      dataIndex: 'address',
     },
     {
       title: t('agent-number'),
@@ -133,7 +157,7 @@ const Agencies = () => {
 
     {
       title: t('contract-count'),
-      dataIndex: 'id',
+      dataIndex: 'contracts_count',
       key: 'contracts_count',
     },
 
@@ -142,8 +166,8 @@ const Agencies = () => {
       dataIndex: 'is_active',
       key: 'is_active',
       align: 'center',
-      render: (_: any, { able_disable }) => {
-        if (able_disable) {
+      render: (_: any, { is_active }: any) => {
+        if (is_active) {
           return <CheckCircleFilled className="text-green-600" />
         } else {
           return <CloseCircleFilled className="text-red-600" />
@@ -169,6 +193,7 @@ const Agencies = () => {
                   className="border-0"
                   onClick={() => {
                     setIsEdithItem(action.id)
+                    setIsuccess(false)
                   }}
                 >
                   <EllipsisOutlined className="font-black text-xl " />
@@ -181,10 +206,6 @@ const Agencies = () => {
     },
   ]
 
-  const handleSave = () => {
-    setIsOpen(false)
-  }
-
   const filterEmptyValues = (obj: IForm) => {
     if (obj !== undefined && obj !== null) {
       const filteredEntries = Object.entries(obj).filter(([_, value]) => {
@@ -193,6 +214,24 @@ const Agencies = () => {
       return Object.fromEntries(filteredEntries)
     }
     return null
+  }
+
+  const setFieldsObj = (er: Partial<IForm>) => {
+    let keys!: keyof IForm
+    const arr = []
+    for (keys in er) {
+      let inputValue
+      if (keys === 'phone_number') {
+        inputValue = er[keys]?.replace(/\+/g, '')
+      } else {
+        inputValue = er[keys]
+      }
+      arr.push({
+        name: keys,
+        value: inputValue,
+      })
+    }
+    return arr
   }
 
   const filterFileEmpty = async (obj: any) => {
@@ -242,6 +281,7 @@ const Agencies = () => {
   return (
     <ContentWrapper>
       <TempBreadCumb data={agenciesCrumb} setIsCreateModal={setIsOpen} />
+      {contextHolder}
       <TableWrapper
         style="w-[75%]"
         pageTitle={'agency'}
@@ -249,6 +289,7 @@ const Agencies = () => {
         count={result?.count}
       >
         <Table
+          pagination={false}
           columns={columns}
           dataSource={result?.results}
           rowClassName={rowClassName}
@@ -258,12 +299,23 @@ const Agencies = () => {
       <Form
         validateMessages={{ required: t('please-fill-in-this-field') }}
         ref={formRef}
+        preserve={false}
         onFinish={async (values) => {
           const result = await getDateObj(values)
 
           await createAgency(result, session?.user?.accessToken)
-            .then((res) => console.log('SUCCESS', res))
+            .then(() => {
+              success('success', t('the-agency-has-successfully-created'))
+              setIsOpen(false)
+              formRef.current.resetFields()
+            })
             .catch((err) => {
+              success(
+                'error',
+                t(
+                  'an-error-occurred-while-creating-the-agency-please-fix-and-try-again'
+                )
+              )
               const setErrorObj = (er: Partial<IForm>) => {
                 let keys!: keyof IForm
                 const arr = []
@@ -276,7 +328,6 @@ const Agencies = () => {
                 return arr
               }
               formRef.current.setFields(setErrorObj(err.response.data))
-              console.log('ERROR', err)
             })
         }}
         onFinishFailed={({ values, errorFields, outOfDate }) => {
@@ -287,7 +338,6 @@ const Agencies = () => {
       >
         <AgencyModalWrapper
           title={'Create Agency'}
-          handleSave={handleSave}
           setIsOpen={setIsOpen}
           isOpen={isOpen}
         >
@@ -300,25 +350,44 @@ const Agencies = () => {
           </CollapseWrapper>
         </AgencyModalWrapper>
       </Form>
-      <AgencyModalWrapper
-        title={'Edit Agency'}
-        handleSave={handleSave}
-        setIsOpen={setIsAgencyModal}
-        isOpen={isAgencyModal}
+      <Form
+        fields={setFieldsObj(fields)}
+        onFinish={async (values) => {
+          const data = {
+            ...values,
+            phone_number: `+${values.phone_number}`,
+          }
+          await updateAgencyInfo(isEdithItem, data, session?.user.accessToken)
+            .then(() => {
+              setIsAgencyModal(false)
+              success('success', 'SUCCESS')
+              setIsuccess(true)
+            })
+            .catch((err) => {
+              setIsAgencyModal(false)
+              success('error', err)
+            })
+        }}
       >
-        <AgencyModal itemID={isEdithItem} />
-      </AgencyModalWrapper>
-      <AgencyModalWrapper
-        title={'Edit Agent'}
-        handleSave={handleSave}
-        setIsOpen={setIsAgentModal}
-        isOpen={isAgentModal}
-      >
-        <AgentModal itemID={isEdithItem} />
-      </AgencyModalWrapper>
+        <AgencyModalWrapper
+          title={'Edit Agency'}
+          setIsOpen={setIsAgencyModal}
+          isOpen={isAgencyModal}
+        >
+          <AgencyModal itemID={isEdithItem} getDetailsInfo={getDetailsInfo} />
+        </AgencyModalWrapper>
+      </Form>
+      <Form>
+        <AgencyModalWrapper
+          title={'Edit Agent'}
+          setIsOpen={setIsAgentModal}
+          isOpen={isAgentModal}
+        >
+          <AgentEditModal id={isEdithItem} />
+        </AgencyModalWrapper>
+      </Form>
       <AgencyModalWrapper
         title={'Edit Contract'}
-        handleSave={handleSave}
         setIsOpen={setIsContractModal}
         isOpen={isContractModal}
       >

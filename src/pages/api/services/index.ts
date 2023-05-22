@@ -1,10 +1,13 @@
 import axios, { AxiosError } from 'axios'
 
+import { IForm } from '@/pages/agencies'
+
 import {
   API_ROUTE_ADVERTISEMENTS,
   API_ROUTE_ADVERTISEMENTS_DETAILS,
   API_ROUTE_AGENCY,
   API_ROUTE_AGENCY_DETAILS,
+  API_ROUTE_AGENTS,
   API_ROUTE_CREATE_AGENCY,
   API_ROUTE_LOGIN,
   API_ROUTE_REFRESH_TOKEN,
@@ -158,7 +161,7 @@ export const createAgency = async (body: any, token?: string) => {
 
 export const getAgencyDetails = async (id: string, token?: string) => {
   try {
-    const res = await instance.post(API_ROUTE_AGENCY_DETAILS(id), {
+    const res = await instance.get(API_ROUTE_AGENCY_DETAILS(id), {
       headers: { Authorization: `Bearer ${token}` },
     })
     return res
@@ -166,6 +169,33 @@ export const getAgencyDetails = async (id: string, token?: string) => {
     return Promise.reject(err as AxiosError)
   }
 }
+
+export const updateAgencyInfo = async (
+  id: string,
+  body: Partial<IForm>,
+  token?: string
+) => {
+  try {
+    const res = await instance.patch(API_ROUTE_AGENCY_DETAILS(id), body, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const getAgents = async (id: string, token?: string) => {
+  try {
+    const res = await instance.get(API_ROUTE_AGENTS(id), {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
 export const refreshUserToken = async (body: { refresh: string }) => {
   try {
     const { data } = await instance.post<Response>(

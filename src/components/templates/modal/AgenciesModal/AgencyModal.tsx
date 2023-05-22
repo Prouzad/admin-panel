@@ -10,11 +10,10 @@ import {
 } from 'antd'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
+import { useEffect } from 'react'
 import PhoneInput from 'react-phone-input-2'
-import { useQuery } from 'react-query'
 
 import { IconFile } from '@/components/UI/icons/icons'
-import { getAgencyDetails } from '@/pages/api/services'
 
 export interface IFile {
   name: string
@@ -24,16 +23,21 @@ export interface IFile {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const AgencyModal = ({ itemID }: { itemID?: string }) => {
+const AgencyModal = ({
+  itemID,
+  getDetailsInfo,
+}: {
+  itemID?: string
+  getDetailsInfo?: any
+}) => {
   const { data: session } = useSession()
   const { t } = useTranslation('common')
-  const result = useQuery(
-    ['agency/details'],
-    () => getAgencyDetails(itemID, session?.user.accessToken),
-    {
-      enabled: !!session?.user.accessToken,
+
+  useEffect(() => {
+    if (itemID && session?.user?.accessToken && getDetailsInfo) {
+      getDetailsInfo(itemID, session?.user?.accessToken)
     }
-  )
+  }, [itemID])
   const props: UploadProps = {
     name: 'logo',
 
@@ -65,6 +69,7 @@ const AgencyModal = ({ itemID }: { itemID?: string }) => {
           >
             <PhoneInput
               specialLabel=""
+              prefix={'+'}
               country="uz"
               alwaysDefaultMask
               inputProps={{
@@ -86,47 +91,45 @@ const AgencyModal = ({ itemID }: { itemID?: string }) => {
           </Form.Item>
         </div>
       </div>
-      <div className=" border-b-[1px] pb-4 ">
-        <p className="mb-2">{t('logo-upload')}</p>
-        <div className="flex">
-          <Form.Item
-            name={'logo'}
-            rules={[{ required: true }]}
-            // validateStatus={form.getFieldError('username') ? 'error' : ''} // Set the validateStatus prop based on the field error
-            // help={form.getFieldError('username') || ''}
-          >
-            <Upload
-              {...props}
-              accept=".jpg, .jpeg, .png, svg, webp"
-              itemRender={(_, file, _2, { remove }) => {
-                return (
-                  <div className="flex item-center">
-                    <Space className="flex items-center justify-between  ml-4 border rounded-sm w-[200px] h-8">
-                      <IconFile className="ml-2" />
+      {!itemID && (
+        <div className=" border-b-[1px] pb-4 ">
+          <p className="mb-2">{t('logo-upload')}</p>
 
-                      <Typography className="max-w-[118px] mr-2 truncate	">
-                        {file?.name}
-                      </Typography>
-                      <Button
-                        type="link"
-                        className="w-[10px] flex items-center justify-center mr-1"
-                        onClick={remove}
-                      >
-                        <DeleteOutlined className=" text-red-500" />
-                      </Button>
-                    </Space>
-                  </div>
-                )
-              }}
-              maxCount={1}
-              multiple={false}
-              showUploadList={true}
-            >
-              <Button icon={<UploadOutlined />}>{t('upload-file')}</Button>
-            </Upload>
-          </Form.Item>
+          <div className="flex">
+            <Form.Item name={'logo'} rules={[{ required: true }]}>
+              <Upload
+                {...props}
+                accept=".jpg, .jpeg, .png, svg, webp"
+                itemRender={(_, file, _2, { remove }) => {
+                  return (
+                    <div className="flex item-center">
+                      <Space className="flex items-center justify-between  ml-4 border rounded-sm w-[200px] h-8">
+                        <IconFile className="ml-2" />
+
+                        <Typography className="max-w-[118px] mr-2 truncate	">
+                          {file?.name}
+                        </Typography>
+                        <Button
+                          type="link"
+                          className="w-[10px] flex items-center justify-center mr-1"
+                          onClick={remove}
+                        >
+                          <DeleteOutlined className=" text-red-500" />
+                        </Button>
+                      </Space>
+                    </div>
+                  )
+                }}
+                maxCount={1}
+                multiple={false}
+                showUploadList={true}
+              >
+                <Button icon={<UploadOutlined />}>{t('upload-file')}</Button>
+              </Upload>
+            </Form.Item>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
