@@ -1,6 +1,7 @@
 import axios, { AxiosError } from 'axios'
 
 import { IForm } from '@/pages/agencies'
+import { IContractUpdateBody } from '@/types'
 
 import {
   API_ROUTE_ADVERTISEMENTS,
@@ -8,7 +9,10 @@ import {
   API_ROUTE_AGENCY,
   API_ROUTE_AGENCY_DETAILS,
   API_ROUTE_AGENTS,
+  API_ROUTE_CONTRACTS,
   API_ROUTE_CREATE_AGENCY,
+  API_ROUTE_CREATE_AGENT,
+  API_ROUTE_CREATE_CONTRACT,
   API_ROUTE_LOGIN,
   API_ROUTE_REFRESH_TOKEN,
   API_ROUTE_REQUEST_APPROVE,
@@ -16,6 +20,8 @@ import {
   API_ROUTE_REQUEST_REJECT,
   API_ROUTE_REQUEST_SET_OFF,
   API_ROUTE_REQUESTS,
+  API_ROUTE_UPDATE_AGENT_INFO,
+  API_ROUTE_UPDATE_CONTRACT_INFO,
 } from './apiRoutes'
 
 const generateQuery = (params: any) =>
@@ -188,6 +194,91 @@ export const updateAgencyInfo = async (
 export const getAgents = async (id: string, token?: string) => {
   try {
     const res = await instance.get(API_ROUTE_AGENTS(id), {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const updateAgentInfo = async (
+  id: string,
+  body: Partial<IForm>,
+  token?: string
+) => {
+  try {
+    const res = await instance.patch(API_ROUTE_UPDATE_AGENT_INFO(id), body, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const createAgent = async (body: Partial<IForm>, token?: string) => {
+  try {
+    const res = await instance.post(API_ROUTE_CREATE_AGENT, body, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const deleteAgent = async (id: string, token?: string) => {
+  try {
+    const res = await instance.delete(API_ROUTE_UPDATE_AGENT_INFO(id), {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const getContracts = async (id: string, token?: string) => {
+  try {
+    const res = await instance.get(API_ROUTE_CONTRACTS(id), {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const createContract = async (body: Partial<IForm>, token?: string) => {
+  try {
+    const res = await instance.post(API_ROUTE_CREATE_CONTRACT, body, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const updateContractInfo = async (
+  id: string,
+  body: IContractUpdateBody,
+  token?: string
+) => {
+  try {
+    const res = await instance.patch(API_ROUTE_UPDATE_CONTRACT_INFO(id), body, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const deleteContract = async (id: string, token?: string) => {
+  try {
+    const res = await instance.delete(API_ROUTE_UPDATE_CONTRACT_INFO(id), {
       headers: { Authorization: `Bearer ${token}` },
     })
     return res

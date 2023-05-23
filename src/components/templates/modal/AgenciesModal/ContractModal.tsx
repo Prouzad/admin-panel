@@ -12,7 +12,13 @@ import useTranslation from 'next-translate/useTranslation'
 
 import { IconFile } from '@/components/UI/icons/icons'
 
-const ContractModal = ({ itemID }: { itemID?: string }) => {
+const ContractModal = ({
+  itemID,
+  editModal,
+}: {
+  itemID?: string
+  editModal?: boolean
+}) => {
   const { t } = useTranslation('common')
 
   const props: any = {
@@ -45,7 +51,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
             </Form.Item>
           </div>
           <div className="flex flex-col mx-4">
-            <p className="mb-2">{t('logo-upload')}</p>
+            <p className="mb-2">{t('upload-contract-file')}</p>
             <div className="flex   ">
               <Form.Item name={'contract_file'} rules={[{ required: true }]}>
                 <Upload
@@ -80,10 +86,6 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
               </Form.Item>
             </div>
           </div>
-          {/* <div className="flex h-8 items-center">
-            <p className="mr-2">{t('is-canceled')}</p>
-            <Switch defaultChecked onChange={() => 'rewe'} />
-          </div> */}
         </div>
         <div className=" mt-4">
           <Space direction="vertical">
@@ -96,15 +98,11 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
             <p>{t('finished-date')}</p>
             <Form.Item
               name={'contract_finished_date'}
-              rules={[{ required: true }]}
+              rules={[{ required: editModal ? false : true }]}
             >
               <DatePicker onChange={() => 'ttest'} className="w-[266px]" />
             </Form.Item>
           </Space>
-          {/* <Space direction="vertical">
-            <p>{t('canceled-date')}</p>
-            <DatePicker onChange={() => 'ttest'} className="w-[266px]" />
-          </Space> */}
         </div>
       </div>
     </>

@@ -30,3 +30,9 @@ export interface IColumnADV {
   is_finished: string
   upload_time: string
 }
+
+export interface IContractUpdateBody {
+  contract_number: string
+  contract_file?: string
+  contract_date?: string
+}

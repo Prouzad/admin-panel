@@ -16,10 +16,23 @@ export const API_ROUTE_REQUEST_SET_OFF = (id: string | number) =>
 export const API_ROUTE_AGENCY_DETAILS = (id: string | number) =>
   `/administration/agency/${id}/`
 
+export const API_ROUTE_UPDATE_AGENT_INFO = (id: string | number) =>
+  `/administration/agent/${id}/`
+
 export const API_ROUTE_AGENTS = (id: string | number) =>
   `/administration/agency/${id}/agent/`
 
+export const API_ROUTE_CONTRACTS = (id: string | number) =>
+  `/administration/agency/${id}/contract/`
+
+export const API_ROUTE_UPDATE_CONTRACT_INFO = (id: string | number) =>
+  `/administration/contract/${id}/`
+
 export const API_ROUTE_CREATE_AGENCY = `/administration/agency/`
+
+export const API_ROUTE_CREATE_AGENT = `/administration/agent/`
+
+export const API_ROUTE_CREATE_CONTRACT = `/administration/contract/`
 
 export const API_ROUTE_LOGIN = '/account/login/'
 
