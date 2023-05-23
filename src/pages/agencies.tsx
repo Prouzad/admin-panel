@@ -130,11 +130,13 @@ const Agencies = () => {
   useEffect(() => {
     setEditingKey('')
     setAddAgent(false)
+    formRef2.current.resetFields()
   }, [isAgentModal])
 
   useEffect(() => {
     setEditingKeyContract('')
     setAddContract(false)
+    formRefContract.current.resetFields()
   }, [isContractModal])
 
   const success = (type: any, text: string) => {
