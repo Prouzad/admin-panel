@@ -411,7 +411,7 @@ const Agencies = () => {
         ref={formRef2}
         onFinish={async (values) => {
           const body = {
-            role: values.agent_role,
+            role: `${values.agent_role?.trim()}`,
             phone_number: `+${values.agent_phone_number}`,
             agency: isEdithItem,
           }
