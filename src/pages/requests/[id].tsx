@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
-import ReactPlayer from 'react-player'
 import { useQuery } from 'react-query'
 
 import { requesetDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
@@ -116,7 +115,21 @@ const RequestDescription = () => {
     if (contentType === 'stories') {
       return (
         <>
-          <ReactPlayer url={result?.content} />
+          <video
+            autoPlay
+            controls={true}
+            loop
+            className="w-[300px] rounded-md"
+            poster={result?.content}
+          >
+            <source src={result?.content} className="h-full rounded-md" />
+            <track
+              src="captions_en.vtt"
+              kind="captions"
+              srcLang="en"
+              label="english_captions"
+            ></track>
+          </video>
         </>
       )
     }
