@@ -10,6 +10,7 @@ import {
   API_ROUTE_AGENCY_DETAILS,
   API_ROUTE_AGENTS,
   API_ROUTE_CONTRACTS,
+  API_ROUTE_CONTRACTS_LIST,
   API_ROUTE_CREATE_AGENCY,
   API_ROUTE_CREATE_AGENT,
   API_ROUTE_CREATE_CONTRACT,
@@ -282,6 +283,23 @@ export const deleteContract = async (id: string, token?: string) => {
       headers: { Authorization: `Bearer ${token}` },
     })
     return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const getContractsList = async (
+  token: string | undefined,
+  params: any = []
+) => {
+  try {
+    const { data } = await instance.get(
+      `${API_ROUTE_CONTRACTS_LIST}${generateQuery(params)}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+    return data
   } catch (err) {
     return Promise.reject(err as AxiosError)
   }

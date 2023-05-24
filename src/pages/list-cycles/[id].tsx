@@ -3,44 +3,20 @@ import {
   CloseCircleFilled,
   MinusCircleOutlined,
 } from '@ant-design/icons'
-import { Button, Descriptions, message, Modal } from 'antd'
-import Image from 'next/image'
+import { Button, Descriptions, Image, message, Modal } from 'antd'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
+import ReactPlayer from 'react-player'
 import { useQuery } from 'react-query'
 
-import img from '@/components/assets/images/image.jpg'
 import { advertCyclesDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IAdvCycleRes } from '@/types'
 
 import { getAdvCyclesDetails, setOffAdvCycle } from '../api/services'
-
-const surveyList = [
-  {
-    number: '1',
-    title:
-      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
-    options: [
-      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
-      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
-      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
-    ],
-  },
-  {
-    number: '2',
-    title:
-      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
-    options: [
-      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
-      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
-      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
-    ],
-  },
-]
 
 const RequestDescription = () => {
   const { data: session } = useSession()
@@ -87,42 +63,40 @@ const RequestDescription = () => {
       })
   }
 
-  const choseTypeOfContent = (contentType: string, content: any) => {
+  const choseTypeOfContent = (contentType: string) => {
     if (contentType === 'banner') {
-      return <Image src={img} alt="sas" width={110} height={80} />
+      return <Image src={result.content} alt={result.format} width={110} />
     }
-    if (contentType === 'Survey') {
+    // if (contentType === 'survey') {
+    //   return (
+    //     <>
+    //       {result?.survey?.questions.map((item: any, idx: any) => {
+    //         return (
+    //           <div
+    //             className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5"
+    //             key={item.id}
+    //           >
+    //             <div className="w-8 h-full text-sm font-normal text-[#174880]">
+    //               #{idx + 1}
+    //             </div>
+    //             <div className="ml-2">
+    //               <h2 className=" text-sm font-semibold">{item.title}</h2>
+    //               <ul style={{ listStyleType: 'disc' }} className="ml-4">
+    //                 {item.options?.map((option: any) => (
+    //                   <li key={option.id}>{option.title}</li>
+    //                 ))}
+    //               </ul>
+    //             </div>
+    //           </div>
+    //         )
+    //       })}
+    //     </>
+    //   )
+    // }
+    if (contentType === 'stories') {
       return (
         <>
-          {surveyList.map((item, idx) => {
-            return (
-              <div
-                className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5"
-                key={idx}
-              >
-                <div className="w-6 text-sm font-normal text-[#174880] mr-1">
-                  #{item.number}
-                </div>
-                <div className="">
-                  <h2 className=" text-sm font-semibold">{item.title}</h2>
-                  <ul style={{ listStyleType: 'disc' }}>
-                    {item.options.map((option, idx) => (
-                      <li key={idx}>{option}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )
-          })}
-        </>
-      )
-    }
-    if (contentType === 'video') {
-      return (
-        <>
-          <video autoPlay loop src={content} width={320} height={240} controls>
-            <track kind="captions" />
-          </video>
+          <ReactPlayer url={result?.content} />
         </>
       )
     }
@@ -134,18 +108,20 @@ const RequestDescription = () => {
     return (
       <div className="flex justify-between flex-wrap">
         <p>{t('description-ads')}</p>
-        <div className="flex">
-          <Button
-            type="ghost"
-            className="flex items-center rounded-sm bg-[#1677ff] text-white"
-            onClick={() => {
-              setIsOpenStop(true)
-            }}
-          >
-            <MinusCircleOutlined className="text-[10px]" />
-            {t('stop-advertisement')}
-          </Button>
-        </div>
+        {!result?.is_finished && (
+          <div className="flex">
+            <Button
+              type="ghost"
+              className="flex items-center rounded-sm bg-[#1677ff] text-white"
+              onClick={() => {
+                setIsOpenStop(true)
+              }}
+            >
+              <MinusCircleOutlined className="text-[10px]" />
+              {t('stop-advertisement')}
+            </Button>
+          </div>
+        )}
       </div>
     )
   }
@@ -167,7 +143,11 @@ const RequestDescription = () => {
               {result?.id}
             </Descriptions.Item>
             <Descriptions.Item label={t('file')}>
-              https://lb.api.cdn.uzcl...
+              <div className="truncate w-[180px]">
+                <a href={result?.content} className="w-full">
+                  {result?.content}
+                </a>
+              </div>
             </Descriptions.Item>
             <Descriptions.Item label={t('company-name')}>
               {result?.agency}
@@ -176,9 +156,11 @@ const RequestDescription = () => {
               {result?.format}
             </Descriptions.Item>
             <Descriptions.Item label={t('duration')}>
-              1 Week / 3 days
+              {result?.show}
             </Descriptions.Item>
-            <Descriptions.Item label={t('views')}>12 232 421</Descriptions.Item>
+            <Descriptions.Item label={t('views')}>
+              {result?.view_count}
+            </Descriptions.Item>
             <Descriptions.Item label={t('is-finished')}>
               {result?.is_finished ? (
                 <CheckCircleFilled className="text-green-600 text-xl" />
@@ -196,17 +178,14 @@ const RequestDescription = () => {
               {result?.phone_number}
             </Descriptions.Item>
             <Descriptions.Item label={t('payment')} span={2}>
-              32 000 000 UZS
+              {new Intl.NumberFormat('ru').format(result?.total_price)} UZS
             </Descriptions.Item>
             <Descriptions.Item label={t('target-ads')} span={3}>
               Target
             </Descriptions.Item>
 
             <Descriptions.Item label={t('uploaded-content')}>
-              {choseTypeOfContent(
-                result?.format,
-                'https://www.youtube.com/watch?v=7r3dQbkdYGY'
-              )}
+              {choseTypeOfContent(result?.format)}
             </Descriptions.Item>
           </Descriptions>
         </div>

@@ -1,13 +1,12 @@
 import { ReloadOutlined } from '@ant-design/icons'
-import { Badge, Button, Descriptions, message, Modal } from 'antd'
-import Image from 'next/image'
+import { Badge, Button, Descriptions, Image, message, Modal } from 'antd'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
+import ReactPlayer from 'react-player'
 import { useQuery } from 'react-query'
 
-import img from '@/components/assets/images/image.jpg'
 import { requesetDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import { checkColor } from '@/components/templates/tables/MyTable'
@@ -19,29 +18,6 @@ import {
   requestApprove,
   requestReject,
 } from '../api/services'
-
-const surveyList = [
-  {
-    number: '1',
-    title:
-      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
-    options: [
-      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
-      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
-      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
-    ],
-  },
-  {
-    number: '2',
-    title:
-      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
-    options: [
-      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
-      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
-      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
-    ],
-  },
-]
 
 const RequestDescription = () => {
   const { data } = useSession()
@@ -107,27 +83,27 @@ const RequestDescription = () => {
       })
   }
 
-  const choseTypeOfContent = (contentType: string, content: any) => {
+  const choseTypeOfContent = (contentType: string) => {
     if (contentType === 'banner') {
-      return <Image src={img} alt="sas" width={110} height={80} />
+      return <Image src={result.content} alt={result.format} width={110} />
     }
-    if (contentType === 'Survey') {
+    if (contentType === 'survey') {
       return (
         <>
-          {surveyList.map((item, idx) => {
+          {result?.survey?.questions.map((item: any, idx: any) => {
             return (
               <div
                 className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5"
-                key={idx}
+                key={item.id}
               >
-                <div className="w-6 text-sm font-normal text-[#174880] mr-1">
-                  #{item.number}
+                <div className="w-8 h-full text-sm font-normal text-[#174880]">
+                  #{idx + 1}
                 </div>
-                <div className="">
+                <div className="ml-2">
                   <h2 className=" text-sm font-semibold">{item.title}</h2>
-                  <ul style={{ listStyleType: 'disc' }}>
-                    {item.options.map((option, idx) => (
-                      <li key={idx}>{option}</li>
+                  <ul style={{ listStyleType: 'disc' }} className="ml-4">
+                    {item.options?.map((option: any) => (
+                      <li key={option.id}>{option.title}</li>
                     ))}
                   </ul>
                 </div>
@@ -137,12 +113,10 @@ const RequestDescription = () => {
         </>
       )
     }
-    if (contentType === 'video') {
+    if (contentType === 'stories') {
       return (
         <>
-          <video autoPlay loop src={content} width={320} height={240} controls>
-            <track kind="captions" />
-          </video>
+          <ReactPlayer url={result?.content} />
         </>
       )
     }
@@ -222,7 +196,7 @@ const RequestDescription = () => {
               {result?.format}
             </Descriptions.Item>
             <Descriptions.Item label={t('uploaded-content')}>
-              {choseTypeOfContent(result?.format, result?.content)}
+              {choseTypeOfContent(result?.format)}
             </Descriptions.Item>
           </Descriptions>
         </div>

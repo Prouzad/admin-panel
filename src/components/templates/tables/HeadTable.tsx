@@ -58,7 +58,7 @@ const agencySelect = [
 ]
 
 const getSelects = (pageTitle: string) => {
-  if (pageTitle === 'adv-cycle') {
+  if (pageTitle === 'adv-cycle' || pageTitle === 'contracts') {
     return advCycleSelect
   }
 
@@ -111,6 +111,15 @@ const TableWrapper = ({
     return keys.map((item, idx) => {
       if (pageTitle === 'adv-cycle' && item === 'status') {
         return { key: 'is_finished', value: values[idx] }
+      }
+      if (pageTitle === 'contracts' && item === 'status') {
+        return { key: 'is_finished', value: values[idx] }
+      }
+      if (pageTitle === 'contracts' && item === 'created_at_after') {
+        return { key: 'contract_date_after', value: values[idx] }
+      }
+      if (pageTitle === 'contracts' && item === 'created_at_before') {
+        return { key: 'contract_date_before', value: values[idx] }
       }
       if (pageTitle === 'agency' && item === 'status') {
         return { key: 'is_active', value: values[idx] }

@@ -40,6 +40,8 @@ export const API_ROUTE_REQUESTS = '/administration/advertisement'
 
 export const API_ROUTE_ADVERTISEMENTS = '/administration/advertisement_cycle'
 
-export const API_ROUTE_AGENCY = '/administration/agency'
+export const API_ROUTE_AGENCY = '/administration/agency/'
 
-export const API_ROUTE_REFRESH_TOKEN = 'account/token/refresh'
+export const API_ROUTE_CONTRACTS_LIST = '/administration/contract/'
+
+export const API_ROUTE_REFRESH_TOKEN = 'account/token/refresh/'

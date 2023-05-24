@@ -2,6 +2,7 @@ const nextTranslate = require('next-translate-plugin')
 
 const config = {
   reactStrictMode: false,
+
   i18n: {
     defaultLocale: 'ru',
     locales: ['ru', 'uz'],

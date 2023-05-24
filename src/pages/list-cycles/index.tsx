@@ -1,5 +1,6 @@
 import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons'
 import { ColumnsType } from 'antd/es/table'
+import dayjs from 'dayjs'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo, useState } from 'react'
@@ -32,6 +33,7 @@ const AdvCycle = () => {
       dataIndex: 'id',
       key: 'id',
       width: 50,
+      align: 'center',
     },
     {
       title: t('company-name'),
@@ -42,6 +44,7 @@ const AdvCycle = () => {
       title: t('content'),
       key: 'content',
       dataIndex: 'content',
+      align: 'center',
       render: (content) => <a href={content}>content</a>,
     },
     {
@@ -49,17 +52,20 @@ const AdvCycle = () => {
       dataIndex: 'format',
       key: 'ads_format',
       defaultSortOrder: 'descend',
+      align: 'center',
     },
 
     {
       title: t('duration'),
       dataIndex: 'show',
       key: 'duration',
+      align: 'center',
     },
     {
       title: t('view-count'),
       dataIndex: 'view_count',
       key: 'view_count',
+      align: 'center',
     },
     {
       title: t('is-finished'),
@@ -78,6 +84,9 @@ const AdvCycle = () => {
       title: t('upload-time'),
       dataIndex: 'created_at',
       key: 'upload_time',
+      render: (_: any, date: any) => {
+        return <p>{`${dayjs(date.created_at).format('YYYY-MM-DD')}`}</p>
+      },
     },
   ]
 

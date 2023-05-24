@@ -1,5 +1,6 @@
 import { Badge } from 'antd'
 import { ColumnsType } from 'antd/es/table'
+import dayjs from 'dayjs'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo, useState } from 'react'
@@ -58,7 +59,9 @@ const UserRequestList = () => {
       title: t('upload-time'),
       dataIndex: 'created_at',
       key: 'upload_time',
-      defaultSortOrder: 'descend',
+      render: (_: any, date: any) => {
+        return <p>{`${dayjs(date.created_at).format('YYYY-MM-DD')}`}</p>
+      },
     },
 
     {
