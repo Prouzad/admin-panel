@@ -10,6 +10,7 @@ const AgencyModalWrapper = ({
   title,
   setAddAgent,
   addAgent,
+  resetFields,
 }: {
   children: ReactNode
   isOpen: boolean
@@ -17,6 +18,7 @@ const AgencyModalWrapper = ({
   title: string
   setAddAgent?: (arg: boolean) => void
   addAgent?: boolean
+  resetFields?: () => void
 }) => {
   const form = Form.useFormInstance()
   const { t } = useTranslation('common')
@@ -25,6 +27,7 @@ const AgencyModalWrapper = ({
   return (
     <Modal
       title={titleT}
+      afterOpenChange={resetFields}
       centered
       open={isOpen}
       style={{ marginTop: 25, marginBottom: 25 }}

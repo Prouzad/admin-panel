@@ -1,3 +1,4 @@
+'use client'
 import {
   CheckCircleFilled,
   CloseCircleFilled,
@@ -10,7 +11,7 @@ import { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import React from 'react'
 import { useQuery } from 'react-query'
 
@@ -127,17 +128,17 @@ const Agencies = () => {
 
   const result = res.data
 
-  useEffect(() => {
+  const handleResetAgent = () => {
     setEditingKey('')
     setAddAgent(false)
     formRef2.current.resetFields()
-  }, [isAgentModal])
+  }
 
-  useEffect(() => {
+  const handleResetContract = () => {
     setEditingKeyContract('')
     setAddContract(false)
     formRefContract.current.resetFields()
-  }, [isContractModal])
+  }
 
   const success = (type: any, text: string) => {
     messageApi.open({
@@ -361,10 +362,6 @@ const Agencies = () => {
               formRef.current.setFields(setErrorObj(err.response.data))
             })
         }}
-        onFinishFailed={({ values, errorFields, outOfDate }) => {
-          // eslint-disable-next-line no-console
-          console.log('FINISH', values, '@@#', errorFields, 'RES', outOfDate)
-        }}
         form={form}
       >
         <AgencyModalWrapper
@@ -453,6 +450,7 @@ const Agencies = () => {
           isOpen={isAgentModal}
           setAddAgent={setAddAgent}
           addAgent={addAgent}
+          resetFields={handleResetAgent}
         >
           <AgentEditModal
             id={isEdithItem}
@@ -512,6 +510,7 @@ const Agencies = () => {
           isOpen={isContractModal}
           setAddAgent={setAddContract}
           addAgent={addContract}
+          resetFields={handleResetContract}
         >
           <ContractEditModal
             id={isEdithItem}
