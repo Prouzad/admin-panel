@@ -56,8 +56,15 @@
   "canceled-date": "Дата отмены",
   "save": "Сохранить",
   "is-canceled": "Отменено",
-	"Edit Agency": "Редактирование агентства",
-	"Edit Contract": "Редактирование контракта",
-	"Edit Agent": "Редактирование агента",
-	"Create Agency": "Создать агентство"
+  "Edit Agency": "Редактирование агентства",
+  "Edit Contract": "Редактирование контракта",
+  "Edit Agent": "Редактирование агента",
+  "Create Agency": "Создать агентство",
+  "this-request-was-successfully-denied": "Этот запрос был успешно отклонено!",
+  "this-request-has-been-successfully-approved": "Этот запрос был успешно одобрен!",
+  "an-error-occurred-while-approving-the-request": "При подтверждении запроса произошла ошибка!",
+  "an-error-occurred-while-denying-the-request": "Произошла ошибка при отклонении запроса!",
+  "please-fill-in-this-field": "Пожалуйста, заполните это поле",
+  "upload-contract-file": "Загрузить файл контракта",
+  "total-number-of-digits-should-be-12": "Общее количество цифр должно быть 12"
 }

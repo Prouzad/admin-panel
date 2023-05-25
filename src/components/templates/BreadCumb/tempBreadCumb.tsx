@@ -14,10 +14,10 @@ const TempBreadCumb = ({
   const { t } = useTranslation('common')
   const { description, title, pageRoute } = data
   const arr = pageRoute
-    ? pageRoute?.map((item) => {
+    ? pageRoute?.map((item, idx) => {
         return {
           title: (
-            <a href={`/${item.link}`} className="text-black">
+            <a href={`/${item.link}`} className="text-black" key={idx}>
               {t(item.title)}
             </a>
           ),

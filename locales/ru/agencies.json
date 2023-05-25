@@ -5,8 +5,14 @@
   "disabled": "Отключить",
   "agency-name": "Название агентства",
   "adress": "Адрес",
-  "agent-number": "Номер агента",
+  "agent-number": "Количество агентов",
   "contract-count": "Количество контрактов",
   "able-disable": "Активно / Не активно",
-  "action": "Действие"
+  "action": "Действие",
+  "phone_number": "Номер телефона",
+  "please-fill-in-this-field": "Пожалуйста, заполните это поле",
+  "the-agency-has-successfully-created": "Агентство успешно создано",
+  "an-error-occurred-while-creating-the-agency-please-fix-and-try-again": "При создании агентства произошла ошибка! Пожалуйста, исправьте и повторите попытку!",
+  "agent_editing_success": "Данные успешно обновлены!",
+  "enable": "Включить"
 }

@@ -54,8 +54,14 @@
   "canceled-date": "Bekor qilingan sana",
   "save": "Saqlash",
   "is-canceled": "Bekor qilingan",
-	"Edit Agency": "Agentlikni tahrirlash",
-	"Edit Contract": "Kontraktni tahrirlash",
-	"Edit Agent": "Agentni tahrirlash",
-	"Create Agency": "Agentlik yaratish"
+  "Edit Agency": "Agentlikni tahrirlash",
+  "Edit Contract": "Kontraktni tahrirlash",
+  "Edit Agent": "Agentni tahrirlash",
+  "Create Agency": "Agentlik yaratish",
+  "contract-number": "Kontrakt raqami",
+  "this-request-was-successfully-denied": "Ushbu soʻrov muvaffaqiyatli rad etildi!",
+  "this-request-has-been-successfully-approved": "Bu soʻrov muvaffaqiyatli qabul qilindi!",
+  "an-error-occurred-while-approving-the-request": "So‘rovni tasdiqlashda xatolik yuz berdi!",
+  "an-error-occurred-while-denying-the-request": "So‘rovni rad etishda xatolik yuz berdi!",
+  "total-number-of-digits-should-be-12": "Raqamlarning umumiy soni 12 bo'lishi kerak"
 }

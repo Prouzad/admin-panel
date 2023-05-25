@@ -15,15 +15,14 @@ const UserLogin = () => {
 
   const onFinish = async (data: any) => {
     setLoading(true)
-    const { username, password } = data
+    const { email, password } = data
 
     try {
       const res = await signIn('credentials', {
-        username,
+        email,
         password,
         redirect: false,
       })
-
       res?.ok
         ? Router.push('/requests')
         : setIsError(t('incorrect-login-or-password'))
@@ -60,7 +59,7 @@ const UserLogin = () => {
           autoComplete="off"
         >
           <Form.Item
-            name="username"
+            name="email"
             label={t('your-login')}
             rules={[
               {

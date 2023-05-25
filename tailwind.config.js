@@ -1,5 +1,4 @@
 /* @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin')
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
@@ -80,8 +79,5 @@ module.exports = {
       // => @media (max-width: 376px) { ... }
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-    require('tailwind-scrollbar')({ nocompatible: true }),
-  ],
+  plugins: [require('tailwind-scrollbar')({ nocompatible: true })],
 }

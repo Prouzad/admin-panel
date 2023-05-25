@@ -3,84 +3,88 @@ import {
   CloseCircleFilled,
   MinusCircleOutlined,
 } from '@ant-design/icons'
-import { Button, Descriptions, Modal } from 'antd'
-import Image from 'next/image'
+import { Badge, Button, Descriptions, Image, List, message, Modal } from 'antd'
 import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
+import { useQuery } from 'react-query'
 
-import img from '@/components/assets/images/image.jpg'
 import { advertCyclesDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import fakeData from '@/MOCK_DATA'
+import { IAdvCycleRes } from '@/types'
 
-const surveyList = [
-  {
-    number: '1',
-    title:
-      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
-    options: [
-      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
-      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
-      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
-    ],
-  },
-  {
-    number: '2',
-    title:
-      'Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool. ?',
-    options: [
-      'Shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning boshlangich javobi',
-      'O’shu uzun inglizcha yozilgan so’zlar aslida savol emas , bu uning 2 - javobi',
-      'Bu xato javob , bu savolning yakuniy javobi , aslida xato javob yo’q so’rovnomada',
-    ],
-  },
-]
+import { getAdvCyclesDetails, setOffAdvCycle } from '../api/services'
 
 const RequestDescription = () => {
+  const { data: session } = useSession()
+  const [messageApi, contextHolder] = message.useMessage()
   const { t } = useTranslation('common')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isFinished, setIsFinished] = useState(true)
   const [isOpenStop, setIsOpenStop] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [isModal, setIsModal] = useState(false)
   const router = useRouter()
-  const id = (router.query.id as string) || []
-  const res = fakeData.find((item) => {
-    return item.id === id
-  })
+  const id = router.query.id as string
+  const res = useQuery(
+    'Requests',
+    () => getAdvCyclesDetails(id, session?.user.accessToken),
+    { enabled: !!session?.user?.accessToken }
+  )
 
-  const handleStop = () => {
-    setIsLoading(true)
-    setTimeout(() => {
-      setIsLoading(false)
-      setTimeout(() => {
-        setIsOpenStop(false)
-      }, 1000)
-    }, 3000)
+  const result = res.data as IAdvCycleRes
+
+  const success = (type: any, text: string) => {
+    messageApi.open({
+      type: type,
+      content: text,
+      duration: 10,
+    })
   }
 
-  const choseTypeOfContent = (contentType: string, content: any) => {
+  const handleStop = async () => {
+    setIsLoading(true)
+
+    await setOffAdvCycle(
+      id,
+      { agency: result.agency },
+      session?.user.accessToken
+    )
+      .then(() => {
+        success('success', 'Success')
+      })
+      .catch(() => {
+        success('error', 'Error')
+      })
+      .finally(() => {
+        setIsLoading(false)
+        setIsOpenStop(false)
+      })
+  }
+
+  const choseTypeOfContent = (contentType: string) => {
     if (contentType === 'banner') {
-      return <Image src={img} alt="sas" width={110} height={80} />
+      return <Image src={result.content} alt={result.format} width={110} />
     }
-    if (contentType === 'Survey') {
+    if (contentType === 'survey') {
       return (
         <>
-          {surveyList.map((item, idx) => {
+          <h1 className="text-lg font-bold mb-2">{result?.survey?.title}</h1>
+          {result?.survey?.questions.map((item: any, idx: any) => {
             return (
               <div
                 className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5"
-                key={idx}
+                key={item.id}
               >
-                <div className="w-6 text-sm font-normal text-[#174880] mr-1">
-                  #{item.number}
+                <div className="w-8 h-full text-sm font-normal text-[#174880]">
+                  #{idx + 1}
                 </div>
-                <div className="">
+                <div className="ml-2">
                   <h2 className=" text-sm font-semibold">{item.title}</h2>
-                  <ul style={{ listStyleType: 'disc' }}>
-                    {item.options.map((option, idx) => (
-                      <li key={idx}>{option}</li>
+                  <ul style={{ listStyleType: 'disc' }} className="ml-4">
+                    {item.options?.map((option: any) => (
+                      <li key={option.id}>{option.title}</li>
                     ))}
                   </ul>
                 </div>
@@ -90,13 +94,27 @@ const RequestDescription = () => {
         </>
       )
     }
-    if (contentType === 'video') {
-      return (
+    if (contentType === 'stories') {
+      return result.media_type === 'video' ? (
         <>
-          <video autoPlay loop src={content} width={320} height={240} controls>
-            <track kind="captions" />
+          <video
+            autoPlay
+            controls={true}
+            loop
+            className="w-[300px] rounded-md"
+            poster={result?.content}
+          >
+            <source src={result?.content} className="h-full rounded-md" />
+            <track
+              src="captions_en.vtt"
+              kind="captions"
+              srcLang="en"
+              label="english_captions"
+            ></track>
           </video>
         </>
+      ) : (
+        <Image src={result.content} alt={result.format} width={110} />
       )
     }
   }
@@ -107,24 +125,27 @@ const RequestDescription = () => {
     return (
       <div className="flex justify-between flex-wrap">
         <p>{t('description-ads')}</p>
-        <div className="flex">
-          <Button
-            type="ghost"
-            className="flex items-center rounded-sm bg-[#1677ff] text-white"
-            onClick={() => {
-              setIsOpenStop(true)
-            }}
-          >
-            <MinusCircleOutlined className="text-[10px]" />
-            {t('stop-advertisement')}
-          </Button>
-        </div>
+        {!result?.is_finished && (
+          <div className="flex">
+            <Button
+              type="ghost"
+              className="flex items-center rounded-sm bg-[#1677ff] text-white"
+              onClick={() => {
+                setIsOpenStop(true)
+              }}
+            >
+              <MinusCircleOutlined className="text-[10px]" />
+              {t('stop-advertisement')}
+            </Button>
+          </div>
+        )}
       </div>
     )
   }
 
   return (
     <ContentWrapper>
+      {contextHolder}
       <TempBreadCumb data={advertCyclesDescriptionCrumb} />
       <div className="col-start-3 col-end-10 w-[65%]">
         <div className="p-5 overflow-x-auto bg-white rounded-lg">
@@ -135,22 +156,30 @@ const RequestDescription = () => {
             bordered
             labelStyle={{ fontWeight: 'bold' }}
           >
-            <Descriptions.Item label={t('ads-id')}>5423412</Descriptions.Item>
+            <Descriptions.Item label={t('ads-id')}>
+              {result?.id}
+            </Descriptions.Item>
             <Descriptions.Item label={t('file')}>
-              https://lb.api.cdn.uzcl...
+              <div className="truncate w-[180px]">
+                <a href={result?.content} className="w-full">
+                  {result?.content}
+                </a>
+              </div>
             </Descriptions.Item>
             <Descriptions.Item label={t('company-name')}>
-              “NAMUNA-DIYOR XIIChK” MCHJ , Uzbekistan
+              {result?.agency}
             </Descriptions.Item>
             <Descriptions.Item label={t('type-of-ads')}>
-              Stories
+              {result?.format}
             </Descriptions.Item>
             <Descriptions.Item label={t('duration')}>
-              1 Week / 3 days
+              {result?.show}
             </Descriptions.Item>
-            <Descriptions.Item label={t('views')}>12 232 421</Descriptions.Item>
+            <Descriptions.Item label={t('views')}>
+              {result?.view_count}
+            </Descriptions.Item>
             <Descriptions.Item label={t('is-finished')}>
-              {isFinished ? (
+              {result?.is_finished ? (
                 <CheckCircleFilled className="text-green-600 text-xl" />
               ) : (
                 <CloseCircleFilled className="text-red-600 text-xl" />
@@ -163,20 +192,40 @@ const RequestDescription = () => {
               Stories
             </Descriptions.Item>
             <Descriptions.Item label={t('phone-number')}>
-              +998 93 234 65 63
+              {result?.phone_number}
             </Descriptions.Item>
             <Descriptions.Item label={t('payment')} span={2}>
-              32 000 000 UZS
+              {new Intl.NumberFormat('ru').format(result?.total_price)} UZS
             </Descriptions.Item>
             <Descriptions.Item label={t('target-ads')} span={3}>
-              Target
+              <div className="flex items-center">
+                <div className="truncate max-w-[700px] flex">
+                  {result?.site.map((item) => {
+                    return (
+                      <div key={item?.id} className="flex">
+                        <p>{item?.display_name}</p>
+                        <p>{`(${item?.region?.name}),`}</p>
+                        &nbsp;
+                      </div>
+                    )
+                  })}
+                </div>
+                <Button
+                  onClick={() => setIsModal(true)}
+                  type="ghost"
+                  className="w-5 ml-4 relative"
+                >
+                  <Badge
+                    count={result?.site.length}
+                    className="absolute left-0 top-1"
+                    color="#2173DF"
+                  />
+                </Button>
+              </div>
             </Descriptions.Item>
 
             <Descriptions.Item label={t('uploaded-content')}>
-              {choseTypeOfContent(
-                res!.type_of_ads[0],
-                'https://www.youtube.com/watch?v=7r3dQbkdYGY'
-              )}
+              {choseTypeOfContent(result?.format)}
             </Descriptions.Item>
           </Descriptions>
         </div>
@@ -214,6 +263,24 @@ const RequestDescription = () => {
         ]}
       >
         {t('do-you-really-want-to-confirm-this')}
+      </Modal>
+      <Modal
+        title="Included sites"
+        open={isModal}
+        footer={null}
+        onCancel={() => {
+          setIsModal(false)
+        }}
+      >
+        <div className="max-h-[350px] overflow-auto">
+          <List
+            footer={<div>Footer</div>}
+            dataSource={result?.site}
+            renderItem={(item) => (
+              <List.Item>{`${item?.display_name}(${item?.region.name})`}</List.Item>
+            )}
+          />
+        </div>
       </Modal>
     </ContentWrapper>
   )
