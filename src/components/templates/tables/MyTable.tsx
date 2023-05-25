@@ -29,6 +29,7 @@ const MyTable = ({
     <>
       <Spin spinning={loading}>
         <Table
+          rowKey="id"
           columns={columns}
           dataSource={data}
           rowClassName={rowClassName}

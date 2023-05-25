@@ -48,11 +48,10 @@ const LeftBar = () => {
   return (
     <div className="h-screen w-[232px] flex flex-col justify-between bg-white shadow-3xl pt-4 fixed mt-[81px]">
       <div className=" flex flex-col ">
-        {navBar.map((item, idx) => {
+        {navBar.map((item) => {
           return (
-            <Link href={item.link} key={idx}>
+            <Link href={item.link} key={item.link}>
               <div
-                key={idx}
                 className={`w-full  transition-all ease-in-out flex px-5 cursor-pointer space-x-4 py-[9px] mt-4 group text-base items-center justify-between ${
                   isRout?.includes(item.link.slice(1))
                     ? 'text-black bg-[#F3F7FF]'

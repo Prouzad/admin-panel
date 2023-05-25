@@ -342,7 +342,7 @@ const ContractEditModal = ({
           }}
         />
       </Form>
-      {addContract && <ContractModal editModal={true} />}
+      {addContract && <ContractModal />}
     </div>
   )
 }

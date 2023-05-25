@@ -40,13 +40,7 @@ const AdvCycle = () => {
       dataIndex: 'agency',
       key: 'name',
     },
-    {
-      title: t('content'),
-      key: 'content',
-      dataIndex: 'content',
-      align: 'center',
-      render: (content) => <a href={content}>content</a>,
-    },
+
     {
       title: t('ads-format'),
       dataIndex: 'format',

@@ -95,6 +95,7 @@ const Contracts = () => {
       >
         <Table
           columns={columns}
+          rowKey="id"
           dataSource={result?.results}
           rowClassName={rowClassName}
         />

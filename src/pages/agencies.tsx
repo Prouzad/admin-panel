@@ -4,7 +4,6 @@ import {
   CloseCircleFilled,
   EllipsisOutlined,
 } from '@ant-design/icons'
-import type { MenuProps } from 'antd'
 import { Button, Dropdown, Form, message, Space } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
@@ -13,7 +12,7 @@ import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo, useRef, useState } from 'react'
 import React from 'react'
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 
 import { agenciesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
@@ -33,6 +32,8 @@ import {
   createAgency,
   createAgent,
   createContract,
+  disableAgency,
+  enableAgency,
   getAgency,
   getAgencyDetails,
   updateAgencyInfo,
@@ -44,7 +45,7 @@ interface IColumnAgency {
   adress: string
   agent_number: string
   contract_count: string
-  able_disable: string
+  is_active: boolean
   action: string
 }
 
@@ -121,7 +122,7 @@ const Agencies = () => {
   const [isSuccessContract, setIsuccessContract] = useState<any>()
 
   const res = useQuery(
-    ['Requests', [filter, isSuccess]],
+    ['getAgency', filter, isSuccess],
     () => getAgency(session?.user?.accessToken, filter),
     { enabled: !!session?.user?.accessToken }
   )
@@ -152,41 +153,13 @@ const Agencies = () => {
     setFilter(params)
   }
 
+  const queryClient = useQueryClient()
+
   const getDetailsInfo = async (id: string, token: string) => {
     const res = await getAgencyDetails(id, token)
     setFields(res.data)
   }
 
-  const items: MenuProps['items'] = [
-    {
-      label: (
-        <Space onClick={() => setIsAgencyModal(true)} className="w-full">
-          {t('agency')}
-        </Space>
-      ),
-      key: '0',
-    },
-    {
-      label: (
-        <Space onClick={() => setIsAgentModal(true)} className="w-full">
-          {t('agent')}
-        </Space>
-      ),
-      key: '1',
-    },
-    {
-      label: (
-        <Space onClick={() => setIsContractModal(true)} className="w-full">
-          {t('contract')}
-        </Space>
-      ),
-      key: '2',
-    },
-    {
-      label: <Space className="w-full">{t('disabled')}</Space>,
-      key: '3',
-    },
-  ]
   const columnsHead: ColumnsType<IColumnAgency> = [
     {
       title: '№',
@@ -245,7 +218,71 @@ const Agencies = () => {
         return (
           <>
             <Dropdown
-              menu={{ items }}
+              menu={{
+                items: [
+                  {
+                    label: (
+                      <Space
+                        onClick={() => setIsAgencyModal(true)}
+                        className="w-full"
+                      >
+                        {t('agency')}
+                      </Space>
+                    ),
+                    key: '0',
+                  },
+                  {
+                    label: (
+                      <Space
+                        onClick={() => setIsAgentModal(true)}
+                        className="w-full"
+                      >
+                        {t('agent')}
+                      </Space>
+                    ),
+                    key: '1',
+                  },
+                  {
+                    label: (
+                      <Space
+                        onClick={() => setIsContractModal(true)}
+                        className="w-full"
+                      >
+                        {t('contract')}
+                      </Space>
+                    ),
+                    key: '2',
+                  },
+                  {
+                    label: (
+                      <Space
+                        className="w-full"
+                        onClick={async () => {
+                          if (action.is_active) {
+                            await disableAgency(
+                              action.id,
+                              session?.user?.accessToken
+                            )
+                          } else {
+                            await enableAgency(
+                              action.id,
+                              session?.user.accessToken
+                            )
+                          }
+                          queryClient.invalidateQueries([
+                            'getAgency',
+                            filter,
+                            isSuccess,
+                          ])
+                        }}
+                      >
+                        {action.is_active ? t('disabled') : t('enable')}
+                      </Space>
+                    ),
+                    key: '3',
+                  },
+                ],
+              }}
               trigger={['click']}
               placement={'bottomLeft'}
               overlayStyle={{ borderRadius: 0, width: 150, padding: 0 }}
@@ -255,7 +292,6 @@ const Agencies = () => {
                   className="border-0"
                   onClick={() => {
                     setIsEdithItem(action.id)
-                    setIsuccess(false)
                   }}
                 >
                   <EllipsisOutlined className="font-black text-xl " />
@@ -308,7 +344,7 @@ const Agencies = () => {
     return filterEmptyValues(data)
   }
 
-  const columns = useMemo(() => columnsHead, [lang])
+  const columns = useMemo(() => columnsHead, [lang, columnsHead])
   const rowClassName = () => 'cursor-pointer'
   return (
     <ContentWrapper>
@@ -323,6 +359,7 @@ const Agencies = () => {
         <Table
           pagination={false}
           columns={columns}
+          rowKey="id"
           dataSource={result?.results}
           rowClassName={rowClassName}
         />

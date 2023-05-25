@@ -87,7 +87,7 @@ const showAlerts = () => {
               Alerts.length - 1 !== idx && 'border-b-[1px]'
             }`}
           >
-            <div className=" mr-2" key={idx}>
+            <div className=" mr-2" >
               {' '}
               <Avatar src={alert.avatar} icon={<UserOutlined />} />
             </div>

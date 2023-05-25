@@ -9,24 +9,24 @@ import {
   Upload,
 } from 'antd'
 import useTranslation from 'next-translate/useTranslation'
+import { useState } from 'react'
 
 import { IconFile } from '@/components/UI/icons/icons'
 
-const ContractModal = ({
-  itemID,
-  editModal,
-}: {
-  itemID?: string
-  editModal?: boolean
-}) => {
+const ContractModal = ({ itemID }: { itemID?: string }) => {
   const { t } = useTranslation('common')
-
+  const [isDate, setIsDate] = useState()
+  const [isDisable, setIsDisable] = useState(true)
   const props: any = {
     beforeUpload: () => {
       return false
     },
     listType: 'picture',
     className: 'flex rounded-sm',
+  }
+
+  function disabledDate(current: any) {
+    return current && current.isBefore(isDate, 'day')
   }
 
   return (
@@ -91,16 +91,27 @@ const ContractModal = ({
           <Space direction="vertical">
             <p>{t('contract-date')}</p>
             <Form.Item name={'contract_date'} rules={[{ required: true }]}>
-              <DatePicker onChange={() => 'ttest'} className="w-[266px]" />
+              <DatePicker
+                onChange={(date: any) => {
+                  if (date) {
+                    setIsDate(date)
+                    setIsDisable(false)
+                    return
+                  }
+                  setIsDisable(true)
+                }}
+                className="w-[266px]"
+              />
             </Form.Item>
           </Space>
           <Space direction="vertical" className="mx-4">
             <p>{t('finished-date')}</p>
-            <Form.Item
-              name={'contract_finished_date'}
-              rules={[{ required: editModal ? false : true }]}
-            >
-              <DatePicker onChange={() => 'ttest'} className="w-[266px]" />
+            <Form.Item name={'contract_finished_date'}>
+              <DatePicker
+                disabled={isDisable}
+                className="w-[266px]"
+                disabledDate={disabledDate}
+              />
             </Form.Item>
           </Space>
         </div>

@@ -28,6 +28,12 @@ export const API_ROUTE_CONTRACTS = (id: string | number) =>
 export const API_ROUTE_UPDATE_CONTRACT_INFO = (id: string | number) =>
   `/administration/contract/${id}/`
 
+export const API_ROUTE_ENABLE_AGENCY = (id: string | number) =>
+  `/administration/agency/${id}/enable/`
+
+export const API_ROUTE_DISABLE_AGENCY = (id: string | number) =>
+  `/administration/agency/${id}/disable/`
+
 export const API_ROUTE_CREATE_AGENCY = `/administration/agency/`
 
 export const API_ROUTE_CREATE_AGENT = `/administration/agent/`

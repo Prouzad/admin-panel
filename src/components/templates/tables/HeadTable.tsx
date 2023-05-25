@@ -220,6 +220,7 @@ const TableWrapper = ({
     setRangeDate(dates)
     setCreated_at_after(dateStrings[0])
     setCreated_at_before(dateStrings[1])
+    setPage(1)
   }
 
   const onShowSizeChange: PaginationProps['onShowSizeChange'] = (

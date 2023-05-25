@@ -3,12 +3,11 @@ import {
   CloseCircleFilled,
   MinusCircleOutlined,
 } from '@ant-design/icons'
-import { Button, Descriptions, Image, message, Modal } from 'antd'
+import { Badge, Button, Descriptions, Image, List, message, Modal } from 'antd'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
-import ReactPlayer from 'react-player'
 import { useQuery } from 'react-query'
 
 import { advertCyclesDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
@@ -25,6 +24,7 @@ const RequestDescription = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isOpenStop, setIsOpenStop] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [isModal, setIsModal] = useState(false)
   const router = useRouter()
   const id = router.query.id as string
   const res = useQuery(
@@ -67,37 +67,54 @@ const RequestDescription = () => {
     if (contentType === 'banner') {
       return <Image src={result.content} alt={result.format} width={110} />
     }
-    // if (contentType === 'survey') {
-    //   return (
-    //     <>
-    //       {result?.survey?.questions.map((item: any, idx: any) => {
-    //         return (
-    //           <div
-    //             className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5"
-    //             key={item.id}
-    //           >
-    //             <div className="w-8 h-full text-sm font-normal text-[#174880]">
-    //               #{idx + 1}
-    //             </div>
-    //             <div className="ml-2">
-    //               <h2 className=" text-sm font-semibold">{item.title}</h2>
-    //               <ul style={{ listStyleType: 'disc' }} className="ml-4">
-    //                 {item.options?.map((option: any) => (
-    //                   <li key={option.id}>{option.title}</li>
-    //                 ))}
-    //               </ul>
-    //             </div>
-    //           </div>
-    //         )
-    //       })}
-    //     </>
-    //   )
-    // }
-    if (contentType === 'stories') {
+    if (contentType === 'survey') {
       return (
         <>
-          <ReactPlayer url={result?.content} />
+          <h1 className="text-lg font-bold mb-2">{result?.survey?.title}</h1>
+          {result?.survey?.questions.map((item: any, idx: any) => {
+            return (
+              <div
+                className="w-[700px] p-3 flex bg-[#F1F4F9] rounded mb-5"
+                key={item.id}
+              >
+                <div className="w-8 h-full text-sm font-normal text-[#174880]">
+                  #{idx + 1}
+                </div>
+                <div className="ml-2">
+                  <h2 className=" text-sm font-semibold">{item.title}</h2>
+                  <ul style={{ listStyleType: 'disc' }} className="ml-4">
+                    {item.options?.map((option: any) => (
+                      <li key={option.id}>{option.title}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )
+          })}
         </>
+      )
+    }
+    if (contentType === 'stories') {
+      return result.media_type === 'video' ? (
+        <>
+          <video
+            autoPlay
+            controls={true}
+            loop
+            className="w-[300px] rounded-md"
+            poster={result?.content}
+          >
+            <source src={result?.content} className="h-full rounded-md" />
+            <track
+              src="captions_en.vtt"
+              kind="captions"
+              srcLang="en"
+              label="english_captions"
+            ></track>
+          </video>
+        </>
+      ) : (
+        <Image src={result.content} alt={result.format} width={110} />
       )
     }
   }
@@ -181,7 +198,30 @@ const RequestDescription = () => {
               {new Intl.NumberFormat('ru').format(result?.total_price)} UZS
             </Descriptions.Item>
             <Descriptions.Item label={t('target-ads')} span={3}>
-              Target
+              <div className="flex items-center">
+                <div className="truncate max-w-[700px] flex">
+                  {result?.site.map((item) => {
+                    return (
+                      <div key={item?.id} className="flex">
+                        <p>{item?.display_name}</p>
+                        <p>{`(${item?.region?.name}),`}</p>
+                        &nbsp;
+                      </div>
+                    )
+                  })}
+                </div>
+                <Button
+                  onClick={() => setIsModal(true)}
+                  type="ghost"
+                  className="w-5 ml-4 relative"
+                >
+                  <Badge
+                    count={result?.site.length}
+                    className="absolute left-0 top-1"
+                    color="#2173DF"
+                  />
+                </Button>
+              </div>
             </Descriptions.Item>
 
             <Descriptions.Item label={t('uploaded-content')}>
@@ -223,6 +263,24 @@ const RequestDescription = () => {
         ]}
       >
         {t('do-you-really-want-to-confirm-this')}
+      </Modal>
+      <Modal
+        title="Included sites"
+        open={isModal}
+        footer={null}
+        onCancel={() => {
+          setIsModal(false)
+        }}
+      >
+        <div className="max-h-[350px] overflow-auto">
+          <List
+            footer={<div>Footer</div>}
+            dataSource={result?.site}
+            renderItem={(item) => (
+              <List.Item>{`${item?.display_name}(${item?.region.name})`}</List.Item>
+            )}
+          />
+        </div>
       </Modal>
     </ContentWrapper>
   )

@@ -65,7 +65,13 @@ const AgencyModal = ({
           <p className="mb-2">{t('phone-number')}</p>
           <Form.Item
             name={'phone_number'}
-            rules={[{ required: true, len: 12 }]}
+            rules={[
+              {
+                required: true,
+                len: 12,
+                message: t('total-number-of-digits-should-be-12'),
+              },
+            ]}
           >
             <PhoneInput
               specialLabel=""

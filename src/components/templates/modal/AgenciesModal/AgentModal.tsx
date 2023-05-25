@@ -15,7 +15,16 @@ const AgentModal = ({ itemID }: { itemID?: string }) => {
       <div style={{ padding: '16px 0' }} className="flex items-end">
         <div className="">
           <p className="mb-2">{t('phone-number')}</p>
-          <Form.Item name={'agent_phone_number'} rules={[{ required: true }]}>
+          <Form.Item
+            name={'agent_phone_number'}
+            rules={[
+              {
+                required: true,
+                len: 12,
+                message: t('total-number-of-digits-should-be-12'),
+              },
+            ]}
+          >
             <PhoneInput
               specialLabel=""
               country="uz"

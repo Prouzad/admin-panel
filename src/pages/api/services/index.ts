@@ -14,6 +14,8 @@ import {
   API_ROUTE_CREATE_AGENCY,
   API_ROUTE_CREATE_AGENT,
   API_ROUTE_CREATE_CONTRACT,
+  API_ROUTE_DISABLE_AGENCY,
+  API_ROUTE_ENABLE_AGENCY,
   API_ROUTE_LOGIN,
   API_ROUTE_REFRESH_TOKEN,
   API_ROUTE_REQUEST_APPROVE,
@@ -195,6 +197,28 @@ export const updateAgencyInfo = async (
 export const getAgents = async (id: string, token?: string) => {
   try {
     const res = await instance.get(API_ROUTE_AGENTS(id), {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const enableAgency = async (id: string, token?: string) => {
+  try {
+    const res = await instance.post(API_ROUTE_ENABLE_AGENCY(id), undefined, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return res
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
+}
+
+export const disableAgency = async (id: string, token?: string) => {
+  try {
+    const res = await instance.post(API_ROUTE_DISABLE_AGENCY(id), undefined, {
       headers: { Authorization: `Bearer ${token}` },
     })
     return res
