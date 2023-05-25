@@ -292,6 +292,7 @@ const Agencies = () => {
                   className="border-0"
                   onClick={() => {
                     setIsEdithItem(action.id)
+                    setIsuccess(false)
                   }}
                 >
                   <EllipsisOutlined className="font-black text-xl " />
