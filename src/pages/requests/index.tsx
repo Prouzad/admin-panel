@@ -13,7 +13,7 @@ import RequestTable, { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { DataType } from '@/MOCK_DATA'
 
-import { getRequests } from '../api/services'
+import { getRequests } from '../../components/services'
 
 const UserRequestList = () => {
   const { data: session } = useSession()
@@ -70,6 +70,7 @@ const UserRequestList = () => {
       key: 'type_of_ads',
     },
   ]
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsHead, [lang])
 
   return (

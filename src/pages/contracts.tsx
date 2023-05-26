@@ -11,7 +11,7 @@ import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import TableWrapper from '@/components/templates/tables/HeadTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 
-import { getContractsList } from './api/services'
+import { getContractsList } from '../components/services'
 
 const Contracts = () => {
   const { data: session } = useSession()
@@ -82,6 +82,7 @@ const Contracts = () => {
     },
   ]
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsHead, [lang])
 
   return (

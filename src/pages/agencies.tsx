@@ -37,7 +37,7 @@ import {
   getAgency,
   getAgencyDetails,
   updateAgencyInfo,
-} from './api/services'
+} from '../components/services'
 
 interface IColumnAgency {
   id: string
@@ -345,6 +345,7 @@ const Agencies = () => {
     return filterEmptyValues(data)
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsHead, [lang, columnsHead])
   const rowClassName = () => 'cursor-pointer'
   return (
@@ -417,6 +418,7 @@ const Agencies = () => {
         </AgencyModalWrapper>
       </Form>
       <Form
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         fields={setFieldsObj(fields!)}
         onFinish={async (values) => {
           const data = {

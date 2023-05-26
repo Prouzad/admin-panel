@@ -46,7 +46,7 @@ const UserHeader = () => {
                 </div>
               </div>
               <div className="flex items-center ml-4 text-sm cursor-pointer">
-                {data?.user.email}
+                {data?.user?.email}
               </div>
             </div>
           </Dropdown>

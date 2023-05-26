@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios'
+import { AxiosError } from 'axios'
 
 import { IForm } from '@/pages/agencies'
 import { IContractUpdateBody } from '@/types'
@@ -26,15 +26,12 @@ import {
   API_ROUTE_UPDATE_AGENT_INFO,
   API_ROUTE_UPDATE_CONTRACT_INFO,
 } from './apiRoutes'
+import instance from './Axios'
 
 const generateQuery = (params: any) =>
   params.length
     ? `?${params.map((x: any) => `${x.key}=${x.value}`).join('&')}`
     : ''
-
-const instance = axios.create({
-  baseURL: 'https://wb.idata.uz/api',
-})
 
 export const loginUser = async (body: any) => {
   const res = await instance.post(API_ROUTE_LOGIN, body)

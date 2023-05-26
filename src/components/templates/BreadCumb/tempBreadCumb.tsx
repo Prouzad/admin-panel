@@ -48,7 +48,11 @@ const TempBreadCumb = ({
             type="ghost"
             className="bg-[#2173DF] text-white"
             icon={<PlusOutlined />}
-            onClick={() => setIsCreateModal!(true)}
+            onClick={() => {
+              if (setIsCreateModal) {
+                setIsCreateModal(true)
+              }
+            }}
           >
             {t('create-agency')}
           </Button>

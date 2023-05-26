@@ -13,7 +13,7 @@ import MyTable from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IColumnADV } from '@/types'
 
-import { getAdvCycle } from '../api/services'
+import { getAdvCycle } from '../../components/services'
 
 const AdvCycle = () => {
   const { data: session } = useSession()
@@ -84,6 +84,7 @@ const AdvCycle = () => {
     },
   ]
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsHead, [lang])
 
   return (

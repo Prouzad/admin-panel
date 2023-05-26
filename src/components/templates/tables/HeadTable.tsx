@@ -174,6 +174,7 @@ const TableWrapper = ({
       setPage_size(+router.query.page_size)
     }
     setCountPage(count)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -186,6 +187,7 @@ const TableWrapper = ({
     router.push({
       query: result,
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rout])
 
   useEffect(() => {
@@ -216,6 +218,7 @@ const TableWrapper = ({
         page_size,
       }
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue, rangeDate, status, page, page_size])
 
   const searchSetQuery = (value: any) => {

@@ -4,8 +4,8 @@ import { Session } from 'next-auth/core/types'
 import NextAuth from 'next-auth/next'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-import { loginUser } from '../services'
-import refreshToken from '../services/refreshTokenFn'
+import { loginUser } from '../../../components/services'
+import refreshToken from '../../../components/services/refreshTokenFn'
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.JWT_SECRET,
