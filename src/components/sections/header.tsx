@@ -38,10 +38,6 @@ const UserHeader = () => {
       </div>
       <div className="mr-6 ">
         <div className="flex gap-11">
-          <div className="hidden items-center cursor-pointer">
-            <QuestionCircleOutlined />
-          </div>
-
           <Dropdown dropdownRender={signOutItem} trigger={['click']}>
             <div className="flex items-center">
               <div className="flex  items-center cursor-pointer">
