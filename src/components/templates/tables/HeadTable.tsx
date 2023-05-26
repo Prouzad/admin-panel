@@ -107,6 +107,23 @@ const TableWrapper = ({
     return null
   }
 
+  const getStatus = (queryStatus: string) => {
+    if (pageTitle === 'adv-cycle' || pageTitle === 'contracts') {
+      if (queryStatus) {
+        return 'Finished'
+      } else {
+        return 'Unfinished'
+      }
+    }
+    if (pageTitle === 'agency') {
+      if (queryStatus) {
+        return 'Active'
+      } else {
+        return 'Inactive'
+      }
+    }
+  }
+
   const getObjectQuery = (keys: string[], values: string[]) => {
     return keys.map((item, idx) => {
       if (pageTitle === 'adv-cycle' && item === 'status') {
@@ -265,7 +282,7 @@ const TableWrapper = ({
           <div className="">
             <Select
               defaultValue={'All'}
-              value={status.length === 0 ? 'All' : status}
+              value={status.length === 0 ? 'All' : getStatus(status)}
               listItemHeight={1}
               listHeight={100}
               style={{ width: 148, borderRadius: 0 }}

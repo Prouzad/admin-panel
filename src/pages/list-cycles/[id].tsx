@@ -4,6 +4,7 @@ import {
   MinusCircleOutlined,
 } from '@ant-design/icons'
 import { Badge, Button, Descriptions, Image, List, message, Modal } from 'antd'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
@@ -48,7 +49,7 @@ const RequestDescription = () => {
 
     await setOffAdvCycle(
       id,
-      { agency: result.agency },
+      { agency: result?.agency },
       session?.user.accessToken
     )
       .then(() => {
@@ -161,9 +162,13 @@ const RequestDescription = () => {
             </Descriptions.Item>
             <Descriptions.Item label={t('file')}>
               <div className="truncate w-[180px]">
-                <a href={result?.content} className="w-full">
-                  {result?.content}
-                </a>
+                {result?.format === 'survey' ? (
+                  '-'
+                ) : (
+                  <Link href={result?.content} className="w-full">
+                    {result?.content}
+                  </Link>
+                )}
               </div>
             </Descriptions.Item>
             <Descriptions.Item label={t('company-name')}>
@@ -198,30 +203,34 @@ const RequestDescription = () => {
               {new Intl.NumberFormat('ru').format(result?.total_price)} UZS
             </Descriptions.Item>
             <Descriptions.Item label={t('target-ads')} span={3}>
-              <div className="flex items-center">
-                <div className="truncate max-w-[700px] flex">
-                  {result?.site.map((item) => {
-                    return (
-                      <div key={item?.id} className="flex">
-                        <p>{item?.display_name}</p>
-                        <p>{`(${item?.region?.name}),`}</p>
-                        &nbsp;
-                      </div>
-                    )
-                  })}
+              {result.site.length ? (
+                <div className="flex items-center">
+                  <div className="truncate max-w-[700px] flex">
+                    {result?.site.map((item) => {
+                      return (
+                        <div key={item?.id} className="flex">
+                          <p>{item?.display_name}</p>
+                          <p>{`(${item?.region?.name}),`}</p>
+                          &nbsp;
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <Button
+                    onClick={() => setIsModal(true)}
+                    type="ghost"
+                    className="w-5 ml-4 relative"
+                  >
+                    <Badge
+                      count={result?.site.length}
+                      className="absolute left-0 top-1"
+                      color="#2173DF"
+                    />
+                  </Button>
                 </div>
-                <Button
-                  onClick={() => setIsModal(true)}
-                  type="ghost"
-                  className="w-5 ml-4 relative"
-                >
-                  <Badge
-                    count={result?.site.length}
-                    className="absolute left-0 top-1"
-                    color="#2173DF"
-                  />
-                </Button>
-              </div>
+              ) : (
+                '-'
+              )}
             </Descriptions.Item>
 
             <Descriptions.Item label={t('uploaded-content')}>

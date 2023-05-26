@@ -44,7 +44,7 @@ const RequestDescription = () => {
 
   const handleSubmit = async () => {
     const requestData = {
-      agency: result.agency,
+      agency: result?.agency,
       phone_number: result.phone_number,
       status: result.status,
       format: result.format,
