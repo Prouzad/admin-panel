@@ -37,6 +37,7 @@ const AgencyModal = ({
     if (itemID && session?.user?.accessToken && getDetailsInfo) {
       getDetailsInfo(itemID, session?.user?.accessToken)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemID])
   const props: UploadProps = {
     name: 'logo',

@@ -44,6 +44,7 @@ const LeftBar = () => {
 
   useEffect(() => {
     setIsRout(router.route.split('/'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <div className="h-screen w-[232px] flex flex-col justify-between bg-white shadow-3xl pt-4 fixed mt-[81px]">

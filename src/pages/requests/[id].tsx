@@ -16,7 +16,7 @@ import {
   getRequestsDetails,
   requestApprove,
   requestReject,
-} from '../api/services'
+} from '../../components/services'
 
 const RequestDescription = () => {
   const { data } = useSession()

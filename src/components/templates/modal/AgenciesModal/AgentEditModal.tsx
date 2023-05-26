@@ -6,7 +6,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import { useQuery } from 'react-query'
 
-import { deleteAgent, getAgents, updateAgentInfo } from '@/pages/api/services'
+import { deleteAgent, getAgents, updateAgentInfo } from '@/components/services'
 
 import AgentModal from './AgentModal'
 

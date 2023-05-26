@@ -16,7 +16,7 @@ import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IAdvCycleRes } from '@/types'
 
-import { getAdvCyclesDetails, setOffAdvCycle } from '../api/services'
+import { getAdvCyclesDetails, setOffAdvCycle } from '../../components/services'
 
 const RequestDescription = () => {
   const { data: session } = useSession()

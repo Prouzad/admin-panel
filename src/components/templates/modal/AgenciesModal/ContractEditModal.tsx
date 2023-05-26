@@ -20,13 +20,13 @@ import { useSession } from 'next-auth/react'
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { useQuery } from 'react-query'
 
-import { IconFile } from '@/components/UI/icons/icons'
-import { filterEmptyValues, filterFileEmpty } from '@/pages/agencies'
 import {
   deleteContract,
   getContracts,
   updateContractInfo,
-} from '@/pages/api/services'
+} from '@/components/services'
+import { IconFile } from '@/components/UI/icons/icons'
+import { filterEmptyValues, filterFileEmpty } from '@/pages/agencies'
 import { IContractUpdateBody } from '@/types'
 
 import ContractModal from './ContractModal'
