@@ -1,4 +1,4 @@
-import { QuestionCircleOutlined, UserOutlined } from '@ant-design/icons'
+import { UserOutlined } from '@ant-design/icons'
 import { Button, Dropdown, MenuProps, Space } from 'antd'
 import { signOut, useSession } from 'next-auth/react'
 import setLanguage from 'next-translate/setLanguage'
