@@ -6,17 +6,16 @@ import useTranslation from 'next-translate/useTranslation'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 
+import {
+  getRequestsDetails,
+  requestApprove,
+  requestReject,
+} from '@/components/services'
 import { requesetDescriptionCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IconDone } from '@/components/UI/icons/icons'
-
-import {
-  getRequestsDetails,
-  requestApprove,
-  requestReject,
-} from '../../components/services'
 
 const RequestDescription = () => {
   const { data } = useSession()
@@ -44,7 +43,7 @@ const RequestDescription = () => {
 
   const handleSubmit = async () => {
     const requestData = {
-      agency: result?.agency,
+      agency: result.agency,
       phone_number: result.phone_number,
       status: result.status,
       format: result.format,
@@ -122,7 +121,7 @@ const RequestDescription = () => {
             className="w-[300px] rounded-md"
             poster={result?.content}
           >
-            <source src={result?.content} className="h-full rounded-md" />
+            <source src={result.content} className="h-full rounded-md" />
             <track
               src="captions_en.vtt"
               kind="captions"

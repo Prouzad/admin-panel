@@ -105,7 +105,7 @@ const RequestDescription = () => {
             className="w-[300px] rounded-md"
             poster={result?.content}
           >
-            <source src={result?.content} className="h-full rounded-md" />
+            <source src={result.content} className="h-full rounded-md" />
             <track
               src="captions_en.vtt"
               kind="captions"
@@ -162,13 +162,13 @@ const RequestDescription = () => {
             </Descriptions.Item>
             <Descriptions.Item label={t('file')}>
               <div className="truncate w-[180px]">
-                {result?.format === 'survey' ? (
+                {result?.format && result?.format === 'survey' ? (
                   '-'
-                ) : (
-                  <Link href={result?.content} className="w-full">
+                ) : result?.content ? (
+                  <Link href={result.content} className="w-full">
                     {result?.content}
                   </Link>
-                )}
+                ) : null}
               </div>
             </Descriptions.Item>
             <Descriptions.Item label={t('company-name')}>
@@ -191,11 +191,9 @@ const RequestDescription = () => {
               )}
             </Descriptions.Item>
             <Descriptions.Item label={t('moderator')}>
-              Mr Arabboy
+              Moderator
             </Descriptions.Item>
-            <Descriptions.Item label={t('type-of-ads')}>
-              Stories
-            </Descriptions.Item>
+
             <Descriptions.Item label={t('phone-number')}>
               {result?.phone_number}
             </Descriptions.Item>
@@ -203,7 +201,7 @@ const RequestDescription = () => {
               {new Intl.NumberFormat('ru').format(result?.total_price)} UZS
             </Descriptions.Item>
             <Descriptions.Item label={t('target-ads')} span={3}>
-              {result.site.length ? (
+              {result?.site.length ? (
                 <div className="flex items-center">
                   <div className="truncate max-w-[700px] flex">
                     {result?.site.map((item) => {
