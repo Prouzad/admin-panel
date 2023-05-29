@@ -1,11 +1,7 @@
 export interface ITarget {
   display_name: string
   id: number
-  region: {
-    id: number
-    name: string
-    tg_chat_id: string
-  }
+  region_name: string
 }
 
 export interface ISurvey {
@@ -64,4 +60,21 @@ export interface IContractUpdateBody {
   contract_number: string
   contract_file?: string
   contract_date?: string
+}
+
+export interface IResult {
+  count: number
+  moderation_count: number
+  next: string | null
+  previous: string | null
+  results: {
+    agency: string
+    created_at: string
+    format: string
+    id: number
+    initial_show: number
+    media_type: string | null
+    phone_number: string
+    status: string
+  }[]
 }

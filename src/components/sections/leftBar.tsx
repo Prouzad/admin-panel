@@ -5,8 +5,14 @@ import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined'
 import { Badge } from 'antd'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useState } from 'react'
+import { useQuery } from 'react-query'
+
+import { IResult } from '@/types'
+
+import { getRequests } from '../services'
 
 interface ICard {
   Icon?: any
@@ -15,9 +21,19 @@ interface ICard {
 }
 
 const LeftBar = () => {
+  const { data: session } = useSession()
   const { t } = useTranslation('common')
   const [isRout, setIsRout] = useState<string[]>()
   const router = useRouter()
+  const res = useQuery(
+    'Requests',
+    () =>
+      getRequests(session?.user?.accessToken, [
+        { key: 'status', value: 'moderation' },
+      ]),
+    { enabled: !!session?.user?.accessToken }
+  )
+  const result = res.data as IResult
 
   const navBar: ICard[] = [
     {
@@ -79,7 +95,9 @@ const LeftBar = () => {
                     {item.title}
                   </p>
                 </div>
-                {item.link === '/requests' && <Badge count={11} />}
+                {item.link === '/requests' && (
+                  <Badge count={result?.results.length} />
+                )}
               </div>
             </Link>
           )

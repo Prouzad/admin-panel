@@ -197,7 +197,7 @@ const RequestDescription = () => {
             <Descriptions.Item label={t('phone-number')}>
               {result?.phone_number}
             </Descriptions.Item>
-            <Descriptions.Item label={t('payment')} span={2}>
+            <Descriptions.Item label={t('payment')} span={3}>
               {new Intl.NumberFormat('ru').format(result?.total_price)} UZS
             </Descriptions.Item>
             <Descriptions.Item label={t('target-ads')} span={3}>
@@ -208,7 +208,9 @@ const RequestDescription = () => {
                       return (
                         <div key={item?.id} className="flex">
                           <p>{item?.display_name}</p>
-                          <p>{`(${item?.region?.name}),`}</p>
+                          {item?.region_name ? (
+                            <p>{`(${item?.region_name}),`}</p>
+                          ) : null}
                           &nbsp;
                         </div>
                       )
@@ -281,11 +283,12 @@ const RequestDescription = () => {
       >
         <div className="max-h-[350px] overflow-auto">
           <List
-            footer={<div>Footer</div>}
             dataSource={result?.site}
-            renderItem={(item) => (
-              <List.Item>{`${item?.display_name}(${item?.region.name})`}</List.Item>
-            )}
+            renderItem={(item) =>
+              item.display_name && (
+                <List.Item>{`${item?.display_name}(${item?.region_name})`}</List.Item>
+              )
+            }
           />
         </div>
       </Modal>
