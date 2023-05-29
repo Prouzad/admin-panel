@@ -1,6 +1,6 @@
 {
-  "allLanguages": ["ru", "uz"],
-  "defaultLanguage": "ru",
+  "locales": ["ru", "uz"],
+  "defaultLocale": "ru",
   "pages": {
     "*": ["common"],
     "/": ["login"],

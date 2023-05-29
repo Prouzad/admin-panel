@@ -1,12 +1,11 @@
 const nextTranslate = require('next-translate-plugin')
+const { defaultLocale, locales } = require('./i18n.json')
 
 const config = {
   reactStrictMode: false,
-
   i18n: {
-    defaultLocale: 'ru',
-    locales: ['ru', 'uz'],
-    keySeparator: ':',
+    defaultLocale,
+    locales,
   },
   webpack(config) {
     config.module.rules.push({
