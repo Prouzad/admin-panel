@@ -17,7 +17,6 @@ import {
   API_ROUTE_DISABLE_AGENCY,
   API_ROUTE_ENABLE_AGENCY,
   API_ROUTE_LOGIN,
-  API_ROUTE_REFRESH_TOKEN,
   API_ROUTE_REQUEST_APPROVE,
   API_ROUTE_REQUEST_DETAILS,
   API_ROUTE_REQUEST_REJECT,
@@ -320,19 +319,6 @@ export const getContractsList = async (
         headers: { Authorization: `Bearer ${token}` },
       }
     )
-    return data
-  } catch (err) {
-    return Promise.reject(err as AxiosError)
-  }
-}
-
-export const refreshUserToken = async (body: { refresh: string }) => {
-  try {
-    const { data } = await instance.post<Response>(
-      API_ROUTE_REFRESH_TOKEN,
-      body
-    )
-
     return data
   } catch (err) {
     return Promise.reject(err as AxiosError)
