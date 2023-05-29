@@ -108,15 +108,16 @@ const TableWrapper = ({
   }
 
   const getStatus = (queryStatus: string) => {
+    const queryStatusString = queryStatus.toString()
     if (pageTitle === 'adv-cycle' || pageTitle === 'contracts') {
-      if (queryStatus) {
+      if (queryStatusString === 'true') {
         return 'Finished'
       } else {
         return 'Unfinished'
       }
     }
     if (pageTitle === 'agency') {
-      if (queryStatus) {
+      if (queryStatusString === 'true') {
         return 'Active'
       } else {
         return 'Inactive'

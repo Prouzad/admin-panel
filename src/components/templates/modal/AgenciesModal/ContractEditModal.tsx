@@ -17,6 +17,7 @@ import {
 } from 'antd'
 import dayjs from 'dayjs'
 import { useSession } from 'next-auth/react'
+import useTranslation from 'next-translate/useTranslation'
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { useQuery } from 'react-query'
 
@@ -171,6 +172,8 @@ const ContractEditModal = ({
 
   const [editId, setEditId] = useState()
 
+  const { t } = useTranslation('common')
+
   const data = useQuery(
     ['Contracts', id, isSuccess],
     () => getContracts(id, session?.user?.accessToken),
@@ -210,21 +213,21 @@ const ContractEditModal = ({
 
   const columns = [
     {
-      title: 'id',
+      title: 'ID',
       dataIndex: 'id',
       width: '50',
       editable: false,
       align: 'center',
     },
     {
-      title: 'contract number',
+      title: t('contract-number'),
       dataIndex: 'contract_number',
       width: '160',
       align: 'center',
       editable: true,
     },
     {
-      title: 'contract file',
+      title: t('contract-file'),
       dataIndex: 'contract_file',
       width: '150',
       align: 'center',
@@ -234,13 +237,13 @@ const ContractEditModal = ({
       },
     },
     {
-      title: 'created_at',
+      title: t('created_at'),
       dataIndex: 'contract_date',
       width: '150',
       align: 'center',
     },
     {
-      title: 'finished_at',
+      title: t('finished_at'),
       dataIndex: 'finished_at',
       width: '150',
       align: 'center',
@@ -271,11 +274,11 @@ const ContractEditModal = ({
           </>
         ) : (
           <Popconfirm
-            title="Delete the task"
-            description="Are you sure to delete this task?"
+            title={t('delete-contract')}
+            description={t('are-you-sure-to-delete-this-contract')}
             onConfirm={() => handleDeleteContract(record.id)}
-            okText="Yes"
-            cancelText="No"
+            okText={t('yes')}
+            cancelText={t('no')}
           >
             <DeleteOutlined />
           </Popconfirm>
@@ -311,12 +314,12 @@ const ContractEditModal = ({
           try {
             if (editId) {
               await updateContractInfo(editId, body, session?.user.accessToken)
-              success('success', 'Данные успешно обновлены')
+              success('success', t('data-updated-successfully'))
               setIsuccess(value)
               setEditingKey('')
             }
           } catch {
-            success('error', 'Не получилось изменить данные!')
+            success('error', t('failed-to-change-data'))
           }
         }}
       >

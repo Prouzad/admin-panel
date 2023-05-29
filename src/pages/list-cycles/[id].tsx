@@ -29,13 +29,12 @@ const RequestDescription = () => {
   const router = useRouter()
   const id = router.query.id as string
   const res = useQuery(
-    'Requests',
+    'adv_cycle_details',
     () => getAdvCyclesDetails(id, session?.user.accessToken),
     { enabled: !!session?.user?.accessToken }
   )
 
   const result = res.data as IAdvCycleRes
-
   const success = (type: any, text: string) => {
     messageApi.open({
       type: type,
@@ -201,7 +200,7 @@ const RequestDescription = () => {
               {new Intl.NumberFormat('ru').format(result?.total_price)} UZS
             </Descriptions.Item>
             <Descriptions.Item label={t('target-ads')} span={3}>
-              {result?.site.length ? (
+              {result?.site && result?.site.length ? (
                 <div className="flex items-center">
                   <div className="truncate max-w-[700px] flex">
                     {result?.site.map((item) => {

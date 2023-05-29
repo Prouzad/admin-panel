@@ -101,7 +101,7 @@ const AgentEditModal = ({
 }) => {
   const [messageApi, contextHolder] = message.useMessage()
   const { data: session } = useSession()
-  const { t } = useTranslation('agencies')
+  const { t } = useTranslation('common')
   const [form] = Form.useForm()
 
   const [editId, setEditId] = useState()
@@ -130,31 +130,31 @@ const AgentEditModal = ({
   const handleDeleteAgent = async (id: string) => {
     await deleteAgent(id, session?.user.accessToken)
       .then((res) => {
-        success('success', 'Агент успешно удален!')
+        success('success', t('agent-removed-successfully'))
         setIsuccess(res)
       })
       .catch(() => {
-        success('error', 'При удаление агента произошла ошибка!')
+        success('error', t('an-error-occurred-while-deleting-the-agent'))
       })
   }
 
   const columns = [
     {
-      title: 'id',
+      title: 'ID',
       dataIndex: 'id',
       width: '50',
       editable: false,
       align: 'center',
     },
     {
-      title: 'phone number',
+      title: t('phone-number'),
       dataIndex: 'phone_number',
       width: '160',
       align: 'center',
       editable: true,
     },
     {
-      title: 'role',
+      title: t('role'),
       dataIndex: 'role',
       width: '150',
       align: 'center',
@@ -179,11 +179,11 @@ const AgentEditModal = ({
           </>
         ) : (
           <Popconfirm
-            title="Delete the task"
-            description="Are you sure to delete this task?"
+            title={t('delete-the-agent')}
+            description={t('are-you-sure-to-delete-this-agent')}
             onConfirm={() => handleDeleteAgent(record.id)}
-            okText="Yes"
-            cancelText="No"
+            okText={t('yes')}
+            cancelText={t('no')}
           >
             <DeleteOutlined />
           </Popconfirm>
@@ -228,7 +228,7 @@ const AgentEditModal = ({
               setEditingKey('')
             }
           } catch {
-            success('error', 'Не получилось изменить данные!')
+            success('error', t('failed-to-change-data'))
           }
         }}
       >

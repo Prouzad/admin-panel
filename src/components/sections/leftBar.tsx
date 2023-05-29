@@ -26,7 +26,7 @@ const LeftBar = () => {
   const [isRout, setIsRout] = useState<string[]>()
   const router = useRouter()
   const res = useQuery(
-    'Requests',
+    'badge_count',
     () =>
       getRequests(session?.user?.accessToken, [
         { key: 'status', value: 'moderation' },
