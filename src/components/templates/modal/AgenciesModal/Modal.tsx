@@ -54,7 +54,7 @@ const AgencyModalWrapper = ({
                 } text-white text-sm h-[34px] px-4 rounded-sm flex  items-center `}
                 icon={<PlusOutlined />}
               >
-                {title === 'Edit Agent' ? 'Add agent' : 'Add contract'}
+                {title === 'Edit Agent' ? t('add-agent') : t('add-contract')}
               </Button>
               {addAgent ? (
                 <Button
@@ -75,7 +75,7 @@ const AgencyModalWrapper = ({
                   className={`bg-[#2173DF] text-white text-sm h-[34px] px-4 rounded-sm flex  items-center`}
                   icon={<CheckOutlined />}
                 >
-                  close
+                  {t('close')}
                 </Button>
               )}
             </>
