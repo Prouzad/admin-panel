@@ -112,7 +112,7 @@ const RequestDescription = () => {
       )
     }
     if (contentType === 'stories') {
-      return (
+      return result.media_type === 'video' ? (
         <>
           <video
             autoPlay
@@ -130,6 +130,8 @@ const RequestDescription = () => {
             ></track>
           </video>
         </>
+      ) : (
+        <Image src={result.content} alt={result.format} width={110} />
       )
     }
   }
