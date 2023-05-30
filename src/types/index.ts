@@ -171,3 +171,12 @@ export interface IForm {
   contract_date: string
   contract_finished_date: string
 }
+
+export interface DataType {
+  id: string
+  company_name: string
+  phone_number: string
+  status: string
+  upload_time: any
+  type_of_ads: string[]
+}
