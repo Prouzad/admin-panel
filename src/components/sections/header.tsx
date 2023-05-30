@@ -2,6 +2,7 @@ import { UserOutlined } from '@ant-design/icons'
 import { Button, Dropdown, MenuProps, Space } from 'antd'
 import { signOut, useSession } from 'next-auth/react'
 import setLanguage from 'next-translate/setLanguage'
+import useTranslation from 'next-translate/useTranslation'
 
 import { IconLogo, IconTranslate } from '../UI/icons/icons'
 
@@ -16,21 +17,23 @@ const items: MenuProps['items'] = [
   },
 ]
 
-const signOutItem = () => {
-  return (
-    <div className="py-2 bg-white flex justify-center items-center user-drop-menu rounded-md">
-      <Space
-        className="py-2 px-3 w-full cursor-pointer hover:bg-slate-100 flex items-center justify-center"
-        onClick={() => signOut({ callbackUrl: '/' })}
-      >
-        SignOut
-      </Space>
-    </div>
-  )
-}
-
 const UserHeader = () => {
+  const { t } = useTranslation('common')
   const { data } = useSession()
+
+  const signOutItem = () => {
+    return (
+      <div className="py-2 bg-white flex justify-center items-center user-drop-menu rounded-md">
+        <Space
+          className="py-2 px-3 w-full cursor-pointer hover:bg-slate-100 flex items-center justify-center"
+          onClick={() => signOut({ callbackUrl: '/' })}
+        >
+          {t('signout')}
+        </Space>
+      </div>
+    )
+  }
+
   return (
     <div className="w-screen bg-white h-20 flex items-center justify-between fixed z-10 shadow-4xl">
       <div className="w-[235px] ml-6">

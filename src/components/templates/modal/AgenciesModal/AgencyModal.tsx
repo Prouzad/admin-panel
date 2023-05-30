@@ -15,13 +15,6 @@ import PhoneInput from 'react-phone-input-2'
 
 import { IconFile } from '@/components/UI/icons/icons'
 
-export interface IFile {
-  name: string
-  uid: string
-  percent?: number
-  status?: string
-}
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AgencyModal = ({
   itemID,

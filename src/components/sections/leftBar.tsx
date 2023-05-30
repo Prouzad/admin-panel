@@ -10,15 +10,9 @@ import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
-import { IResult } from '@/types'
+import { ICard, IResult } from '@/types'
 
 import { getRequests } from '../services'
-
-interface ICard {
-  Icon?: any
-  title: string
-  link: string
-}
 
 const LeftBar = () => {
   const { data: session } = useSession()

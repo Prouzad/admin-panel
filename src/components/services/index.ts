@@ -1,7 +1,6 @@
 import { AxiosError } from 'axios'
 
-import { IForm } from '@/pages/agencies'
-import { IContractUpdateBody } from '@/types'
+import { IContractUpdateBody, IForm } from '@/types'
 
 import {
   API_ROUTE_ADVERTISEMENTS,

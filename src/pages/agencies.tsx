@@ -26,6 +26,7 @@ import ContractModal from '@/components/templates/modal/AgenciesModal/ContractMo
 import AgencyModalWrapper from '@/components/templates/modal/AgenciesModal/Modal'
 import TableWrapper from '@/components/templates/tables/HeadTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
+import { IColumnAgency, IForm } from '@/types'
 
 import {
   createAgency,
@@ -37,29 +38,6 @@ import {
   getAgencyDetails,
   updateAgencyInfo,
 } from '../components/services'
-
-interface IColumnAgency {
-  id: string
-  agency_name: string
-  adress: string
-  agent_number: string
-  contract_count: string
-  is_active: boolean
-  action: string
-}
-
-export interface IForm {
-  name: string
-  phone_number: string
-  address: string
-  logo?: any
-  agent_phone_number: string
-  agent_role?: string
-  contract_number: string
-  contract_file: any
-  contract_date: string
-  contract_finished_date: string
-}
 
 export const filterFileEmpty = async (obj: any) => {
   if (obj && obj?.fileList !== undefined && obj.fileList.length !== 0) {

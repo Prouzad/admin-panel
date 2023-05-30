@@ -83,5 +83,7 @@
   "no": "Нет!",
   "agent_editing_success": "Агент успешно изменен!",
   "agent-removed-successfully": "Агент успешно удален!",
-  "an-error-occurred-while-deleting-the-agent": "При удаление агента произошла ошибка!"
+  "an-error-occurred-while-deleting-the-agent": "При удаление агента произошла ошибка!",
+  "signout": "Выход",
+  "creared_at_request": "Дата создание"
 }

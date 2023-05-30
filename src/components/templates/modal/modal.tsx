@@ -1,12 +1,6 @@
 import { CloseOutlined } from '@ant-design/icons'
-import { ReactNode } from 'react'
 
-interface IModal {
-  children: ReactNode
-  setIsOpen: any
-  isOpen: boolean
-  title: string
-}
+import { IModal } from '@/types'
 
 const TempModal = ({ children, setIsOpen, isOpen, title }: IModal) => {
   return (

@@ -6,13 +6,9 @@ import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { useRouter } from 'next/router'
 import { ReactNode, useEffect, useState } from 'react'
 
-dayjs.extend(customParseFormat)
+import { IRoutState } from '@/types'
 
-interface IRoutState {
-  search?: string
-  to?: string
-  from?: string
-}
+dayjs.extend(customParseFormat)
 
 const { Search } = Input
 const { RangePicker } = DatePicker

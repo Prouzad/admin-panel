@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface ITarget {
   display_name: string
   id: number
@@ -77,4 +79,95 @@ export interface IResult {
     phone_number: string
     status: string
   }[]
+}
+
+export interface ICard {
+  Icon?: any
+  title: string
+  link: string
+}
+
+export interface IModal {
+  children: ReactNode
+  setIsOpen: any
+  isOpen: boolean
+  title: string
+}
+
+export interface Item {
+  id: string
+  name: string
+  age: number
+  address: string
+}
+
+export interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
+  editing: boolean
+  dataIndex: string
+  title: any
+  inputType: 'number' | 'text'
+  record: Item
+  index: number
+  children: React.ReactNode
+}
+
+export interface IBreadCumb {
+  title: string
+  pageRoute: {
+    link: string
+    title: string
+  }[]
+}
+
+export interface IFile {
+  name: string
+  uid: string
+  percent?: number
+  status?: string
+}
+
+export interface IitemEdit {
+  id: string
+  name: string
+  age: number
+  address: string
+}
+
+export interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
+  editing: boolean
+  dataIndex: string
+  title: any
+  inputType: 'number' | 'text'
+  record: IitemEdit
+  index: number
+  children: React.ReactNode
+}
+
+export interface IRoutState {
+  search?: string
+  to?: string
+  from?: string
+}
+
+export interface IColumnAgency {
+  id: string
+  agency_name: string
+  adress: string
+  agent_number: string
+  contract_count: string
+  is_active: boolean
+  action: string
+}
+
+export interface IForm {
+  name: string
+  phone_number: string
+  address: string
+  logo?: any
+  agent_phone_number: string
+  agent_role?: string
+  contract_number: string
+  contract_file: any
+  contract_date: string
+  contract_finished_date: string
 }
