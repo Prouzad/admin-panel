@@ -21,10 +21,7 @@ const LeftBar = () => {
   const router = useRouter()
   const res = useQuery(
     'badge_count',
-    () =>
-      getRequests(session?.user?.accessToken, [
-        { key: 'status', value: 'moderation' },
-      ]),
+    () => getRequests(session?.user?.accessToken),
     { enabled: !!session?.user?.accessToken }
   )
   const result = res.data as IResult
@@ -90,7 +87,7 @@ const LeftBar = () => {
                   </p>
                 </div>
                 {item.link === '/requests' && (
-                  <Badge count={result?.results.length} />
+                  <Badge count={result?.moderation_count} />
                 )}
               </div>
             </Link>

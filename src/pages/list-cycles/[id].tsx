@@ -283,11 +283,9 @@ const RequestDescription = () => {
         <div className="max-h-[350px] overflow-auto">
           <List
             dataSource={result?.site}
-            renderItem={(item) =>
-              item.display_name && (
-                <List.Item>{`${item?.display_name}(${item?.region_name})`}</List.Item>
-              )
-            }
+            renderItem={(item) => (
+              <List.Item>{`${item?.display_name}(${item?.region_name})`}</List.Item>
+            )}
           />
         </div>
       </Modal>

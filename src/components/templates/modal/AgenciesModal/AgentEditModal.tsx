@@ -6,7 +6,12 @@ import React, { Dispatch, SetStateAction, useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import { useQuery } from 'react-query'
 
-import { deleteAgent, getAgents, updateAgentInfo } from '@/components/services'
+import {
+  deleteAgent,
+  getAgents,
+  getRoles,
+  updateAgentInfo,
+} from '@/components/services'
 import { EditableCellProps, Item } from '@/types'
 
 import AgentModal from './AgentModal'
@@ -19,6 +24,12 @@ const EditableCell: React.FC<EditableCellProps> = ({
   children,
   ...restProps
 }) => {
+  const { data: session } = useSession()
+  const res = useQuery('Role', () => getRoles(session?.user?.accessToken), {
+    enabled: !!session?.user?.accessToken,
+  })
+  const roles = res.data ? (res.data as string[]) : ['agent', '']
+
   const inputNode =
     inputType === 'number' ? (
       <PhoneInput
@@ -38,10 +49,9 @@ const EditableCell: React.FC<EditableCellProps> = ({
         defaultValue="disabled"
         style={{ width: 120, borderRadius: 2 }}
         onChange={() => 'asds'}
-        options={[
-          { value: 'owner', label: 'Owner' },
-          { value: 'agent', label: 'Agent' },
-        ]}
+        options={roles.map((item) => {
+          return { value: item, label: item }
+        })}
       />
     )
 
@@ -91,7 +101,7 @@ const AgentEditModal = ({
   const [editId, setEditId] = useState()
 
   const data = useQuery(
-    ['Requests', id, isSuccess],
+    ['Agents', id, isSuccess],
     () => getAgents(id, session?.user?.accessToken),
     { enabled: !!session?.user?.accessToken }
   )
