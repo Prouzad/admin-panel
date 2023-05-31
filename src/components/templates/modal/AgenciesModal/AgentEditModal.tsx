@@ -6,26 +6,15 @@ import React, { Dispatch, SetStateAction, useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import { useQuery } from 'react-query'
 
-import { deleteAgent, getAgents, updateAgentInfo } from '@/components/services'
+import {
+  deleteAgent,
+  getAgents,
+  getRoles,
+  updateAgentInfo,
+} from '@/components/services'
+import { EditableCellProps, Item } from '@/types'
 
 import AgentModal from './AgentModal'
-
-interface Item {
-  id: string
-  name: string
-  age: number
-  address: string
-}
-
-interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
-  editing: boolean
-  dataIndex: string
-  title: any
-  inputType: 'number' | 'text'
-  record: Item
-  index: number
-  children: React.ReactNode
-}
 
 const EditableCell: React.FC<EditableCellProps> = ({
   editing,
@@ -35,6 +24,12 @@ const EditableCell: React.FC<EditableCellProps> = ({
   children,
   ...restProps
 }) => {
+  const { data: session } = useSession()
+  const res = useQuery('Role', () => getRoles(session?.user?.accessToken), {
+    enabled: !!session?.user?.accessToken,
+  })
+  const roles = res.data ? (res.data as string[]) : ['agent', '']
+
   const inputNode =
     inputType === 'number' ? (
       <PhoneInput
@@ -54,10 +49,9 @@ const EditableCell: React.FC<EditableCellProps> = ({
         defaultValue="disabled"
         style={{ width: 120, borderRadius: 2 }}
         onChange={() => 'asds'}
-        options={[
-          { value: 'owner', label: 'Owner' },
-          { value: 'agent', label: 'Agent' },
-        ]}
+        options={roles.map((item) => {
+          return { value: item, label: item }
+        })}
       />
     )
 
@@ -107,19 +101,19 @@ const AgentEditModal = ({
   const [editId, setEditId] = useState()
 
   const data = useQuery(
-    ['Requests', id, isSuccess],
+    ['Agents', id, isSuccess],
     () => getAgents(id, session?.user?.accessToken),
     { enabled: !!session?.user?.accessToken }
   )
 
   const isEditing = (record: Item) => record.id === editingKey
 
-  const edit = (record: Partial<Item> & { id: React.Key }) => {
+  const editAgent = (record: Partial<Item> & { id: React.Key }) => {
     form.setFieldsValue({ name: '', age: '', address: '', ...record })
     setEditingKey(record.id)
   }
 
-  const success = (type: any, text: string) => {
+  const statusAgentResponse = (type: any, text: string) => {
     messageApi.open({
       type: type,
       content: text,
@@ -130,11 +124,14 @@ const AgentEditModal = ({
   const handleDeleteAgent = async (id: string) => {
     await deleteAgent(id, session?.user.accessToken)
       .then((res) => {
-        success('success', t('agent-removed-successfully'))
+        statusAgentResponse('success', t('agent-removed-successfully'))
         setIsuccess(res)
       })
       .catch(() => {
-        success('error', t('an-error-occurred-while-deleting-the-agent'))
+        statusAgentResponse(
+          'error',
+          t('an-error-occurred-while-deleting-the-agent')
+        )
       })
   }
 
@@ -223,12 +220,12 @@ const AgentEditModal = ({
                 phone_number: `+${number}`,
               }
               await updateAgentInfo(editId, body, session?.user.accessToken)
-              success('success', t('agent_editing_success'))
+              statusAgentResponse('success', t('agent_editing_success'))
               setIsuccess(value)
               setEditingKey('')
             }
           } catch {
-            success('error', t('failed-to-change-data'))
+            statusAgentResponse('error', t('failed-to-change-data'))
           }
         }}
       >
@@ -248,7 +245,7 @@ const AgentEditModal = ({
               onDoubleClick: () => {
                 setEditingKey('')
                 setEditId(record.id)
-                edit(record)
+                editAgent(record)
               },
             }
           }}

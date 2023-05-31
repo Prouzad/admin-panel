@@ -1,15 +1,6 @@
-export interface IBreadCumb {
-  description: string
-  title: string
-  pageRoute: {
-    link: string
-    title: string
-  }[]
-}
+import { IBreadCumb } from '@/types'
 
 export const requestsCrumb: IBreadCumb = {
-  description:
-    'For you to have detailed information about a given advertising offer',
   title: 'Requests',
   pageRoute: [
     {
@@ -20,8 +11,6 @@ export const requestsCrumb: IBreadCumb = {
 }
 
 export const requesetDescriptionCrumb: IBreadCumb = {
-  description:
-    'For you to have detailed information about a given advertising offer',
   title: 'Description',
   pageRoute: [
     {
@@ -36,8 +25,6 @@ export const requesetDescriptionCrumb: IBreadCumb = {
 }
 
 export const advertCyclesCrumb: IBreadCumb = {
-  description:
-    'For you to have detailed information about a given advertising offer',
   title: 'Advert cycles',
   pageRoute: [
     {
@@ -47,8 +34,6 @@ export const advertCyclesCrumb: IBreadCumb = {
   ],
 }
 export const advertCyclesDescriptionCrumb: IBreadCumb = {
-  description:
-    'For you to have detailed information about a given advertising offer',
   title: 'Description',
   pageRoute: [
     {
@@ -63,7 +48,6 @@ export const advertCyclesDescriptionCrumb: IBreadCumb = {
 }
 
 export const agenciesCrumb: IBreadCumb = {
-  description: 'Welcome to the Create New Agencies and Agency Staff window',
   title: 'Agencies',
   pageRoute: [
     {
@@ -73,8 +57,6 @@ export const agenciesCrumb: IBreadCumb = {
   ],
 }
 export const contractsCrumb: IBreadCumb = {
-  description:
-    'For you to have detailed information about a given advertising offer',
   title: 'Contracts',
   pageRoute: [
     {

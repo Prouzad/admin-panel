@@ -42,9 +42,11 @@ export const API_ROUTE_CREATE_CONTRACT = `/administration/contract/`
 
 export const API_ROUTE_LOGIN = '/account/login/'
 
-export const API_ROUTE_REQUESTS = '/administration/advertisement'
+export const API_ROUTE_REQUESTS = '/administration/advertisement/'
 
-export const API_ROUTE_ADVERTISEMENTS = '/administration/advertisement_cycle'
+export const API_ROUTE_ROLES = '/administration/agent/role_choice/'
+
+export const API_ROUTE_ADVERTISEMENTS = '/administration/advertisement_cycle/'
 
 export const API_ROUTE_AGENCY = '/administration/agency/'
 

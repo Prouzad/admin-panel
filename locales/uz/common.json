@@ -81,5 +81,7 @@
   "agent_editing_success": "Agent muvaffaqiyatli tahrirlandi",
   "agent-removed-successfully": "Agent muvaffaqiyatli o'chirib tashlandi!",
   "an-error-occurred-while-deleting-the-agent": "Agentni o'chirishda xatolik yuz berdi!",
-  "upload-contract-file": "Kontrakt faylini yuklash"
+  "upload-contract-file": "Kontrakt faylini yuklash",
+  "signout": "Chiqish",
+  "creared_at_request": "Yaratilgan sana"
 }

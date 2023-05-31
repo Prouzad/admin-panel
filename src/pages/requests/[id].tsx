@@ -1,5 +1,6 @@
 import { ReloadOutlined } from '@ant-design/icons'
 import { Badge, Button, Descriptions, Image, message, Modal } from 'antd'
+import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
@@ -191,8 +192,8 @@ const RequestDescription = () => {
             <Descriptions.Item label={t('phone-number')} span={2}>
               {result?.phone_number}
             </Descriptions.Item>
-            <Descriptions.Item label={t('description-ads')}>
-              {result?.created_at}
+            <Descriptions.Item label={t('creared_at_request')}>
+              {dayjs(result?.created_at).format('YYYY-MM-DD')}
             </Descriptions.Item>
             <Descriptions.Item label={t('company-name')} span={2}>
               {result?.agency}

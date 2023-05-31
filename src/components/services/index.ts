@@ -1,7 +1,6 @@
 import { AxiosError } from 'axios'
 
-import { IForm } from '@/pages/agencies'
-import { IContractUpdateBody } from '@/types'
+import { IContractUpdateBody, IForm } from '@/types'
 
 import {
   API_ROUTE_ADVERTISEMENTS,
@@ -22,6 +21,7 @@ import {
   API_ROUTE_REQUEST_REJECT,
   API_ROUTE_REQUEST_SET_OFF,
   API_ROUTE_REQUESTS,
+  API_ROUTE_ROLES,
   API_ROUTE_UPDATE_AGENT_INFO,
   API_ROUTE_UPDATE_CONTRACT_INFO,
 } from './apiRoutes'
@@ -35,6 +35,17 @@ const generateQuery = (params: any) =>
 export const loginUser = async (body: any) => {
   const res = await instance.post(API_ROUTE_LOGIN, body)
   return res
+}
+
+export const getRoles = async (token: string | undefined) => {
+  try {
+    const { data } = await instance.get(`${API_ROUTE_ROLES}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return data
+  } catch (err) {
+    return Promise.reject(err as AxiosError)
+  }
 }
 
 export const getRequests = async (

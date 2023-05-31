@@ -2,7 +2,7 @@ import { PlusOutlined } from '@ant-design/icons'
 import { Breadcrumb, Button } from 'antd'
 import useTranslation from 'next-translate/useTranslation'
 
-import { IBreadCumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
+import { IBreadCumb } from '@/types'
 
 const TempBreadCumb = ({
   data,
@@ -12,7 +12,7 @@ const TempBreadCumb = ({
   setIsCreateModal?: (arg: boolean) => void
 }) => {
   const { t } = useTranslation('common')
-  const { description, title, pageRoute } = data
+  const { title, pageRoute } = data
   const arr = pageRoute
     ? pageRoute?.map((item, idx) => {
         return {
@@ -39,7 +39,6 @@ const TempBreadCumb = ({
         <div className="">
           {' '}
           <h2 className="text-xl font-medium mt-2 title-page">{t(title)}</h2>
-          <p className="text-[13px] mt-3">{description}</p>
         </div>
       </div>
       {data.title == 'Agencies' ? (

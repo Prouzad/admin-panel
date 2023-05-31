@@ -10,15 +10,9 @@ import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
-import { IResult } from '@/types'
+import { ICard, IResult } from '@/types'
 
 import { getRequests } from '../services'
-
-interface ICard {
-  Icon?: any
-  title: string
-  link: string
-}
 
 const LeftBar = () => {
   const { data: session } = useSession()
@@ -27,10 +21,7 @@ const LeftBar = () => {
   const router = useRouter()
   const res = useQuery(
     'badge_count',
-    () =>
-      getRequests(session?.user?.accessToken, [
-        { key: 'status', value: 'moderation' },
-      ]),
+    () => getRequests(session?.user?.accessToken),
     { enabled: !!session?.user?.accessToken }
   )
   const result = res.data as IResult
@@ -96,7 +87,7 @@ const LeftBar = () => {
                   </p>
                 </div>
                 {item.link === '/requests' && (
-                  <Badge count={result?.results.length} />
+                  <Badge count={result?.moderation_count} />
                 )}
               </div>
             </Link>

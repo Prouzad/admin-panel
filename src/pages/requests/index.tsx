@@ -11,7 +11,7 @@ import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import TableWrapper from '@/components/templates/tables/HeadTable'
 import RequestTable, { checkColor } from '@/components/templates/tables/MyTable'
 import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
-import { DataType } from '@/MOCK_DATA'
+import { DataType } from '@/types'
 
 import { getRequests } from '../../components/services'
 

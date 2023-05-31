@@ -28,16 +28,9 @@ import {
 } from '@/components/services'
 import { IconFile } from '@/components/UI/icons/icons'
 import { filterEmptyValues, filterFileEmpty } from '@/pages/agencies'
-import { IContractUpdateBody } from '@/types'
+import { EditableCellProps, IContractUpdateBody, IitemEdit } from '@/types'
 
 import ContractModal from './ContractModal'
-
-interface Item {
-  id: string
-  name: string
-  age: number
-  address: string
-}
 
 export const getDateContractObj = async (values: any) => {
   const data = {
@@ -65,16 +58,6 @@ const props: any = {
   },
   listType: 'picture',
   className: 'flex rounded-sm',
-}
-
-interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
-  editing: boolean
-  dataIndex: string
-  title: any
-  inputType: 'number' | 'text'
-  record: Item
-  index: number
-  children: React.ReactNode
 }
 
 function disabledDate(current: any) {
@@ -180,9 +163,9 @@ const ContractEditModal = ({
     { enabled: !!session?.user?.accessToken }
   )
 
-  const isEditing = (record: Item) => record.id === editingKey
+  const isEditing = (record: IitemEdit) => record.id === editingKey
 
-  const edit = (record: Partial<Item> & { id: React.Key }) => {
+  const edit = (record: Partial<IitemEdit> & { id: React.Key }) => {
     form.setFieldsValue({
       contract_number: '',
       contract_file: '',
@@ -259,7 +242,7 @@ const ContractEditModal = ({
       width: '85',
       align: 'center',
       dataIndex: 'operation',
-      render: (_: any, record: Item) => {
+      render: (_: any, record: IitemEdit) => {
         const editable = isEditing(record)
         return editable ? (
           <>
@@ -293,7 +276,7 @@ const ContractEditModal = ({
     }
     return {
       ...col,
-      onCell: (record: Item) => ({
+      onCell: (record: IitemEdit) => ({
         record,
         inputType: col.dataIndex === 'contract_number' ? 'number' : 'select',
         dataIndex: col.dataIndex,

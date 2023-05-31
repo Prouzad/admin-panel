@@ -1,10 +1,20 @@
 import { Form, Select } from 'antd'
+import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import PhoneInput from 'react-phone-input-2'
+import { useQuery } from 'react-query'
+
+import { getRoles } from '@/components/services'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AgentModal = ({ itemID }: { itemID?: string }) => {
   const { t } = useTranslation('common')
+  const { data: session } = useSession()
+  const res = useQuery('Role', () => getRoles(session?.user?.accessToken), {
+    enabled: !!session?.user?.accessToken,
+  })
+  const roles = res.data ? (res.data as string[]) : ['agent', '']
+
   return (
     <>
       <div
@@ -42,14 +52,12 @@ const AgentModal = ({ itemID }: { itemID?: string }) => {
           <p className="mb-2">{t('role')}</p>
           <Form.Item name={'agent_role'}>
             <Select
-              defaultValue="disabled"
+              defaultValue="Agent"
               style={{ width: 120, borderRadius: 2 }}
               onChange={() => 'asds'}
-              options={[
-                { value: 'disabled', label: t('choose'), disabled: true },
-                { value: 'owner', label: t('owner') },
-                { value: 'agent ', label: 'Agent' },
-              ]}
+              options={roles.map((item) => {
+                return { value: item, label: item }
+              })}
             />
           </Form.Item>
         </div>
