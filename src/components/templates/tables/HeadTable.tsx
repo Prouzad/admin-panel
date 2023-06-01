@@ -4,6 +4,7 @@ import { DatePicker, Input } from 'antd'
 import dayjs, { Dayjs } from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 import { ReactNode, useEffect, useState } from 'react'
 
 import { IRoutState } from '@/types'
@@ -93,6 +94,8 @@ const TableWrapper = ({
   const [page_size, setPage_size] = useState(10)
   const [countPage, setCountPage] = useState(50)
 
+  const { t } = useTranslation('common')
+
   const filterEmptyValues = (obj: any) => {
     if (obj !== undefined && obj !== null) {
       const filteredEntries = Object.entries(obj).filter(([_, value]) => {
@@ -119,6 +122,7 @@ const TableWrapper = ({
         return 'Inactive'
       }
     }
+    return queryStatus
   }
 
   const getObjectQuery = (keys: string[], values: string[]) => {
@@ -254,14 +258,14 @@ const TableWrapper = ({
         <div className="flex flex-wrap h-20 items-center">
           <div className="flex mx-6">
             <div className="flex items-center mr-2">
-              <p className="text-sm"> Rule Name </p>{' '}
+              <p className="text-sm"> {t('rule-name')} </p>{' '}
               <div className="flex items-center justify-center">
                 <QuestionCircleOutlined className=" ml-1" />
                 <p className="ml-1">:</p>
               </div>
             </div>
             <Search
-              placeholder="Please enter"
+              placeholder={t('please-enter')}
               allowClear
               value={searchLetters}
               onChange={(e) => setSearchletters(e.target.value)}
@@ -275,6 +279,7 @@ const TableWrapper = ({
             <div className="mr-6">
               <RangePicker
                 onChange={handleDateChange}
+                placeholder={[t('start-date'), t('end-date')]}
                 value={rangeDate ? [rangeDate[0], rangeDate[1]] : null}
               />
             </div>

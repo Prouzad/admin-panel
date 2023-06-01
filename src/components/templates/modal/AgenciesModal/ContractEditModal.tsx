@@ -71,12 +71,15 @@ const EditableCell: React.FC<EditableCellProps> = ({
   children,
   ...restProps
 }) => {
+  const { t } = useTranslation('common')
   let inputNode
   if (dataIndex === 'contract_number') {
     inputNode = <Input />
   }
   if (dataIndex === 'finished_at') {
-    inputNode = <DatePicker disabledDate={disabledDate} />
+    inputNode = (
+      <DatePicker disabledDate={disabledDate} placeholder={t('select-date')} />
+    )
   }
   if (dataIndex === 'contract_file') {
     inputNode = (

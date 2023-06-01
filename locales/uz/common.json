@@ -83,5 +83,11 @@
   "an-error-occurred-while-deleting-the-agent": "Agentni o'chirishda xatolik yuz berdi!",
   "upload-contract-file": "Kontrakt faylini yuklash",
   "signout": "Chiqish",
-  "creared_at_request": "Yaratilgan sana"
+  "creared_at_request": "Yaratilgan sana",
+  "rule-name": "Filtr",
+  "please-enter": "Iltimos, nomni kiriting",
+  "start-date": "Boshlanish sanasi",
+  "end-date": "Tugash sanasi",
+  "enable": "Yoqish",
+  "select-date": "Sanani tanlang"
 }
