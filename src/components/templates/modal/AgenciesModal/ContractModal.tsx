@@ -101,6 +101,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
                   setIsDisable(true)
                 }}
                 className="w-[266px]"
+                placeholder={t('select-date')}
               />
             </Form.Item>
           </Space>
@@ -110,6 +111,7 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
               <DatePicker
                 disabled={isDisable}
                 className="w-[266px]"
+                placeholder={t('select-date')}
                 disabledDate={disabledDate}
               />
             </Form.Item>

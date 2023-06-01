@@ -13,5 +13,6 @@
   "please-fill-in-this-field": "Iltimos, ushbu maydonni to'ldiring",
   "the-agency-has-successfully-created": "Agentlik muvaffaqiyatli yaratildi",
   "an-error-occurred-while-creating-the-agency-please-fix-and-try-again": "Agentlikni yaratishda xatolik yuz berdi! Iltimos, tuzatib, qaytadan urining!",
-  "agent_editing_success": "Agent ma'lumotlari o'zgartirildi!"
+  "agent_editing_success": "Agent ma'lumotlari o'zgartirildi!",
+  "enable": "Yoqish"
 }
