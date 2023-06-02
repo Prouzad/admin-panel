@@ -14,59 +14,65 @@ dayjs.extend(customParseFormat)
 const { Search } = Input
 const { RangePicker } = DatePicker
 
-const requestSelect = [
-  {
-    value: 'All',
-    label: 'All',
-  },
-
-  {
-    value: 'approved',
-    label: 'Approved',
-  },
-  { value: 'moderation', label: 'Moderation' },
-  { value: 'rejected', label: 'Rejected' },
-]
-
-const advCycleSelect = [
-  {
-    value: 'All',
-    label: 'All',
-  },
-
-  {
-    value: true,
-    label: 'Finished',
-  },
-  { value: false, label: 'Unfinished' },
-]
-
-const agencySelect = [
-  {
-    value: 'All',
-    label: 'All',
-  },
-
-  {
-    value: true,
-    label: 'Active',
-  },
-  { value: false, label: 'Inactive' },
-]
-
-const getSelects = (pageTitle: string) => {
+const getSelects = (pageTitle: string, t: any) => {
   if (pageTitle === 'adv-cycle' || pageTitle === 'contracts') {
-    return advCycleSelect
+    return [
+      {
+        value: 'All',
+        label: t('all'),
+      },
+
+      {
+        value: true,
+        label: t('finished'),
+      },
+      { value: false, label: t('unfinished') },
+    ]
   }
 
   if (pageTitle === 'requests') {
-    return requestSelect
+    return [
+      {
+        value: 'All',
+        label: t('all'),
+      },
+
+      {
+        value: 'approved',
+        label: t('approved'),
+      },
+      { value: 'moderation', label: t('moderation') },
+      { value: 'rejected', label: t('rejected') },
+    ]
   }
 
   if (pageTitle === 'agency') {
-    return agencySelect
+    return [
+      {
+        value: 'All',
+        label: t('all'),
+      },
+
+      {
+        value: true,
+        label: t('active'),
+      },
+      { value: false, label: t('inactive') },
+    ]
   }
-  return requestSelect
+  return [
+    {
+      value: 'All',
+      label: t('all'),
+    },
+
+    {
+      value: 'approved',
+      label: 'Approved',
+    },
+    { value: 'moderation', label: t('moderation') },
+    { value: 'rejected', label: t('rejected') },
+  ]
 }
 
 const TableWrapper = ({
@@ -110,16 +116,16 @@ const TableWrapper = ({
     const queryStatusString = queryStatus.toString()
     if (pageTitle === 'adv-cycle' || pageTitle === 'contracts') {
       if (queryStatusString === 'true') {
-        return 'Finished'
+        return t('finished')
       } else {
-        return 'Unfinished'
+        return t('unfinished')
       }
     }
     if (pageTitle === 'agency') {
       if (queryStatusString === 'true') {
-        return 'Active'
+        return t('active')
       } else {
-        return 'Inactive'
+        return t('inactive')
       }
     }
     return queryStatus
@@ -298,7 +304,7 @@ const TableWrapper = ({
                 setPage(1)
                 setStatus(value)
               }}
-              options={getSelects(pageTitle)}
+              options={getSelects(pageTitle, t)}
             />
           </div>
         </div>

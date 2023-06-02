@@ -1,3 +1,5 @@
+import 'dayjs/locale/zh-cn'
+
 import { DeleteOutlined, UploadOutlined } from '@ant-design/icons'
 import {
   Button,

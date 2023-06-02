@@ -89,5 +89,13 @@
   "start-date": "Boshlanish sanasi",
   "end-date": "Tugash sanasi",
   "enable": "Yoqish",
-  "select-date": "Sanani tanlang"
+  "select-date": "Sanani tanlang",
+  "all": "Barcha",
+  "finished": "Tugallangan",
+  "unfinished": "Tugallanmagan",
+  "approved": "Tasdiqlangan",
+  "moderation": "Moderatsiyada",
+  "rejected": "Rad etilgan",
+  "active": "Faol",
+  "inactive": "Faol emas"
 }

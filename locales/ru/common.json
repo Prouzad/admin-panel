@@ -45,7 +45,6 @@
   "logo-upload": "Загрузка логотипа",
   "role": "Роль",
   "choose": "Выбирать",
-  "owner": "Owner",
   "is-verified": "Проверено",
   "Create agent": "Создать агента",
   "Create contract": "Создать контракт",
@@ -91,5 +90,16 @@
   "start-date": "Дата начала",
   "end-date": "Дата окончания",
   "enable": "Включить",
-  "select-date": "Выберите дату"
+  "select-date": "Выберите дату",
+  "all": "Все",
+  "finished": "Законченный",
+  "unfinished": "Незаконченный",
+  "approved": "Одобренные",
+  "moderation": "На модерации",
+  "rejected": "Отклоненныe",
+  "active": "Активные",
+  "inactive": "Неактивные",
+  "item": "item",
+  "owner": "Владелец",
+  "agent": "Агент"
 }

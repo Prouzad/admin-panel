@@ -47,6 +47,7 @@ const AdvCycle = () => {
       key: 'ads_format',
       defaultSortOrder: 'descend',
       align: 'center',
+      render: (format) => <p>{t(format)}</p>,
     },
 
     {

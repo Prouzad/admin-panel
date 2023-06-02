@@ -4,5 +4,12 @@
   "status": "Статус",
   "upload-time": "Время загрузки",
   "type-of-ads": "Тип рекламы",
-  "ads-id": "ID Рекламы"
+  "ads-id": "ID Рекламы",
+  "banner": "баннер",
+  "stories": "сторис",
+  "survey": "опрос",
+  "moderation": "На модерации",
+  "approved": "Одобрен",
+  "rejected": "Отклонен",
+  "format": "format"
 }

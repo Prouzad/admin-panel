@@ -13,7 +13,7 @@ const AgentModal = ({ itemID }: { itemID?: string }) => {
   const res = useQuery('Role', () => getRoles(session?.user?.accessToken), {
     enabled: !!session?.user?.accessToken,
   })
-  const roles = res.data ? (res.data as string[]) : ['agent', '']
+  const roles = res.data ? (res.data as string[]) : ['agent', 'agent']
 
   return (
     <>
@@ -52,19 +52,14 @@ const AgentModal = ({ itemID }: { itemID?: string }) => {
           <p className="mb-2">{t('role')}</p>
           <Form.Item name={'agent_role'}>
             <Select
-              defaultValue="Agent"
+              defaultValue={t('agent')}
               style={{ width: 120, borderRadius: 2 }}
-              onChange={() => 'asds'}
               options={roles.map((item) => {
-                return { value: item, label: item }
+                return { value: item, label: t(item) }
               })}
             />
           </Form.Item>
         </div>
-        {/* <div className="flex h-8 items-center">
-          <p className="mr-2">{t('is-verified')}</p>
-          <Switch defaultChecked onChange={() => 'rewe'} />
-        </div> */}
       </div>
     </>
   )

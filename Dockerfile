@@ -1,31 +1,65 @@
-FROM node:18-alpine
+# Set base container
+FROM node:18.12.1-alpine as base
 
-# Create app directory
-WORKDIR /usr/src/app
 
-# Install app dependencies
+RUN apk add --no-cache libtool automake autoconf nasm build-base
+
+
+# Dependencies stage
+FROM base AS deps
+
+
+WORKDIR /app
 COPY package*.json ./
+COPY yarn.lock ./
 
-RUN npm install
 
+RUN yarn install
+
+# Build stage
+FROM base AS builder
+ARG ENV_FILE=.env.dev
+
+
+
+WORKDIR /app
 COPY . .
 
-RUN npm run build
+COPY ./$ENV_FILE .env
 
-FROM node:slim
 
+
+COPY --from=deps /app/node_modules ./node_modules
+RUN yarn build
+# Workaround part 1: Create empty files and folders to replicate the structure of the pages in the app
+RUN find ./src/pages \( -type d -exec mkdir -p "/app/dummyPages/{}" \; -o -type f -exec touch "/app/dummyPages/{}" \; \)
+
+
+# Run stage
+FROM base AS runner
+WORKDIR /app
 ENV NODE_ENV production
-USER node
 
-# Create app directory
-WORKDIR /usr/src/app
+COPY --from=builder /app/.env ./.env
 
-# Install app dependencies
-COPY package*.json ./
 
-RUN npm install
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/i18n.json ./i18n.json
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/tailwind.config.js ./tailwind.config.js
+COPY --from=builder /app/postcss.config.js ./postcss.config.js
+# Workaround part 2: Copy the empty files and folders to the run environment so next-translate can figure out how the pages are laid out.
+COPY --from=builder /app/dummyPages ./pages
 
-COPY --from=builder /usr/src/app/dist ./dist
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+RUN chown -R nextjs:nodejs /app/.next
+USER nextjs
 
 EXPOSE 3000
-CMD [ "node", "dist/index.js" ]
+
+CMD ["yarn", "start"]
