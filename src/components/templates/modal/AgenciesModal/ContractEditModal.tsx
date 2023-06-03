@@ -21,13 +21,14 @@ import useTranslation from 'next-translate/useTranslation'
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { useQuery } from 'react-query'
 
+import filterFileEmpty from '@/components/FilterFunctions/FilterEmptyFiles'
 import {
   deleteContract,
   getContracts,
   updateContractInfo,
 } from '@/components/services'
 import { IconFile } from '@/components/UI/icons/icons'
-import { filterEmptyValues, filterFileEmpty } from '@/pages/agencies'
+import { filterEmptyValues } from '@/pages/agencies'
 import { EditableCellProps, IContractUpdateBody, IitemEdit } from '@/types'
 
 import ContractModal from './ContractModal'

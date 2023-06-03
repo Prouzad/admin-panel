@@ -52,7 +52,7 @@ const UserRequestList = () => {
       key: 'status',
       dataIndex: 'status',
       render: (_, { status }) => (
-        <Badge status={checkColor(status)} text={status} />
+        <Badge status={checkColor(status)} text={t(status)} />
       ),
     },
     {
@@ -68,6 +68,7 @@ const UserRequestList = () => {
       title: t('type-of-ads'),
       dataIndex: 'format',
       key: 'type_of_ads',
+      render: (format) => <p>{t(format)}</p>,
     },
   ]
   // eslint-disable-next-line react-hooks/exhaustive-deps

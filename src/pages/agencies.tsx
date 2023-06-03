@@ -1,9 +1,4 @@
-import {
-  CheckCircleFilled,
-  CloseCircleFilled,
-  EllipsisOutlined,
-} from '@ant-design/icons'
-import { Button, Dropdown, Form, message, Space } from 'antd'
+import { Form, message } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
@@ -13,6 +8,8 @@ import { useMemo, useRef, useState } from 'react'
 import React from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 
+import filterFileEmpty from '@/components/FilterFunctions/FilterEmptyFiles'
+import getAgenciesColumnsHead from '@/components/Table/ColumnsHeads/AgenciesColumnsHead'
 import { agenciesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
 import AgencyModal from '@/components/templates/modal/AgenciesModal/AgencyModal'
@@ -32,34 +29,12 @@ import {
   createAgency,
   createAgent,
   createContract,
-  disableAgency,
-  enableAgency,
   getAgency,
   getAgencyDetails,
   updateAgencyInfo,
 } from '../components/services'
 
-export const filterFileEmpty = async (obj: any) => {
-  if (obj && obj?.fileList !== undefined && obj.fileList.length !== 0) {
-    const res = await new Promise((resolve, reject) => {
-      const fileReader = new FileReader()
-
-      fileReader.readAsDataURL(obj?.file)
-
-      fileReader.onload = () => {
-        resolve(fileReader.result)
-      }
-
-      fileReader.onerror = (error) => {
-        reject(error)
-      }
-    })
-    return res
-  }
-  return undefined
-}
-
-export const filterEmptyValues = (obj: IForm) => {
+export const filterEmptyValues = (obj: Partial<IForm>) => {
   if (obj !== undefined && obj !== null) {
     const filteredEntries = Object.entries(obj).filter(([_, value]) => {
       return value !== '' && value !== null && value !== undefined
@@ -95,7 +70,7 @@ const Agencies = () => {
   const [addAgent, setAddAgent] = useState(false)
   const [addContract, setAddContract] = useState(false)
   const [isSuccess, setIsuccess] = useState(false)
-  const [isSuccessAgent, setIsuccessAgent] = useState<any>()
+  const [isSuccessAgent, setIsuccessAgent] = useState(false)
   const [isSuccessContract, setIsuccessContract] = useState<any>()
 
   const res = useQuery(
@@ -126,8 +101,42 @@ const Agencies = () => {
     })
   }
 
-  const handleFilter = (params: any) => {
-    setFilter(params)
+  const createAgentInModal = async (values) => {
+    const body = {
+      role: values.agent_role?.trim(),
+      phone_number: `+${values.agent_phone_number}`,
+      agency: isEdithItem,
+    }
+
+    const response = filterEmptyValues(body)
+    await createAgent(response, session?.user.accessToken)
+      .then((res: any) => {
+        success('success', 'Агент успешно создано!')
+        setIsuccessAgent(res)
+        formRef2.current.resetFields()
+      })
+      .catch((err) => {
+        success('error', 'При создание агента произошла ошибка!')
+        const setErrorObj = (er: Partial<IForm>) => {
+          let keys!: keyof IForm
+          const arr = []
+          for (keys in er) {
+            if (keys !== 'phone_number') {
+              arr.push({
+                name: keys,
+                errors: [er[keys]],
+              })
+            } else {
+              arr.push({
+                name: 'agent_phone_number',
+                errors: [er[keys]],
+              })
+            }
+          }
+          return arr
+        }
+        formRef2.current.setFields(setErrorObj(err.response.data))
+      })
   }
 
   const queryClient = useQueryClient()
@@ -137,150 +146,18 @@ const Agencies = () => {
     setFields(res.data)
   }
 
-  const columnsHead: ColumnsType<IColumnAgency> = [
-    {
-      title: '№',
-      dataIndex: 'id',
-      key: 'id',
-      width: 50,
-      defaultSortOrder: 'ascend',
-      sorter: (a, b) => +a.id - +b.id,
-    },
-    {
-      title: t('agency-name'),
-      dataIndex: 'name',
-      key: 'agency_name',
-    },
-    {
-      title: t('phone_number'),
-      key: 'phone_number',
-      dataIndex: 'phone_number',
-    },
-    {
-      title: t('adress'),
-      key: 'address',
-      dataIndex: 'address',
-    },
-    {
-      title: t('agent-number'),
-      dataIndex: 'agents_count',
-      key: 'agent_number',
-    },
-
-    {
-      title: t('contract-count'),
-      dataIndex: 'contracts_count',
-      key: 'contracts_count',
-    },
-
-    {
-      title: t('able-disable'),
-      dataIndex: 'is_active',
-      key: 'is_active',
-      align: 'center',
-      render: (_: any, { is_active }: any) => {
-        if (is_active) {
-          return <CheckCircleFilled className="text-green-600" />
-        } else {
-          return <CloseCircleFilled className="text-red-600" />
-        }
-      },
-    },
-    {
-      title: t('action'),
-      dataIndex: 'action',
-      key: 'action',
-      align: 'center',
-      render: (_, action) => {
-        return (
-          <>
-            <Dropdown
-              menu={{
-                items: [
-                  {
-                    label: (
-                      <Space
-                        onClick={() => setIsAgencyModal(true)}
-                        className="w-full"
-                      >
-                        {t('agency')}
-                      </Space>
-                    ),
-                    key: '0',
-                  },
-                  {
-                    label: (
-                      <Space
-                        onClick={() => setIsAgentModal(true)}
-                        className="w-full"
-                      >
-                        {t('agent')}
-                      </Space>
-                    ),
-                    key: '1',
-                  },
-                  {
-                    label: (
-                      <Space
-                        onClick={() => setIsContractModal(true)}
-                        className="w-full"
-                      >
-                        {t('contract')}
-                      </Space>
-                    ),
-                    key: '2',
-                  },
-                  {
-                    label: (
-                      <Space
-                        className="w-full"
-                        onClick={async () => {
-                          if (action.is_active) {
-                            await disableAgency(
-                              action.id,
-                              session?.user?.accessToken
-                            )
-                          } else {
-                            await enableAgency(
-                              action.id,
-                              session?.user.accessToken
-                            )
-                          }
-                          queryClient.invalidateQueries([
-                            'getAgency',
-                            filter,
-                            isSuccess,
-                          ])
-                        }}
-                      >
-                        {action.is_active ? t('disabled') : t('enable')}
-                      </Space>
-                    ),
-                    key: '3',
-                  },
-                ],
-              }}
-              trigger={['click']}
-              placement={'bottomLeft'}
-              overlayStyle={{ borderRadius: 0, width: 150, padding: 0 }}
-            >
-              <a>
-                <Button
-                  className="border-0"
-                  onClick={() => {
-                    setIsEdithItem(action.id)
-                    setIsuccess(false)
-                  }}
-                >
-                  <EllipsisOutlined className="font-black text-xl " />
-                </Button>
-              </a>
-            </Dropdown>
-          </>
-        )
-      },
-    },
-  ]
+  const columnsHead: ColumnsType<IColumnAgency> = getAgenciesColumnsHead(
+    t,
+    session,
+    setIsAgencyModal,
+    setIsAgentModal,
+    setIsContractModal,
+    queryClient,
+    filter,
+    isSuccess,
+    setIsuccess,
+    setIsEdithItem
+  )
 
   const setFieldsObj = (er: Partial<IForm>) => {
     let keys!: keyof IForm
@@ -332,7 +209,7 @@ const Agencies = () => {
       <TableWrapper
         style="w-[75%]"
         pageTitle={'agency'}
-        fnFilter={handleFilter}
+        fnFilter={(params) => setFilter(params)}
         count={result?.count}
       >
         <Table
@@ -422,45 +299,7 @@ const Agencies = () => {
           <AgencyModal itemID={isEdithItem} getDetailsInfo={getDetailsInfo} />
         </AgencyModalWrapper>
       </Form>
-      <Form
-        form={form2}
-        ref={formRef2}
-        onFinish={async (values) => {
-          const body = {
-            role: `${values.agent_role?.trim()}`,
-            phone_number: `+${values.agent_phone_number}`,
-            agency: isEdithItem,
-          }
-          await createAgent(body, session?.user.accessToken)
-            .then((res) => {
-              success('success', 'Агент успешно создано!')
-              setIsuccessAgent(res)
-              formRef2.current.resetFields()
-            })
-            .catch((err) => {
-              success('error', 'При создание агента произошла ошибка!')
-              const setErrorObj = (er: Partial<IForm>) => {
-                let keys!: keyof IForm
-                const arr = []
-                for (keys in er) {
-                  if (keys !== 'phone_number') {
-                    arr.push({
-                      name: keys,
-                      errors: [er[keys]],
-                    })
-                  } else {
-                    arr.push({
-                      name: 'agent_phone_number',
-                      errors: [er[keys]],
-                    })
-                  }
-                }
-                return arr
-              }
-              formRef2.current.setFields(setErrorObj(err.response.data))
-            })
-        }}
-      >
+      <Form form={form2} ref={formRef2} onFinish={createAgentInModal}>
         <AgencyModalWrapper
           title={'Edit Agent'}
           setIsOpen={setIsAgentModal}
@@ -493,12 +332,12 @@ const Agencies = () => {
 
           await createContract(body, session?.user.accessToken)
             .then((res) => {
-              success('success', 'Контракт успешно создано!')
+              success('success', t('create_contract_message'))
               setIsuccessContract(res)
               formRefContract.current.resetFields()
             })
             .catch((err) => {
-              success('error', 'При создание контрактa произошла ошибка!')
+              success('error', t('create_contract_filed'))
               const setErrorObj = (er: Partial<IForm>) => {
                 let keys!: keyof IForm
                 const arr = []

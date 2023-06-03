@@ -15,5 +15,7 @@
   "an-error-occurred-while-creating-the-agency-please-fix-and-try-again": "При создании агентства произошла ошибка! Пожалуйста, исправьте и повторите попытку!",
   "agent_editing_success": "Данные успешно обновлены!",
   "enable": "Включить",
-  "start-date": "Дата начала"
+  "start-date": "Дата начала",
+  "create_contract_message": "Контракт успешно создано!",
+  "create_contract_filed": "При создание контрактa произошла ошибка!"
 }

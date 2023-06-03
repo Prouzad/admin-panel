@@ -4,6 +4,10 @@
   "is-finished": "Закончен",
   "ads-format": "Формат рекламы",
   "view-count": "Количество просмотров",
-	"content": "Контент",
-  "upload-time": "Время загрузки"
+  "content": "Контент",
+  "upload-time": "Время загрузки",
+  "banner": "баннер",
+  "stories": "сторис",
+  "survey": "опрос",
+  "format": "format"
 }
