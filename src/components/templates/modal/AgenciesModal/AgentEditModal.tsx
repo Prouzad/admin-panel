@@ -16,6 +16,8 @@ import { EditableCellProps, Item } from '@/types'
 
 import AgentModal from './AgentModal'
 
+type roleType = 'agent' | 'owner'
+
 const EditableCell: React.FC<EditableCellProps> = ({
   editing,
   dataIndex,
@@ -24,6 +26,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
   children,
   ...restProps
 }) => {
+  const { t } = useTranslation('common')
   const { data: session } = useSession()
   const res = useQuery('Role', () => getRoles(session?.user?.accessToken), {
     enabled: !!session?.user?.accessToken,
@@ -48,9 +51,8 @@ const EditableCell: React.FC<EditableCellProps> = ({
       <Select
         defaultValue="disabled"
         style={{ width: 120, borderRadius: 2 }}
-        onChange={() => 'asds'}
         options={roles.map((item) => {
-          return { value: item, label: item }
+          return { value: item, label: t(item) }
         })}
       />
     )
@@ -156,6 +158,9 @@ const AgentEditModal = ({
       width: '150',
       align: 'center',
       editable: true,
+      render: (item: roleType) => {
+        return <p>{t(item)}</p>
+      },
     },
     {
       width: '85',

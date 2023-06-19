@@ -5,20 +5,27 @@ import {
   Button,
   DatePicker,
   Form,
+  FormInstance,
   InputNumber,
   Space,
   Typography,
   Upload,
 } from 'antd'
 import useTranslation from 'next-translate/useTranslation'
-import { useState } from 'react'
 
 import { IconFile } from '@/components/UI/icons/icons'
+import { IForm } from '@/types'
 
-const ContractModal = ({ itemID }: { itemID?: string }) => {
+const ContractModal = ({
+  form,
+  contractDate,
+  itemID,
+}: {
+  form: FormInstance<IForm>
+  contractDate?: string
+  itemID?: string
+}) => {
   const { t } = useTranslation('common')
-  const [isDate, setIsDate] = useState()
-  const [isDisable, setIsDisable] = useState(true)
   const props: any = {
     beforeUpload: () => {
       return false
@@ -28,7 +35,9 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
   }
 
   function disabledDate(current: any) {
-    return current && current.isBefore(isDate, 'day')
+    return (
+      current && current.isBefore(form.getFieldValue('contract_date'), 'day')
+    )
   }
 
   return (
@@ -94,13 +103,13 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
             <p>{t('contract-date')}</p>
             <Form.Item name={'contract_date'} rules={[{ required: true }]}>
               <DatePicker
-                onChange={(date: any) => {
-                  if (date) {
-                    setIsDate(date)
-                    setIsDisable(false)
+                onChange={(date) => {
+                  if (!date) {
+                    form.setFieldValue('contract_finished_date', null)
+
                     return
                   }
-                  setIsDisable(true)
+                  form.setFieldValue('contract_date', date)
                 }}
                 className="w-[266px]"
                 placeholder={t('select-date')}
@@ -111,8 +120,11 @@ const ContractModal = ({ itemID }: { itemID?: string }) => {
             <p>{t('finished-date')}</p>
             <Form.Item name={'contract_finished_date'}>
               <DatePicker
-                disabled={isDisable}
+                onChange={(date) => {
+                  form.setFieldValue('contract_finished_date', date)
+                }}
                 className="w-[266px]"
+                disabled={!contractDate}
                 placeholder={t('select-date')}
                 disabledDate={disabledDate}
               />

@@ -17,5 +17,7 @@
   "enable": "Включить",
   "start-date": "Дата начала",
   "create_contract_message": "Контракт успешно создано!",
-  "create_contract_filed": "При создание контрактa произошла ошибка!"
+  "create_contract_filed": "При создание контрактa произошла ошибка!",
+  "agent_date_updated": "Данные агента успешно обновлены",
+  "create_agent_error": "При создание агента произошла ошибка!"
 }
