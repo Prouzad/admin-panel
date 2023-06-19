@@ -16,5 +16,7 @@
   "agent_editing_success": "Agent ma'lumotlari o'zgartirildi!",
   "enable": "Yoqish",
   "create_contract_message": "Shartnoma muvaffaqiyatli tuzildi!",
-  "create_contract_filed": "Shartnoma tuzishda xatolik yuz berdi!"
+  "create_contract_filed": "Shartnoma tuzishda xatolik yuz berdi!",
+  "agent_date_updated": "Agent maʼlumotlari muvaffaqiyatli yangilandi",
+  "create_agent_error": "Agent yaratishda xatolik yuz berdi!"
 }

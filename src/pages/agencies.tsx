@@ -1,14 +1,18 @@
 import { Form, message } from 'antd'
 import { Table } from 'antd'
 import { ColumnsType } from 'antd/es/table'
-import dayjs from 'dayjs'
 import { useSession } from 'next-auth/react'
 import useTranslation from 'next-translate/useTranslation'
 import { useMemo, useRef, useState } from 'react'
 import React from 'react'
 import { useQuery, useQueryClient } from 'react-query'
 
-import filterFileEmpty from '@/components/FilterFunctions/FilterEmptyFiles'
+import {
+  createAgencyOnFinish,
+  createAgentInModal,
+  handleResetAgent,
+  setFieldsObj,
+} from '@/components/agencyFn/agencyFns'
 import getAgenciesColumnsHead from '@/components/Table/ColumnsHeads/AgenciesColumnsHead'
 import { agenciesCrumb } from '@/components/templates/BreadCumb/BREADCRUMB_DATA'
 import TempBreadCumb from '@/components/templates/BreadCumb/tempBreadCumb'
@@ -26,23 +30,11 @@ import ContentWrapper from '@/components/templates/wrapper/contentWrapper'
 import { IColumnAgency, IForm } from '@/types'
 
 import {
-  createAgency,
-  createAgent,
   createContract,
   getAgency,
   getAgencyDetails,
   updateAgencyInfo,
 } from '../components/services'
-
-export const filterEmptyValues = (obj: Partial<IForm>) => {
-  if (obj !== undefined && obj !== null) {
-    const filteredEntries = Object.entries(obj).filter(([_, value]) => {
-      return value !== '' && value !== null && value !== undefined
-    })
-    return Object.fromEntries(filteredEntries)
-  }
-  return null
-}
 
 const Agencies = () => {
   const { data: session } = useSession()
@@ -53,6 +45,8 @@ const Agencies = () => {
   const [form] = Form.useForm<IForm>()
   const [form2] = Form.useForm<IForm>()
   const [formContract] = Form.useForm<IForm>()
+
+  const contractDate = Form.useWatch('contract_date', form)
 
   const [messageApi, contextHolder] = message.useMessage()
   const { t, lang } = useTranslation('agencies')
@@ -81,19 +75,13 @@ const Agencies = () => {
 
   const result = res.data
 
-  const handleResetAgent = () => {
-    setEditingKey('')
-    setAddAgent(false)
-    formRef2.current.resetFields()
-  }
-
   const handleResetContract = () => {
     setEditingKeyContract('')
     setAddContract(false)
     formRefContract.current.resetFields()
   }
 
-  const success = (type: any, text: string) => {
+  const resonseAnswerMessage = (type: any, text: string) => {
     messageApi.open({
       type: type,
       content: text,
@@ -101,22 +89,22 @@ const Agencies = () => {
     })
   }
 
-  const createAgentInModal = async (values) => {
-    const body = {
-      role: values.agent_role?.trim(),
-      phone_number: `+${values.agent_phone_number}`,
+  const contractCreateInModal = async (values) => {
+    const data = {
+      ...values,
       agency: isEdithItem,
+      finished_at: values.contract_finished_date,
     }
+    const body = (await getDateContractObj(data)) as any
 
-    const response = filterEmptyValues(body)
-    await createAgent(response, session?.user.accessToken)
-      .then((res: any) => {
-        success('success', 'Агент успешно создано!')
-        setIsuccessAgent(res)
-        formRef2.current.resetFields()
+    await createContract(body, session?.user.accessToken)
+      .then((res) => {
+        resonseAnswerMessage('success', t('create_contract_message'))
+        setIsuccessContract(res)
+        formRefContract.current.resetFields()
       })
       .catch((err) => {
-        success('error', 'При создание агента произошла ошибка!')
+        resonseAnswerMessage('error', t('create_contract_filed'))
         const setErrorObj = (er: Partial<IForm>) => {
           let keys!: keyof IForm
           const arr = []
@@ -135,7 +123,7 @@ const Agencies = () => {
           }
           return arr
         }
-        formRef2.current.setFields(setErrorObj(err.response.data))
+        formRefContract.current.setFields(setErrorObj(err.response.data))
       })
   }
 
@@ -158,46 +146,6 @@ const Agencies = () => {
     setIsuccess,
     setIsEdithItem
   )
-
-  const setFieldsObj = (er: Partial<IForm>) => {
-    let keys!: keyof IForm
-    const arr = []
-    for (keys in er) {
-      let inputValue
-      if (keys === 'phone_number') {
-        inputValue = er[keys]?.replace(/\+/g, '')
-      } else {
-        inputValue = er[keys]
-      }
-      arr.push({
-        name: keys,
-        value: inputValue,
-      })
-    }
-    return arr
-  }
-
-  const getDateObj = async (values: IForm) => {
-    const data = {
-      ...values,
-    }
-    data.agent_phone_number = `+${values.agent_phone_number}`
-    data.phone_number = `+${values.phone_number}`
-    data.contract_date = `${dayjs(values.contract_date).format('YYYY-MM-DD')}`
-    data.contract_finished_date = `${dayjs(
-      values.contract_finished_date
-    ).format('YYYY-MM-DD')}`
-
-    if (values.logo) {
-      data.logo = await filterFileEmpty(values?.logo)
-    }
-
-    if (values.contract_file) {
-      data.contract_file = await filterFileEmpty(values?.contract_file)
-    }
-
-    return filterEmptyValues(data)
-  }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsHead, [lang, columnsHead])
@@ -225,36 +173,16 @@ const Agencies = () => {
         validateMessages={{ required: t('please-fill-in-this-field') }}
         ref={formRef}
         preserve={false}
-        onFinish={async (values) => {
-          const result = await getDateObj(values)
-
-          await createAgency(result, session?.user?.accessToken)
-            .then(() => {
-              success('success', t('the-agency-has-successfully-created'))
-              setIsOpen(false)
-              formRef.current.resetFields()
-            })
-            .catch((err) => {
-              success(
-                'error',
-                t(
-                  'an-error-occurred-while-creating-the-agency-please-fix-and-try-again'
-                )
-              )
-              const setErrorObj = (er: Partial<IForm>) => {
-                let keys!: keyof IForm
-                const arr = []
-                for (keys in er) {
-                  arr.push({
-                    name: keys,
-                    errors: [er[keys]],
-                  })
-                }
-                return arr
-              }
-              formRef.current.setFields(setErrorObj(err.response.data))
-            })
-        }}
+        onFinish={(values) =>
+          createAgencyOnFinish(
+            values,
+            session,
+            resonseAnswerMessage,
+            setIsOpen,
+            formRef,
+            t
+          )
+        }
         form={form}
       >
         <AgencyModalWrapper
@@ -267,7 +195,7 @@ const Agencies = () => {
             <AgentModal />
           </CollapseWrapper>
           <CollapseWrapper title="Create contract">
-            <ContractModal />
+            <ContractModal form={form} contractDate={contractDate} />
           </CollapseWrapper>
         </AgencyModalWrapper>
       </Form>
@@ -282,12 +210,12 @@ const Agencies = () => {
           await updateAgencyInfo(isEdithItem, data, session?.user.accessToken)
             .then(() => {
               setIsAgencyModal(false)
-              success('success', 'SUCCESS')
+              resonseAnswerMessage('success', t('agent_date_updated'))
               setIsuccess(true)
             })
             .catch((err) => {
               setIsAgencyModal(false)
-              success('error', err)
+              resonseAnswerMessage('error', err)
             })
         }}
       >
@@ -299,14 +227,30 @@ const Agencies = () => {
           <AgencyModal itemID={isEdithItem} getDetailsInfo={getDetailsInfo} />
         </AgencyModalWrapper>
       </Form>
-      <Form form={form2} ref={formRef2} onFinish={createAgentInModal}>
+      <Form
+        form={form2}
+        ref={formRef2}
+        onFinish={(values) =>
+          createAgentInModal(
+            values,
+            session,
+            resonseAnswerMessage,
+            setIsuccessAgent,
+            formRef2,
+            isEdithItem,
+            t
+          )
+        }
+      >
         <AgencyModalWrapper
           title={'Edit Agent'}
           setIsOpen={setIsAgentModal}
           isOpen={isAgentModal}
           setAddAgent={setAddAgent}
           addAgent={addAgent}
-          resetFields={handleResetAgent}
+          resetFields={() =>
+            handleResetAgent(setEditingKey, setAddAgent, formRef2)
+          }
         >
           <AgentEditModal
             id={isEdithItem}
@@ -322,43 +266,7 @@ const Agencies = () => {
       <Form
         form={formContract}
         ref={formRefContract}
-        onFinish={async (values) => {
-          const data = {
-            ...values,
-            agency: isEdithItem,
-            finished_at: values.contract_finished_date,
-          }
-          const body = (await getDateContractObj(data)) as any
-
-          await createContract(body, session?.user.accessToken)
-            .then((res) => {
-              success('success', t('create_contract_message'))
-              setIsuccessContract(res)
-              formRefContract.current.resetFields()
-            })
-            .catch((err) => {
-              success('error', t('create_contract_filed'))
-              const setErrorObj = (er: Partial<IForm>) => {
-                let keys!: keyof IForm
-                const arr = []
-                for (keys in er) {
-                  if (keys !== 'phone_number') {
-                    arr.push({
-                      name: keys,
-                      errors: [er[keys]],
-                    })
-                  } else {
-                    arr.push({
-                      name: 'agent_phone_number',
-                      errors: [er[keys]],
-                    })
-                  }
-                }
-                return arr
-              }
-              formRefContract.current.setFields(setErrorObj(err.response.data))
-            })
-        }}
+        onFinish={(values) => contractCreateInModal(values)}
       >
         <AgencyModalWrapper
           title={'Edit Contract'}
